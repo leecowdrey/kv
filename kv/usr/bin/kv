@@ -6,7 +6,6 @@
 KV_CLI="${0##*/}"
 KV_VERSION="1.0.0"
 KV_PATH=$(dirname "${0}")
-KV_LIB="/usr/lib/${KV_CLI,,}"
 KV_TMP="/tmp"
 KV_USR_ID=$(id -u)
 KV_GRP_ID=$(id -g)

@@ -23,13 +23,16 @@ BASH Key-Value Store
 
 %install
 mkdir -p %{buildroot}%{_bindir}
+mkdir -p %{buildroot}%{name}
+mkdir -p /run/%{name}
 install -m 0555 ./%{name}%{_bindir}%{name} %{buildroot}%{_bindir}/
 
 %clean
 
 %files
 %defattr (-, root, bin)
-%dir %{_sharedstatedir}/%{name}
+%dir %{buildroot}/%{name}
+%dir /run/%{name}
 
 %changelog
 *  Sun May 16 2021 Lee Cowdrey <lee@cowdrey.co.uk> 1.0.0

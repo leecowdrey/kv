@@ -26,7 +26,7 @@ $ kv [operation]
 - `move|mv [source Key-Name] [destination parent Key-Name]`
 - `prune [Key-Name]` # full cascade delete+no audit+no subscriptions
 - `put|set [Key-Name] [Key-Value]`
-- `query [Key-Name] --key=Sub-Key-Name --value=Sub-Key-Value]
+- `query [Key-Name] --key=Sub-Key-Name --value=Sub-Key-Value]`
 - `subscribe|sub --key=[Key-Name] {--command=cmd | --callback=url | --signal=process-name | --fifo=fifo-name }`
 - `subscriptions {--key=[Key-Name]}`
 - `tree [Key-Name]`

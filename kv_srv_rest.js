@@ -52,7 +52,7 @@ app.listen(8080, function() {
 })
 
 app.get('*', function(req, res) {
-    var cmd = "/usr/local/bin/kv get " + req.path;
+    var cmd = "/usr/bin/kv get " + req.path;
     console.log(req.auth.user+":"+cmd);
     exec(cmd, (error, stdout, stderr) => {
         if (error) {
@@ -69,7 +69,7 @@ app.get('*', function(req, res) {
 })
 
 app.put('*', jsonParser, function(req, res) {
-    var cmd = "/usr/local/bin/kv put " + req.path + " " + req.body.value;
+    var cmd = "/usr/bin/kv put " + req.path + " " + req.body.value;
     console.log(req.auth.user+":"+cmd);
     exec(cmd, (error, stdout, stderr) => {
         if (error) {
@@ -85,7 +85,7 @@ app.put('*', jsonParser, function(req, res) {
 })
 
 app.patch('*', function(req, res) {
-    var cmd = "/usr/local/bin/kv dump " + req.path;
+    var cmd = "/usr/bin/kv dump " + req.path;
     console.log(req.auth.user+":"+cmd);
     exec(cmd, (error, stdout, stderr) => {
         if (error) {
@@ -101,7 +101,7 @@ app.patch('*', function(req, res) {
 })
 
 app.head('*', function(req, res) {
-    var cmd = "/usr/local/bin/kv list " + req.path;
+    var cmd = "/usr/bin/kv list " + req.path;
     console.log(req.auth.user+":"+cmd);
     exec(cmd, (error, stdout, stderr) => {
         if (error) {
@@ -117,7 +117,7 @@ app.head('*', function(req, res) {
 })
 
 app.options('*', function(req, res) {
-    var cmd = "/usr/local/bin/kv";
+    var cmd = "/usr/bin/kv";
     exec(cmd, (error, stdout, stderr) => {
         if (error) {
             res.status(500).send(`${error.message}`);
@@ -132,7 +132,7 @@ app.options('*', function(req, res) {
 })
 
 app.delete('*', function(req, res) {
-    var cmd = "/usr/local/bin/kv delete " + req.path;
+    var cmd = "/usr/bin/kv delete " + req.path;
     console.log(req.auth.user+":"+cmd);
     exec(cmd, (error, stdout, stderr) => {
         if (error) {

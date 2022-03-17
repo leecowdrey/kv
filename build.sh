@@ -9,5 +9,5 @@ sudo alien --to-rpm dists/debian/amd64/kv-${VERSION}_amd64.deb
 mv -f kv-${VERSION}-?.noarch.rpm dists/rhel/noarch/
 git add dists/debian/amd64/kv-${VERSION}_amd64.deb
 git add dists/rhel/noarch/kv-${VERSION}-?.noarch.rpm
-git commit -m "lee@cowdrey.co.uk: "
+git commit -m "lee@cowdrey.net: "
 git push

@@ -1,5 +1,5 @@
 #!/bin/bash
-VERSION="1.0.1"
+VERSION=`grep KV_VERSION= kv/usr/bin/kv|cut -d'"' -f2`
 [[ ! -d dists/debian/amd64 ]] && mkdir -p dists/debian/amd64
 [[ ! -d dists/rhel/noarch ]] && mkdir -p dists/rhel/noarch
 #git pull

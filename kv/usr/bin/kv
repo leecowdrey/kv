@@ -66,6 +66,7 @@ usage() {
   echo "   tree [Key-Name]"
   echo "   unlink|uln [Key-Name]"
   echo "   unsubscribe|unsub --key=[Key-Name]"
+  echo "   version"
   echo ""
   return ${RETVAL}
 }

@@ -390,7 +390,7 @@ delete_kv() {
    is_kv
    if [ $? -eq 0 ] ; then
      is_kv
-     if [ $? -eq 0 ] ; then XXX
+     if [ $? -eq 0 ] ; then
        if compgen -G "${KV_PATH}/${KV_KEY}/${KV_DATA}" >/dev/null ; then
          for LNK_KEY_NAME in $(find -L ${KV_PATH} -xtype l -samefile ${KV_PATH}/${KV_KEY}/${KV_DATA} -print|sed "s\\${KV_PATH}\\\\g"|sed "s\\/${KV_DATA}\\\\g") ; do
            unlink_kv "${LNK_KEY_NAME}"

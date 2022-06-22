@@ -4,7 +4,7 @@
 # mkdir /kv && chmod a+rwx /kv
 # mkdir /run/kv && chmod a+rwx /run/kv
 KV_CLI="${0##*/}"
-KV_VERSION="1.0.0"
+KV_VERSION="1.0.2"
 KV_PATH=$(dirname "${0}")
 KV_TMP="/tmp"
 KV_USR_ID=$(id -u)
@@ -68,6 +68,13 @@ usage() {
   echo "   unsubscribe|unsub --key=[Key-Name]"
   echo ""
   return ${RETVAL}
+}
+
+version() {
+  local RETVAL=0
+  echo "${KV_CLI} ${KV_VERSION}"
+  RETVAL=0
+  return ${REVAL}
 }
 
 get_machine_id() {
@@ -965,6 +972,11 @@ process_cmd() {
     dump)
       shift
       dump_kv "${@}"
+      RETVAL=$?
+      ;;
+    version)
+      shift
+      version
       RETVAL=$?
       ;;
     audit)

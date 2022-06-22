@@ -41,6 +41,7 @@ usage() {
   local RETVAL=0
   echo "Usage: ${KV_CLI} [operation]"
   echo "Operation:"
+  echo "   append|concat [Key-Name] [Key-Value]"
   echo "   audit purge | read [event UUID] | count |ls"
   echo "   cat [Key-Name] # encrpted value"
   echo "   copy|cp [source Key-Name] [destination Key-Name]"
@@ -95,7 +96,7 @@ add_kv_path() {
        publish_kv
        KV_KEY="${OLD_KV_KEY}"
       fi
-     fi 
+     fi
      KV_KEY_PREV+="/${KV_KEY_NAME}"
    done
    return ${RETVAL}
@@ -262,6 +263,25 @@ put_kv() {
      fi
      #
    fi
+ fi
+ return ${RETVAL}
+}
+
+append_kv() {
+ local RETVAL=0
+ local EXISTS=0
+ local SRC_KV="${1,,}"
+ local DST_VALUE=""
+ set_key "${SRC_KV}"
+ has_kv
+ EXISTS=$?
+ if [ ${EXISTS} -eq 0 ] ; then
+  DST_VALUE=`kv get ${SRC_KV}`
+  DST_VALUE+="${2}"
+  kv put ${SRC_KV} "${DST_VALUE}"
+  RETVAL=$?
+ else
+  RETVAL=1
  fi
  return ${RETVAL}
 }
@@ -560,7 +580,7 @@ query_kv() {
   local OPTION=""
   local SUB_KV_KEY=""
   local SUB_KV_VALUE=""
-  local OPTION="" 
+  local OPTION=""
   declare -a KV_RESULTS
   if [ $# -eq 0 ] ; then
       return 1
@@ -583,7 +603,7 @@ query_kv() {
     OPTION="${1}"
   done
   [[ -z "${SUB_KV_KEY}" ]] && RETVAL=1
-  if [ ${RETVAL} -eq 0 ] ; then  
+  if [ ${RETVAL} -eq 0 ] ; then
     is_kv
     if [ $? -eq 0 ] ; then
       KV_RESULTS=()
@@ -617,11 +637,11 @@ dump_kv() {
  local RETVAL=0
    print_leaf() {
      local KV_VALUE=$(kv get ${1})
-     [[ -n "${KV_VALUE}" ]] && echo "kv put ${1} \"${KV_VALUE}\"" || echo "kv put ${1}"  
+     [[ -n "${KV_VALUE}" ]] && echo "kv put ${1} \"${KV_VALUE}\"" || echo "kv put ${1}"
    }
    walk_tree() {
      local RETVAL=0
-     for K in $(kv ls ${1}); do 
+     for K in $(kv ls ${1}); do
        print_leaf "${1}/${K}"
        [[ $(kv count ${1}/${K}) -gt 0 ]] && walk_tree "${1}/${K}"
      done
@@ -658,7 +678,7 @@ audit_count() {
    else
      echo "${KV_CLI}: 0/${AUDIT_EVENTS_KEEP:-0} events"
      RETVAL=0
-   fi  
+   fi
  else
    RETVAL=1
  fi
@@ -670,7 +690,7 @@ audit_purge() {
  local KV_AUDIT_ENABLE=$(kv get /system/audit/enable)
  if [ "${KV_AUDIT_ENABLE,,}" == "true" ] ; then
    local KV_AUDIT_DAYS_KEEP=$(kv get /system/audit/days-to-keep)
-   if compgen -G "${KV_AUDIT_PATH}/*" >/dev/null ; then   
+   if compgen -G "${KV_AUDIT_PATH}/*" >/dev/null ; then
      find ${KV_AUDIT_PATH}/* -mtime +${KV_AUDIT_DAYS_KEEP} -type d ! -iname "${KV_AUDIT_NAME}" -exec rm -R -f {} &> /dev/null \;
      RETVAL=$?
      local AUDIT_EVENTS_KEEP=$(kv get /system/audit/max-events)
@@ -687,7 +707,7 @@ audit_purge() {
      fi
    else
      RETVAL=0
-   fi  
+   fi
  else
    RETVAL=1
  fi
@@ -702,11 +722,11 @@ audit_read() {
      [[ -f "${KV_AUDIT_PATH}/${1}/${KV_DATA}" ]] && openssl enc -d -aes-256-cbc -pbkdf2 -iter ${KV_PIN} -a -k ${MACHINE_ID} -in ${KV_AUDIT_PATH}/${1}/${KV_DATA}&& RETVAL=$?
    else
      RETVAL=0
-   fi  
+   fi
  else
   RETVAL=1
  fi
- return ${RETVAL}  
+ return ${RETVAL}
 }
 
 audit_ls() {
@@ -718,11 +738,11 @@ audit_ls() {
      RETVAL=$?
    else
      RETVAL=0
-   fi    
+   fi
  else
   RETVAL=1
  fi
- return ${RETVAL}  
+ return ${RETVAL}
 }
 
 
@@ -764,7 +784,7 @@ signal_kv() {
    local PID=$(pidof $1)
    RETVAL=$?
    if [ ${RETVAL} -eq 0 ] ; then
-     local SIGNAL="${2^^:-SIGALRM}"   
+     local SIGNAL="${2^^:-SIGALRM}"
      kill -s ${SIGNAL} &> /dev/null
      RETVAL=$?
    fi
@@ -831,6 +851,11 @@ process_cmd() {
     help|?)
       usage
       RETVAL=0
+      ;;
+    append|concat)
+      shift
+      append_kv "${@}"
+      RETVAL=$?
       ;;
     copy|cp)
       shift

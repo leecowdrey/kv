@@ -38,6 +38,11 @@ $ kv [operation]
 ## Example
 
 ```
+$ kv put /system/audit/days-to-keep 3
+$ kv put /system/audit/enable true
+$ kv put /system/audit/encrypt true
+$ kv put /system/audit/max-events 100
+
 $ kv ls /system/audit
 days-to-keep
 enable
@@ -58,12 +63,17 @@ $ kv tree /system/audit
 └── max-events
 
 $ kv get /system/audit/days-to-keep
-1
+3
 
-$ kv put /system/audit/days-to-keep 32
+$ kv put /system/audit/days-to-keep 36
 
 $ kv get /system/audit/days-to-keep
-32
+36
+
+$ kv append /system/audit/days-to-keep 5
+
+$ kv get /system/audit/days-to-keep
+365
 
 $ kv find days-to-keep
 /system/audit/days-to-keep

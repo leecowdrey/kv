@@ -1,5 +1,5 @@
 Name:           kv
-Version:        1.0.2
+Version:        1.0.3
 Release:        1%{?dist}
 Summary:        BASH Key-Value Store
 
@@ -13,6 +13,7 @@ Requires:       tree
 Requires:       sed
 Requires:       bc
 Requires:       openssl
+Requires:	uuid
 
 %description
 BASH Key-Value Store

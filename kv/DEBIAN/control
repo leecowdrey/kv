@@ -1,0 +1,15 @@
+Package: kv
+Source: unknown
+Version: 1.0.3
+Section: shells
+Priority: optional
+Architecture: all
+Essential: no
+Installed-Size: 92
+Maintainer: Lee Cowdrey <lee@cowdrey.net>
+Homepage: <https://github.com/leecowdrey/kv/>
+Description: BASH Key-Value Store
+Vcs-Git: https://github.com/leecowdrey/kv.git
+Vcs-Browser: https://github.com/leecowdrey/kv
+Depends: sed, grep, bc, tree, openssl, uuid
+Pre-Depends: bash

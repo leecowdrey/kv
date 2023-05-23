@@ -1,0 +1,1037 @@
+#!/bin/bash
+# install to /usr/local/bin && chmod a+rx /usr/local/bin/kv
+#
+# mkdir /kv && chmod a+rwx /kv
+# mkdir /run/kv && chmod a+rwx /run/kv
+KV_CLI="${0##*/}"
+KV_VERSION="1.0.3"
+KV_PATH=$(dirname "${0}")
+KV_TMP="/tmp"
+KV_USR_ID=$(id -u)
+KV_GRP_ID=$(id -g)
+KV_ROOT="/kv"
+KV_PATH="${KV_ROOT}/.${KV_GRP_ID}"
+KV_AUDIT_NAME=".audit"
+KV_AUDIT_PATH="${KV_ROOT}/.${KV_GRP_ID}/${KV_AUDIT_NAME}"
+KV_PIN=2174
+KV_DATA=".value"
+KV_WATCH=".watch"
+KV_KEY=""
+KV_VALUE=""
+KV_CALLBACK_TAG="callback"
+KV_COMMAND_TAG="command"
+KV_SIGNAL_TAG="signal"
+KV_FIFO_TAG="fifo"
+KV_WHITESPACE=" "
+KV_LOCK=".lck"
+KV_LOCK_ATTEMPTS=5
+KV_LOCK_TIMEOUT=5
+MACHINE_ID=""
+RETVAL=0
+
+clean_sigint() {
+  #local RETVAL=0
+  #if [ -f "${KV_TMP}/${KV_CLI}.$$.????????" ] ; then
+  #  rm -f "${KV_TMP}/${KV_CLI}.$$.????????" &>/dev/null
+  #fi
+  exit ${RETVAL}
+}
+
+usage() {
+  local RETVAL=0
+  echo "Usage: ${KV_CLI} [operation]"
+  echo "Operation:"
+  echo "   append|concat [Key-Name] [Key-Value]"
+  echo "   audit purge | read [event UUID] | count |ls"
+  echo "   cat [Key-Name] # encrpted value"
+  echo "   copy|cp [source Key-Name] [destination Key-Name]"
+  echo "   count [Key-Name]"
+  echo "   delete|rm [Key-Name] # + empty 1st child delete+audit+subscriptions"
+  echo "   dump [Key-Name]"
+  echo "   find {[Key-Name] | [Key{* ? []} ]"
+  echo "   get [Key-Name] # unencrypted value"
+  echo "   has [Key-Name]"
+  echo "   help"
+  echo "   is [Key-Name]"
+  echo "   link|ln [source Key-Name] [destination Key-Name]"
+  echo "   list [Key-Name] # full Key-Name returned"
+  echo "   ls [Key-Name] # short Key-Name returned"
+  echo "   modified [\"HH:MM mm/dd/yyyy\"] # default now - 1 minute"
+  echo "   move|mv [source Key-Name] [destination parent Key-Name]"
+  echo "   prune [Key-Name] # full cascade delete+no audit+no subscriptions"
+  echo "   put|set [Key-Name] [Key-Value]"
+  echo "   query [Key-Name] --key=Sub-Key-Name --value=Sub-Key-Value]"
+  echo "   subscribe|sub --key=[Key-Name] {--command=cmd | --callback=url | --signal=process-name | --fifo=fifo-name }"
+  echo "   subscriptions {--key=[Key-Name]}"
+  echo "   tree [Key-Name]"
+  echo "   unlink|uln [Key-Name]"
+  echo "   unsubscribe|unsub --key=[Key-Name]"
+  echo "   version"
+  echo ""
+  return ${RETVAL}
+}
+
+version() {
+  local RETVAL=0
+  echo "${KV_CLI} ${KV_VERSION}"
+  RETVAL=0
+  return ${REVAL}
+}
+
+get_machine_id() {
+ if [ -f /etc/machine-id ] ; then
+  MACHINE_ID=$(cat /etc/machine-id)
+ elif [ -f /var/lib/dbus/machine-id ] ; then
+  MACHINE_ID=$(cat /var/lib/dbus/machine-id)
+ else
+  MACHINE_ID=$(xxd -l16 -ps /dev/urandom)
+ fi
+}
+
+add_kv_path() {
+  local RETVAL=0
+  local KV_KEY_PATH="${1,,}"
+  KV_KEY_PATH="${KV_KEY_PATH//\/${KV_DATA}/}"
+   [[ -d ${KV_ROOT}/.${KV_GRP_ID} ]] || mkdir -m 770 -p ${KV_ROOT}/.${KV_GRP_ID} &> /dev/null
+   local KV_KEY_DIR="${KV_KEY_PATH}"
+   local KV_KEY_PREV=""
+   for KV_KEY_NAME in ${KV_KEY_DIR//\// }; do
+     if [[ ! -d "${KV_KEY_PREV}/${KV_KEY_NAME}" ]] ; then
+      mkdir -m 750 ${KV_KEY_PREV}/${KV_KEY_NAME} &> /dev/null
+      if compgen -G "${KV_KEY_PREV}/.*${KV_WATCH}" >/dev/null ; then
+       local OLD_KV_KEY="${KV_KEY_PREV//${KV_PATH}/}"
+       set_key "${OLD_KV_KEY}"
+       publish_kv
+       KV_KEY="${OLD_KV_KEY}"
+      fi
+     fi
+     KV_KEY_PREV+="/${KV_KEY_NAME}"
+   done
+   return ${RETVAL}
+}
+
+wait_lock() {
+  local RETVAL=0
+  local KV_LOCK_ATTEMPT=0
+  #local KV_NAME=$(echo ${1}|sed "s\\${KV_PATH}\\\\g")
+  #local KV_NAME="${KV_NAME//\/$KV_DATA/}"
+  while true ; do
+   [[ ! -f "${1}${KV_LOCK}" || ${KV_LOCK_ATTEMPT} -ge ${KV_LOCK_ATTEMPTS} ]] && break
+   #echo "${KV_CLI} waiting for ${KV_NAME} to be released"
+   sleep ${KV_LOCK_TIMEOUT}
+   KV_LOCK_ATTEMPT=$(( $KV_LOCK_ATTEMPT + 1 ))
+  done
+  return ${RETVAL}
+}
+
+add_lock() {
+  local RETVAL=0
+  [[ ! -f "${1}${KV_LOCK}" ]] && echo "$$" > ${1}${KV_LOCK} && chmod 640 ${1}${KV_LOCK} && RETVAL=$?
+  return ${RETVAL}
+}
+
+clear_lock() {
+  local RETVAL=0
+  [[ -f "${1}${KV_LOCK}" ]] && rm -f "${1}${KV_LOCK}" &>/dev/null && RETVAL=$?
+  return ${RETVAL}
+}
+
+set_key() {
+ KV_KEY="${1,,}"
+ while [[ "${KV_KEY}" =~ ^/.* ]] ; do
+   KV_KEY="${KV_KEY#*/}"
+ done
+ [[ "${KV_KEY}" =~ .*" ".* ]] && KV_KEY="${KV_KEY// /-}"
+ [[ "${KV_KEY}" =~ .*"\\\"".* ]] && KV_KEY="${KV_KEY//\\\"/}"
+ [[ "${KV_KEY}" =~ .*"\"".* ]] && KV_KEY="${KV_KEY//\"/}"
+}
+
+is_kv() {
+ local RETVAL=0
+ [[ -z "${KV_KEY}" ]] && set_key "${1:-/}"
+ [[ -d "${KV_PATH}/${KV_KEY}" ]] && RETVAL=0 || RETVAL=1
+ return ${RETVAL}
+}
+
+has_kv() {
+ local RETVAL=0
+ local EXISTS=0
+ [[ -z "${KV_KEY}" ]] && set_key "${1:-/}"
+ is_kv
+ EXISTS=$?
+ if [ ${EXISTS} -eq 0 ] ; then
+   [[ -f "${KV_PATH}/${KV_KEY}/${KV_DATA}" ]] && RETVAL=0 || RETVAL=1
+ else
+  RETVAL=1
+ fi
+ return ${RETVAL}
+}
+
+count_kv() {
+ local RETVAL=0
+ local KV_COUNT=0
+ set_key "${1:-/}"
+ [[ -d ${KV_PATH}/${KV_KEY} ]] && KV_COUNT=$(find -L ${KV_PATH}/${KV_KEY}/ -mindepth 1 -maxdepth 1 -type d ! -iname "${KV_AUDIT_NAME}"| wc -l)
+ echo "${KV_COUNT}"
+ return ${RETVAL}
+}
+
+publish_kv() {
+ local RETVAL=0
+ set -x
+ for WATCHER in ${KV_PATH}/${KV_KEY}/.*${KV_WATCH} ; do
+  while IFS= read -r ACTION; do
+    if [[ ${ACTION,,} =~ ${KV_CALLBACK_TAG,,} ]] ; then
+     ACTION=${ACTION#*$KV_CALLBACK_TAG}
+     ACTION=${ACTION#*$KV_WHITESPACE}
+     callback_kv ${ACTION}
+     RETVAL=$?
+    elif [[ ${ACTION,,} =~ ${KV_COMMAND_TAG,,} ]] ; then
+     ACTION=${ACTION#*$KV_COMMAND_TAG}
+     ACTION=${ACTION#*$KV_WHITESPACE}
+     eval ${ACTION} &>/dev/null
+     RETVAL=$?
+    elif [[ ${ACTION,,} =~ ${KV_SIGNAL_TAG,,} ]] ; then
+     ACTION=${ACTION#*$KV_SIGNAL_TAG}
+     ACTION=${ACTION#*$KV_WHITESPACE}
+     signal_kv ${ACTION}
+     RETVAL=$?
+    elif [[ ${ACTION,,} =~ ${KV_FIFO_TAG,,} ]] ; then
+     ACTION=${ACTION#*$KV_FIFO_TAG}
+     ACTION=${ACTION#*$KV_WHITESPACE}
+     fifo_kv ${ACTION}
+     RETVAL=$?
+    fi
+  done < ${WATCHER}
+ done
+ set +x
+ return ${REVTAL}
+}
+
+get_kv() {
+ local RETVAL=0
+ local EXISTS=0
+ set_key "${1:-/}"
+ has_kv
+ EXISTS=$?
+ if [ ${EXISTS} -eq 0 ] ; then
+  wait_lock "${KV_PATH}/${KV_KEY}/${KV_DATA}" && openssl enc -d -aes-256-cbc -pbkdf2 -iter ${KV_PIN} -a -k ${MACHINE_ID} -in ${KV_PATH}/${KV_KEY}/${KV_DATA} && RETVAL=$?
+ else
+  RETVAL=1
+ fi
+ return ${RETVAL}
+}
+
+cat_kv() {
+ local RETVAL=0
+ local EXISTS=0
+ set_key "${1:-/}"
+ has_kv
+ EXISTS=$?
+ if [ ${EXISTS} -eq 0 ] ; then
+  wait_lock "${KV_PATH}/${KV_KEY}/${KV_DATA}" && cat ${KV_PATH}/${KV_KEY}/${KV_DATA} && RETVAL=$?
+ else
+  RETVAL=1
+ fi
+ return ${RETVAL}
+}
+
+put_kv() {
+ local RETVAL=0
+ local KV_OLD_VALUE=""
+ set_key "${1:-/}"
+ shift
+ local KV_NEW_VALUE="${@}"
+ if [ -L ${KV_PATH}/${KV_KEY} ] ; then
+  RETVAL=2
+ else
+   add_kv_path "${KV_PATH}/${KV_KEY}/${KV_DATA}"
+   wait_lock "${KV_PATH}/${KV_KEY}/${KV_DATA}"
+   [[ -f "${KV_PATH}/${KV_KEY}/${KV_DATA}" ]] && KV_OLD_VALUE=$(openssl enc -d -aes-256-cbc -pbkdf2 -iter ${KV_PIN} -a -k ${MACHINE_ID} -in ${KV_PATH}/${KV_KEY}/${KV_DATA})
+   if [ "${KV_OLD_VALUE}" != "${KV_NEW_VALUE}" ] ; then
+     add_lock "${KV_PATH}/${KV_KEY}/${KV_DATA}"
+     echo "${KV_NEW_VALUE}" | openssl enc -e -aes-256-cbc -pbkdf2 -iter ${KV_PIN} -a -k ${MACHINE_ID} -out ${KV_PATH}/${KV_KEY}/${KV_DATA} && chmod 640 ${KV_PATH}/${KV_KEY}/${KV_DATA} && RETVAL=$?
+     [[ ${RETVAL} -eq 0 ]] && touch --reference=${KV_PATH}/${KV_KEY}/${KV_DATA} --no-create -m ${KV_PATH}/${KV_KEY} &> /dev/null
+     clear_lock "${KV_PATH}/${KV_KEY}/${KV_DATA}"
+     # notify watchers regardless
+     if compgen -G "${KV_PATH}/${KV_KEY}/.*${KV_WATCH}" >/dev/null ; then
+       publish_kv
+     fi
+     #
+     local KV_AUDIT=$(kv get /system/audit/enable)
+     if [ "${KV_AUDIT,,}" == "true" ] ; then
+       local AUDIT_ID=$(uuid -v 4 -F STR)
+       [[ ! -d "${KV_AUDIT_PATH}/${AUDIT_ID}" ]] && mkdir -m 777 ${KV_AUDIT_PATH}/${AUDIT_ID} &> /dev/null
+       local AUDIT_ENCRYPT=$(kv get /system/audit/encrypt)
+       if [ "${AUDIT_ENCRYPT,,}" == "true" ] ; then
+         echo "/${KV_KEY}|${KV_USR_ID}|${KV_GRP_ID}|${AUDIT_ID}|put|${KV_OLD_VALUE}|${KV_NEW_VALUE}" | openssl enc -e -aes-256-cbc -pbkdf2 -iter ${KV_PIN} -a -k ${MACHINE_ID} -out ${KV_AUDIT_PATH}/${AUDIT_ID}/${KV_DATA} && chmod 660 ${KV_AUDIT_PATH}/${AUDIT_ID}/${KV_DATA}
+       else
+         echo "/${KV_KEY}|${KV_USR_ID}|${KV_GRP_ID}|${AUDIT_ID}|put|${KV_OLD_VALUE}|${KV_NEW_VALUE}" > ${KV_AUDIT_PATH}/${AUDIT_ID}/${KV_DATA} && chmod 666 ${KV_AUDIT_PATH}/${AUDIT_ID}/${KV_DATA}
+       fi
+     fi
+     #
+   fi
+ fi
+ return ${RETVAL}
+}
+
+append_kv() {
+ local RETVAL=0
+ local EXISTS=0
+ local SRC_KV="${1,,}"
+ local DST_VALUE=""
+ set_key "${SRC_KV}"
+ has_kv
+ EXISTS=$?
+ if [ ${EXISTS} -eq 0 ] ; then
+  DST_VALUE=`kv get ${SRC_KV}`
+  DST_VALUE+="${2}"
+  kv put ${SRC_KV} "${DST_VALUE}"
+  RETVAL=$?
+ else
+  RETVAL=1
+ fi
+ return ${RETVAL}
+}
+
+copy_kv() {
+ local RETVAL=0
+ local SRC_KV="${1,,}"
+ local DST_KV="${2,,}"
+ local SRV_VALUE=""
+ set_key "${SRC_KV}"
+ if [ -L ${KV_PATH}/${KV_KEY}/${KV_DATA} ] ; then
+   RETVAL=2
+ else
+   local SRC_VALUE=$(kv get ${SRC_KV})
+   RETVAL=$?
+   if [ ${RETVAL} -eq 0 ] ; then
+     kv put ${DST_KV} "${SRC_VALUE}"
+     RETVAL=$?
+   fi
+ fi
+ return ${RETVAL}
+}
+
+move_kv() {
+ local RETVAL=0
+ set_key "${1:-/}"
+ is_kv
+ [[ $? -ne 0 ]] && return 1
+ local SRC_KV="${KV_PATH}/${KV_KEY}"
+ set_key "${2}"
+ is_kv
+ [[ $? -ne 0 ]] && return 1
+ local DST_KV="${KV_PATH}/${KV_KEY}"
+ [[ -L "${SRC_KV}/${KV_DATA}" || -L "${DST_KV}/${KV_DATA}" ]] && return 2
+ [[ "${DST_KV: -1}" == "/" ]] && mv -f ${SRC_KV} ${DST_KV} &>/dev/null || mv -f ${SRC_KV} ${DST_KV}/ &>/dev/null
+ RETVAL=$?
+ return ${RETVAL}
+}
+
+link_kv() {
+ local RETVAL=0
+ set_key "${1:-/}"
+ local SRC_KV="${KV_PATH}/${KV_KEY}"
+ set_key "${2}"
+ local DST_KV="${KV_PATH}/${KV_KEY}"
+ if [ -d "${SRC_KV}" ] ; then
+   add_kv_path "$(dirname ${DST_KV})"
+   ln -s ${SRC_KV} ${DST_KV}
+   RETVAL=$?
+ else
+   RETVAL=1
+ fi
+ return ${RETVAL}
+}
+
+unlink_kv() {
+ local RETVAL=0
+ set_key "${1:-/}"
+ if [ -L ${KV_PATH}/${KV_KEY} ] ; then
+   unlink ${KV_PATH}/${KV_KEY} && RETVAL=$?
+ else
+   RETVAL=1
+ fi
+ return ${RETVAL}
+}
+
+list_kv() {
+ local RETVAL=0
+ local EXISTS=0
+ set_key "${1:-/}"
+ is_kv
+ EXISTS=$?
+ [[ ${EXISTS} -eq 0 ]] && find -L ${KV_PATH}/${KV_KEY} -mindepth 1 -maxdepth 1 -type d ! -iname "${KV_AUDIT_NAME}" -print|sed "s\\${KV_PATH}\\\\g"|sort -g && RETVAL=$? || RETVAL=1
+ return ${RETVAL}
+}
+
+ls_kv() {
+ local RETVAL=0
+ local EXISTS=0
+ set_key "${1:-/}"
+ is_kv
+ EXISTS=$?
+ [[ ${EXISTS} -eq 0 ]] && find -L ${KV_PATH}/${KV_KEY} -mindepth 1 -maxdepth 1 -type d ! -iname "${KV_AUDIT_NAME}" -print|sed "s\\${KV_PATH}/${KV_KEY}\\\\g"|sed "s\\/\\\\g"|sort -g && RETVAL=$? || RETVAL=1
+ return ${RETVAL}
+}
+
+tree_kv() {
+ local RETVAL=0
+ local EXISTS=0
+ set_key "${1:-/}"
+ local KV_DEPTH=${2:-0}
+ is_kv
+ EXISTS=$?
+ [[ ${EXISTS} -eq 0 ]] && ( tree -d -l --noreport -I '${KV_DATA}|${KV_AUDIT_PATH}' ${KV_PATH}/${KV_KEY} | sed "s\\${KV_PATH}\\\\g" && RETVAL=$? ) || RETVAL=1
+ return ${RETVAL}
+}
+
+delete_kv() {
+  # fix find: ‘/kv/.1000/system/queue/onboard/aed92b18-6d75-11eb-85b5-872ceb44fe82/.value’: No such file or directory
+ local RETVAL=0
+ local EXISTS=0
+ set_key "${1:-/}"
+ if [ -L ${KV_PATH}/${KV_KEY} ] ; then
+   unlink ${KV_PATH}/${KV_KEY} && RETVAL=$?
+ else
+   is_kv
+   if [ $? -eq 0 ] ; then
+     is_kv
+     if [ $? -eq 0 ] ; then
+       if compgen -G "${KV_PATH}/${KV_KEY}/${KV_DATA}" >/dev/null ; then
+         for LNK_KEY_NAME in $(find -L ${KV_PATH} -xtype l -samefile ${KV_PATH}/${KV_KEY}/${KV_DATA} -print|sed "s\\${KV_PATH}\\\\g"|sed "s\\/${KV_DATA}\\\\g") ; do
+           unlink_kv "${LNK_KEY_NAME}"
+           RETVAL=$?
+         done
+       fi
+       set_key "${1:-/}"
+       if compgen -G "${KV_PATH}/${KV_KEY}/.*${KV_WATCH}" >/dev/null ; then
+        publish_kv && rm -f ${KV_PATH}/${KV_KEY}/.*${KV_WATCH} &>/dev/null
+       fi
+       #
+       local KV_AUDIT=$(kv get /system/audit/enable)
+       if [ "${KV_AUDIT,,}" == "true" ] ; then
+         local KV_OLD_VALUE=""
+         [[ -f "${KV_PATH}/${KV_KEY}/${KV_DATA}" ]] && KV_OLD_VALUE=$(openssl enc -d -aes-256-cbc -pbkdf2 -iter ${KV_PIN} -a -k ${MACHINE_ID} -in ${KV_PATH}/${KV_KEY}/${KV_DATA})
+         local AUDIT_ID=$(uuid -v 4 -F STR)
+         [[ ! -d "${KV_AUDIT_PATH}" ]] && mkdir -m 770 ${KV_AUDIT_PATH} &> /dev/null
+         [[ ! -d "${KV_AUDIT_PATH}/${AUDIT_ID}" ]] && mkdir -m 777 ${KV_AUDIT_PATH}/${AUDIT_ID} &> /dev/null
+         local AUDIT_ENCRYPT=$(kv get /system/audit/encrypt)
+         if [ "${AUDIT_ENCRYPT,,}" == "true" ] ; then
+           echo "/${KV_KEY}|${KV_USR_ID}|${KV_GRP_ID}|${AUDIT_ID}|put|${KV_OLD_VALUE}|${KV_NEW_VALUE}" | openssl enc -e -aes-256-cbc -pbkdf2 -iter ${KV_PIN} -a -k ${MACHINE_ID} -out ${KV_AUDIT_PATH}/${AUDIT_ID}/${KV_DATA} && chmod 660 ${KV_AUDIT_PATH}/${AUDIT_ID}/${KV_DATA}
+         else
+           echo "/${KV_KEY}|${KV_USR_ID}|${KV_GRP_ID}|${AUDIT_ID}|put|${KV_OLD_VALUE}|${KV_NEW_VALUE}" > ${KV_AUDIT_PATH}/${AUDIT_ID}/${KV_DATA} && chmod 666 ${KV_AUDIT_PATH}/${AUDIT_ID}/${KV_DATA}
+         fi
+       fi
+       #
+       wait_lock "${KV_PATH}/${KV_KEY}/${KV_DATA}"
+       add_lock "${KV_PATH}/${KV_KEY}/${KV_DATA}"
+       rm -f ${KV_PATH}/${KV_KEY}/${KV_DATA} &>/dev/null
+       RETVAL=$?
+       clear_lock "${KV_PATH}/${KV_KEY}/${KV_DATA}"
+       # do not follow symbolic links
+       local KV_SUB_EXISTS=$(find ${KV_PATH}/${KV_KEY}/ -mindepth 1 -maxdepth 1 -type d ! -iname "${KV_AUDIT_NAME}" -print | wc -l)
+       [[ ${KV_SUB_EXISTS} -eq 0 ]] && rm -R -f ${KV_PATH}/${KV_KEY} &> /dev/null && RETVAL=$?
+     else
+       RETVAL=1
+     fi
+   else
+     RETVAL=1
+   fi
+ fi
+ return ${RETVAL}
+}
+
+
+subscribe_kv() {
+ local RETVAL=0
+ local COMMAND=""
+ local CALLBACK=""
+ local SIGNAL=""
+ local FIFO=""
+ if [ $# -gt 0 ] ; then
+   local OPTION="${1}"
+   while [ $# -gt 0 ] ; do
+     case "${OPTION}" in
+       --key=*)
+           set_key "${OPTION##*=}"
+           is_kv
+           [[ $? -ne 0 ]] && return 1
+           ;;
+       --command=*)
+           COMMAND="${OPTION##*=}"
+           local C_TMP="${COMMAND%\"}"
+           COMMAND="${C_TMP#\"}"
+           ;;
+       --callback=*)
+           CALLBACK="${OPTION##*=}"
+           local C_TMP="${CALLBACK%\"}"
+           CALLBACK="${C_TMP#\"}"
+           ;;
+       --signal=*)
+           SIGNAL="${OPTION##*=}"
+           local C_TMP="${SIGNAL%\"}"
+           SIGNAL="${C_TMP#\"}"
+           ;;
+       --fifo=*)
+           FIFO="${OPTION##*=}"
+           local C_TMP="${FIFO%\"}"
+           FIFO="${C_TMP#\"}"
+           ;;
+       --uid=*)
+           KV_USR_ID="${OPTION##*=}"
+           ;;
+     esac
+     shift
+     OPTION="${1}"
+   done
+ fi
+ if [ -L ${KV_PATH}/${KV_KEY}/${KV_DATA} ] ; then
+  RETVAL=2
+ else
+  if [[ -n "${COMMAND}" ]] ; then
+   echo "${KV_COMMAND_TAG} ${COMMAND}" > ${KV_PATH}/${KV_KEY}/.${KV_USR_ID}${KV_WATCH} && chmod 640 ${KV_PATH}/${KV_KEY}/.${KV_USR_ID}${KV_WATCH}
+   RETVAL=$?
+  elif [[ -n "${CALLBACK}" ]] ; then
+   echo "${KV_CALLBACK_TAG} ${CALLBACK} /${KV_KEY}" > ${KV_PATH}/${KV_KEY}/.${KV_USR_ID}${KV_WATCH} && chmod 640 ${KV_PATH}/${KV_KEY}/.${KV_USR_ID}${KV_WATCH}
+   RETVAL=$?
+  elif [[ -n "${SIGNAL}" ]] ; then
+   echo "${KV_SIGNAL_TAG} ${SIGNAL}" > ${KV_PATH}/${KV_KEY}/.${KV_USR_ID}${KV_WATCH} && chmod 640 ${KV_PATH}/${KV_KEY}/.${KV_USR_ID}${KV_WATCH}
+   RETVAL=$?
+  elif [[ -n "${FIFO}" ]] ; then
+   echo "${KV_FIFO_TAG} ${FIFO} /${KV_KEY}" > ${KV_PATH}/${KV_KEY}/.${KV_USR_ID}${KV_WATCH} && chmod 640 ${KV_PATH}/${KV_KEY}/.${KV_USR_ID}${KV_WATCH}
+   RETVAL=$?
+  else
+    RETVAL=1
+  fi
+ fi
+ return ${RETVAL}
+}
+
+subscriptions_kv() {
+ local RETVAL=0
+ if [ $# -gt 0 ] ; then
+   local OPTION="${1}"
+   while [ $# -gt 0 ] ; do
+     case "${OPTION}" in
+       --key=*)
+           set_key "${OPTION##*=}"
+           is_kv
+           [[ $? -ne 0 ]] && return 1
+           ;;
+       --uid=*)
+           KV_USR_ID="${OPTION##*=}"
+           ;;
+     esac
+     shift
+     OPTION="${1}"
+   done
+ fi
+ [[ $? -eq 0 ]] && find -L ${KV_PATH}/${KV_KEY} -name *.${KV_USR_ID}${KV_WATCH} -type f -print |sed "s\\${KV_PATH}\\\\g"|sed "s\\/.${KV_USR_ID}${KV_WATCH}\\\\g"
+ RETVAL=$?
+ return ${RETVAL}
+}
+
+unsubscribe_kv() {
+ local RETVAL=0
+ if [ $# -gt 0 ] ; then
+   local OPTION="${1}"
+   while [ $# -gt 0 ] ; do
+     case "${OPTION}" in
+       --key=*)
+           set_key "${OPTION##*=}"
+           is_kv
+           [[ $? -ne 0 ]] && return 1
+           ;;
+       --uid=*)
+           KV_USR_ID="${OPTION##*=}"
+           ;;
+     esac
+     shift
+     OPTION="${1}"
+   done
+ fi
+ if [ -L ${KV_PATH}/${KV_KEY}/${KV_DATA} ] ; then
+  RETVAL=2
+ elif [ has_kv ] ; then
+   if [ -f "${KV_PATH}/${KV_KEY}/.${KV_USR_ID}${KV_WATCH}" ] ; then
+     rm -f ${KV_PATH}/${KV_KEY}/.${KV_USR_ID}${KV_WATCH} &> /dev/null
+     RETVAL=$?
+   else
+     RETVAL=1
+   fi
+ else
+  RETVAL=1
+ fi
+ return ${RETVAL}
+}
+
+prune_kv() {
+ local RETVAL=0
+ set_key "${1:-/}"
+ is_kv
+ [[ $? -eq 0 ]] && rm -R -f ${KV_PATH}/${KV_KEY} &> /dev/null && RETVAL=$? || RETVAL=1
+ return ${RETVAL}
+}
+
+find_kv() {
+ local RETVAL=0
+ local KV_KEY=${1##*/}
+ local KV_FIND=$(find -L ${KV_PATH}/ -name ${KV_KEY,,} -type d ! -iname "${KV_AUDIT_NAME}" -print |sed "s\\${KV_PATH}\\\\g")
+ [[ ${#KV_FIND} -gt 0 ]] && (echo "${KV_FIND}" && RETVAL=0) || RETVAL=1
+ return ${RETVAL}
+}
+
+query_kv() {
+  local RETVAL=0
+  local OPTION=""
+  local SUB_KV_KEY=""
+  local SUB_KV_VALUE=""
+  local OPTION=""
+  declare -a KV_RESULTS
+  if [ $# -eq 0 ] ; then
+      return 1
+  fi
+  while [ $# -gt 0 ] ; do
+    OPTION="${1}"
+    case "${OPTION}" in
+        --key=*)
+            local SUB_KV_KEY="${1##*=}"
+            ;;
+        --value=*)
+            local SUB_KV_VALUE="${1##*=}"
+            SUB_KV_VALUE="${1//\"/}"
+            ;;
+        *)
+            set_key "${1:-/}"
+            ;;
+    esac
+    shift
+    OPTION="${1}"
+  done
+  [[ -z "${SUB_KV_KEY}" ]] && RETVAL=1
+  if [ ${RETVAL} -eq 0 ] ; then
+    is_kv
+    if [ $? -eq 0 ] ; then
+      KV_RESULTS=()
+      readarray -t KV_RESULTS < <(find -L ${KV_PATH}/${KV_KEY} -name ${SUB_KV_KEY} -type d ! -iname "${KV_AUDIT_NAME}" -print |sed "s\\${KV_PATH}\\\\g")
+      for ((C = 0; C < ${#KV_RESULTS[@]}; ++C)); do
+        if [ -n "${SUB_KV_VALUE}" ] ; then
+          local KV_VALUE=$(kv get ${KV_RESULTS[$C]})
+          [[ "${SUB_KV_VALUE,,}" =~ "${KV_VALUE,,}" ]] && echo "${KV_RESULTS[$C]}"
+        else
+          echo "${KV_RESULTS[$C]}"
+        fi
+      done
+    fi
+  else
+    RETVAL=1
+  fi
+  unset KV_RESULTS
+  return ${RETVAL}
+}
+
+modified_kv() {
+ local RETVAL=0
+ local NOW=$(date -d "-1 minutes" '+%H:%M %m/%d/%Y')
+ local MODIFIED_SINCE=${1:-$NOW}
+ local KV_FIND=$(find -L ${KV_PATH}/ -newermt "${MODIFIED_SINCE}" -type d ! -iname "${KV_AUDIT_NAME}" -print |sed "s\\${KV_PATH}\\\\g")
+ [[ ${#KV_FIND} -gt 0 ]] && (echo "${KV_FIND}" && RETVAL=0) || RETVAL=1
+ return ${RETVAL}
+}
+
+dump_kv() {
+ local RETVAL=0
+   print_leaf() {
+     local KV_VALUE=$(kv get ${1})
+     [[ -n "${KV_VALUE}" ]] && echo "kv put ${1} \"${KV_VALUE}\"" || echo "kv put ${1}"
+   }
+   walk_tree() {
+     local RETVAL=0
+     for K in $(kv ls ${1}); do
+       print_leaf "${1}/${K}"
+       [[ $(kv count ${1}/${K}) -gt 0 ]] && walk_tree "${1}/${K}"
+     done
+     return ${RETVAL}
+   }
+ set_key "${1:-/}"
+ is_kv
+ if [ $? -eq 0 ] ; then
+   print_leaf "${KV_KEY}"
+   walk_tree "${KV_KEY}"
+   RETVAL=$?
+ else
+   RETVAL=1
+ fi
+ return ${RETVAL}
+}
+
+audit_count() {
+ local RETVAL=0
+ local KV_AUDIT_ENABLE=$(kv get /system/audit/enable)
+ if [ "${KV_AUDIT_ENABLE,,}" == "true" ] ; then
+   local KV_AUDIT_DAYS_KEEP=$(kv get /system/audit/days-to-keep)
+   local AUDIT_EVENTS_KEEP=$(kv get /system/audit/max-events)
+   if compgen -G "${KV_AUDIT_PATH}/*" >/dev/null ; then
+     find ${KV_AUDIT_PATH}/* -mtime +${KV_AUDIT_DAYS_KEEP} -type d ! -iname "${KV_AUDIT_NAME}" -print {} &> /dev/null \;
+     RETVAL=$?
+     if [ ${AUDIT_EVENTS_KEEP} -gt 0 ] ; then
+       local AUDIT_EVENTS=$(find ${KV_AUDIT_PATH}/* -type d -print|wc -l)
+       echo "${KV_CLI}: ${AUDIT_EVENTS}/${AUDIT_EVENTS_KEEP} events"
+       RETVAL=0
+     else
+       RETVAL=0
+     fi
+   else
+     echo "${KV_CLI}: 0/${AUDIT_EVENTS_KEEP:-0} events"
+     RETVAL=0
+   fi
+ else
+   RETVAL=1
+ fi
+ return ${RETVAL}
+}
+
+audit_purge() {
+ local RETVAL=0
+ local KV_AUDIT_ENABLE=$(kv get /system/audit/enable)
+ if [ "${KV_AUDIT_ENABLE,,}" == "true" ] ; then
+   local KV_AUDIT_DAYS_KEEP=$(kv get /system/audit/days-to-keep)
+   if compgen -G "${KV_AUDIT_PATH}/*" >/dev/null ; then
+     find ${KV_AUDIT_PATH}/* -mtime +${KV_AUDIT_DAYS_KEEP} -type d ! -iname "${KV_AUDIT_NAME}" -exec rm -R -f {} &> /dev/null \;
+     RETVAL=$?
+     local AUDIT_EVENTS_KEEP=$(kv get /system/audit/max-events)
+     if [ ${AUDIT_EVENTS_KEEP} -gt 0 ] ; then
+       local AUDIT_EVENTS=$(find ${KV_AUDIT_PATH}/* -type d -print|wc -l)
+       if [ ${AUDIT_EVENTS} -gt ${AUDIT_EVENTS_KEEP} ] ; then
+         local AUDIT_DROP=$((  $AUDIT_EVENTS - $AUDIT_EVENTS_KEEP))
+         echo "${KV_CLI}: purging ${AUDIT_DROP:-0} events"
+         for AUDIT_EVENT in $(find ${KV_AUDIT_PATH}/* -type d ! -iname "${KV_AUDIT_NAME}" -printf '%T+ %p\n' | sort -g| head -n ${AUDIT_DROP}|cut -d" " -f2); do
+           rm -R -f ${AUDIT_EVENT} &> /dev/null
+         done
+       fi
+       RETVAL=0
+     fi
+   else
+     RETVAL=0
+   fi
+ else
+   RETVAL=1
+ fi
+ return ${RETVAL}
+}
+
+audit_read() {
+ local RETVAL=0
+ local KV_AUDIT_ENABLE=$(kv get /system/audit/enable)
+ if [ "${KV_AUDIT_ENABLE,,}" == "true" ] ; then
+   if compgen -G "${KV_AUDIT_PATH}/*" >/dev/null ; then
+     [[ -f "${KV_AUDIT_PATH}/${1}/${KV_DATA}" ]] && openssl enc -d -aes-256-cbc -pbkdf2 -iter ${KV_PIN} -a -k ${MACHINE_ID} -in ${KV_AUDIT_PATH}/${1}/${KV_DATA}&& RETVAL=$?
+   else
+     RETVAL=0
+   fi
+ else
+  RETVAL=1
+ fi
+ return ${RETVAL}
+}
+
+audit_ls() {
+ local RETVAL=0
+ local KV_AUDIT_ENABLE=$(kv get /system/audit/enable)
+ if [ "${KV_AUDIT_ENABLE,,}" == "true" ] ; then
+   if compgen -G "${KV_AUDIT_PATH}/*" >/dev/null ; then
+     find ${KV_AUDIT_PATH}/* -type d ! -iname "${KV_AUDIT_NAME}" -printf '%T+ %p\n' | sort -g|cut -d" " -f2|sed "s\\${KV_AUDIT_PATH}/\\\\g"
+     RETVAL=$?
+   else
+     RETVAL=0
+   fi
+ else
+  RETVAL=1
+ fi
+ return ${RETVAL}
+}
+
+
+# 1: URL http{s}://{user:pass@}x.x.x.x{:80}/path
+# 2: KV name
+callback_kv() {
+ local RETVAL=0
+ if [ $# -eq 0 ] ; then
+   RETVAL=1
+ else
+   local CURL_TMP=$(mktemp -q -p ${KV_TMP} ${KV_CLI}.$$.XXXXXXXX)
+   CURL_HTTP_CODE=$(/usr/bin/curl -s \
+   -o ${CURL_TMP} \
+   -w '%{http_code}' \
+   --insecure \
+   --connect-timeout 5 \
+   --max-time 30 \
+   --user-agent "${KV_CLI}/${KV_VERSION}" \
+   -H "Cache-control: no-cache" \
+   -H "Accept: application/json" \
+   -H "Content-Type: application/json" \
+   -d "{\"${KV_CLI}\":\"${2,,}\"}" \
+   --location --request POST \
+   "${1,,}" )
+   RETVAL=$?
+   [[ "${CURL_HTTP_CODE:0:1}" == "2" ]] && RETVAL=0 || RETVAL=1
+   [[ -f "${CURL_TMP}" ]] && rm -f ${CURL_TMP} &> /dev/null
+  fi
+  return ${RETVAL}
+}
+
+# 1: process-name
+# 2: signal (default SIGALRM)
+signal_kv() {
+ local RETVAL=0
+ if [ $# -eq 0 ] ; then
+   RETVAL=1
+ else
+   local PID=$(pidof $1)
+   RETVAL=$?
+   if [ ${RETVAL} -eq 0 ] ; then
+     local SIGNAL="${2^^:-SIGALRM}"
+     kill -s ${SIGNAL} &> /dev/null
+     RETVAL=$?
+   fi
+  fi
+  return ${RETVAL}
+}
+
+# 1: FIFO filename
+# 2: KV name
+fifo_kv() {
+ local RETVAL=0
+ if [ $# -eq 0 ] ; then
+   RETVAL=1
+ else
+   if [ -p "${1}" ] ; then
+     echo "${2}" > ${1}
+     RETVAL=$?
+   else
+     RETVAL=1
+   fi
+  fi
+  return ${RETVAL}
+}
+
+cli_interactive() {
+  local RETVAL=0
+  while true ; do
+    local LINE=()
+    read -e -a LINE -p $"${TTY_ESCAPE}[92m${KV_CLI}${TTY_ESCAPE}[94m>${TTY_ESCAPE}[0m "
+    if [ $? -gt 0 ] ; then
+      break
+    else
+      if [ -n "${LINE}" ] ; then
+        case "${LINE,,}" in
+         help|?) usage
+                 RETVAL=$?
+                 ;;
+         quit)   break
+                 ;;
+         *)      process_cmd "${LINE[@]}"
+                 RETVAL=$?
+                 if [ ${RETVAL} -gt 0 ] ; then
+                   if [ ${CLI_INTERACTIVE} -eq 0 ] ; then
+                     echo -e "Error [${TTY_RED}${RETVAL}${TTY_NORMAL}]"
+                   else
+                     echo "Error [${RETVAL}]"
+                   fi
+                 fi
+                 ;;
+        esac
+      fi
+    fi
+    unset LINE
+  done
+  echo " "
+  return ${RETVAL}
+}
+
+process_cmd() {
+  local RETVAL=0
+  get_machine_id
+  [[ ! -d "${KV_AUDIT_PATH}" ]] && mkdir -m 770 ${KV_AUDIT_PATH} &> /dev/null
+   case "${1,,}" in
+    help|?)
+      usage
+      RETVAL=0
+      ;;
+    append|concat)
+      shift
+      append_kv "${@}"
+      RETVAL=$?
+      ;;
+    copy|cp)
+      shift
+      copy_kv "${@}"
+      RETVAL=$?
+      ;;
+    count)
+      shift
+      count_kv "${@}"
+      RETVAL=$?
+      ;;
+    get)
+      shift
+      get_kv "${@}"
+      RETVAL=$?
+      ;;
+    cat|cat)
+      shift
+      cat_kv "${@}"
+      RETVAL=$?
+      ;;
+    link|ln)
+      shift
+      link_kv "${@}"
+      RETVAL=$?
+      ;;
+    unlink|uln)
+      shift
+      unlink_kv "${@}"
+      RETVAL=$?
+      ;;
+    put|set)
+      shift
+      put_kv "${@}"
+      RETVAL=$?
+      ;;
+    delete|rm)
+      shift
+      delete_kv "${@}"
+      RETVAL=$?
+      ;;
+    move|mv)
+      shift
+      move_kv "${@}"
+      RETVAL=$?
+      ;;
+    prune)
+      shift
+      prune_kv "${@}"
+      RETVAL=$?
+      ;;
+    list)
+      shift
+      list_kv "${@}"
+      RETVAL=$?
+      ;;
+    ls)
+      shift
+      ls_kv "${@}"
+      RETVAL=$?
+      ;;
+    tree)
+      shift
+      tree_kv "${@}"
+      RETVAL=$?
+      ;;
+    subscribe|sub)
+      shift
+      subscribe_kv "${@}"
+      RETVAL=$?
+      ;;
+    subscriptions)
+      shift
+      subscriptions_kv "${@}"
+      RETVAL=$?
+      ;;
+    unsubscribe|unsub)
+      shift
+      unsubscribe_kv "${@}"
+      RETVAL=$?
+      ;;
+    find)
+      shift
+      find_kv "${@}"
+      RETVAL=$?
+      ;;
+    query)
+      shift
+      query_kv "${@}"
+      RETVAL=$?
+      ;;
+    modified)
+      shift
+      modified_kv "${@}"
+      RETVAL=$?
+      ;;
+    is)
+      shift
+      is_kv "${@}"
+      RETVAL=$?
+      ;;
+    has)
+      shift
+      has_kv "${@}"
+      RETVAL=$?
+      ;;
+    dump)
+      shift
+      dump_kv "${@}"
+      RETVAL=$?
+      ;;
+    version)
+      shift
+      version
+      RETVAL=$?
+      ;;
+    audit)
+      shift
+       case "${1,,}" in
+        purge)
+          shift
+          audit_purge "${@}"
+          RETVAL=$?
+          ;;
+        read)
+          shift
+          audit_read "${@}"
+          RETVAL=$?
+          ;;
+        count)
+          shift
+          audit_count "${@}"
+          RETVAL=$?
+          ;;
+        ls)
+          shift
+          audit_ls "${@}"
+          RETVAL=$?
+          ;;
+        *)
+          usage
+          RETVAL=1
+          ;;
+       esac
+      ;;
+    help)
+      usage
+      RETVAL=$?
+      ;;
+    *)
+      usage
+      RETVAL=1
+      ;;
+   esac
+  return ${RETVAL}
+}
+
+##
+trap clean_sigint INT
+
+if [ $# -eq 0 ] ; then
+  usage
+  RETVAL=0
+else
+  process_cmd "${@}"
+  RETVAL=$?
+fi
+
+trap - INT
+exit ${RETVAL}
+

@@ -98,12 +98,12 @@ ZONE_ID="core"
 CIN_ID=$(uuid)
 echo "Spine 1/2: ${CIN_ID}"
 kv put /${TENANT_ID}/${REGION_ID}/${ZONE_ID}/${CIN_ID}
-kv link /defaults/sku/CommScope/FastIron/ICX-7850 /${TENANT_ID}/${REGION_ID}/${ZONE_ID}/${CIN_ID}/defaults
+kv link /defaults/sku/Brocade/FastIron/ICX-7850 /${TENANT_ID}/${REGION_ID}/${ZONE_ID}/${CIN_ID}/defaults
 kv put /${TENANT_ID}/${REGION_ID}/${ZONE_ID}/${CIN_ID}/management/ip-address "10.172.10.4"
-kv copy /defaults/sku/CommScope/FastIron/ICX-7850/ssh/port /${TENANT_ID}/${REGION_ID}/${ZONE_ID}/${CIN_ID}/management/ssh/port
-kv copy /defaults/sku/CommScope/FastIron/ICX-7850/ssh/authentication-method /${TENANT_ID}/${REGION_ID}/${ZONE_ID}/${CIN_ID}/management/ssh/authentication-method
-kv copy /defaults/sku/CommScope/FastIron/ICX-7850/ssh/password/username /${TENANT_ID}/${REGION_ID}/${ZONE_ID}/${RMCIN_IDDCIN_ID_ID}/management/ssh/password/username
-kv copy /defaults/sku/CommScope/FastIron/ICX-7850/ssh/password/password /${TENANT_ID}/${REGION_ID}/${ZONE_ID}/${CIN_ID}/management/ssh/password/password
+kv copy /defaults/sku/Brocade/FastIron/ICX-7850/ssh/port /${TENANT_ID}/${REGION_ID}/${ZONE_ID}/${CIN_ID}/management/ssh/port
+kv copy /defaults/sku/Brocade/FastIron/ICX-7850/ssh/authentication-method /${TENANT_ID}/${REGION_ID}/${ZONE_ID}/${CIN_ID}/management/ssh/authentication-method
+kv copy /defaults/sku/Brocade/FastIron/ICX-7850/ssh/password/username /${TENANT_ID}/${REGION_ID}/${ZONE_ID}/${RMCIN_IDDCIN_ID_ID}/management/ssh/password/username
+kv copy /defaults/sku/Brocade/FastIron/ICX-7850/ssh/password/password /${TENANT_ID}/${REGION_ID}/${ZONE_ID}/${CIN_ID}/management/ssh/password/password
 kv put /${TENANT_ID}/${REGION_ID}/${ZONE_ID}/${CIN_ID}/management/ssh/public-key/key-type "rsa"
 kv put /${TENANT_ID}/${REGION_ID}/${ZONE_ID}/${CIN_ID}/management/ssh/public-key/key-value "/store/${CIN_ID}/id_rsa.ppk"
 kv put /${TENANT_ID}/${REGION_ID}/${ZONE_ID}/${CIN_ID}/management/ssh/host-based/key-type ""
@@ -147,12 +147,12 @@ kv link /${TENANT_ID}/${REGION_ID}/${ZONE_ID}/${CIN_ID} /inventory/${TENANT_ID}/
 CIN_ID=$(uuid)
 echo "Spine 2/2: ${CIN_ID}"
 kv put /${TENANT_ID}/${REGION_ID}/${ZONE_ID}/${CIN_ID}
-kv link /defaults/sku/CommScope/FastIron/ICX-7850 /${TENANT_ID}/${REGION_ID}/${ZONE_ID}/${CIN_ID}/defaults
+kv link /defaults/sku/Brocade/FastIron/ICX-7850 /${TENANT_ID}/${REGION_ID}/${ZONE_ID}/${CIN_ID}/defaults
 kv put /${TENANT_ID}/${REGION_ID}/${ZONE_ID}/${CIN_ID}/management/ip-address "10.172.10.5"
-kv copy /defaults/sku/CommScope/FastIron/ICX-7850/ssh/port /${TENANT_ID}/${REGION_ID}/${ZONE_ID}/${CIN_ID}/management/ssh/port
-kv copy /defaults/sku/CommScope/FastIron/ICX-7850/ssh/authentication-method /${TENANT_ID}/${REGION_ID}/${ZONE_ID}/${CIN_ID}/management/ssh/authentication-method
-kv copy /defaults/sku/CommScope/FastIron/ICX-7850/ssh/password/username /${TENANT_ID}/${REGION_ID}/${ZONE_ID}/${RMCIN_IDDCIN_ID_ID}/management/ssh/password/username
-kv copy /defaMSOults/sku/CommScope/FastIron/ICX-7850/ssh/password/password /${TENANT_ID}/${REGION_ID}/${ZONE_ID}/${CIN_ID}/management/ssh/password/password
+kv copy /defaults/sku/Brocade/FastIron/ICX-7850/ssh/port /${TENANT_ID}/${REGION_ID}/${ZONE_ID}/${CIN_ID}/management/ssh/port
+kv copy /defaults/sku/Brocade/FastIron/ICX-7850/ssh/authentication-method /${TENANT_ID}/${REGION_ID}/${ZONE_ID}/${CIN_ID}/management/ssh/authentication-method
+kv copy /defaults/sku/Brocade/FastIron/ICX-7850/ssh/password/username /${TENANT_ID}/${REGION_ID}/${ZONE_ID}/${RMCIN_IDDCIN_ID_ID}/management/ssh/password/username
+kv copy /defaMSOults/sku/Brocade/FastIron/ICX-7850/ssh/password/password /${TENANT_ID}/${REGION_ID}/${ZONE_ID}/${CIN_ID}/management/ssh/password/password
 kv put /${TENANT_ID}/${REGION_ID}/${ZONE_ID}/${CIN_ID}/management/ssh/public-key/key-type "rsa"
 kv put /${TENANT_ID}/${REGION_ID}/${ZONE_ID}/${CIN_ID}/management/ssh/public-key/key-value "/store/${CIN_ID}/id_rsa.ppk"
 kv put /${TENANT_ID}/${REGION_ID}/${ZONE_ID}/${CIN_ID}/management/ssh/host-based/key-type ""
@@ -197,12 +197,12 @@ kv link /${TENANT_ID}/${REGION_ID}/${ZONE_ID}/${CIN_ID} /inventory/${TENANT_ID}/
 CIN_ID=$(uuid)
 echo "Leaf 1/4: ${CIN_ID}"
 kv put /${TENANT_ID}/${REGION_ID}/${ZONE_ID}/${CIN_ID}
-kv link /defaults/sku/CommScope/FastIron/ICX-7850 /${TENANT_ID}/${REGION_ID}/${ZONE_ID}/${CIN_ID}/defaults
+kv link /defaults/sku/Brocade/FastIron/ICX-7850 /${TENANT_ID}/${REGION_ID}/${ZONE_ID}/${CIN_ID}/defaults
 kv put /${TENANT_ID}/${REGION_ID}/${ZONE_ID}/${CIN_ID}/management/ip-address "10.172.10.6"
-kv copy /defaults/sku/CommScope/FastIron/ICX-7850/ssh/port /${TENANT_ID}/${REGION_ID}/${ZONE_ID}/${CIN_ID}/management/ssh/port
-kv copy /defaults/sku/CommScope/FastIron/ICX-7850/ssh/authentication-method /${TENANT_ID}/${REGION_ID}/${ZONE_ID}/${CIN_ID}/management/ssh/authentication-method
-kv copy /defaults/sku/CommScope/FastIron/ICX-7850/ssh/password/username /${TENANT_ID}/${REGION_ID}/${ZONE_ID}/${RMCIN_IDDCIN_ID_ID}/management/ssh/password/username
-kv copy /defaults/sku/CommScope/FastIron/ICX-7850/ssh/password/password /${TENANT_ID}/${REGION_ID}/${ZONE_ID}/${CIN_ID}/management/ssh/password/password
+kv copy /defaults/sku/Brocade/FastIron/ICX-7850/ssh/port /${TENANT_ID}/${REGION_ID}/${ZONE_ID}/${CIN_ID}/management/ssh/port
+kv copy /defaults/sku/Brocade/FastIron/ICX-7850/ssh/authentication-method /${TENANT_ID}/${REGION_ID}/${ZONE_ID}/${CIN_ID}/management/ssh/authentication-method
+kv copy /defaults/sku/Brocade/FastIron/ICX-7850/ssh/password/username /${TENANT_ID}/${REGION_ID}/${ZONE_ID}/${RMCIN_IDDCIN_ID_ID}/management/ssh/password/username
+kv copy /defaults/sku/Brocade/FastIron/ICX-7850/ssh/password/password /${TENANT_ID}/${REGION_ID}/${ZONE_ID}/${CIN_ID}/management/ssh/password/password
 kv put /${TENANT_ID}/${REGION_ID}/${ZONE_ID}/${CIN_ID}/management/ssh/public-key/key-type "rsa"
 kv put /${TENANT_ID}/${REGION_ID}/${ZONE_ID}/${CIN_ID}/management/ssh/public-key/key-value "/store/${CIN_ID}/id_rsa.ppk"
 kv put /${TENANT_ID}/${REGION_ID}/${ZONE_ID}/${CIN_ID}/management/ssh/host-based/key-type ""
@@ -246,12 +246,12 @@ kv link /${TENANT_ID}/${REGION_ID}/${ZONE_ID}/${CIN_ID} /inventory/${TENANT_ID}/
 CIN_ID=$(uuid)
 echo "Leaf 2/4: ${CIN_ID}"
 kv put /${TENANT_ID}/${REGION_ID}/${ZONE_ID}/${CIN_ID}
-kv link /defaults/sku/CommScope/FastIron/ICX-7850 /${TENANT_ID}/${REGION_ID}/${ZONE_ID}/${CIN_ID}/defaults
+kv link /defaults/sku/Brocade/FastIron/ICX-7850 /${TENANT_ID}/${REGION_ID}/${ZONE_ID}/${CIN_ID}/defaults
 kv put /${TENANT_ID}/${REGION_ID}/${ZONE_ID}/${CIN_ID}/management/ip-address "10.172.10.7"
-kv copy /defaults/sku/CommScope/FastIron/ICX-7850/ssh/port /${TENANT_ID}/${REGION_ID}/${ZONE_ID}/${CIN_ID}/management/ssh/port
-kv copy /defaults/sku/CommScope/FastIron/ICX-7850/ssh/authentication-method /${TENANT_ID}/${REGION_ID}/${ZONE_ID}/${CIN_ID}/management/ssh/authentication-method
-kv copy /defaults/sku/CommScope/FastIron/ICX-7850/ssh/password/username /${TENANT_ID}/${REGION_ID}/${ZONE_ID}/${RMCIN_IDDCIN_ID_ID}/management/ssh/password/username
-kv copy /defaults/sku/CommScope/FastIron/ICX-7850/ssh/password/password /${TENANT_ID}/${REGION_ID}/${ZONE_ID}/${CIN_ID}/management/ssh/password/password
+kv copy /defaults/sku/Brocade/FastIron/ICX-7850/ssh/port /${TENANT_ID}/${REGION_ID}/${ZONE_ID}/${CIN_ID}/management/ssh/port
+kv copy /defaults/sku/Brocade/FastIron/ICX-7850/ssh/authentication-method /${TENANT_ID}/${REGION_ID}/${ZONE_ID}/${CIN_ID}/management/ssh/authentication-method
+kv copy /defaults/sku/Brocade/FastIron/ICX-7850/ssh/password/username /${TENANT_ID}/${REGION_ID}/${ZONE_ID}/${RMCIN_IDDCIN_ID_ID}/management/ssh/password/username
+kv copy /defaults/sku/Brocade/FastIron/ICX-7850/ssh/password/password /${TENANT_ID}/${REGION_ID}/${ZONE_ID}/${CIN_ID}/management/ssh/password/password
 kv put /${TENANT_ID}/${REGION_ID}/${ZONE_ID}/${CIN_ID}/management/ssh/public-key/key-type "rsa"
 kv put /${TENANT_ID}/${REGION_ID}/${ZONE_ID}/${CIN_ID}/management/ssh/public-key/key-value "/store/${CIN_ID}/id_rsa.ppk"
 kv put /${TENANT_ID}/${REGION_ID}/${ZONE_ID}/${CIN_ID}/management/ssh/host-based/key-type ""
@@ -296,12 +296,12 @@ kv link /${TENANT_ID}/${REGION_ID}/${ZONE_ID}/${CIN_ID} /inventory/${TENANT_ID}/
 CIN_ID=$(uuid)
 echo "Leaf 3/4: ${CIN_ID}"
 kv put /${TENANT_ID}/${REGION_ID}/${ZONE_ID}/${CIN_ID}
-kv link /defaults/sku/CommScope/FastIron/ICX-7850 /${TENANT_ID}/${REGION_ID}/${ZONE_ID}/${CIN_ID}/defaults
+kv link /defaults/sku/Brocade/FastIron/ICX-7850 /${TENANT_ID}/${REGION_ID}/${ZONE_ID}/${CIN_ID}/defaults
 kv put /${TENANT_ID}/${REGION_ID}/${ZONE_ID}/${CIN_ID}/management/ip-address "10.172.10.8"
-kv copy /defaults/sku/CommScope/FastIron/ICX-7850/ssh/port /${TENANT_ID}/${REGION_ID}/${ZONE_ID}/${CIN_ID}/management/ssh/port
-kv copy /defaults/sku/CommScope/FastIron/ICX-7850/ssh/authentication-method /${TENANT_ID}/${REGION_ID}/${ZONE_ID}/${CIN_ID}/management/ssh/authentication-method
-kv copy /defaults/sku/CommScope/FastIron/ICX-7850/ssh/password/username /${TENANT_ID}/${REGION_ID}/${ZONE_ID}/${RMCIN_IDDCIN_ID_ID}/management/ssh/password/username
-kv copy /defaults/sku/CommScope/FastIron/ICX-7850/ssh/password/password /${TENANT_ID}/${REGION_ID}/${ZONE_ID}/${CIN_ID}/management/ssh/password/password
+kv copy /defaults/sku/Brocade/FastIron/ICX-7850/ssh/port /${TENANT_ID}/${REGION_ID}/${ZONE_ID}/${CIN_ID}/management/ssh/port
+kv copy /defaults/sku/Brocade/FastIron/ICX-7850/ssh/authentication-method /${TENANT_ID}/${REGION_ID}/${ZONE_ID}/${CIN_ID}/management/ssh/authentication-method
+kv copy /defaults/sku/Brocade/FastIron/ICX-7850/ssh/password/username /${TENANT_ID}/${REGION_ID}/${ZONE_ID}/${RMCIN_IDDCIN_ID_ID}/management/ssh/password/username
+kv copy /defaults/sku/Brocade/FastIron/ICX-7850/ssh/password/password /${TENANT_ID}/${REGION_ID}/${ZONE_ID}/${CIN_ID}/management/ssh/password/password
 kv put /${TENANT_ID}/${REGION_ID}/${ZONE_ID}/${CIN_ID}/management/ssh/public-key/key-type "rsa"
 kv put /${TENANT_ID}/${REGION_ID}/${ZONE_ID}/${CIN_ID}/management/ssh/public-key/key-value "/store/${CIN_ID}/id_rsa.ppk"
 kv put /${TENANT_ID}/${REGION_ID}/${ZONE_ID}/${CIN_ID}/management/ssh/host-based/key-type ""
@@ -345,12 +345,12 @@ kv link /${TENANT_ID}/${REGION_ID}/${ZONE_ID}/${CIN_ID} /inventory/${TENANT_ID}/
 CIN_ID=$(uuid)
 echo "Leaf 4/4: ${CIN_ID}"
 kv put /${TENANT_ID}/${REGION_ID}/${ZONE_ID}/${CIN_ID}
-kv link /defaults/sku/CommScope/FastIron/ICX-7850 /${TENANT_ID}/${REGION_ID}/${ZONE_ID}/${CIN_ID}/defaults
+kv link /defaults/sku/Brocade/FastIron/ICX-7850 /${TENANT_ID}/${REGION_ID}/${ZONE_ID}/${CIN_ID}/defaults
 kv put /${TENANT_ID}/${REGION_ID}/${ZONE_ID}/${CIN_ID}/management/ip-address "10.172.10.9"
-kv copy /defaults/sku/CommScope/FastIron/ICX-7850/ssh/port /${TENANT_ID}/${REGION_ID}/${ZONE_ID}/${CIN_ID}/management/ssh/port
-kv copy /defaults/sku/CommScope/FastIron/ICX-7850/ssh/authentication-method /${TENANT_ID}/${REGION_ID}/${ZONE_ID}/${CIN_ID}/management/ssh/authentication-method
-kv copy /defaults/sku/CommScope/FastIron/ICX-7850/ssh/password/username /${TENANT_ID}/${REGION_ID}/${ZONE_ID}/${RMCIN_IDDCIN_ID_ID}/management/ssh/password/username
-kv copy /defaults/sku/CommScope/FastIron/ICX-7850/ssh/password/password /${TENANT_ID}/${REGION_ID}/${ZONE_ID}/${CIN_ID}/management/ssh/password/password
+kv copy /defaults/sku/Brocade/FastIron/ICX-7850/ssh/port /${TENANT_ID}/${REGION_ID}/${ZONE_ID}/${CIN_ID}/management/ssh/port
+kv copy /defaults/sku/Brocade/FastIron/ICX-7850/ssh/authentication-method /${TENANT_ID}/${REGION_ID}/${ZONE_ID}/${CIN_ID}/management/ssh/authentication-method
+kv copy /defaults/sku/Brocade/FastIron/ICX-7850/ssh/password/username /${TENANT_ID}/${REGION_ID}/${ZONE_ID}/${RMCIN_IDDCIN_ID_ID}/management/ssh/password/username
+kv copy /defaults/sku/Brocade/FastIron/ICX-7850/ssh/password/password /${TENANT_ID}/${REGION_ID}/${ZONE_ID}/${CIN_ID}/management/ssh/password/password
 kv put /${TENANT_ID}/${REGION_ID}/${ZONE_ID}/${CIN_ID}/management/ssh/public-key/key-type "rsa"
 kv put /${TENANT_ID}/${REGION_ID}/${ZONE_ID}/${CIN_ID}/management/ssh/public-key/key-value "/store/${CIN_ID}/id_rsa.ppk"
 kv put /${TENANT_ID}/${REGION_ID}/${ZONE_ID}/${CIN_ID}/management/ssh/host-based/key-type ""

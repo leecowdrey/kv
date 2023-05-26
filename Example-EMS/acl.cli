@@ -1,0 +1,100 @@
+configure access-list 30  remark "VOIP Block 1-499=="
+configure access-list 30  remark "Southeast MI COPS"
+configure access-list 30  permit 10.15.18.0 0.0.0.255
+configure access-list 30  remark "Cleveland COPS"
+configure access-list 30  permit 10.15.45.0 0.0.0.255
+configure access-list 30  remark "Columbus COPS"
+configure access-list 30  permit 10.35.18.0 0.0.0.255
+configure access-list 30  remark "Illinois COPS"
+configure access-list 30  permit 10.15.20.0 0.0.0.255
+configure access-list 30  remark "Evansville COPS"
+configure access-list 30  permit 10.220.15.0 0.0.0.255
+configure access-list 30  remark "CFS West Point "
+configure access-list 30  permit 10.37.60.0 0.0.0.255
+configure access-list 30  remark "Evansville Meta "
+configure access-list 30  permit 10.220.100.80
+configure access-list 30  remark "Atlanta Meta"
+configure access-list 30  permit 10.131.138.150
+configure access-list 30  remark "End of VOIP Block=="
+configure access-list 30  remark "Data Block 500-999=="
+configure access-list 30  remark "Evansville MGMT LAN"
+configure access-list 30  permit 10.55.2.0 0.0.0.255
+configure access-list 30  remark "Ninjaneer VMs"
+configure access-list 30  permit 10.98.212.0 0.0.0.255
+configure access-list 30  remark "Columbus DC VMs "
+configure access-list 30  permit 10.170.90.0 0.0.1.255
+configure access-list 30  remark "WOW MGMT Network"
+configure access-list 30  permit 172.31.0.0 0.0.255.255
+configure access-list 30  remark "Knology MGMT"
+configure access-list 30  permit 24.214.5.0 0.0.0.255
+configure access-list 30  permit 24.214.63.0 0.0.0.255
+configure access-list 30  permit 24.214.226.0 0.0.0.255
+configure access-list 30  remark "Naperville NAT"
+configure access-list 30  permit 64.233.207.0 0.0.0.127
+configure access-list 30  remark "Columbus DC NAT "
+configure access-list 30  permit 66.45.139.0 0.0.0.255
+configure access-list 30  permit 68.179.166.248 0.0.0.7
+configure access-list 30  permit 68.179.167.0 0.0.0.255
+configure access-list 30  remark "CMTS server"
+configure access-list 30  permit 75.76.222.64 0.0.0.31
+configure access-list 30  remark "OPENVAULT"
+configure access-list 30  permit 54.204.45.250
+configure access-list 30  permit 54.83.30.95
+configure access-list 30  remark "AWS - Dev Server"
+configure access-list 30  permit 34.192.218.217
+configure access-list 30  remark "Cable Medic - Local Probes"
+configure access-list 30  permit 69.14.177.165
+configure access-list 30  permit 69.14.177.5
+configure access-list 30  permit 69.14.176.37
+configure access-list 30  permit 69.14.176.229
+configure access-list 30  permit 69.14.177.37
+configure access-list 30  permit 69.14.177.69
+configure access-list 30  permit 69.14.177.133
+configure access-list 30  permit 69.14.176.165
+configure access-list 30  remark "AWS - Production Worker"
+configure access-list 30  permit 34.198.18.211
+configure access-list 30  remark "Axiros"
+configure access-list 30  permit 10.170.87.0 0.0.0.255
+configure access-list 30  permit 76.73.163.214
+configure access-list 30  permit 76.73.163.218
+configure access-list 30  remark "CM Spare Route"
+configure access-list 30  permit 10.86.8.0 0.0.1.255
+configure access-list 30  remark "Cable Medic/ACE"
+configure access-list 30  permit 10.160.160.0 0.0.0.255
+configure access-list 30  permit 75.76.120.142
+configure access-list 30  remark "End of Data Block=="
+configure access-list 30  remark "POC Block 1000-1100=="
+configure access-list 30  remark "End of POC Block=="
+configure access-list 30  remark "Solar Winds"
+configure access-list 30  permit 10.49.224.0 0.0.0.31
+configure access-list 30  permit 143.59.95.192 0.0.0.15
+configure access-list 30  permit 143.59.95.252 0.0.0.1
+configure access-list 30  permit 143.59.95.254 0.0.0.1
+configure access-list 30  remark "ACE Polling"
+configure access-list 30  permit 10.49.228.0 0.0.0.255
+configure access-list 30  remark "NTP"
+configure access-list 30  permit 75.76.120.249
+configure access-list 30  permit 75.76.120.250
+configure access-list 30  permit 10.82.7.1
+configure access-list 30  permit 10.82.7.2
+configure access-list 30  permit 10.82.7.3
+configure access-list 90  remark "OSPF Redistribution Filter"
+configure access-list 90  remark "Prevent DSG Interface Scope"
+configure access-list 90  deny   192.168.0.0 0.0.255.255
+configure access-list 90  remark "Prevent Old Bogus Voice Network"
+configure access-list 90  deny   172.30.0.0 0.0.255.255
+configure access-list 90  remark "Prevent Old Management Network"
+configure access-list 90  deny   172.31.0.0 0.0.255.255
+configure access-list 90  remark "Modem Transponder (Overlap)"
+configure access-list 90  deny   10.190.0.0 0.0.255.255
+configure access-list 90  remark "Allow Voice Scopes"
+configure access-list 90  permit 172.16.0.0 0.15.255.255
+configure access-list 90  remark "Allow Walled Garden"
+configure access-list 90  permit 10.136.0.0 0.0.255.255
+configure access-list 90  remark "Prevent HSD from Advertising out"
+configure access-list 90  deny   any
+configure access-list 90  permit any
+configure access-list 101  permit tcp host 76.73.166.133 any eq bgp
+configure access-list 101  permit tcp host 76.73.221.237 any eq bgp
+configure access-list 101  deny   tcp any any eq bgp
+configure access-list 101  permit ip any any

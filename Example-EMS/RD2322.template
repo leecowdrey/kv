@@ -1,0 +1,4 @@
+configure {{/${TENANT_ID}/${REGION_ID}/${ZONE_ID}/${UUID}/defaults/cli/ssh-idle-timeout}} {{/${TENANT_ID}/${REGION_ID}/${ZONE_ID}/${UUID}/defaults/cli/ssh-idle-timeout-duration}}
+configure ip interface ip address {{/${TENANT_ID}/${REGION_ID}/${ZONE_ID}/${UUID}/management/ip-address}}
+configure ip bootfile {{/${TENANT_ID}/${REGION_ID}/${ZONE_ID}/${UUID}/management/bootfile-url}}
+configure ntp server {{/${TENANT_ID}/${REGION_ID}/${ZONE_ID}/${UUID}/defaults/dhcpv4/options/42}}

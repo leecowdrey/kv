@@ -1,0 +1,22 @@
+operation mode adjrxpwrctl
+operation mode USIngressNoiseMitigation no
+operation mode enbudptcpfltr
+operation mode DSPeakTrafficRateTLV2516 no
+operation mode cpeNacksForceCmReset
+operation mode LBalDynUnbondUcast
+operation mode upDownTrapIfDescr no
+operation mode upstreamRngRspFreqLimit no
+operation mode mplsLdpPwMtu1504 no
+operation mode cmstatusoperational
+operation mode docsis20test no
+operation mode showCmFormatCV no
+operation mode USAmbiguityListReduction no
+operation mode downstreamOverride no
+operation mode suppress-dcd no
+operation mode dcamSparingScqamOfdmSync no
+operation mode allowZeroCmTxPwr no
+operation mode docsis10plus no
+operation mode virtualCm
+operation mode ofdmSparingCleanup no
+operation mode onlyRegOnRangedChans no
+operation mode ciscoBaccTlv no

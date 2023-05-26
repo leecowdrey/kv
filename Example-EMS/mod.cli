@@ -1,0 +1,51 @@
+configure cable modulation-profile 1 iuc 1 mod qpsk pre-len 56 diff false fec-tbytes 0 fec-len 16 seed 338 burst-len 0 guard-time-size 8 last-cw false scrambler true docsis-mode tdma
+configure cable modulation-profile 1 iuc 3 mod qpsk pre-len 640 diff false fec-tbytes 5 fec-len 34 seed 338 burst-len 0 guard-time-size 48 last-cw false scrambler true docsis-mode tdma
+configure cable modulation-profile 1 iuc 4 mod qpsk pre-len 384 diff false fec-tbytes 5 fec-len 34 seed 338 burst-len 0 guard-time-size 48 last-cw false scrambler true docsis-mode tdma
+configure cable modulation-profile 1 iuc 5 mod qpsk pre-len 84 diff false fec-tbytes 6 fec-len 78 seed 338 burst-len 45 guard-time-size 8 last-cw true scrambler true docsis-mode tdma
+configure cable modulation-profile 1 iuc 6 mod qpsk pre-len 96 diff false fec-tbytes 8 fec-len 220 seed 338 burst-len 0 guard-time-size 8 last-cw true scrambler true docsis-mode tdma
+configure cable modulation-profile 2 iuc 1 mod qpsk pre-len 64 diff false fec-tbytes 0 fec-len 16 seed 338 burst-len 0 guard-time-size 8 last-cw false scrambler true docsis-mode tdma
+configure cable modulation-profile 2 iuc 3 mod qpsk pre-len 640 diff false fec-tbytes 5 fec-len 34 seed 338 burst-len 0 guard-time-size 48 last-cw false scrambler true docsis-mode tdma
+configure cable modulation-profile 2 iuc 4 mod qpsk pre-len 384 diff false fec-tbytes 5 fec-len 34 seed 338 burst-len 0 guard-time-size 48 last-cw false scrambler true docsis-mode tdma
+configure cable modulation-profile 2 iuc 5 mod qpsk pre-len 84 diff false fec-tbytes 6 fec-len 78 seed 338 burst-len 45 guard-time-size 8 last-cw true scrambler true docsis-mode tdma
+configure cable modulation-profile 2 iuc 6 mod qpsk pre-len 96 diff false fec-tbytes 8 fec-len 220 seed 338 burst-len 0 guard-time-size 8 last-cw true scrambler true docsis-mode tdma
+configure cable modulation-profile 16 iuc 1 mod qpsk pre-len 56 diff false fec-tbytes 0 fec-len 16 seed 338 burst-len 0 guard-time-size 8 last-cw false scrambler true docsis-mode tdma
+configure cable modulation-profile 16 iuc 3 mod qpsk pre-len 640 diff false fec-tbytes 5 fec-len 34 seed 338 burst-len 0 guard-time-size 48 last-cw false scrambler true docsis-mode tdma
+configure cable modulation-profile 16 iuc 4 mod qpsk pre-len 384 diff false fec-tbytes 5 fec-len 34 seed 338 burst-len 0 guard-time-size 48 last-cw false scrambler true docsis-mode tdma
+configure cable modulation-profile 16 iuc 5 mod qam16 pre-len 168 diff false fec-tbytes 6 fec-len 78 seed 338 burst-len 23 guard-time-size 8 last-cw true scrambler true docsis-mode tdma
+configure cable modulation-profile 16 iuc 6 mod qam16 pre-len 192 diff false fec-tbytes 8 fec-len 220 seed 338 burst-len 0 guard-time-size 8 last-cw true scrambler true docsis-mode tdma
+configure cable modulation-profile 116 iuc 1 mod qpsk pre-len 56 diff false fec-tbytes 0 fec-len 16 seed 338 burst-len 0 guard-time-size 8 last-cw false scrambler true docsis-mode atdma
+configure cable modulation-profile 116 iuc 1 pre-type qpsk1 int-depth 1 int-blocksize 2048
+configure cable modulation-profile 116 iuc 3 mod qpsk pre-len 640 diff false fec-tbytes 5 fec-len 34 seed 338 burst-len 0 guard-time-size 48 last-cw false scrambler true docsis-mode atdma
+configure cable modulation-profile 116 iuc 3 pre-type qpsk1 int-depth 0 int-blocksize 2048
+configure cable modulation-profile 116 iuc 4 mod qpsk pre-len 384 diff false fec-tbytes 5 fec-len 34 seed 338 burst-len 0 guard-time-size 48 last-cw false scrambler true docsis-mode atdma
+configure cable modulation-profile 116 iuc 4 pre-type qpsk1 int-depth 0 int-blocksize 2048
+configure cable modulation-profile 116 iuc 9 mod qam16 pre-len 104 diff false fec-tbytes 6 fec-len 78 seed 338 burst-len 14 guard-time-size 8 last-cw true scrambler true docsis-mode atdma
+configure cable modulation-profile 116 iuc 9 pre-type qpsk1 int-depth 0 int-blocksize 2048
+configure cable modulation-profile 116 iuc 10 mod qam16 pre-len 104 diff false fec-tbytes 8 fec-len 224 seed 338 burst-len 0 guard-time-size 8 last-cw true scrambler true docsis-mode atdma
+configure cable modulation-profile 116 iuc 10 pre-type qpsk1 int-depth 0 int-blocksize 2048
+configure cable modulation-profile 116 iuc 11 mod qam16 pre-len 104 diff false fec-tbytes 6 fec-len 78 seed 338 burst-len 0 guard-time-size 8 last-cw true scrambler true docsis-mode atdma
+configure cable modulation-profile 116 iuc 11 pre-type qpsk1 int-depth 0 int-blocksize 2048
+configure cable modulation-profile 132 iuc 1 mod qpsk pre-len 56 diff false fec-tbytes 0 fec-len 16 seed 338 burst-len 0 guard-time-size 8 last-cw false scrambler true docsis-mode atdma
+configure cable modulation-profile 132 iuc 1 pre-type qpsk1 int-depth 1 int-blocksize 2048
+configure cable modulation-profile 132 iuc 3 mod qpsk pre-len 640 diff false fec-tbytes 5 fec-len 34 seed 338 burst-len 0 guard-time-size 48 last-cw false scrambler true docsis-mode atdma
+configure cable modulation-profile 132 iuc 3 pre-type qpsk1 int-depth 0 int-blocksize 2048
+configure cable modulation-profile 132 iuc 4 mod qpsk pre-len 384 diff false fec-tbytes 5 fec-len 34 seed 338 burst-len 0 guard-time-size 48 last-cw false scrambler true docsis-mode atdma
+configure cable modulation-profile 132 iuc 4 pre-type qpsk1 int-depth 0 int-blocksize 2048
+configure cable modulation-profile 132 iuc 9 mod qam32 pre-len 104 diff false fec-tbytes 10 fec-len 85 seed 338 burst-len 13 guard-time-size 8 last-cw true scrambler true docsis-mode atdma
+configure cable modulation-profile 132 iuc 9 pre-type qpsk1 int-depth 0 int-blocksize 2048
+configure cable modulation-profile 132 iuc 10 mod qam32 pre-len 104 diff false fec-tbytes 12 fec-len 216 seed 338 burst-len 0 guard-time-size 8 last-cw true scrambler true docsis-mode atdma
+configure cable modulation-profile 132 iuc 10 pre-type qpsk1 int-depth 0 int-blocksize 2048
+configure cable modulation-profile 132 iuc 11 mod qam32 pre-len 104 diff false fec-tbytes 10 fec-len 85 seed 338 burst-len 0 guard-time-size 8 last-cw true scrambler true docsis-mode atdma
+configure cable modulation-profile 132 iuc 11 pre-type qpsk1 int-depth 0 int-blocksize 2048
+configure cable modulation-profile 164 iuc 1 mod qpsk pre-len 56 diff false fec-tbytes 0 fec-len 16 seed 338 burst-len 0 guard-time-size 8 last-cw false scrambler true docsis-mode atdma
+configure cable modulation-profile 164 iuc 1 pre-type qpsk1 int-depth 1 int-blocksize 2048
+configure cable modulation-profile 164 iuc 3 mod qpsk pre-len 640 diff false fec-tbytes 5 fec-len 34 seed 338 burst-len 0 guard-time-size 48 last-cw false scrambler true docsis-mode atdma
+configure cable modulation-profile 164 iuc 3 pre-type qpsk1 int-depth 0 int-blocksize 2048
+configure cable modulation-profile 164 iuc 4 mod qpsk pre-len 384 diff false fec-tbytes 5 fec-len 34 seed 338 burst-len 0 guard-time-size 48 last-cw false scrambler true docsis-mode atdma
+configure cable modulation-profile 164 iuc 4 pre-type qpsk1 int-depth 0 int-blocksize 2048
+configure cable modulation-profile 164 iuc 9 mod qam64 pre-len 104 diff false fec-tbytes 12 fec-len 81 seed 338 burst-len 11 guard-time-size 8 last-cw true scrambler true docsis-mode atdma
+configure cable modulation-profile 164 iuc 9 pre-type qpsk1 int-depth 0 int-blocksize 2048
+configure cable modulation-profile 164 iuc 10 mod qam64 pre-len 104 diff false fec-tbytes 16 fec-len 223 seed 338 burst-len 0 guard-time-size 8 last-cw true scrambler true docsis-mode atdma
+configure cable modulation-profile 164 iuc 10 pre-type qpsk1 int-depth 0 int-blocksize 2048
+configure cable modulation-profile 164 iuc 11 mod qam64 pre-len 104 diff false fec-tbytes 12 fec-len 81 seed 338 burst-len 0 guard-time-size 8 last-cw true scrambler true docsis-mode atdma
+configure cable modulation-profile 164 iuc 11 pre-type qpsk1 int-depth 0 int-blocksize 2048

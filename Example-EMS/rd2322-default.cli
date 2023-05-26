@@ -1,0 +1,2486 @@
+# ChassisType=<RMD> shelfName=<ARRIS RMD-2> shelfSwVersion=<RMD_V01.00.00.0271> timeGenerated=<Wed Jan 20 14:59:16 2021>
+configure
+console enable
+clock mode ntp
+ip ssh idle-timeout 0
+ip ssh password-auth
+ip ssh public-key-auth
+overlay downstream attenuator 150
+overlay downstream hysteresis 5
+overlay downstream optical-agc attenuator-reference 150
+overlay downstream optical-agc input-power-reference 1000
+overlay downstream optical-agc enable no
+overlay downstream enable no
+overlay upstream enable no
+dot1x enable
+interface mgmt ns/0 ip dhcp wait-time 1800
+interface mgmt ns/0 ipv6 dhcp wait-time 1800
+interface mgmt ns/1 ip dhcp wait-time 1800
+interface mgmt ns/1 ipv6 dhcp wait-time 1800
+rpd global cin-if-timeout 120
+lacp system-priority 32768
+license type system-legal-intercept key 24F38FFF5C3C73F80001 count 1
+license type mac-docsis-ds-30-B key 056DE55AA8E2D43D0001 count 10000
+license type mac-docsis-us-30 key A33B0957108547D20001 count 10000
+license type mac-docsis-ds-ofdm key 9624058641041AE40001 count 500000
+license type mac-docsis-us-ofdma key CF00C4A06447388E0001 count 500000
+license type system-laes key CE2842C257FD8ABB0001 count 1
+license type system-calea key 756D8FD00F071E470001 count 1
+license type downstream-service-group key A5FCDDD7D0CF490A0001 count 2
+license type upstream-service-group key E147ACA83BC7BCBE0001 count 2
+interface rpd "embrpd1" rf tray no
+interface rpd "embrpd1" rf port mode 2x2
+interface rpd "embrpd1" rf intra-node-cabling 2x4
+hostname "RMD-2"
+crypto privacy add-certificate root nsi 1
+3082043e 30820326 a0030201 0202044a 538c2830 0d06092a 864886f7 0d01010b
+05003081 be310b30 09060355 04061302 55533116 30140603 55040a13 0d456e74
+72757374 2c20496e 632e3128 30260603 55040b13 1f536565 20777777 2e656e74
+72757374 2e6e6574 2f6c6567 616c2d74 65726d73 31393037 06035504 0b133028
+63292032 30303920 456e7472 7573742c 20496e63 2e202d20 666f7220 61757468
+6f72697a 65642075 7365206f 6e6c7931 32303006 03550403 1329456e 74727573
+7420526f 6f742043 65727469 66696361 74696f6e 20417574 686f7269 7479202d
+20473230 1e170d30 39303730 37313732 3535345a 170d3330 31323037 31373535
+35345a30 81be310b 30090603 55040613 02555331 16301406 0355040a 130d456e
+74727573 742c2049 6e632e31 28302606 0355040b 131f5365 65207777 772e656e
+74727573 742e6e65 742f6c65 67616c2d 7465726d 73313930 37060355 040b1330
+28632920 32303039 20456e74 72757374 2c20496e 632e202d 20666f72 20617574
+686f7269 7a656420 75736520 6f6e6c79 31323030 06035504 03132945 6e747275
+73742052 6f6f7420 43657274 69666963 6174696f 6e204175 74686f72 69747920
+2d204732 30820122 300d0609 2a864886 f70d0101 01050003 82010f00 3082010a
+02820101 00ba84b6 72db9e0c 6be299e9 3001a776 ea32b895 411ac9da 614e5872
+cffef682 79bf7361 060aa527 d8b35fd3 454e1c72 d64e32f2 728a0ff7 8319d06a
+80800045 1eb0c7e7 9abf1257 271ca368 2f0a87bd 6a6b0e5e 65f31c77 d5d4858d
+7021b4b3 32e78ba2 d5863902 b1b8d247 cee4c949 c43ba7de fb547d57 bef0e86e
+c279b23a 0b55e250 98163213 5c2f7856 c1c294b3 f25ae427 9a9f24d7 c6ecd09b
+2582e3cc c2c445c5 8c977a06 6b2a119f a90a6e48 3b6fdbd4 111942f7 8f07bff5
+535f9c3e f4172ce6 69ac4e32 4c6277ea b7e8e5bb 34bc198b ae9c51e7 b77eb553
+b13322e5 6dcf703c 1afae29b 67b683f4 8da5af62 4c4de058 ac643412 03f8b68d
+946324a4 71020301 0001a342 3040300e 0603551d 0f0101ff 04040302 0106300f
+0603551d 130101ff 04053003 0101ff30 1d060355 1d0e0416 04146a72 267ad01e
+ef7de73b 6951d46c 8d9f9012 66ab300d 06092a86 4886f70d 01010b05 00038201
+0100799f 1d96c6b6 793f228d 87d38703 04606a6b 9a2e5989 7311ac43 d1f513ff
+8d392bc0 f2bd4f70 8ca92fea 17c40b54 9ed41b96 98333ca8 ad62a200 76ab5969
+6e061d7e c4b9448d 98af12d4 61db0a19 4647f3eb f763c140 0540a5d2 b7f4b59a
+36bfa988 76880455 042b9c87 7f1a373c 7e2da51a d8d4895e cabdac3d 6cd86daf
+d5f3760f cd3b8838 229d6c93 9ac43dbf 821b653f a60f5daa fce5b215 cab5adc6
+bc3dd084 e8ea0672 b04d3932 78bf3e11 9c0ba49d 9a21f3f0 9b0b3078 dbc1dc87
+43febc63 9acac5c2 1cc9c78d ff3b1258 08e6b63d ec7a2c4e fb8396ce 0c3c6987
+5473a473 c293ff51 10ac1554 01d8fc05 b189a17f 74839a49 d7dc4e7b 8a486f8b
+45f6
+/end
+banner login
+* File name:       rmdm
+* Lab name:        rmd-2
+/end
+no banner motd
+banner mode historic
+shelfname "ARRIS RMD-2"
+snmp-server contact "tac.helpdesk@commscope.com"
+snmp-server location "Cfg-Rpd Cfg-Std File-router.cfg"
+snmp-server enable traps snmp
+snmp-server data snmp-agent max-read-ahead 0
+snmp-server data snmp-agent refresh-time 0
+operation mode adjrxpwrctl
+operation mode USIngressNoiseMitigation no
+operation mode enbudptcpfltr
+operation mode DSPeakTrafficRateTLV2516 no
+operation mode cpeNacksForceCmReset
+operation mode LBalDynUnbondUcast
+operation mode upDownTrapIfDescr no
+operation mode upstreamRngRspFreqLimit no
+operation mode mplsLdpPwMtu1504 no
+operation mode cmstatusoperational
+operation mode docsis20test no
+operation mode showCmFormatCV no
+operation mode USAmbiguityListReduction no
+operation mode downstreamOverride no
+operation mode suppress-dcd no
+operation mode dcamSparingScqamOfdmSync no
+operation mode allowZeroCmTxPwr no
+operation mode docsis10plus no
+operation mode virtualCm
+operation mode ofdmSparingCleanup no
+operation mode onlyRegOnRangedChans no
+operation mode ciscoBaccTlv no
+counts collection rate 120
+cable shared-secret c5f23611135f4f754cf0ab21dece8dcb3b0dfca5afb8c48a8d4a15d5d8448e1470b4ebebae42f41ae07c8faf05ba52723ce7b470ea4906ffa7e4912508d99404 hidden
+cable shared-secondary-secret 1246bee318a20194f484c5097db1d9d633993d995632a919a5b1dc9522fbec7476b15de2682441a31dae6bbe0b2f96495b698a7e29497eddb5bbaee4d7b40e61 hidden
+cable flap-list power-adjust threshold 30
+cable flap-list insertion-time 180
+cable host authorization off
+cable modem energy-mgmt battery-mode1x1 no
+cable privacy aes-128 no
+ipv6 mld query-robustness-variable no
+cable global annex b
+cable global cm-cfg-reg-req-time 30
+cable global cm-init-dsx-bonding no
+cable global cm-status-ack no
+cable global max-qos-active-timeout 0
+cable global max-qos-admitted-timeout 200
+cable global max-traf-burst-docsis11 128000
+cable global peak-tr-rate-upstream no
+cable global percentAddtlDSBandwidth 1
+cable global delayed-cpe-learning-bpi
+cable global mtcm-conditional-override no
+cable global max-ucd-burst-len 16128
+cable global allow-cmsg-ambig-override no
+cable global modify-primary-DS-RCC
+cable global Tcc-Refid-in-first-only no
+cable global unicast-np-us-acquisition no
+cable global mac-move-allowed-on-dhcp no
+cable global default-max-l2pdu-length no
+cable global load-interval 0
+cable global unicast-polling pri 0 slow-intvl 0 fast-intvl 0 fast-period 0
+cable global unicast-polling pri 1 slow-intvl 0 fast-intvl 0 fast-period 0
+cable global unicast-polling pri 2 slow-intvl 0 fast-intvl 0 fast-period 0
+cable global unicast-polling pri 3 slow-intvl 0 fast-intvl 0 fast-period 0
+cable global unicast-polling pri 4 slow-intvl 125 fast-intvl 25 fast-period 500
+cable global unicast-polling pri 5 slow-intvl 100 fast-intvl 20 fast-period 500
+cable global unicast-polling pri 6 slow-intvl 75 fast-intvl 15 fast-period 500
+cable global unicast-polling pri 7 slow-intvl 50 fast-intvl 10 fast-period 500
+cable global freq-us-max 42
+cable global RtpsPiggybackEnable no
+cable global ranging-timing-offset 0
+cable global recover-US-impaired-ack
+cable global dsa-rsp-sid-tlv-override no
+ofdm global iuc-short-term-threshold 4
+ofdm global iuc13-impair-enable
+cable global freq-ds-max 999
+cable global freq-ds-min 91
+cable global ds-tos-overwrite before-submgmt-filter
+cable global ds-random-detect 2000 2500 10000
+cable global ds-token-bucket no
+cable global additional-ds-sc-qams no
+cable global us-dmac-check-disable no
+lldp disable
+cable proxy-tftp no
+operation overload-control sensitivity 2
+operation overload-control threshold 2
+cable load-balance macdomain-check 300
+cable load-balance downstream-start-threshold 1
+cable load-balance upstream-start-threshold 1
+cable load-balance utilization-modems-to-check 10
+cable load-balance failed-list timeout 0
+cable load-balance failed-list exclude-count 1
+cable load-balance general-group-defaults init-technique disable
+cable load-balance general-group-defaults policy no
+cable load-balance general-group-defaults enable
+cable load-balance rcs-load-balance enable
+cable load-balance tcs-load-balance disable
+cable load-balance rcs-move-ds-primary enable
+cable load-balance tcs-move-us-primary disable
+cable load-balance dbc-move-us-primary disable
+cable load-balance dbc-move-ds-primary disable
+cable load-balance enable
+aging idle-mac 1800
+aging stale-mac 604800
+arp gratuitous-interval 0
+arp timeout 1200
+arp state searching rate-limit 333
+arp state searching max-number 3
+arp state not-present rate-limit 333
+arp state not-present max-number 3
+arp state not-present max-time 3
+arp state not-present min-time 1
+arp state searching global-max-rate 65535
+arp state not-present global-max-rate 65535
+arp state searching cable unicast 0
+arp state searching cable broadcast
+snmp-server
+ip domain-lookup
+logging host 172.19.5.10 facility local0
+logging host 172.19.5.4 facility local0
+logging throttle threshold 0
+logging throttle interval 1
+no logging throttle
+no logging trap init-reg-req-fail
+no logging trap init-reg-rsp-fail
+no logging trap init-reg-ack-fail
+no logging trap dyn-serv-req-fail
+no logging trap dyn-serv-rsp-fail
+no logging trap dyn-serv-ack-fail
+no logging trap bpi-init
+no logging trap bpkm
+no logging trap dyn-sa
+no logging trap dcc-req-fail
+no logging trap dcc-rsp-fail
+no logging trap dcc-ack-fail
+no logging trap em-mode-enter
+no logging trap em-mode-exit
+logging local-volatile 1
+logging local-non-volatile 1 no
+logging snmp 1
+logging syslog 1
+logging local-volatile 2
+logging local-non-volatile 2 no
+logging snmp 2
+logging syslog 2
+logging local-volatile 3
+logging local-non-volatile 3 no
+logging snmp 3
+logging syslog 3
+logging local-volatile 4
+logging local-non-volatile 4 no
+logging snmp 4
+logging syslog 4
+logging local-volatile 5
+logging local-non-volatile 5 no
+logging snmp 5
+logging syslog 5
+logging local-volatile 6
+logging local-non-volatile 6 no
+logging snmp 6
+logging syslog 6
+logging local-volatile 7
+logging local-non-volatile 7 no
+logging snmp 7
+logging syslog 7
+logging local-volatile 8
+logging local-non-volatile 8 no
+logging snmp 8 no
+logging syslog 8
+no logging local-non-volatile
+no logging console
+logging priority cli 0 7
+logging priority cli 1 7
+logging priority cli 2 7
+logging priority cli 3 7
+logging priority cli 4 7
+logging priority cli 5 6
+logging priority cli 6 6
+logging priority cli 7 6
+logging priority cli 8 6
+logging priority cli 9 6
+logging priority cli 10 6
+logging priority cli 11 6
+logging priority cli 12 6
+logging priority cli 13 6
+logging priority cli 14 6
+logging priority cli 15 6
+no logging override event 66030102
+no logging override event 66030103
+no logging override event 66030104
+no logging override event 66030108
+no logging override event 66030109
+no logging override event 66030202
+no logging override event 66030203
+no logging override event 66030205
+no logging override event 66030206
+no logging override event 66030207
+no logging override event 66030300
+no logging override event 66050102
+no logging override event 66050103
+no logging override event 66050203
+no logging override event 66050206
+no logging override event 66060600
+no logging override event 66060700
+no logging override event 82010100
+no logging override event 82010200
+no logging override event 2473082638
+no logging override event 2473082639
+no logging override event 2473082648
+no logging override event 2473082649
+logging proprietary
+logging enhanced-syslog-msg no
+logging history size 2000
+logging local-volatile size 10
+cable enable-trap cmonoff-notification no
+cable enable-trap cminit-ranging-notification no
+cable enable-trap cminit-ip-notification no
+cable enable-trap cminit-reg-notification no
+cable enable-trap cmflap-notification no
+no enable privilege 1
+no enable privilege 2
+no enable privilege 3
+no enable privilege 4
+no enable privilege 5
+no enable privilege 6
+no enable privilege 7
+no enable privilege 8
+no enable privilege 9
+no enable privilege 10
+no enable privilege 11
+no enable privilege 12
+no enable privilege 13
+no enable privilege 14
+enable encrypted-password 8da6e4c4bf9eb64a8a7a3ca83c495029 privilege 15
+username "c4" privilege 1 salted-password 3f8df1521eb17c8d1491fee142d0534988832d53050931c8311dfe6dc3f4083f7e6c8e2d9bd88125709f2ff5f223c19b10faa942698dc5c584f1cac26fe5c9deee381185b6ab4037670d4b21d707a8f41753307bf07f6131e7270be2453ebc08df9cf2e0463498ba909c333774dad062
+username "e6" privilege 1 salted-password 207a803555ec6c950e6e6e07c0add2995f9ae92c2c9be6ee3f84665f8993c9f6f55473b9f91991674dce2bdacfd75c356ffc0e01e320ef337eeefe7626c61fbbec044734027ebd490b51bce13ef694eb874b5ab4b5a09e02315a9bb5220c8fe76eb75268c059b63da446d1d31d4f2f91
+username "jimt" privilege 1 salted-password 100de47250d445abdc2d7bb011167c5b32f2cdc2397f588c94a373ae769dca80cac84ce1172e73f0479bae0417505c30fdd2dfdc1889d7c6ba3ea602c1d1e9d68b7323d830a0a5db0995cdb38fff0712f6c8e11ef564a79ec41a7d071e9d233553aba9bf5f876163745d53995bd92922
+username "Sully" privilege 1 salted-password 36a1adee9fc6393a37f8a9856903f7b5bd7f36091e59aa91cb8ea854893b8b6668f6a21aac96e0065796b52e89f38c9221b112905bd6f6956534e97f6fc143318566b16de207f3a7345ffc5e22dc469c851ac3a729f8f63db74294463b42eaae87cfbbc1b818bd4baf6a355b5f927a3e
+username "admin" privilege 15 salted-password 95ea6e2f51495f530c5f6155a9728dd0681f21f0ff4539dc4314b38de2eaa8172b91160686294f1f288ae6e9f0ce3ba5062c03c4d4ee2e56bd6a7137a330dfdf024c5d52207d9597d5ef8fa5d55f34a5e49d80ddb78c5a77fc9f7d6efac33e4de1c28c1a58c66ce4c57fb63111f754d8
+username "sully" privilege 1 salted-password ec8ff14c3a899af1f561022b50a776ccbb835689807f2fc9f0eb123c1ccd8103f421eb514c7cde8bf63ba5701c88ff904c357191301fbf5d4f71dd4c139dc3b7129e56214f1e9613862c78f62808966578f9287e7f527eec4bac6ad9bc9f0e349542638c2ef500182b5466cf253e4cff
+username "SullyFred" privilege 1 salted-password 7c3ef9dde21c4a9ee97b76aec08255eed9309a91d42b5bcb4fc455faaf26d696fc8cd37157e57916ef3cd668e3ab09d0363ab433cba4a34a5a1d7cf2503fccc07081cff9fba87003de7aa3a30651245b6852064ca6f397081bd7719f37940e63cbaa285b86ddd70f80ef4b1d580b1b4f
+username "MikeRviaRPD" privilege 1 salted-password a871dacc8d48da99e39b133b2a3b683875da46349bde96a32c1014fd94bde338ee6c517d3177781d7fe0946b4e467cb580ebeab1ebc96de6b0f0e1adf9497cdcf093795b59c167fa703e3858f596b116a66cedca684e95ae2c5f98085f7c2fe180976b64e269ae1e7609c26ab17651c3
+cable submgmt default filter-group cm downstream no
+cable submgmt default filter-group cm upstream no
+cable submgmt default filter-group host downstream no
+cable submgmt default filter-group host upstream no
+ip fqdn-cache enable no
+ip fqdn-cache poll-interval 1800
+cable admission-control multicast enable no
+cable admission-control multicast allowed 20
+cable modem vendor 00.01.02 "3Com"
+cable modem vendor 00.01.03 "3Com"
+cable modem vendor 00.04.75 "3Com"
+cable modem vendor 00.10.4b "3Com"
+cable modem vendor 00.20.af "3Com"
+cable modem vendor 00.50.04 "3Com"
+cable modem vendor 00.50.da "3Com"
+cable modem vendor 00.60.08 "3Com"
+cable modem vendor 00.a0.24 "3Com"
+cable modem vendor 02.60.8c "3Com"
+cable modem vendor 00.02.8a "Ambit"
+cable modem vendor 00.0e.9b "Ambit"
+cable modem vendor 00.14.a4 "Ambit"
+cable modem vendor 00.16.ce "Ambit"
+cable modem vendor 00.16.cf "Ambit"
+cable modem vendor 00.19.7d "Ambit"
+cable modem vendor 00.19.7e "Ambit"
+cable modem vendor 00.1c.26 "Ambit"
+cable modem vendor 00.1d.d9 "Ambit"
+cable modem vendor 00.1e.4c "Ambit"
+cable modem vendor 00.1f.3a "Ambit"
+cable modem vendor 00.1f.e1 "Ambit"
+cable modem vendor 00.1f.e2 "Ambit"
+cable modem vendor 00.22.68 "Ambit"
+cable modem vendor 00.22.69 "Ambit"
+cable modem vendor 00.23.4d "Ambit"
+cable modem vendor 00.23.4e "Ambit"
+cable modem vendor 00.24.2b "Ambit"
+cable modem vendor 00.25.56 "Ambit"
+cable modem vendor 00.d0.59 "Ambit"
+cable modem vendor 00.00.ca "Arris"
+cable modem vendor 00.06.0d "Arris"
+cable modem vendor 00.06.7f "Arris"
+cable modem vendor 00.13.11 "Arris"
+cable modem vendor 00.15.96 "Arris"
+cable modem vendor 00.15.a2 "Arris"
+cable modem vendor 00.15.a3 "Arris"
+cable modem vendor 00.15.a4 "Arris"
+cable modem vendor 00.15.ce "Arris"
+cable modem vendor 00.15.cf "Arris"
+cable modem vendor 00.15.d0 "Arris"
+cable modem vendor 00.15.d1 "Arris"
+cable modem vendor 00.1d.cd "Arris"
+cable modem vendor 00.1d.ce "Arris"
+cable modem vendor 00.1d.cf "Arris"
+cable modem vendor 00.1d.d0 "Arris"
+cable modem vendor 00.1d.d1 "Arris"
+cable modem vendor 00.1d.d2 "Arris"
+cable modem vendor 00.1d.d3 "Arris"
+cable modem vendor 00.1d.d4 "Arris"
+cable modem vendor 00.1d.d5 "Arris"
+cable modem vendor 00.1d.d6 "Arris"
+cable modem vendor 00.36.76 "Arris"
+cable modem vendor 00.ac.e0 "Arris"
+cable modem vendor 08.3e.0c "Arris"
+cable modem vendor 0c.f8.93 "Arris"
+cable modem vendor 10.05.b1 "Arris"
+cable modem vendor 10.56.11 "Arris"
+cable modem vendor 14.ab.f0 "Arris"
+cable modem vendor 14.cf.e2 "Arris"
+cable modem vendor 20.3d.66 "Arris"
+cable modem vendor 20.73.55 "Arris"
+cable modem vendor 20.f1.9e "Arris"
+cable modem vendor 2c.7e.81 "Arris"
+cable modem vendor 34.7a.60 "Arris"
+cable modem vendor 38.4c.90 "Arris"
+cable modem vendor 3c.df.a9 "Arris"
+cable modem vendor 40.70.09 "Arris"
+cable modem vendor 44.aa.f5 "Arris"
+cable modem vendor 50.95.51 "Arris"
+cable modem vendor 5c.57.1a "Arris"
+cable modem vendor 5c.8f.e0 "Arris"
+cable modem vendor 5c.b0.66 "Arris"
+cable modem vendor 5c.e3.0e "Arris"
+cable modem vendor 64.12.69 "Arris"
+cable modem vendor 78.23.ae "Arris"
+cable modem vendor 78.6a.1f "Arris"
+cable modem vendor 8c.09.f4 "Arris"
+cable modem vendor 8c.61.a3 "Arris"
+cable modem vendor 8c.7f.3b "Arris"
+cable modem vendor 90.0d.cb "Arris"
+cable modem vendor 90.1a.ca "Arris"
+cable modem vendor 90.9d.7d "Arris"
+cable modem vendor 90.c7.92 "Arris"
+cable modem vendor 94.62.69 "Arris"
+cable modem vendor 94.87.7c "Arris"
+cable modem vendor 98.6b.3d "Arris"
+cable modem vendor a8.70.5d "Arris"
+cable modem vendor a8.9f.ec "Arris"
+cable modem vendor ac.b3.13 "Arris"
+cable modem vendor ac.db.48 "Arris"
+cable modem vendor ac.ec.80 "Arris"
+cable modem vendor b0.da.f9 "Arris"
+cable modem vendor bc.2e.48 "Arris"
+cable modem vendor bc.5b.d5 "Arris"
+cable modem vendor bc.ca.b5 "Arris"
+cable modem vendor c8.63.fc "Arris"
+cable modem vendor cc.a4.62 "Arris"
+cable modem vendor d0.39.b3 "Arris"
+cable modem vendor d4.04.cd "Arris"
+cable modem vendor d4.05.98 "Arris"
+cable modem vendor d4.3f.cb "Arris"
+cable modem vendor e8.3e.fc "Arris"
+cable modem vendor e8.89.2c "Arris"
+cable modem vendor e8.ed.05 "Arris"
+cable modem vendor f8.a0.97 "Arris"
+cable modem vendor f8.ed.a5 "Arris"
+cable modem vendor 00.11.f5 "Askey"
+cable modem vendor 00.90.96 "Askey"
+cable modem vendor 00.11.2f "ASUSTek"
+cable modem vendor 00.11.d8 "ASUSTek"
+cable modem vendor 00.13.d4 "ASUSTek"
+cable modem vendor 00.15.f2 "ASUSTek"
+cable modem vendor 00.1a.92 "ASUSTek"
+cable modem vendor 00.1d.60 "ASUSTek"
+cable modem vendor 00.1e.8c "ASUSTek"
+cable modem vendor 00.e0.18 "ASUSTek"
+cable modem vendor 00.50.57 "BAS"
+cable modem vendor 00.e0.ca "BestData"
+cable modem vendor 00.10.18 "Broadcom"
+cable modem vendor 00.01.5c "Cadant"
+cable modem vendor 00.1c.7b "Castlenet"
+cable modem vendor 00.30.54 "Castlenet"
+cable modem vendor fc.4a.e9 "Castlenet"
+cable modem vendor 00.01.42 "Cisco"
+cable modem vendor 00.01.64 "Cisco"
+cable modem vendor 00.02.fd "Cisco"
+cable modem vendor 00.03.6b "Cisco"
+cable modem vendor 00.03.e3 "Cisco"
+cable modem vendor 00.07.0e "Cisco"
+cable modem vendor 00.12.17 "Cisco"
+cable modem vendor 00.16.b6 "Cisco"
+cable modem vendor 00.18.19 "Cisco"
+cable modem vendor 00.18.39 "Cisco"
+cable modem vendor 00.18.f8 "Cisco"
+cable modem vendor 00.1a.70 "Cisco"
+cable modem vendor 00.1a.c3 "Cisco"
+cable modem vendor 00.1c.10 "Cisco"
+cable modem vendor 00.1c.ea "Cisco"
+cable modem vendor 00.1e.e5 "Cisco"
+cable modem vendor 00.22.6b "Cisco"
+cable modem vendor 00.22.ce "Cisco"
+cable modem vendor 00.23.be "Cisco"
+cable modem vendor 00.25.2e "Cisco"
+cable modem vendor 00.30.80 "Cisco"
+cable modem vendor 00.b0.64 "Cisco"
+cable modem vendor 00.d0.58 "Cisco"
+cable modem vendor 18.59.33 "Cisco"
+cable modem vendor 24.76.7d "Cisco"
+cable modem vendor 38.c8.5c "Cisco"
+cable modem vendor 44.58.29 "Cisco"
+cable modem vendor 48.44.87 "Cisco"
+cable modem vendor 54.d4.6f "Cisco"
+cable modem vendor 60.2a.d0 "Cisco"
+cable modem vendor 7c.b2.1b "Cisco"
+cable modem vendor a4.a2.4a "Cisco"
+cable modem vendor bc.c8.10 "Cisco"
+cable modem vendor 00.a0.73 "Com21"
+cable modem vendor dc.53.7c "Compal"
+cable modem vendor 00.30.cd "Conexant"
+cable modem vendor 00.01.cb "Coresma"
+cable modem vendor 00.0e.09 "COSHIP"
+cable modem vendor 00.0d.88 "D-Link"
+cable modem vendor 00.0f.3d "D-Link"
+cable modem vendor 00.11.95 "D-Link"
+cable modem vendor 00.15.e9 "D-Link"
+cable modem vendor 00.17.9a "D-Link"
+cable modem vendor 00.19.5b "D-Link"
+cable modem vendor 00.22.b0 "D-Link"
+cable modem vendor 00.80.c8 "D-Link"
+cable modem vendor 1c.af.f7 "D-Link"
+cable modem vendor 5c.d9.98 "D-Link"
+cable modem vendor 00.07.6c "Daehanet"
+cable modem vendor 00.04.62 "DAKOS"
+cable modem vendor 00.0e.8f "Dongyang"
+cable modem vendor 00.0b.c9 "Electroline"
+cable modem vendor 00.a0.57 "Elsa"
+cable modem vendor 00.07.79 "Epi"
+cable modem vendor 00.01.ec "Ericsson"
+cable modem vendor 00.80.37 "Ericsson"
+cable modem vendor 00.30.c8 "GADline"
+cable modem vendor 00.c0.b1 "GeniusNet"
+cable modem vendor 00.05.ca "Hitron"
+cable modem vendor 00.26.5b "Hitron"
+cable modem vendor 0c.47.3d "Hitron"
+cable modem vendor 78.8d.f7 "Hitron"
+cable modem vendor bc.14.01 "Hitron"
+cable modem vendor 00.03.78 "Humax"
+cable modem vendor 08.eb.74 "Humax"
+cable modem vendor 00.03.58 "iCable_System"
+cable modem vendor 00.02.fe "Infinite"
+cable modem vendor 00.02.b3 "Intel"
+cable modem vendor 00.07.e9 "Intel"
+cable modem vendor 00.07.11 "JDSU"
+cable modem vendor 00.50.d4 "Joohong"
+cable modem vendor 00.90.d1 "Leichu"
+cable modem vendor 00.e0.91 "LG"
+cable modem vendor 00.06.25 "Linksys"
+cable modem vendor 00.0c.41 "Linksys"
+cable modem vendor 00.0f.66 "Linksys"
+cable modem vendor 00.13.10 "Linksys"
+cable modem vendor 00.14.bf "Linksys"
+cable modem vendor 00.25.9c "Linksys"
+cable modem vendor 68.7f.74 "Linksys"
+cable modem vendor 00.50.c9 "Maspro"
+cable modem vendor 00.0b.97 "Matsushita"
+cable modem vendor 00.1b.d3 "Matsushita"
+cable modem vendor 00.80.45 "Matsushita"
+cable modem vendor 00.c0.77 "Mercury"
+cable modem vendor 00.04.bd "Motorola"
+cable modem vendor 00.08.0e "Motorola"
+cable modem vendor 00.0b.06 "Motorola"
+cable modem vendor 00.0c.e5 "Motorola"
+cable modem vendor 00.0e.5c "Motorola"
+cable modem vendor 00.0f.9f "Motorola"
+cable modem vendor 00.11.1a "Motorola"
+cable modem vendor 00.11.80 "Motorola"
+cable modem vendor 00.11.ae "Motorola"
+cable modem vendor 00.12.25 "Motorola"
+cable modem vendor 00.12.55 "Motorola"
+cable modem vendor 00.12.c9 "Motorola"
+cable modem vendor 00.13.71 "Motorola"
+cable modem vendor 00.14.04 "Motorola"
+cable modem vendor 00.14.e8 "Motorola"
+cable modem vendor 00.15.2f "Motorola"
+cable modem vendor 00.15.9a "Motorola"
+cable modem vendor 00.16.b5 "Motorola"
+cable modem vendor 00.17.ee "Motorola"
+cable modem vendor 00.18.c0 "Motorola"
+cable modem vendor 00.19.5e "Motorola"
+cable modem vendor 00.19.a6 "Motorola"
+cable modem vendor 00.1a.66 "Motorola"
+cable modem vendor 00.1a.ad "Motorola"
+cable modem vendor 00.1a.de "Motorola"
+cable modem vendor 00.1b.dd "Motorola"
+cable modem vendor 00.1c.11 "Motorola"
+cable modem vendor 00.1c.fb "Motorola"
+cable modem vendor 00.1e.46 "Motorola"
+cable modem vendor 00.1e.5a "Motorola"
+cable modem vendor 00.1f.c4 "Motorola"
+cable modem vendor 00.20.40 "Motorola"
+cable modem vendor 00.21.1e "Motorola"
+cable modem vendor 00.21.43 "Motorola"
+cable modem vendor 00.21.80 "Motorola"
+cable modem vendor 00.22.10 "Motorola"
+cable modem vendor 00.22.80 "Motorola"
+cable modem vendor 00.23.74 "Motorola"
+cable modem vendor 00.23.75 "Motorola"
+cable modem vendor 00.23.a2 "Motorola"
+cable modem vendor 00.23.a3 "Motorola"
+cable modem vendor 00.23.ed "Motorola"
+cable modem vendor 00.23.ee "Motorola"
+cable modem vendor 00.24.a0 "Motorola"
+cable modem vendor 00.24.a1 "Motorola"
+cable modem vendor 00.25.f1 "Motorola"
+cable modem vendor 00.25.f2 "Motorola"
+cable modem vendor 00.e0.0c "Motorola"
+cable modem vendor 08.00.3e "Motorola"
+cable modem vendor 14.5b.d1 "Motorola"
+cable modem vendor 1c.14.48 "Motorola"
+cable modem vendor 20.e5.64 "Motorola"
+cable modem vendor 2c.9e.5f "Motorola"
+cable modem vendor 38.6b.bb "Motorola"
+cable modem vendor 3c.36.e4 "Motorola"
+cable modem vendor 3c.75.4a "Motorola"
+cable modem vendor 6c.ca.08 "Motorola"
+cable modem vendor 70.7e.43 "Motorola"
+cable modem vendor 74.56.12 "Motorola"
+cable modem vendor 74.f6.12 "Motorola"
+cable modem vendor 7c.bf.b1 "Motorola"
+cable modem vendor 94.cc.b9 "Motorola"
+cable modem vendor a4.7a.a4 "Motorola"
+cable modem vendor b0.77.ac "Motorola"
+cable modem vendor cc.7d.37 "Motorola"
+cable modem vendor dc.45.17 "Motorola"
+cable modem vendor e4.83.99 "Motorola"
+cable modem vendor e8.6d.52 "Motorola"
+cable modem vendor 00.15.09 "MPlus"
+cable modem vendor 00.14.79 "NEC"
+cable modem vendor 00.09.5b "Netgear"
+cable modem vendor 00.0f.b5 "Netgear"
+cable modem vendor 00.14.6c "Netgear"
+cable modem vendor 00.18.4d "Netgear"
+cable modem vendor 00.1b.2f "Netgear"
+cable modem vendor 00.1e.2a "Netgear"
+cable modem vendor 00.1f.33 "Netgear"
+cable modem vendor 00.22.3f "Netgear"
+cable modem vendor 00.24.b2 "Netgear"
+cable modem vendor 00.8e.f2 "Netgear"
+cable modem vendor 10.0d.7f "Netgear"
+cable modem vendor 28.c6.8e "Netgear"
+cable modem vendor 2c.b0.5d "Netgear"
+cable modem vendor 84.1b.5e "Netgear"
+cable modem vendor 9c.d3.6d "Netgear"
+cable modem vendor e0.46.9a "Netgear"
+cable modem vendor 00.02.00 "Netwave"
+cable modem vendor 00.0c.3d "Netwave"
+cable modem vendor 00.01.81 "Nortel"
+cable modem vendor 00.02.5f "Nortel"
+cable modem vendor 00.10.45 "Nortel"
+cable modem vendor 00.20.1b "Nortel"
+cable modem vendor 00.60.38 "Nortel"
+cable modem vendor 00.90.8e "Nortel"
+cable modem vendor 00.90.cf "Nortel"
+cable modem vendor 00.05.8c "Opentech"
+cable modem vendor 00.1c.c3 "Pace"
+cable modem vendor 00.50.94 "Pace"
+cable modem vendor b4.f2.e8 "Pace"
+cable modem vendor e0.b7.b1 "Pace"
+cable modem vendor 00.03.04 "Pacific"
+cable modem vendor 00.0f.12 "Panasonic"
+cable modem vendor 00.20.d9 "Panasonic"
+cable modem vendor 00.80.f0 "Panasonic"
+cable modem vendor 00.d0.60 "Panasonic"
+cable modem vendor 08.00.23 "Panasonic"
+cable modem vendor 00.90.3e "Philips"
+cable modem vendor 00.e0.36 "Pioneer"
+cable modem vendor 00.0e.90 "Ponico"
+cable modem vendor 00.30.3b "PowerCom"
+cable modem vendor 00.50.ba "PowerCom"
+cable modem vendor 00.08.8c "QNS"
+cable modem vendor 00.10.95 "RCA/Thomson"
+cable modem vendor 00.11.e3 "RCA/Thomson"
+cable modem vendor 00.18.9b "RCA/Thomson"
+cable modem vendor 00.1e.69 "RCA/Thomson"
+cable modem vendor 00.24.d1 "RCA/Thomson"
+cable modem vendor 00.26.24 "RCA/Thomson"
+cable modem vendor 00.90.64 "RCA/Thomson"
+cable modem vendor 80.c6.ab "RCA/Thomson"
+cable modem vendor 00.30.b8 "RiverDelta"
+cable modem vendor 00.01.a6 "SA"
+cable modem vendor 00.0a.73 "SA"
+cable modem vendor 00.0f.21 "SA"
+cable modem vendor 00.11.e6 "SA"
+cable modem vendor 00.14.f8 "SA"
+cable modem vendor 00.16.92 "SA"
+cable modem vendor 00.17.47 "SA"
+cable modem vendor 00.18.68 "SA"
+cable modem vendor 00.19.47 "SA"
+cable modem vendor 00.1b.d7 "SA"
+cable modem vendor 00.1e.6b "SA"
+cable modem vendor 00.22.3a "SA"
+cable modem vendor 00.40.7b "SA"
+cable modem vendor 00.01.b6 "Saejin"
+cable modem vendor 00.30.41 "Saejin"
+cable modem vendor 00.21.63 "Sagem"
+cable modem vendor 28.9e.fc "Sagem"
+cable modem vendor 00.00.f0 "Samsung"
+cable modem vendor 00.16.32 "Samsung"
+cable modem vendor 3c.62.00 "Samsung"
+cable modem vendor ec.e0.9b "Samsung"
+cable modem vendor 00.04.e2 "SMC"
+cable modem vendor 00.13.f7 "SMC"
+cable modem vendor 00.22.2d "SMC"
+cable modem vendor 00.26.f3 "SMC"
+cable modem vendor 00.30.f1 "SMC"
+cable modem vendor 78.cd.8e "SMC"
+cable modem vendor b8.9b.c9 "SMC"
+cable modem vendor c4.39.3a "SMC"
+cable modem vendor 00.d0.dd "Sunrise"
+cable modem vendor 00.01.57 "Syswave"
+cable modem vendor 08.95.2a "Technicolor"
+cable modem vendor 28.be.9b "Technicolor"
+cable modem vendor 8c.04.ff "Technicolor"
+cable modem vendor b0.c2.87 "Technicolor"
+cable modem vendor e0.88.5d "Technicolor"
+cable modem vendor fc.52.8d "Technicolor"
+cable modem vendor fc.94.e3 "Technicolor"
+cable modem vendor 00.d0.5c "Technotrend"
+cable modem vendor 00.0a.06 "Teledex"
+cable modem vendor 00.11.04 "Telexy"
+cable modem vendor 00.30.d0 "Tellabs"
+cable modem vendor 00.e0.a6 "Telogy"
+cable modem vendor 00.e0.6f "Terayon"
+cable modem vendor 00.50.f1 "TI"
+cable modem vendor 08.00.28 "TI"
+cable modem vendor 00.10.3f "Tollgrade"
+cable modem vendor 00.00.39 "Toshiba"
+cable modem vendor 00.08.0d "Toshiba"
+cable modem vendor 00.90.83 "Toshiba"
+cable modem vendor 00.30.3f "TurboComm"
+cable modem vendor 00.30.eb "TurboComm"
+cable modem vendor 00.e2.80 "TurboComm"
+cable modem vendor 0c.60.76 "Ubee"
+cable modem vendor 5c.ac.4c "Ubee"
+cable modem vendor 78.e4.00 "Ubee"
+cable modem vendor 90.4c.e5 "Ubee"
+cable modem vendor 90.6e.bb "Ubee"
+cable modem vendor c0.14.3d "Ubee"
+cable modem vendor c0.cb.38 "Ubee"
+cable modem vendor c4.17.fe "Ubee"
+cable modem vendor c4.46.19 "Ubee"
+cable modem vendor f0.7b.cb "Ubee"
+cable modem vendor 00.c0.49 "USRobotics"
+cable modem vendor 00.07.3f "Woojyun"
+cable modem vendor 00.0b.b6 "Zoom"
+cable modem vendor 00.22.15 "Zoom"
+cable modem vendor 00.40.36 "Zoom"
+cable modem vendor 00.50.bf "Zoom"
+cable modem vendor 00.02.cf "ZyXel"
+cable modem vendor 00.13.49 "ZyXel"
+cable modem vendor 00.19.cb "ZyXel"
+cable modem vendor 00.40.01 "ZyXel"
+cable modem vendor 00.a0.c5 "ZyXel"
+cable submgmt default max-cpe 16
+cable submgmt default v6-max-cpe 16
+cable submgmt default active no
+cable submgmt default learnable
+qos-sc name dsg priority 1 max-tr-rate 0 max-tr-burst 3044 min-res-rate 0 min-res-pkt 0 max-burst 1522
+qos-sc name dsg poll-int 0 poll-jitter 0 grant-size 0 grant-int 0 grant-jitter 0 grants-per-int 0
+qos-sc name dsg active-tmout 0 adm-tmout 200 type 2 req-policy 0x00000000 and-mask 0x00 or-mask 0x70
+qos-sc name dsg dir 2 required-attr-mask-value 0x00000000 forbidden-attr-mask-value 0x00000000
+qos-sc name dsg attr-aggr-rule-mask-value 0x00000000 peak-tr-rate 0
+qos-sc name hsd priority 1 max-tr-rate 0 max-tr-burst 3044 min-res-rate 0 min-res-pkt 0 max-burst 1522
+qos-sc name hsd poll-int 0 poll-jitter 0 grant-size 0 grant-int 0 grant-jitter 0 grants-per-int 0
+qos-sc name hsd active-tmout 0 adm-tmout 200 type 2 req-policy 0x00000000 and-mask 0xff or-mask 0x20
+qos-sc name hsd dir 2 required-attr-mask-value 0x00000000 forbidden-attr-mask-value 0x00000000
+qos-sc name hsd attr-aggr-rule-mask-value 0x00000000 peak-tr-rate 0
+qos-sc name SCNA priority 0 max-tr-rate 500000 max-tr-burst 1522 min-res-rate 0 min-res-pkt 0
+qos-sc name SCNA max-burst 0 poll-int 0 poll-jitter 0 grant-size 0 grant-int 0 grant-jitter 0
+qos-sc name SCNA grants-per-int 0 active-tmout 0 adm-tmout 200 type 2 req-policy 0x00000000
+qos-sc name SCNA and-mask 0xff or-mask 0x00 dir 2 required-attr-mask-value 0x00000000 forbidden-attr-mask-value 0x00000000
+qos-sc name SCNA attr-aggr-rule-mask-value 0x00000000 peak-tr-rate 0
+qos-sc name SCNB priority 0 max-tr-rate 500000 max-tr-burst 1522 min-res-rate 0 min-res-pkt 0
+qos-sc name SCNB max-burst 0 poll-int 0 poll-jitter 0 grant-size 0 grant-int 0 grant-jitter 0
+qos-sc name SCNB grants-per-int 0 active-tmout 0 adm-tmout 200 type 2 req-policy 0x00000000
+qos-sc name SCNB and-mask 0xff or-mask 0x00 dir 2 required-attr-mask-value 0x00000000 forbidden-attr-mask-value 0x00000000
+qos-sc name SCNB attr-aggr-rule-mask-value 0x00000000 peak-tr-rate 0
+qos-sc name SCNC priority 0 max-tr-rate 5000000 max-tr-burst 1522 min-res-rate 0 min-res-pkt 0
+qos-sc name SCNC max-burst 0 poll-int 0 poll-jitter 0 grant-size 0 grant-int 0 grant-jitter 0
+qos-sc name SCNC grants-per-int 0 active-tmout 0 adm-tmout 200 type 1 req-policy 0x00000000
+qos-sc name SCNC and-mask 0xff or-mask 0x00 dir 1 required-attr-mask-value 0x00000000 forbidden-attr-mask-value 0x00000000
+qos-sc name SCNC attr-aggr-rule-mask-value 0x00000000 peak-tr-rate 0
+qos-sc name SCND priority 0 max-tr-rate 5000000 max-tr-burst 1522 min-res-rate 0 min-res-pkt 0
+qos-sc name SCND max-burst 0 poll-int 0 poll-jitter 0 grant-size 0 grant-int 0 grant-jitter 0
+qos-sc name SCND grants-per-int 0 active-tmout 0 adm-tmout 200 type 2 req-policy 0x00000000
+qos-sc name SCND and-mask 0xff or-mask 0x00 dir 2 required-attr-mask-value 0x00000000 forbidden-attr-mask-value 0x00000000
+qos-sc name SCND attr-aggr-rule-mask-value 0x00000000 peak-tr-rate 0
+qos-sc name dsa_a priority 2 max-tr-rate 100000 max-tr-burst 1522 min-res-rate 50000 min-res-pkt 64
+qos-sc name dsa_a max-burst 1245 poll-int 0 poll-jitter 0 grant-size 0 grant-int 0 grant-jitter 0
+qos-sc name dsa_a grants-per-int 0 active-tmout 352 adm-tmout 248 type 2 req-policy 0x00000000
+qos-sc name dsa_a and-mask 0xf0 or-mask 0x20 dir 2 required-attr-mask-value 0x00000000 forbidden-attr-mask-value 0x00000000
+qos-sc name dsa_a attr-aggr-rule-mask-value 0x00000000 peak-tr-rate 0
+qos-sc name dsa_b priority 2 max-tr-rate 50000 max-tr-burst 1522 min-res-rate 25000 min-res-pkt 64
+qos-sc name dsa_b max-burst 1245 poll-int 0 poll-jitter 0 grant-size 0 grant-int 0 grant-jitter 0
+qos-sc name dsa_b grants-per-int 0 active-tmout 205 adm-tmout 122 type 2 req-policy 0x00000000
+qos-sc name dsa_b and-mask 0xf0 or-mask 0x20 dir 2 required-attr-mask-value 0x00000000 forbidden-attr-mask-value 0x00000000
+qos-sc name dsa_b attr-aggr-rule-mask-value 0x00000000 peak-tr-rate 0
+qos-sc name Mgmt-DS priority 7 max-tr-rate 100000 max-tr-burst 3044 min-res-rate 0 min-res-pkt 0
+qos-sc name Mgmt-DS max-burst 1522 poll-int 0 poll-jitter 0 grant-size 0 grant-int 0 grant-jitter 0
+qos-sc name Mgmt-DS grants-per-int 0 active-tmout 0 adm-tmout 200 type 2 req-policy 0x00000000
+qos-sc name Mgmt-DS and-mask 0xff or-mask 0x00 dir 1 required-attr-mask-value 0x00000000 forbidden-attr-mask-value 0x00000000
+qos-sc name Mgmt-DS attr-aggr-rule-mask-value 0x00000000 peak-tr-rate 0
+qos-sc name Mgmt-US priority 7 max-tr-rate 100000 max-tr-burst 3044 min-res-rate 0 min-res-pkt 0
+qos-sc name Mgmt-US max-burst 1522 poll-int 0 poll-jitter 0 grant-size 0 grant-int 0 grant-jitter 0
+qos-sc name Mgmt-US grants-per-int 0 active-tmout 0 adm-tmout 200 type 2 req-policy 0x00000000
+qos-sc name Mgmt-US and-mask 0xff or-mask 0x00 dir 2 required-attr-mask-value 0x00000000 forbidden-attr-mask-value 0x00000000
+qos-sc name Mgmt-US attr-aggr-rule-mask-value 0x00000000 peak-tr-rate 0
+qos-sc name mega_dn priority 1 max-tr-rate 2000000000 max-tr-burst 65536 min-res-rate 0 min-res-pkt 0
+qos-sc name mega_dn max-burst 1522 poll-int 0 poll-jitter 0 grant-size 0 grant-int 0 grant-jitter 0
+qos-sc name mega_dn grants-per-int 0 active-tmout 0 adm-tmout 200 type 2 req-policy 0x00000000
+qos-sc name mega_dn and-mask 0x00 or-mask 0x00 dir 1 required-attr-mask-value 0x00000000 forbidden-attr-mask-value 0x00000000
+qos-sc name mega_dn attr-aggr-rule-mask-value 0x00000000 peak-tr-rate 0
+qos-sc name mega_up priority 1 max-tr-rate 200000000 max-tr-burst 65535 min-res-rate 0 min-res-pkt 0
+qos-sc name mega_up max-burst 16384 poll-int 0 poll-jitter 0 grant-size 0 grant-int 0 grant-jitter 0
+qos-sc name mega_up grants-per-int 0 active-tmout 0 adm-tmout 200 type 2 req-policy 0x00000000
+qos-sc name mega_up and-mask 0x00 or-mask 0x00 dir 2 required-attr-mask-value 0x80000000 forbidden-attr-mask-value 0x00000000
+qos-sc name mega_up attr-aggr-rule-mask-value 0x00000000 peak-tr-rate 0
+qos-sc name xcal_dn priority 1 max-tr-rate 36000000 max-tr-burst 65536 min-res-rate 0 min-res-pkt 0
+qos-sc name xcal_dn max-burst 0 poll-int 0 poll-jitter 0 grant-size 0 grant-int 0 grant-jitter 0
+qos-sc name xcal_dn grants-per-int 0 active-tmout 0 adm-tmout 200 type 1 req-policy 0x00000000
+qos-sc name xcal_dn and-mask 0xff or-mask 0x00 dir 1 required-attr-mask-value 0x00000000 forbidden-attr-mask-value 0x00000000
+qos-sc name xcal_dn attr-aggr-rule-mask-value 0x00000000 peak-tr-rate 0
+qos-sc name xcal_up priority 1 max-tr-rate 3600000 max-tr-burst 50000 min-res-rate 0 min-res-pkt 0
+qos-sc name xcal_up max-burst 16384 poll-int 0 poll-jitter 0 grant-size 0 grant-int 0 grant-jitter 0
+qos-sc name xcal_up grants-per-int 0 active-tmout 0 adm-tmout 200 type 2 req-policy 0x00000000
+qos-sc name xcal_up and-mask 0x03 or-mask 0x70 dir 2 required-attr-mask-value 0x80000000 forbidden-attr-mask-value 0x00000000
+qos-sc name xcal_up attr-aggr-rule-mask-value 0x00000000 peak-tr-rate 0
+qos-sc name dsSTB001 priority 0 max-tr-rate 0 max-tr-burst 3044 min-res-rate 0 min-res-pkt 0
+qos-sc name dsSTB001 max-burst 1522 poll-int 0 poll-jitter 0 grant-size 0 grant-int 0 grant-jitter 0
+qos-sc name dsSTB001 grants-per-int 0 active-tmout 0 adm-tmout 200 type 2 req-policy 0x00000000
+qos-sc name dsSTB001 and-mask 0xff or-mask 0x00 dir 1 required-attr-mask-value 0x00000000 forbidden-attr-mask-value 0x00000000
+qos-sc name dsSTB001 attr-aggr-rule-mask-value 0x00000000 peak-tr-rate 0
+qos-sc name dsSTB002 priority 0 max-tr-rate 0 max-tr-burst 3044 min-res-rate 0 min-res-pkt 0
+qos-sc name dsSTB002 max-burst 1522 poll-int 0 poll-jitter 0 grant-size 0 grant-int 0 grant-jitter 0
+qos-sc name dsSTB002 grants-per-int 0 active-tmout 0 adm-tmout 200 type 2 req-policy 0x00000000
+qos-sc name dsSTB002 and-mask 0xff or-mask 0x00 dir 1 required-attr-mask-value 0x00000000 forbidden-attr-mask-value 0x00000000
+qos-sc name dsSTB002 attr-aggr-rule-mask-value 0x00000000 peak-tr-rate 0
+qos-sc name dsSTB003 priority 0 max-tr-rate 0 max-tr-burst 3044 min-res-rate 0 min-res-pkt 0
+qos-sc name dsSTB003 max-burst 1522 poll-int 0 poll-jitter 0 grant-size 0 grant-int 0 grant-jitter 0
+qos-sc name dsSTB003 grants-per-int 0 active-tmout 0 adm-tmout 200 type 2 req-policy 0x00000000
+qos-sc name dsSTB003 and-mask 0xff or-mask 0x00 dir 1 required-attr-mask-value 0x00000000 forbidden-attr-mask-value 0x00000000
+qos-sc name dsSTB003 attr-aggr-rule-mask-value 0x00000000 peak-tr-rate 0
+qos-sc name dsSTB101 priority 0 max-tr-rate 0 max-tr-burst 3044 min-res-rate 0 min-res-pkt 0
+qos-sc name dsSTB101 max-burst 1522 poll-int 0 poll-jitter 0 grant-size 0 grant-int 0 grant-jitter 0
+qos-sc name dsSTB101 grants-per-int 0 active-tmout 0 adm-tmout 200 type 2 req-policy 0x00000000
+qos-sc name dsSTB101 and-mask 0xff or-mask 0x00 dir 1 required-attr-mask-value 0x00000000 forbidden-attr-mask-value 0x00000000
+qos-sc name dsSTB101 attr-aggr-rule-mask-value 0x00000000 peak-tr-rate 0
+qos-sc name extrm_dn priority 1 max-tr-rate 126000000 max-tr-burst 65536 min-res-rate 0 min-res-pkt 0
+qos-sc name extrm_dn max-burst 1522 poll-int 0 poll-jitter 0 grant-size 0 grant-int 0 grant-jitter 0
+qos-sc name extrm_dn grants-per-int 0 active-tmout 0 adm-tmout 200 type 2 req-policy 0x00000000
+qos-sc name extrm_dn and-mask 0xb3 or-mask 0xc8 dir 1 required-attr-mask-value 0x00000000 forbidden-attr-mask-value 0x00000000
+qos-sc name extrm_dn attr-aggr-rule-mask-value 0x00000000 peak-tr-rate 0
+qos-sc name extrm_up priority 1 max-tr-rate 24000000 max-tr-burst 50000 min-res-rate 0 min-res-pkt 0
+qos-sc name extrm_up max-burst 16384 poll-int 0 poll-jitter 0 grant-size 0 grant-int 0 grant-jitter 0
+qos-sc name extrm_up grants-per-int 0 active-tmout 0 adm-tmout 200 type 2 req-policy 0x00000000
+qos-sc name extrm_up and-mask 0x03 or-mask 0x20 dir 2 required-attr-mask-value 0x80000000 forbidden-attr-mask-value 0x00000000
+qos-sc name extrm_up attr-aggr-rule-mask-value 0x00000000 peak-tr-rate 0
+qos-sc name speed_dn priority 1 max-tr-rate 60000000 max-tr-burst 65536 min-res-rate 0 min-res-pkt 0
+qos-sc name speed_dn max-burst 1522 poll-int 0 poll-jitter 0 grant-size 0 grant-int 0 grant-jitter 0
+qos-sc name speed_dn grants-per-int 0 active-tmout 0 adm-tmout 200 type 2 req-policy 0x00000000
+qos-sc name speed_dn and-mask 0xff or-mask 0x00 dir 1 required-attr-mask-value 0x00000000 forbidden-attr-mask-value 0x00000000
+qos-sc name speed_dn attr-aggr-rule-mask-value 0x00000000 peak-tr-rate 0
+qos-sc name speed_up priority 1 max-tr-rate 12000000 max-tr-burst 50000 min-res-rate 0 min-res-pkt 0
+qos-sc name speed_up max-burst 16384 poll-int 0 poll-jitter 0 grant-size 0 grant-int 0 grant-jitter 0
+qos-sc name speed_up grants-per-int 0 active-tmout 0 adm-tmout 200 type 2 req-policy 0x00000000
+qos-sc name speed_up and-mask 0x03 or-mask 0x20 dir 2 required-attr-mask-value 0x80000000 forbidden-attr-mask-value 0x00000000
+qos-sc name speed_up attr-aggr-rule-mask-value 0x00000000 peak-tr-rate 0
+qos-sc name ultra_dn priority 1 max-tr-rate 60000000 max-tr-burst 65536 min-res-rate 0 min-res-pkt 0
+qos-sc name ultra_dn max-burst 1522 poll-int 0 poll-jitter 0 grant-size 0 grant-int 0 grant-jitter 0
+qos-sc name ultra_dn grants-per-int 0 active-tmout 0 adm-tmout 200 type 2 req-policy 0x00000000
+qos-sc name ultra_dn and-mask 0xff or-mask 0x00 dir 1 required-attr-mask-value 0x00000000 forbidden-attr-mask-value 0x00000000
+qos-sc name ultra_dn attr-aggr-rule-mask-value 0x00000000 peak-tr-rate 0
+qos-sc name ultra_up priority 1 max-tr-rate 12000000 max-tr-burst 50000 min-res-rate 0 min-res-pkt 0
+qos-sc name ultra_up max-burst 16384 poll-int 0 poll-jitter 0 grant-size 0 grant-int 0 grant-jitter 0
+qos-sc name ultra_up grants-per-int 0 active-tmout 0 adm-tmout 200 type 2 req-policy 0x00000000
+qos-sc name ultra_up and-mask 0x03 or-mask 0x20 dir 2 required-attr-mask-value 0x80000000 forbidden-attr-mask-value 0x00000000
+qos-sc name ultra_up attr-aggr-rule-mask-value 0x00000000 peak-tr-rate 0
+qos-sc name usSTB001 priority 0 max-tr-rate 0 max-tr-burst 3044 min-res-rate 0 min-res-pkt 0
+qos-sc name usSTB001 max-burst 1522 poll-int 0 poll-jitter 0 grant-size 0 grant-int 0 grant-jitter 0
+qos-sc name usSTB001 grants-per-int 0 active-tmout 0 adm-tmout 200 type 2 req-policy 0x00000000
+qos-sc name usSTB001 and-mask 0xff or-mask 0x00 dir 2 required-attr-mask-value 0x00000000 forbidden-attr-mask-value 0x00000000
+qos-sc name usSTB001 attr-aggr-rule-mask-value 0x00000000 peak-tr-rate 0
+qos-sc name usSTB002 priority 0 max-tr-rate 0 max-tr-burst 3044 min-res-rate 0 min-res-pkt 0
+qos-sc name usSTB002 max-burst 1522 poll-int 0 poll-jitter 0 grant-size 0 grant-int 0 grant-jitter 0
+qos-sc name usSTB002 grants-per-int 0 active-tmout 0 adm-tmout 200 type 2 req-policy 0x00000000
+qos-sc name usSTB002 and-mask 0xff or-mask 0x00 dir 2 required-attr-mask-value 0x00000000 forbidden-attr-mask-value 0x00000000
+qos-sc name usSTB002 attr-aggr-rule-mask-value 0x00000000 peak-tr-rate 0
+qos-sc name usSTB003 priority 0 max-tr-rate 0 max-tr-burst 3044 min-res-rate 0 min-res-pkt 0
+qos-sc name usSTB003 max-burst 1522 poll-int 0 poll-jitter 0 grant-size 0 grant-int 0 grant-jitter 0
+qos-sc name usSTB003 grants-per-int 0 active-tmout 0 adm-tmout 200 type 2 req-policy 0x00000000
+qos-sc name usSTB003 and-mask 0xff or-mask 0x00 dir 2 required-attr-mask-value 0x00000000 forbidden-attr-mask-value 0x00000000
+qos-sc name usSTB003 attr-aggr-rule-mask-value 0x00000000 peak-tr-rate 0
+qos-sc name usSTB101 priority 0 max-tr-rate 0 max-tr-burst 3044 min-res-rate 0 min-res-pkt 0
+qos-sc name usSTB101 max-burst 1522 poll-int 0 poll-jitter 0 grant-size 0 grant-int 0 grant-jitter 0
+qos-sc name usSTB101 grants-per-int 0 active-tmout 0 adm-tmout 200 type 2 req-policy 0x00000000
+qos-sc name usSTB101 and-mask 0xff or-mask 0x00 dir 2 required-attr-mask-value 0x00000000 forbidden-attr-mask-value 0x00000000
+qos-sc name usSTB101 attr-aggr-rule-mask-value 0x00000000 peak-tr-rate 0
+qos-sc name xwifi_dn priority 1 max-tr-rate 17600000 max-tr-burst 65536 min-res-rate 0 min-res-pkt 0
+qos-sc name xwifi_dn max-burst 1522 poll-int 0 poll-jitter 0 grant-size 0 grant-int 0 grant-jitter 0
+qos-sc name xwifi_dn grants-per-int 0 active-tmout 0 adm-tmout 200 type 2 req-policy 0x00000000
+qos-sc name xwifi_dn and-mask 0xff or-mask 0x00 dir 1 required-attr-mask-value 0x00000000 forbidden-attr-mask-value 0x00000000
+qos-sc name xwifi_dn attr-aggr-rule-mask-value 0x00000000 peak-tr-rate 0
+qos-sc name xwifi_up priority 1 max-tr-rate 2200000 max-tr-burst 50000 min-res-rate 0 min-res-pkt 0
+qos-sc name xwifi_up max-burst 16384 poll-int 0 poll-jitter 0 grant-size 0 grant-int 0 grant-jitter 0
+qos-sc name xwifi_up grants-per-int 0 active-tmout 0 adm-tmout 200 type 2 req-policy 0x00000000
+qos-sc name xwifi_up and-mask 0x03 or-mask 0xb0 dir 2 required-attr-mask-value 0x80000000 forbidden-attr-mask-value 0x00000000
+qos-sc name xwifi_up attr-aggr-rule-mask-value 0x00000000 peak-tr-rate 0
+qos-sc name DSMTAMGCP priority 0 max-tr-rate 500000 max-tr-burst 1522 min-res-rate 0 min-res-pkt 0
+qos-sc name DSMTAMGCP max-burst 0 poll-int 0 poll-jitter 0 grant-size 0 grant-int 0 grant-jitter 0
+qos-sc name DSMTAMGCP grants-per-int 0 active-tmout 0 adm-tmout 200 type 2 req-policy 0x00000000
+qos-sc name DSMTAMGCP and-mask 0xff or-mask 0x00 dir 1 required-attr-mask-value 0x00000000
+qos-sc name DSMTAMGCP forbidden-attr-mask-value 0x00000000 attr-aggr-rule-mask-value 0x00000000
+qos-sc name DSMTAMGCP peak-tr-rate 0
+qos-sc name SF-02ds.4 priority 7 max-tr-rate 4000000 max-tr-burst 1522 min-res-rate 0 min-res-pkt 0
+qos-sc name SF-02ds.4 max-burst 0 poll-int 0 poll-jitter 0 grant-size 0 grant-int 0 grant-jitter 0
+qos-sc name SF-02ds.4 grants-per-int 0 active-tmout 0 adm-tmout 200 type 1 req-policy 0x00000000
+qos-sc name SF-02ds.4 and-mask 0xff or-mask 0x00 dir 1 required-attr-mask-value 0x00000000
+qos-sc name SF-02ds.4 forbidden-attr-mask-value 0x00000000 attr-aggr-rule-mask-value 0x00000000
+qos-sc name SF-02ds.4 peak-tr-rate 0
+qos-sc name SF-02us.4 priority 0 max-tr-rate 0 max-tr-burst 1522 min-res-rate 0 min-res-pkt 0
+qos-sc name SF-02us.4 max-burst 0 poll-int 0 poll-jitter 0 grant-size 100 grant-int 10000 grant-jitter 2000
+qos-sc name SF-02us.4 grants-per-int 1 active-tmout 0 adm-tmout 200 type 6 req-policy 0x000001ff
+qos-sc name SF-02us.4 and-mask 0xff or-mask 0x00 dir 2 required-attr-mask-value 0x00000000
+qos-sc name SF-02us.4 forbidden-attr-mask-value 0x00000000 attr-aggr-rule-mask-value 0x00000000
+qos-sc name SF-02us.4 peak-tr-rate 0
+qos-sc name TC1-DS-2M priority 5 max-tr-rate 2000000 max-tr-burst 3044 min-res-rate 2000000
+qos-sc name TC1-DS-2M min-res-pkt 0 max-burst 1522 poll-int 0 poll-jitter 0 grant-size 0 grant-int 0
+qos-sc name TC1-DS-2M grant-jitter 0 grants-per-int 0 active-tmout 0 adm-tmout 200 type 2 req-policy 0x00000000
+qos-sc name TC1-DS-2M and-mask 0xff or-mask 0x00 dir 1 required-attr-mask-value 0x00000000
+qos-sc name TC1-DS-2M forbidden-attr-mask-value 0x00000000 attr-aggr-rule-mask-value 0x00000000
+qos-sc name TC1-DS-2M peak-tr-rate 0
+qos-sc name TC1-DS-5M priority 5 max-tr-rate 5000000 max-tr-burst 3044 min-res-rate 5000000
+qos-sc name TC1-DS-5M min-res-pkt 0 max-burst 1522 poll-int 0 poll-jitter 0 grant-size 0 grant-int 0
+qos-sc name TC1-DS-5M grant-jitter 0 grants-per-int 0 active-tmout 0 adm-tmout 200 type 2 req-policy 0x00000000
+qos-sc name TC1-DS-5M and-mask 0xff or-mask 0x00 dir 1 required-attr-mask-value 0x00000000
+qos-sc name TC1-DS-5M forbidden-attr-mask-value 0x00000000 attr-aggr-rule-mask-value 0x00000000
+qos-sc name TC1-DS-5M peak-tr-rate 0
+qos-sc name TC1-US-2M priority 5 max-tr-rate 2000000 max-tr-burst 3044 min-res-rate 2000000
+qos-sc name TC1-US-2M min-res-pkt 0 max-burst 1522 poll-int 0 poll-jitter 0 grant-size 0 grant-int 0
+qos-sc name TC1-US-2M grant-jitter 0 grants-per-int 0 active-tmout 0 adm-tmout 200 type 2 req-policy 0x00000000
+qos-sc name TC1-US-2M and-mask 0xff or-mask 0x00 dir 2 required-attr-mask-value 0x00000000
+qos-sc name TC1-US-2M forbidden-attr-mask-value 0x00000000 attr-aggr-rule-mask-value 0x00000000
+qos-sc name TC1-US-2M peak-tr-rate 0
+qos-sc name TC1-US-5M priority 5 max-tr-rate 5000000 max-tr-burst 3044 min-res-rate 5000000
+qos-sc name TC1-US-5M min-res-pkt 0 max-burst 1522 poll-int 0 poll-jitter 0 grant-size 0 grant-int 0
+qos-sc name TC1-US-5M grant-jitter 0 grants-per-int 0 active-tmout 0 adm-tmout 200 type 2 req-policy 0x00000000
+qos-sc name TC1-US-5M and-mask 0xff or-mask 0x00 dir 2 required-attr-mask-value 0x00000000
+qos-sc name TC1-US-5M forbidden-attr-mask-value 0x00000000 attr-aggr-rule-mask-value 0x00000000
+qos-sc name TC1-US-5M peak-tr-rate 0
+qos-sc name TC2-DS-1M priority 4 max-tr-rate 1000000 max-tr-burst 3044 min-res-rate 1000000
+qos-sc name TC2-DS-1M min-res-pkt 0 max-burst 1522 poll-int 0 poll-jitter 0 grant-size 0 grant-int 0
+qos-sc name TC2-DS-1M grant-jitter 0 grants-per-int 0 active-tmout 0 adm-tmout 200 type 2 req-policy 0x00000000
+qos-sc name TC2-DS-1M and-mask 0xff or-mask 0x00 dir 1 required-attr-mask-value 0x00000000
+qos-sc name TC2-DS-1M forbidden-attr-mask-value 0x00000000 attr-aggr-rule-mask-value 0x00000000
+qos-sc name TC2-DS-1M peak-tr-rate 0
+qos-sc name TC2-DS-5M priority 4 max-tr-rate 5000000 max-tr-burst 3044 min-res-rate 5000000
+qos-sc name TC2-DS-5M min-res-pkt 0 max-burst 1522 poll-int 0 poll-jitter 0 grant-size 0 grant-int 0
+qos-sc name TC2-DS-5M grant-jitter 0 grants-per-int 0 active-tmout 0 adm-tmout 200 type 2 req-policy 0x00000000
+qos-sc name TC2-DS-5M and-mask 0xff or-mask 0x00 dir 1 required-attr-mask-value 0x00000000
+qos-sc name TC2-DS-5M forbidden-attr-mask-value 0x00000000 attr-aggr-rule-mask-value 0x00000000
+qos-sc name TC2-DS-5M peak-tr-rate 0
+qos-sc name TC2-US-1M priority 4 max-tr-rate 1000000 max-tr-burst 3044 min-res-rate 1000000
+qos-sc name TC2-US-1M min-res-pkt 0 max-burst 1522 poll-int 0 poll-jitter 0 grant-size 0 grant-int 0
+qos-sc name TC2-US-1M grant-jitter 0 grants-per-int 0 active-tmout 0 adm-tmout 200 type 2 req-policy 0x00000000
+qos-sc name TC2-US-1M and-mask 0xff or-mask 0x00 dir 2 required-attr-mask-value 0x00000000
+qos-sc name TC2-US-1M forbidden-attr-mask-value 0x00000000 attr-aggr-rule-mask-value 0x00000000
+qos-sc name TC2-US-1M peak-tr-rate 0
+qos-sc name TC2-US-5M priority 4 max-tr-rate 5000000 max-tr-burst 3044 min-res-rate 5000000
+qos-sc name TC2-US-5M min-res-pkt 0 max-burst 1522 poll-int 0 poll-jitter 0 grant-size 0 grant-int 0
+qos-sc name TC2-US-5M grant-jitter 0 grants-per-int 0 active-tmout 0 adm-tmout 200 type 2 req-policy 0x00000000
+qos-sc name TC2-US-5M and-mask 0xff or-mask 0x00 dir 2 required-attr-mask-value 0x00000000
+qos-sc name TC2-US-5M forbidden-attr-mask-value 0x00000000 attr-aggr-rule-mask-value 0x00000000
+qos-sc name TC2-US-5M peak-tr-rate 0
+qos-sc name TC4-US-1M priority 0 max-tr-rate 1000000 max-tr-burst 30000 min-res-rate 0 min-res-pkt 0
+qos-sc name TC4-US-1M max-burst 1522 poll-int 0 poll-jitter 0 grant-size 0 grant-int 0 grant-jitter 0
+qos-sc name TC4-US-1M grants-per-int 0 active-tmout 0 adm-tmout 200 type 2 req-policy 0x00000000
+qos-sc name TC4-US-1M and-mask 0xff or-mask 0x00 dir 2 required-attr-mask-value 0x00000000
+qos-sc name TC4-US-1M forbidden-attr-mask-value 0x00000000 attr-aggr-rule-mask-value 0x00000000
+qos-sc name TC4-US-1M peak-tr-rate 0
+qos-sc name TC4-US-5M priority 0 max-tr-rate 5000000 max-tr-burst 20000 min-res-rate 0 min-res-pkt 0
+qos-sc name TC4-US-5M max-burst 1522 poll-int 0 poll-jitter 0 grant-size 0 grant-int 0 grant-jitter 0
+qos-sc name TC4-US-5M grants-per-int 0 active-tmout 0 adm-tmout 200 type 2 req-policy 0x00000000
+qos-sc name TC4-US-5M and-mask 0xff or-mask 0x00 dir 2 required-attr-mask-value 0x00000000
+qos-sc name TC4-US-5M forbidden-attr-mask-value 0x00000000 attr-aggr-rule-mask-value 0x00000000
+qos-sc name TC4-US-5M peak-tr-rate 0
+qos-sc name USMTAMGCP priority 0 max-tr-rate 500000 max-tr-burst 1522 min-res-rate 0 min-res-pkt 0
+qos-sc name USMTAMGCP max-burst 0 poll-int 0 poll-jitter 0 grant-size 0 grant-int 0 grant-jitter 0
+qos-sc name USMTAMGCP grants-per-int 0 active-tmout 0 adm-tmout 200 type 2 req-policy 0x00000000
+qos-sc name USMTAMGCP and-mask 0xff or-mask 0x00 dir 2 required-attr-mask-value 0x00000000
+qos-sc name USMTAMGCP forbidden-attr-mask-value 0x00000000 attr-aggr-rule-mask-value 0x00000000
+qos-sc name USMTAMGCP peak-tr-rate 0
+qos-sc name ds_hsd_el priority 0 max-tr-rate 0 max-tr-burst 3044 min-res-rate 0 min-res-pkt 0
+qos-sc name ds_hsd_el max-burst 1522 poll-int 0 poll-jitter 0 grant-size 0 grant-int 0 grant-jitter 0
+qos-sc name ds_hsd_el grants-per-int 0 active-tmout 0 adm-tmout 200 type 2 req-policy 0x00000000
+qos-sc name ds_hsd_el and-mask 0xff or-mask 0x00 dir 1 required-attr-mask-value 0x00000000
+qos-sc name ds_hsd_el forbidden-attr-mask-value 0x00000000 attr-aggr-rule-mask-value 0x00000000
+qos-sc name ds_hsd_el peak-tr-rate 0
+qos-sc name ds_hsd_sp priority 0 max-tr-rate 0 max-tr-burst 3044 min-res-rate 0 min-res-pkt 0
+qos-sc name ds_hsd_sp max-burst 1522 poll-int 0 poll-jitter 0 grant-size 0 grant-int 0 grant-jitter 0
+qos-sc name ds_hsd_sp grants-per-int 0 active-tmout 0 adm-tmout 200 type 2 req-policy 0x00000000
+qos-sc name ds_hsd_sp and-mask 0xff or-mask 0x00 dir 1 required-attr-mask-value 0x00000000
+qos-sc name ds_hsd_sp forbidden-attr-mask-value 0x00000000 attr-aggr-rule-mask-value 0x00000000
+qos-sc name ds_hsd_sp peak-tr-rate 0
+qos-sc name extrm2_dn priority 1 max-tr-rate 126000000 max-tr-burst 65536 min-res-rate 0 min-res-pkt 0
+qos-sc name extrm2_dn max-burst 1522 poll-int 0 poll-jitter 0 grant-size 0 grant-int 0 grant-jitter 0
+qos-sc name extrm2_dn grants-per-int 0 active-tmout 0 adm-tmout 200 type 2 req-policy 0x00000000
+qos-sc name extrm2_dn and-mask 0xff or-mask 0x00 dir 1 required-attr-mask-value 0x00000000
+qos-sc name extrm2_dn forbidden-attr-mask-value 0x00000000 attr-aggr-rule-mask-value 0x00000000
+qos-sc name extrm2_dn peak-tr-rate 0
+qos-sc name extrm2_up priority 1 max-tr-rate 24000000 max-tr-burst 50000 min-res-rate 0 min-res-pkt 0
+qos-sc name extrm2_up max-burst 16384 poll-int 0 poll-jitter 0 grant-size 0 grant-int 0 grant-jitter 0
+qos-sc name extrm2_up grants-per-int 0 active-tmout 0 adm-tmout 200 type 2 req-policy 0x00000000
+qos-sc name extrm2_up and-mask 0x03 or-mask 0x20 dir 2 required-attr-mask-value 0x80000000
+qos-sc name extrm2_up forbidden-attr-mask-value 0x00000000 attr-aggr-rule-mask-value 0x00000000
+qos-sc name extrm2_up peak-tr-rate 0
+qos-sc name silver_dn priority 1 max-tr-rate 30000000 max-tr-burst 65536 min-res-rate 0 min-res-pkt 0
+qos-sc name silver_dn max-burst 1522 poll-int 0 poll-jitter 0 grant-size 0 grant-int 0 grant-jitter 0
+qos-sc name silver_dn grants-per-int 0 active-tmout 0 adm-tmout 200 type 2 req-policy 0x00000000
+qos-sc name silver_dn and-mask 0xff or-mask 0x00 dir 1 required-attr-mask-value 0x00000000
+qos-sc name silver_dn forbidden-attr-mask-value 0x00000000 attr-aggr-rule-mask-value 0x00000000
+qos-sc name silver_dn peak-tr-rate 0
+qos-sc name silver_up priority 1 max-tr-rate 6000000 max-tr-burst 50000 min-res-rate 0 min-res-pkt 0
+qos-sc name silver_up max-burst 16384 poll-int 0 poll-jitter 0 grant-size 0 grant-int 0 grant-jitter 0
+qos-sc name silver_up grants-per-int 0 active-tmout 0 adm-tmout 200 type 2 req-policy 0x00000000
+qos-sc name silver_up and-mask 0x03 or-mask 0x20 dir 2 required-attr-mask-value 0x80000000
+qos-sc name silver_up forbidden-attr-mask-value 0x00000000 attr-aggr-rule-mask-value 0x00000000
+qos-sc name silver_up peak-tr-rate 0
+qos-sc name us_hsd_el priority 0 max-tr-rate 0 max-tr-burst 3044 min-res-rate 0 min-res-pkt 0
+qos-sc name us_hsd_el max-burst 1522 poll-int 0 poll-jitter 0 grant-size 0 grant-int 0 grant-jitter 0
+qos-sc name us_hsd_el grants-per-int 0 active-tmout 0 adm-tmout 200 type 2 req-policy 0x00000000
+qos-sc name us_hsd_el and-mask 0xff or-mask 0x00 dir 2 required-attr-mask-value 0x00000000
+qos-sc name us_hsd_el forbidden-attr-mask-value 0x00000000 attr-aggr-rule-mask-value 0x00000000
+qos-sc name us_hsd_el peak-tr-rate 0
+qos-sc name us_hsd_sp priority 0 max-tr-rate 0 max-tr-burst 3044 min-res-rate 0 min-res-pkt 0
+qos-sc name us_hsd_sp max-burst 1522 poll-int 0 poll-jitter 0 grant-size 0 grant-int 0 grant-jitter 0
+qos-sc name us_hsd_sp grants-per-int 0 active-tmout 0 adm-tmout 200 type 2 req-policy 0x00000000
+qos-sc name us_hsd_sp and-mask 0xff or-mask 0x00 dir 2 required-attr-mask-value 0x00000000
+qos-sc name us_hsd_sp forbidden-attr-mask-value 0x00000000 attr-aggr-rule-mask-value 0x00000000
+qos-sc name us_hsd_sp peak-tr-rate 0
+qos-sc name Mgmt-DS-FW priority 7 max-tr-rate 1000000 max-tr-burst 3044 min-res-rate 0 min-res-pkt 0
+qos-sc name Mgmt-DS-FW max-burst 1522 poll-int 0 poll-jitter 0 grant-size 0 grant-int 0 grant-jitter 0
+qos-sc name Mgmt-DS-FW grants-per-int 0 active-tmout 0 adm-tmout 200 type 2 req-policy 0x00000000
+qos-sc name Mgmt-DS-FW and-mask 0xff or-mask 0x00 dir 1 required-attr-mask-value 0x00000000
+qos-sc name Mgmt-DS-FW forbidden-attr-mask-value 0x00000000 attr-aggr-rule-mask-value 0x00000000
+qos-sc name Mgmt-DS-FW peak-tr-rate 0
+qos-sc name TC2-DS-10M priority 4 max-tr-rate 10000000 max-tr-burst 3044 min-res-rate 10000000
+qos-sc name TC2-DS-10M min-res-pkt 0 max-burst 1522 poll-int 0 poll-jitter 0 grant-size 0 grant-int 0
+qos-sc name TC2-DS-10M grant-jitter 0 grants-per-int 0 active-tmout 0 adm-tmout 200 type 2
+qos-sc name TC2-DS-10M req-policy 0x00000000 and-mask 0xff or-mask 0x00 dir 1 required-attr-mask-value 0x00000000
+qos-sc name TC2-DS-10M forbidden-attr-mask-value 0x00000000 attr-aggr-rule-mask-value 0x00000000
+qos-sc name TC2-DS-10M peak-tr-rate 0
+qos-sc name TC2-US-10M priority 4 max-tr-rate 10000000 max-tr-burst 3044 min-res-rate 10000000
+qos-sc name TC2-US-10M min-res-pkt 0 max-burst 1522 poll-int 0 poll-jitter 0 grant-size 0 grant-int 0
+qos-sc name TC2-US-10M grant-jitter 0 grants-per-int 0 active-tmout 0 adm-tmout 200 type 2
+qos-sc name TC2-US-10M req-policy 0x00000000 and-mask 0xff or-mask 0x00 dir 2 required-attr-mask-value 0x00000000
+qos-sc name TC2-US-10M forbidden-attr-mask-value 0x00000000 attr-aggr-rule-mask-value 0x00000000
+qos-sc name TC2-US-10M peak-tr-rate 0
+qos-sc name TC4-DS-12M priority 0 max-tr-rate 12000000 max-tr-burst 128000 min-res-rate 0 min-res-pkt 0
+qos-sc name TC4-DS-12M max-burst 1522 poll-int 0 poll-jitter 0 grant-size 0 grant-int 0 grant-jitter 0
+qos-sc name TC4-DS-12M grants-per-int 0 active-tmout 0 adm-tmout 200 type 2 req-policy 0x00000000
+qos-sc name TC4-DS-12M and-mask 0xff or-mask 0x00 dir 1 required-attr-mask-value 0x00000000
+qos-sc name TC4-DS-12M forbidden-attr-mask-value 0x00000000 attr-aggr-rule-mask-value 0x00000000
+qos-sc name TC4-DS-12M peak-tr-rate 0
+qos-sc name TC4-DS-25M priority 0 max-tr-rate 25000000 max-tr-burst 128000 min-res-rate 0 min-res-pkt 0
+qos-sc name TC4-DS-25M max-burst 1522 poll-int 0 poll-jitter 0 grant-size 0 grant-int 0 grant-jitter 0
+qos-sc name TC4-DS-25M grants-per-int 0 active-tmout 0 adm-tmout 200 type 2 req-policy 0x00000000
+qos-sc name TC4-DS-25M and-mask 0xff or-mask 0x00 dir 1 required-attr-mask-value 0x00000000
+qos-sc name TC4-DS-25M forbidden-attr-mask-value 0x00000000 attr-aggr-rule-mask-value 0x00000000
+qos-sc name TC4-DS-25M peak-tr-rate 0
+qos-sc name TC4-DS-50M priority 0 max-tr-rate 50000000 max-tr-burst 128000 min-res-rate 0 min-res-pkt 0
+qos-sc name TC4-DS-50M max-burst 1522 poll-int 0 poll-jitter 0 grant-size 0 grant-int 0 grant-jitter 0
+qos-sc name TC4-DS-50M grants-per-int 0 active-tmout 0 adm-tmout 200 type 2 req-policy 0x00000000
+qos-sc name TC4-DS-50M and-mask 0xff or-mask 0x00 dir 1 required-attr-mask-value 0x00000000
+qos-sc name TC4-DS-50M forbidden-attr-mask-value 0x00000000 attr-aggr-rule-mask-value 0x00000000
+qos-sc name TC4-DS-50M peak-tr-rate 0
+qos-sc name TC4-US-10M priority 0 max-tr-rate 10000000 max-tr-burst 20000 min-res-rate 0 min-res-pkt 0
+qos-sc name TC4-US-10M max-burst 1522 poll-int 0 poll-jitter 0 grant-size 0 grant-int 0 grant-jitter 0
+qos-sc name TC4-US-10M grants-per-int 0 active-tmout 0 adm-tmout 200 type 2 req-policy 0x00000000
+qos-sc name TC4-US-10M and-mask 0xff or-mask 0x00 dir 2 required-attr-mask-value 0x00000000
+qos-sc name TC4-US-10M forbidden-attr-mask-value 0x00000000 attr-aggr-rule-mask-value 0x00000000
+qos-sc name TC4-US-10M peak-tr-rate 0
+qos-sc name TC4-US-20M priority 0 max-tr-rate 20000000 max-tr-burst 20000 min-res-rate 0 min-res-pkt 0
+qos-sc name TC4-US-20M max-burst 1522 poll-int 0 poll-jitter 0 grant-size 0 grant-int 0 grant-jitter 0
+qos-sc name TC4-US-20M grants-per-int 0 active-tmout 0 adm-tmout 200 type 2 req-policy 0x00000000
+qos-sc name TC4-US-20M and-mask 0xff or-mask 0x00 dir 2 required-attr-mask-value 0x00000000
+qos-sc name TC4-US-20M forbidden-attr-mask-value 0x00000000 attr-aggr-rule-mask-value 0x00000000
+qos-sc name TC4-US-20M peak-tr-rate 0
+qos-sc name TC4-US-40M priority 0 max-tr-rate 40000000 max-tr-burst 20000 min-res-rate 0 min-res-pkt 0
+qos-sc name TC4-US-40M max-burst 1522 poll-int 0 poll-jitter 0 grant-size 0 grant-int 0 grant-jitter 0
+qos-sc name TC4-US-40M grants-per-int 0 active-tmout 0 adm-tmout 200 type 2 req-policy 0x00000000
+qos-sc name TC4-US-40M and-mask 0xff or-mask 0x00 dir 2 required-attr-mask-value 0x00000000
+qos-sc name TC4-US-40M forbidden-attr-mask-value 0x00000000 attr-aggr-rule-mask-value 0x00000000
+qos-sc name TC4-US-40M peak-tr-rate 0
+qos-sc name ds_hsd_biz priority 0 max-tr-rate 0 max-tr-burst 3044 min-res-rate 0 min-res-pkt 0
+qos-sc name ds_hsd_biz max-burst 1522 poll-int 0 poll-jitter 0 grant-size 0 grant-int 0 grant-jitter 0
+qos-sc name ds_hsd_biz grants-per-int 0 active-tmout 0 adm-tmout 200 type 2 req-policy 0x00000000
+qos-sc name ds_hsd_biz and-mask 0xff or-mask 0x00 dir 1 required-attr-mask-value 0x00000000
+qos-sc name ds_hsd_biz forbidden-attr-mask-value 0x00000000 attr-aggr-rule-mask-value 0x00000000
+qos-sc name ds_hsd_biz peak-tr-rate 0
+qos-sc name ds_hsd_res priority 0 max-tr-rate 0 max-tr-burst 3044 min-res-rate 0 min-res-pkt 0
+qos-sc name ds_hsd_res max-burst 1522 poll-int 0 poll-jitter 0 grant-size 0 grant-int 0 grant-jitter 0
+qos-sc name ds_hsd_res grants-per-int 0 active-tmout 0 adm-tmout 200 type 2 req-policy 0x00000000
+qos-sc name ds_hsd_res and-mask 0xff or-mask 0x00 dir 1 required-attr-mask-value 0x00000000
+qos-sc name ds_hsd_res forbidden-attr-mask-value 0x00000000 attr-aggr-rule-mask-value 0x00000000
+qos-sc name ds_hsd_res peak-tr-rate 0
+qos-sc name ds_twc_srv priority 0 max-tr-rate 0 max-tr-burst 3044 min-res-rate 0 min-res-pkt 0
+qos-sc name ds_twc_srv max-burst 1522 poll-int 0 poll-jitter 0 grant-size 0 grant-int 0 grant-jitter 0
+qos-sc name ds_twc_srv grants-per-int 0 active-tmout 0 adm-tmout 200 type 2 req-policy 0x00000000
+qos-sc name ds_twc_srv and-mask 0xff or-mask 0x00 dir 1 required-attr-mask-value 0x00000000
+qos-sc name ds_twc_srv forbidden-attr-mask-value 0x00000000 attr-aggr-rule-mask-value 0x00000000
+qos-sc name ds_twc_srv peak-tr-rate 0
+qos-sc name hiPriSigDn priority 4 max-tr-rate 64000 max-tr-burst 96000 min-res-rate 8000 min-res-pkt 64
+qos-sc name hiPriSigDn max-burst 1522 poll-int 0 poll-jitter 0 grant-size 0 grant-int 0 grant-jitter 0
+qos-sc name hiPriSigDn grants-per-int 0 active-tmout 0 adm-tmout 0 type 2 req-policy 0x00000000
+qos-sc name hiPriSigDn and-mask 0xff or-mask 0x00 dir 1 required-attr-mask-value 0x80000001
+qos-sc name hiPriSigDn forbidden-attr-mask-value 0x00000000 attr-aggr-rule-mask-value 0x00000000
+qos-sc name hiPriSigDn peak-tr-rate 0
+qos-sc name hiPriSigUp priority 6 max-tr-rate 64000 max-tr-burst 3044 min-res-rate 8000 min-res-pkt 64
+qos-sc name hiPriSigUp max-burst 3044 poll-int 0 poll-jitter 0 grant-size 0 grant-int 0 grant-jitter 0
+qos-sc name hiPriSigUp grants-per-int 0 active-tmout 0 adm-tmout 0 type 2 req-policy 0x00000000
+qos-sc name hiPriSigUp and-mask 0xff or-mask 0x00 dir 2 required-attr-mask-value 0x00000000
+qos-sc name hiPriSigUp forbidden-attr-mask-value 0x00000000 attr-aggr-rule-mask-value 0x00000000
+qos-sc name hiPriSigUp peak-tr-rate 0
+qos-sc name ipvideo_dn priority 0 max-tr-rate 0 max-tr-burst 3044 min-res-rate 0 min-res-pkt 0
+qos-sc name ipvideo_dn max-burst 1522 poll-int 0 poll-jitter 0 grant-size 0 grant-int 0 grant-jitter 0
+qos-sc name ipvideo_dn grants-per-int 0 active-tmout 0 adm-tmout 200 type 2 req-policy 0x00000000
+qos-sc name ipvideo_dn and-mask 0xff or-mask 0x00 dir 1 required-attr-mask-value 0x00000000
+qos-sc name ipvideo_dn forbidden-attr-mask-value 0x00000000 attr-aggr-rule-mask-value 0x00000000
+qos-sc name ipvideo_dn peak-tr-rate 0
+qos-sc name us_hsd_biz priority 0 max-tr-rate 0 max-tr-burst 3044 min-res-rate 0 min-res-pkt 0
+qos-sc name us_hsd_biz max-burst 1522 poll-int 0 poll-jitter 0 grant-size 0 grant-int 0 grant-jitter 0
+qos-sc name us_hsd_biz grants-per-int 0 active-tmout 0 adm-tmout 200 type 2 req-policy 0x00000000
+qos-sc name us_hsd_biz and-mask 0xff or-mask 0x00 dir 2 required-attr-mask-value 0x00000000
+qos-sc name us_hsd_biz forbidden-attr-mask-value 0x00000000 attr-aggr-rule-mask-value 0x00000000
+qos-sc name us_hsd_biz peak-tr-rate 0
+qos-sc name us_hsd_res priority 0 max-tr-rate 0 max-tr-burst 3044 min-res-rate 0 min-res-pkt 0
+qos-sc name us_hsd_res max-burst 1522 poll-int 0 poll-jitter 0 grant-size 0 grant-int 0 grant-jitter 0
+qos-sc name us_hsd_res grants-per-int 0 active-tmout 0 adm-tmout 200 type 2 req-policy 0x00000000
+qos-sc name us_hsd_res and-mask 0xff or-mask 0x00 dir 2 required-attr-mask-value 0x00000000
+qos-sc name us_hsd_res forbidden-attr-mask-value 0x00000000 attr-aggr-rule-mask-value 0x00000000
+qos-sc name us_hsd_res peak-tr-rate 0
+qos-sc name us_twc_srv priority 0 max-tr-rate 0 max-tr-burst 3044 min-res-rate 0 min-res-pkt 0
+qos-sc name us_twc_srv max-burst 1522 poll-int 0 poll-jitter 0 grant-size 0 grant-int 0 grant-jitter 0
+qos-sc name us_twc_srv grants-per-int 0 active-tmout 0 adm-tmout 200 type 2 req-policy 0x00000000
+qos-sc name us_twc_srv and-mask 0xff or-mask 0x00 dir 2 required-attr-mask-value 0x00000000
+qos-sc name us_twc_srv forbidden-attr-mask-value 0x00000000 attr-aggr-rule-mask-value 0x00000000
+qos-sc name us_twc_srv peak-tr-rate 0
+qos-sc name DSPrimaryBE priority 0 max-tr-rate 500000 max-tr-burst 1522 min-res-rate 0 min-res-pkt 0
+qos-sc name DSPrimaryBE max-burst 0 poll-int 0 poll-jitter 0 grant-size 0 grant-int 0 grant-jitter 0
+qos-sc name DSPrimaryBE grants-per-int 0 active-tmout 0 adm-tmout 200 type 2 req-policy 0x00000000
+qos-sc name DSPrimaryBE and-mask 0xff or-mask 0x00 dir 1 required-attr-mask-value 0x00000000
+qos-sc name DSPrimaryBE forbidden-attr-mask-value 0x00000000 attr-aggr-rule-mask-value 0x00000000
+qos-sc name DSPrimaryBE peak-tr-rate 0
+qos-sc name SCN_Up_Test priority 3 max-tr-rate 120000 max-tr-burst 1550 min-res-rate 37000
+qos-sc name SCN_Up_Test min-res-pkt 52 max-burst 1045 poll-int 0 poll-jitter 0 grant-size 0
+qos-sc name SCN_Up_Test grant-int 0 grant-jitter 0 grants-per-int 0 active-tmout 244 adm-tmout 123
+qos-sc name SCN_Up_Test type 2 req-policy 0x00000000 and-mask 0x0f or-mask 0x03 dir 2 required-attr-mask-value 0x00000000
+qos-sc name SCN_Up_Test forbidden-attr-mask-value 0x00000000 attr-aggr-rule-mask-value 0x00000000
+qos-sc name SCN_Up_Test peak-tr-rate 0
+qos-sc name SCN_Up_UGS1 priority 5 max-tr-rate 87200 max-tr-burst 1522 min-res-rate 87200 min-res-pkt 218
+qos-sc name SCN_Up_UGS1 max-burst 1522 poll-int 0 poll-jitter 0 grant-size 147 grant-int 10000
+qos-sc name SCN_Up_UGS1 grant-jitter 800 grants-per-int 1 active-tmout 244 adm-tmout 123 type 6
+qos-sc name SCN_Up_UGS1 req-policy 0x0000037f and-mask 0x0f or-mask 0x03 dir 2 required-attr-mask-value 0x00000000
+qos-sc name SCN_Up_UGS1 forbidden-attr-mask-value 0x00000000 attr-aggr-rule-mask-value 0x00000000
+qos-sc name SCN_Up_UGS1 peak-tr-rate 0
+qos-sc name SCN_Up_UGS2 priority 5 max-tr-rate 87200 max-tr-burst 1522 min-res-rate 87200 min-res-pkt 218
+qos-sc name SCN_Up_UGS2 max-burst 1522 poll-int 0 poll-jitter 0 grant-size 147 grant-int 10000
+qos-sc name SCN_Up_UGS2 grant-jitter 800 grants-per-int 1 active-tmout 244 adm-tmout 123 type 6
+qos-sc name SCN_Up_UGS2 req-policy 0x0000017f and-mask 0x0f or-mask 0x03 dir 2 required-attr-mask-value 0x00000000
+qos-sc name SCN_Up_UGS2 forbidden-attr-mask-value 0x00000000 attr-aggr-rule-mask-value 0x00000000
+qos-sc name SCN_Up_UGS2 peak-tr-rate 0
+qos-sc name SCN_Up_UGS3 priority 5 max-tr-rate 87200 max-tr-burst 1522 min-res-rate 87200 min-res-pkt 218
+qos-sc name SCN_Up_UGS3 max-burst 1522 poll-int 0 poll-jitter 0 grant-size 147 grant-int 10000
+qos-sc name SCN_Up_UGS3 grant-jitter 800 grants-per-int 1 active-tmout 244 adm-tmout 123 type 6
+qos-sc name SCN_Up_UGS3 req-policy 0x00000000 and-mask 0x0f or-mask 0x03 dir 2 required-attr-mask-value 0x00000000
+qos-sc name SCN_Up_UGS3 forbidden-attr-mask-value 0x00000000 attr-aggr-rule-mask-value 0x00000000
+qos-sc name SCN_Up_UGS3 peak-tr-rate 0
+qos-sc name SF-02-2ds.4 priority 7 max-tr-rate 4000000 max-tr-burst 1522 min-res-rate 0 min-res-pkt 0
+qos-sc name SF-02-2ds.4 max-burst 0 poll-int 0 poll-jitter 0 grant-size 0 grant-int 0 grant-jitter 0
+qos-sc name SF-02-2ds.4 grants-per-int 0 active-tmout 0 adm-tmout 200 type 2 req-policy 0x00000000
+qos-sc name SF-02-2ds.4 and-mask 0xff or-mask 0x00 dir 1 required-attr-mask-value 0x00000000
+qos-sc name SF-02-2ds.4 forbidden-attr-mask-value 0x00000000 attr-aggr-rule-mask-value 0x00000000
+qos-sc name SF-02-2ds.4 peak-tr-rate 0
+qos-sc name SF-02-2us.4 priority 7 max-tr-rate 0 max-tr-burst 1522 min-res-rate 0 min-res-pkt 0
+qos-sc name SF-02-2us.4 max-burst 0 poll-int 0 poll-jitter 0 grant-size 200 grant-int 10000
+qos-sc name SF-02-2us.4 grant-jitter 2000 grants-per-int 1 active-tmout 0 adm-tmout 200 type 6
+qos-sc name SF-02-2us.4 req-policy 0x000001ff and-mask 0xff or-mask 0x00 dir 2 required-attr-mask-value 0x00000000
+qos-sc name SF-02-2us.4 forbidden-attr-mask-value 0x00000000 attr-aggr-rule-mask-value 0x00000000
+qos-sc name SF-02-2us.4 peak-tr-rate 0
+qos-sc name TC1-DS-150K priority 5 max-tr-rate 150000 max-tr-burst 3044 min-res-rate 150000
+qos-sc name TC1-DS-150K min-res-pkt 0 max-burst 1522 poll-int 0 poll-jitter 0 grant-size 0
+qos-sc name TC1-DS-150K grant-int 0 grant-jitter 0 grants-per-int 0 active-tmout 0 adm-tmout 200
+qos-sc name TC1-DS-150K type 2 req-policy 0x00000000 and-mask 0xff or-mask 0x00 dir 1 required-attr-mask-value 0x00000000
+qos-sc name TC1-DS-150K forbidden-attr-mask-value 0x00000000 attr-aggr-rule-mask-value 0x00000000
+qos-sc name TC1-DS-150K peak-tr-rate 0
+qos-sc name TC1-DS-300K priority 5 max-tr-rate 300000 max-tr-burst 3044 min-res-rate 300000
+qos-sc name TC1-DS-300K min-res-pkt 0 max-burst 1522 poll-int 0 poll-jitter 0 grant-size 0
+qos-sc name TC1-DS-300K grant-int 0 grant-jitter 0 grants-per-int 0 active-tmout 0 adm-tmout 200
+qos-sc name TC1-DS-300K type 2 req-policy 0x00000000 and-mask 0xff or-mask 0x00 dir 1 required-attr-mask-value 0x00000000
+qos-sc name TC1-DS-300K forbidden-attr-mask-value 0x00000000 attr-aggr-rule-mask-value 0x00000000
+qos-sc name TC1-DS-300K peak-tr-rate 0
+qos-sc name TC1-DS-500K priority 5 max-tr-rate 500000 max-tr-burst 3044 min-res-rate 500000
+qos-sc name TC1-DS-500K min-res-pkt 0 max-burst 1522 poll-int 0 poll-jitter 0 grant-size 0
+qos-sc name TC1-DS-500K grant-int 0 grant-jitter 0 grants-per-int 0 active-tmout 0 adm-tmout 200
+qos-sc name TC1-DS-500K type 2 req-policy 0x00000000 and-mask 0xff or-mask 0x00 dir 1 required-attr-mask-value 0x00000000
+qos-sc name TC1-DS-500K forbidden-attr-mask-value 0x00000000 attr-aggr-rule-mask-value 0x00000000
+qos-sc name TC1-DS-500K peak-tr-rate 0
+qos-sc name TC1-US-150K priority 5 max-tr-rate 150000 max-tr-burst 3044 min-res-rate 150000
+qos-sc name TC1-US-150K min-res-pkt 0 max-burst 1522 poll-int 0 poll-jitter 0 grant-size 0
+qos-sc name TC1-US-150K grant-int 0 grant-jitter 0 grants-per-int 0 active-tmout 0 adm-tmout 200
+qos-sc name TC1-US-150K type 2 req-policy 0x00000000 and-mask 0xff or-mask 0x00 dir 2 required-attr-mask-value 0x00000000
+qos-sc name TC1-US-150K forbidden-attr-mask-value 0x00000000 attr-aggr-rule-mask-value 0x00000000
+qos-sc name TC1-US-150K peak-tr-rate 0
+qos-sc name TC1-US-300K priority 5 max-tr-rate 300000 max-tr-burst 3044 min-res-rate 300000
+qos-sc name TC1-US-300K min-res-pkt 0 max-burst 1522 poll-int 0 poll-jitter 0 grant-size 0
+qos-sc name TC1-US-300K grant-int 0 grant-jitter 0 grants-per-int 0 active-tmout 0 adm-tmout 200
+qos-sc name TC1-US-300K type 2 req-policy 0x00000000 and-mask 0xff or-mask 0x00 dir 2 required-attr-mask-value 0x00000000
+qos-sc name TC1-US-300K forbidden-attr-mask-value 0x00000000 attr-aggr-rule-mask-value 0x00000000
+qos-sc name TC1-US-300K peak-tr-rate 0
+qos-sc name TC1-US-500K priority 5 max-tr-rate 500000 max-tr-burst 3044 min-res-rate 500000
+qos-sc name TC1-US-500K min-res-pkt 0 max-burst 1522 poll-int 0 poll-jitter 0 grant-size 0
+qos-sc name TC1-US-500K grant-int 0 grant-jitter 0 grants-per-int 0 active-tmout 0 adm-tmout 200
+qos-sc name TC1-US-500K type 2 req-policy 0x00000000 and-mask 0xff or-mask 0x00 dir 2 required-attr-mask-value 0x00000000
+qos-sc name TC1-US-500K forbidden-attr-mask-value 0x00000000 attr-aggr-rule-mask-value 0x00000000
+qos-sc name TC1-US-500K peak-tr-rate 0
+qos-sc name TC1-US-600K priority 5 max-tr-rate 600000 max-tr-burst 3044 min-res-rate 600000
+qos-sc name TC1-US-600K min-res-pkt 0 max-burst 1522 poll-int 0 poll-jitter 0 grant-size 0
+qos-sc name TC1-US-600K grant-int 0 grant-jitter 0 grants-per-int 0 active-tmout 0 adm-tmout 200
+qos-sc name TC1-US-600K type 2 req-policy 0x00000000 and-mask 0xff or-mask 0x00 dir 2 required-attr-mask-value 0x00000000
+qos-sc name TC1-US-600K forbidden-attr-mask-value 0x00000000 attr-aggr-rule-mask-value 0x00000000
+qos-sc name TC1-US-600K peak-tr-rate 0
+qos-sc name TC4-DS-100M priority 0 max-tr-rate 100000000 max-tr-burst 128000 min-res-rate 0
+qos-sc name TC4-DS-100M min-res-pkt 0 max-burst 1522 poll-int 0 poll-jitter 0 grant-size 0
+qos-sc name TC4-DS-100M grant-int 0 grant-jitter 0 grants-per-int 0 active-tmout 0 adm-tmout 200
+qos-sc name TC4-DS-100M type 2 req-policy 0x00000000 and-mask 0xff or-mask 0x00 dir 1 required-attr-mask-value 0x00000000
+qos-sc name TC4-DS-100M forbidden-attr-mask-value 0x00000000 attr-aggr-rule-mask-value 0x00000000
+qos-sc name TC4-DS-100M peak-tr-rate 0
+qos-sc name USPrimaryBE priority 0 max-tr-rate 500000 max-tr-burst 1522 min-res-rate 0 min-res-pkt 0
+qos-sc name USPrimaryBE max-burst 0 poll-int 0 poll-jitter 0 grant-size 0 grant-int 0 grant-jitter 0
+qos-sc name USPrimaryBE grants-per-int 0 active-tmout 0 adm-tmout 200 type 2 req-policy 0x00000000
+qos-sc name USPrimaryBE and-mask 0xff or-mask 0x00 dir 2 required-attr-mask-value 0x00000000
+qos-sc name USPrimaryBE forbidden-attr-mask-value 0x00000000 attr-aggr-rule-mask-value 0x00000000
+qos-sc name USPrimaryBE peak-tr-rate 0
+qos-sc name ds_dsg_hnav priority 0 max-tr-rate 0 max-tr-burst 3044 min-res-rate 0 min-res-pkt 0
+qos-sc name ds_dsg_hnav max-burst 1522 poll-int 0 poll-jitter 0 grant-size 0 grant-int 0 grant-jitter 0
+qos-sc name ds_dsg_hnav grants-per-int 0 active-tmout 0 adm-tmout 200 type 2 req-policy 0x00000000
+qos-sc name ds_dsg_hnav and-mask 0xff or-mask 0x00 dir 1 required-attr-mask-value 0x00000000
+qos-sc name ds_dsg_hnav forbidden-attr-mask-value 0x00000000 attr-aggr-rule-mask-value 0x00000000
+qos-sc name ds_dsg_hnav peak-tr-rate 0
+qos-sc name ds_dsg_ocap priority 0 max-tr-rate 0 max-tr-burst 3044 min-res-rate 0 min-res-pkt 0
+qos-sc name ds_dsg_ocap max-burst 1522 poll-int 0 poll-jitter 0 grant-size 0 grant-int 0 grant-jitter 0
+qos-sc name ds_dsg_ocap grants-per-int 0 active-tmout 0 adm-tmout 200 type 2 req-policy 0x00000000
+qos-sc name ds_dsg_ocap and-mask 0xff or-mask 0x00 dir 1 required-attr-mask-value 0x00000000
+qos-sc name ds_dsg_ocap forbidden-attr-mask-value 0x00000000 attr-aggr-rule-mask-value 0x00000000
+qos-sc name ds_dsg_ocap peak-tr-rate 0
+qos-sc name ds_twc_wifi priority 0 max-tr-rate 0 max-tr-burst 3044 min-res-rate 0 min-res-pkt 0
+qos-sc name ds_twc_wifi max-burst 1522 poll-int 0 poll-jitter 0 grant-size 0 grant-int 0 grant-jitter 0
+qos-sc name ds_twc_wifi grants-per-int 0 active-tmout 0 adm-tmout 200 type 2 req-policy 0x00000000
+qos-sc name ds_twc_wifi and-mask 0xff or-mask 0x00 dir 1 required-attr-mask-value 0x00000000
+qos-sc name ds_twc_wifi forbidden-attr-mask-value 0x00000000 attr-aggr-rule-mask-value 0x00000000
+qos-sc name ds_twc_wifi peak-tr-rate 0
+qos-sc name isca_ref_ds priority 0 max-tr-rate 1000000000 max-tr-burst 200000 min-res-rate 0
+qos-sc name isca_ref_ds min-res-pkt 0 max-burst 0 poll-int 0 poll-jitter 0 grant-size 0 grant-int 0
+qos-sc name isca_ref_ds grant-jitter 0 grants-per-int 0 active-tmout 0 adm-tmout 200 type 1
+qos-sc name isca_ref_ds req-policy 0x00000000 and-mask 0xff or-mask 0x00 dir 1 required-attr-mask-value 0x00000000
+qos-sc name isca_ref_ds forbidden-attr-mask-value 0x00000000 attr-aggr-rule-mask-value 0x00000000
+qos-sc name isca_ref_ds peak-tr-rate 0
+qos-sc name isca_ref_us priority 0 max-tr-rate 1000000000 max-tr-burst 200000 min-res-rate 0
+qos-sc name isca_ref_us min-res-pkt 0 max-burst 0 poll-int 0 poll-jitter 0 grant-size 0 grant-int 0
+qos-sc name isca_ref_us grant-jitter 0 grants-per-int 0 active-tmout 0 adm-tmout 200 type 2
+qos-sc name isca_ref_us req-policy 0x00000000 and-mask 0xff or-mask 0x00 dir 2 required-attr-mask-value 0x00000000
+qos-sc name isca_ref_us forbidden-attr-mask-value 0x00000000 attr-aggr-rule-mask-value 0x00000000
+qos-sc name isca_ref_us peak-tr-rate 0
+qos-sc name us_dsg_hnav priority 0 max-tr-rate 0 max-tr-burst 3044 min-res-rate 0 min-res-pkt 0
+qos-sc name us_dsg_hnav max-burst 1522 poll-int 0 poll-jitter 0 grant-size 0 grant-int 0 grant-jitter 0
+qos-sc name us_dsg_hnav grants-per-int 0 active-tmout 0 adm-tmout 200 type 2 req-policy 0x00000000
+qos-sc name us_dsg_hnav and-mask 0xff or-mask 0x00 dir 2 required-attr-mask-value 0x00000000
+qos-sc name us_dsg_hnav forbidden-attr-mask-value 0x00000000 attr-aggr-rule-mask-value 0x00000000
+qos-sc name us_dsg_hnav peak-tr-rate 0
+qos-sc name us_dsg_ocap priority 0 max-tr-rate 0 max-tr-burst 3044 min-res-rate 0 min-res-pkt 0
+qos-sc name us_dsg_ocap max-burst 1522 poll-int 0 poll-jitter 0 grant-size 0 grant-int 0 grant-jitter 0
+qos-sc name us_dsg_ocap grants-per-int 0 active-tmout 0 adm-tmout 200 type 2 req-policy 0x00000000
+qos-sc name us_dsg_ocap and-mask 0xff or-mask 0x00 dir 2 required-attr-mask-value 0x00000000
+qos-sc name us_dsg_ocap forbidden-attr-mask-value 0x00000000 attr-aggr-rule-mask-value 0x00000000
+qos-sc name us_dsg_ocap peak-tr-rate 0
+qos-sc name us_twc_wifi priority 0 max-tr-rate 0 max-tr-burst 3044 min-res-rate 0 min-res-pkt 0
+qos-sc name us_twc_wifi max-burst 1522 poll-int 0 poll-jitter 0 grant-size 0 grant-int 0 grant-jitter 0
+qos-sc name us_twc_wifi grants-per-int 0 active-tmout 0 adm-tmout 200 type 2 req-policy 0x00000000
+qos-sc name us_twc_wifi and-mask 0xff or-mask 0x00 dir 2 required-attr-mask-value 0x00000000
+qos-sc name us_twc_wifi forbidden-attr-mask-value 0x00000000 attr-aggr-rule-mask-value 0x00000000
+qos-sc name us_twc_wifi peak-tr-rate 0
+qos-sc name cmcsa_10M_dn priority 1 max-tr-rate 10000000 max-tr-burst 3044 min-res-rate 0 min-res-pkt 0
+qos-sc name cmcsa_10M_dn max-burst 1522 poll-int 0 poll-jitter 0 grant-size 0 grant-int 0 grant-jitter 0
+qos-sc name cmcsa_10M_dn grants-per-int 0 active-tmout 0 adm-tmout 200 type 2 req-policy 0x00000000
+qos-sc name cmcsa_10M_dn and-mask 0x00 or-mask 0x00 dir 1 required-attr-mask-value 0x00000000
+qos-sc name cmcsa_10M_dn forbidden-attr-mask-value 0x00000000 attr-aggr-rule-mask-value 0x00000000
+qos-sc name cmcsa_10M_dn peak-tr-rate 0
+qos-sc name cmcsa_11M_up priority 1 max-tr-rate 11000000 max-tr-burst 16384 min-res-rate 0
+qos-sc name cmcsa_11M_up min-res-pkt 0 max-burst 16384 poll-int 0 poll-jitter 0 grant-size 0
+qos-sc name cmcsa_11M_up grant-int 0 grant-jitter 0 grants-per-int 0 active-tmout 0 adm-tmout 200
+qos-sc name cmcsa_11M_up type 2 req-policy 0x00000000 and-mask 0x00 or-mask 0x20 dir 2 required-attr-mask-value 0x00000000
+qos-sc name cmcsa_11M_up forbidden-attr-mask-value 0x00000000 attr-aggr-rule-mask-value 0x00000000
+qos-sc name cmcsa_11M_up peak-tr-rate 0
+qos-sc name cmcsa_30M_dn priority 1 max-tr-rate 30000000 max-tr-burst 3044 min-res-rate 0 min-res-pkt 0
+qos-sc name cmcsa_30M_dn max-burst 1522 poll-int 0 poll-jitter 0 grant-size 0 grant-int 0 grant-jitter 0
+qos-sc name cmcsa_30M_dn grants-per-int 0 active-tmout 0 adm-tmout 200 type 2 req-policy 0x00000000
+qos-sc name cmcsa_30M_dn and-mask 0x00 or-mask 0x00 dir 1 required-attr-mask-value 0x00000000
+qos-sc name cmcsa_30M_dn forbidden-attr-mask-value 0x00000000 attr-aggr-rule-mask-value 0x00000000
+qos-sc name cmcsa_30M_dn peak-tr-rate 0
+qos-sc name cmcsa_30M_up priority 1 max-tr-rate 30000000 max-tr-burst 16384 min-res-rate 0
+qos-sc name cmcsa_30M_up min-res-pkt 0 max-burst 16384 poll-int 0 poll-jitter 0 grant-size 0
+qos-sc name cmcsa_30M_up grant-int 0 grant-jitter 0 grants-per-int 0 active-tmout 0 adm-tmout 200
+qos-sc name cmcsa_30M_up type 2 req-policy 0x00000000 and-mask 0x00 or-mask 0x20 dir 2 required-attr-mask-value 0x00000000
+qos-sc name cmcsa_30M_up forbidden-attr-mask-value 0x00000000 attr-aggr-rule-mask-value 0x00000000
+qos-sc name cmcsa_30M_up peak-tr-rate 0
+qos-sc name cmcsa_40M_up priority 1 max-tr-rate 40000000 max-tr-burst 16384 min-res-rate 0
+qos-sc name cmcsa_40M_up min-res-pkt 0 max-burst 16384 poll-int 0 poll-jitter 0 grant-size 0
+qos-sc name cmcsa_40M_up grant-int 0 grant-jitter 0 grants-per-int 0 active-tmout 0 adm-tmout 200
+qos-sc name cmcsa_40M_up type 2 req-policy 0x00000000 and-mask 0x00 or-mask 0x20 dir 2 required-attr-mask-value 0x00000000
+qos-sc name cmcsa_40M_up forbidden-attr-mask-value 0x00000000 attr-aggr-rule-mask-value 0x00000000
+qos-sc name cmcsa_40M_up peak-tr-rate 0
+qos-sc name cmcsa_50M_up priority 1 max-tr-rate 50000000 max-tr-burst 16384 min-res-rate 0
+qos-sc name cmcsa_50M_up min-res-pkt 0 max-burst 16384 poll-int 0 poll-jitter 0 grant-size 0
+qos-sc name cmcsa_50M_up grant-int 0 grant-jitter 0 grants-per-int 0 active-tmout 0 adm-tmout 200
+qos-sc name cmcsa_50M_up type 2 req-policy 0x00000000 and-mask 0x00 or-mask 0x20 dir 2 required-attr-mask-value 0x00000000
+qos-sc name cmcsa_50M_up forbidden-attr-mask-value 0x00000000 attr-aggr-rule-mask-value 0x00000000
+qos-sc name cmcsa_50M_up peak-tr-rate 0
+qos-sc name cmcsa_55M_dn priority 1 max-tr-rate 55000000 max-tr-burst 3044 min-res-rate 0 min-res-pkt 0
+qos-sc name cmcsa_55M_dn max-burst 1522 poll-int 0 poll-jitter 0 grant-size 0 grant-int 0 grant-jitter 0
+qos-sc name cmcsa_55M_dn grants-per-int 0 active-tmout 0 adm-tmout 200 type 2 req-policy 0x00000000
+qos-sc name cmcsa_55M_dn and-mask 0x00 or-mask 0x00 dir 1 required-attr-mask-value 0x00000000
+qos-sc name cmcsa_55M_dn forbidden-attr-mask-value 0x00000000 attr-aggr-rule-mask-value 0x00000000
+qos-sc name cmcsa_55M_dn peak-tr-rate 0
+qos-sc name cmcsa_55M_up priority 1 max-tr-rate 55000000 max-tr-burst 16384 min-res-rate 0
+qos-sc name cmcsa_55M_up min-res-pkt 0 max-burst 16384 poll-int 0 poll-jitter 0 grant-size 0
+qos-sc name cmcsa_55M_up grant-int 0 grant-jitter 0 grants-per-int 0 active-tmout 0 adm-tmout 200
+qos-sc name cmcsa_55M_up type 2 req-policy 0x00000000 and-mask 0x00 or-mask 0x20 dir 2 required-attr-mask-value 0x00000000
+qos-sc name cmcsa_55M_up forbidden-attr-mask-value 0x00000000 attr-aggr-rule-mask-value 0x00000000
+qos-sc name cmcsa_55M_up peak-tr-rate 0
+qos-sc name cmcsa_80M_dn priority 1 max-tr-rate 80000000 max-tr-burst 3044 min-res-rate 0 min-res-pkt 0
+qos-sc name cmcsa_80M_dn max-burst 1522 poll-int 0 poll-jitter 0 grant-size 0 grant-int 0 grant-jitter 0
+qos-sc name cmcsa_80M_dn grants-per-int 0 active-tmout 0 adm-tmout 200 type 2 req-policy 0x00000000
+qos-sc name cmcsa_80M_dn and-mask 0x00 or-mask 0x00 dir 1 required-attr-mask-value 0x00000000
+qos-sc name cmcsa_80M_dn forbidden-attr-mask-value 0x00000000 attr-aggr-rule-mask-value 0x00000000
+qos-sc name cmcsa_80M_dn peak-tr-rate 0
+qos-sc name ds_hsd_nosid priority 0 max-tr-rate 0 max-tr-burst 3044 min-res-rate 0 min-res-pkt 0
+qos-sc name ds_hsd_nosid max-burst 1522 poll-int 0 poll-jitter 0 grant-size 0 grant-int 0 grant-jitter 0
+qos-sc name ds_hsd_nosid grants-per-int 0 active-tmout 0 adm-tmout 200 type 2 req-policy 0x00000000
+qos-sc name ds_hsd_nosid and-mask 0xff or-mask 0x00 dir 1 required-attr-mask-value 0x00000000
+qos-sc name ds_hsd_nosid forbidden-attr-mask-value 0x00000000 attr-aggr-rule-mask-value 0x00000000
+qos-sc name ds_hsd_nosid peak-tr-rate 0
+qos-sc name ds_hsd_other priority 0 max-tr-rate 0 max-tr-burst 3044 min-res-rate 0 min-res-pkt 0
+qos-sc name ds_hsd_other max-burst 1522 poll-int 0 poll-jitter 0 grant-size 0 grant-int 0 grant-jitter 0
+qos-sc name ds_hsd_other grants-per-int 0 active-tmout 0 adm-tmout 200 type 2 req-policy 0x00000000
+qos-sc name ds_hsd_other and-mask 0xff or-mask 0x00 dir 1 required-attr-mask-value 0x00000000
+qos-sc name ds_hsd_other forbidden-attr-mask-value 0x00000000 attr-aggr-rule-mask-value 0x00000000
+qos-sc name ds_hsd_other peak-tr-rate 0
+qos-sc name us_hsd_nosid priority 0 max-tr-rate 0 max-tr-burst 3044 min-res-rate 0 min-res-pkt 0
+qos-sc name us_hsd_nosid max-burst 1522 poll-int 0 poll-jitter 0 grant-size 0 grant-int 0 grant-jitter 0
+qos-sc name us_hsd_nosid grants-per-int 0 active-tmout 0 adm-tmout 200 type 2 req-policy 0x00000000
+qos-sc name us_hsd_nosid and-mask 0xff or-mask 0x00 dir 2 required-attr-mask-value 0x00000000
+qos-sc name us_hsd_nosid forbidden-attr-mask-value 0x00000000 attr-aggr-rule-mask-value 0x00000000
+qos-sc name us_hsd_nosid peak-tr-rate 0
+qos-sc name us_hsd_other priority 0 max-tr-rate 0 max-tr-burst 3044 min-res-rate 0 min-res-pkt 0
+qos-sc name us_hsd_other max-burst 1522 poll-int 0 poll-jitter 0 grant-size 0 grant-int 0 grant-jitter 0
+qos-sc name us_hsd_other grants-per-int 0 active-tmout 0 adm-tmout 200 type 2 req-policy 0x00000000
+qos-sc name us_hsd_other and-mask 0xff or-mask 0x00 dir 2 required-attr-mask-value 0x00000000
+qos-sc name us_hsd_other forbidden-attr-mask-value 0x00000000 attr-aggr-rule-mask-value 0x00000000
+qos-sc name us_hsd_other peak-tr-rate 0
+qos-sc name DS-IGMP-QUERY priority 4 max-tr-rate 0 max-tr-burst 3044 min-res-rate 0 min-res-pkt 0
+qos-sc name DS-IGMP-QUERY max-burst 1522 poll-int 0 poll-jitter 0 grant-size 0 grant-int 0
+qos-sc name DS-IGMP-QUERY grant-jitter 0 grants-per-int 0 active-tmout 0 adm-tmout 200 type 2
+qos-sc name DS-IGMP-QUERY req-policy 0x00000000 and-mask 0xff or-mask 0x00 dir 1 required-attr-mask-value 0x00000000
+qos-sc name DS-IGMP-QUERY forbidden-attr-mask-value 0x80000000 attr-aggr-rule-mask-value 0x00000000
+qos-sc name DS-IGMP-QUERY peak-tr-rate 0
+qos-sc name SCN_Down_Test priority 4 max-tr-rate 900000 max-tr-burst 1550 min-res-rate 120000
+qos-sc name SCN_Down_Test min-res-pkt 55 max-burst 1522 poll-int 0 poll-jitter 0 grant-size 0
+qos-sc name SCN_Down_Test grant-int 0 grant-jitter 0 grants-per-int 0 active-tmout 134 adm-tmout 456
+qos-sc name SCN_Down_Test type 2 req-policy 0x00000000 and-mask 0xff or-mask 0x00 dir 1 required-attr-mask-value 0x00000000
+qos-sc name SCN_Down_Test forbidden-attr-mask-value 0x00000000 attr-aggr-rule-mask-value 0x00000000
+qos-sc name SCN_Down_Test peak-tr-rate 0
+qos-sc name SCN_Up_UGSAD1 priority 5 max-tr-rate 87200 max-tr-burst 1522 min-res-rate 87200
+qos-sc name SCN_Up_UGSAD1 min-res-pkt 218 max-burst 1522 poll-int 0 poll-jitter 0 grant-size 147
+qos-sc name SCN_Up_UGSAD1 grant-int 10000 grant-jitter 800 grants-per-int 1 active-tmout 244
+qos-sc name SCN_Up_UGSAD1 adm-tmout 123 type 5 req-policy 0x0000037f and-mask 0x0f or-mask 0x03
+qos-sc name SCN_Up_UGSAD1 dir 2 required-attr-mask-value 0x00000000 forbidden-attr-mask-value 0x00000000
+qos-sc name SCN_Up_UGSAD1 attr-aggr-rule-mask-value 0x00000000 peak-tr-rate 0
+qos-sc name SCN_Up_UGSAD2 priority 5 max-tr-rate 87200 max-tr-burst 1522 min-res-rate 87200
+qos-sc name SCN_Up_UGSAD2 min-res-pkt 218 max-burst 1522 poll-int 0 poll-jitter 0 grant-size 147
+qos-sc name SCN_Up_UGSAD2 grant-int 10000 grant-jitter 800 grants-per-int 1 active-tmout 244
+qos-sc name SCN_Up_UGSAD2 adm-tmout 123 type 5 req-policy 0x0000017f and-mask 0x0f or-mask 0x03
+qos-sc name SCN_Up_UGSAD2 dir 2 required-attr-mask-value 0x00000000 forbidden-attr-mask-value 0x00000000
+qos-sc name SCN_Up_UGSAD2 attr-aggr-rule-mask-value 0x00000000 peak-tr-rate 0
+qos-sc name SCN_Up_UGSAD3 priority 5 max-tr-rate 87200 max-tr-burst 1522 min-res-rate 87200
+qos-sc name SCN_Up_UGSAD3 min-res-pkt 218 max-burst 1522 poll-int 0 poll-jitter 0 grant-size 147
+qos-sc name SCN_Up_UGSAD3 grant-int 10000 grant-jitter 800 grants-per-int 1 active-tmout 244
+qos-sc name SCN_Up_UGSAD3 adm-tmout 123 type 5 req-policy 0x00000000 and-mask 0x0f or-mask 0x03
+qos-sc name SCN_Up_UGSAD3 dir 2 required-attr-mask-value 0x00000000 forbidden-attr-mask-value 0x00000000
+qos-sc name SCN_Up_UGSAD3 attr-aggr-rule-mask-value 0x00000000 peak-tr-rate 0
+qos-sc name cmcsa_160M_dn priority 1 max-tr-rate 160000000 max-tr-burst 3044 min-res-rate 0
+qos-sc name cmcsa_160M_dn min-res-pkt 0 max-burst 1522 poll-int 0 poll-jitter 0 grant-size 0
+qos-sc name cmcsa_160M_dn grant-int 0 grant-jitter 0 grants-per-int 0 active-tmout 0 adm-tmout 200
+qos-sc name cmcsa_160M_dn type 2 req-policy 0x00000000 and-mask 0x00 or-mask 0x00 dir 1 required-attr-mask-value 0x00000000
+qos-sc name cmcsa_160M_dn forbidden-attr-mask-value 0x00000000 attr-aggr-rule-mask-value 0x00000000
+qos-sc name cmcsa_160M_dn peak-tr-rate 0
+qos-sc name basic_upstream priority 0 max-tr-rate 300000 max-tr-burst 1522 min-res-rate 200000
+qos-sc name basic_upstream min-res-pkt 0 max-burst 0 poll-int 0 poll-jitter 0 grant-size 0
+qos-sc name basic_upstream grant-int 0 grant-jitter 0 grants-per-int 0 active-tmout 0 adm-tmout 200
+qos-sc name basic_upstream type 2 req-policy 0x00000000 and-mask 0xff or-mask 0x00 dir 2 required-attr-mask-value 0x00000000
+qos-sc name basic_upstream forbidden-attr-mask-value 0x00000000 attr-aggr-rule-mask-value 0x00000000
+qos-sc name basic_upstream peak-tr-rate 0
+ip unreachables
+ipv6 icmp unreachables
+ipv6 icmp too-big
+ipv6 icmp param-problem
+ipv6 icmp time-exceeded no
+interface null 0 ipv6 icmp unreachables no
+vrf default
+ auto-import enable
+ icmp-time-exceeded no
+exit
+ip multicast-routing vrf default
+ip multicast default-group-service-class C4DefGrpSCN
+cable multicast group-qos 101 scn ipvideo_dn
+cable multicast qos group 101 group-qos 101
+cable multicast qos group 101 priority 0
+cable multicast qos group 101 session-range 0.0.0.0/0 source 0.0.0.0/0
+ip-video attribute-encoding 0x0000
+ip-video monitoring vod-setup-threshold 5000
+ip-video monitoring linear-setup-threshold 1000
+ip-video dbc-delay-timer 100
+packetcable voice-limits emergency-preemption
+packetcable voice-limits allowed-total 70 allowed-normal 50 allowed-emergency 70 reserved-normal 0 reserved-emergency 0 upstream
+packetcable voice-limits allowed-total 70 allowed-normal 50 allowed-emergency 70 reserved-normal 0 reserved-emergency 0 downstream
+no cable modem remote-query
+cable modem format scmf interface cable-mac bonded-actual state docsis-mac qos-primary cpe-count cm-mac cm-ip
+ip proto-throttle-rate 2500
+ip proto-throttle-rate 700 arp
+ip proto-throttle-rate 500 bgp
+ip proto-throttle-rate 300 cops
+ip proto-throttle-rate 750 dhcp
+ip proto-throttle-rate 500 icmp
+ip proto-throttle-rate 500 igmp
+ip proto-throttle-rate 100 pim
+ip proto-throttle-rate 500 rip
+ip proto-throttle-rate 100 snmp-cm
+ip proto-throttle-rate 500 other
+ipv6 proto-throttle-rate 500 dhcp
+ipv6 proto-throttle-rate 500 icmp
+ipv6 proto-throttle-rate 700 nd
+ipv6 proto-throttle-rate 750 tftp
+snmp-server data max-read-ahead 1
+snmp-server data refresh-time 1
+snmp-server community c51559436e6fba43bd10a265627df078d2d1c0e0db93eb7fc34ac652dd26fd17 rw encrypted
+snmp-server community 54c9dc57fc9d2714d9a8823a718e2d7f9334d5e33b5620c79f6efee8051efcef ro encrypted
+snmp-server community c739190c3d81b6fc54a51de01414587c82ebc3ca0579d18e1ca236b5c7e56aa1 ro index rocablelabs ttag "rocablelabsTagList" encrypted
+snmp-server community bf2c1ee725e7cf1891c31ac41aae035695c5524d9d10d8ce80103935b6e6a44d rw index rwcablelabs ttag "rwcablelabsTagList" encrypted
+snmp-server host 172.19.1.13 name "vManager1" udp-port 8127 informs version v2c taglist "InformV2cSNMPv2cNotifyTagList rocablelabsTagList" tparam "InformV2cSNMPv2cNotify" timeout 1000 retry 5 notify-filter "InformV2cSNMPv2cNotifyProfile" mms 484
+snmp-server host 172.19.1.10 name "vManager2" udp-port 8127 informs version v2c taglist "InformV2cSNMPv2cNotifyTagList rocablelabsTagList" tparam "InformV2cSNMPv2cNotify" timeout 1000 retry 5 notify-filter "InformV2cSNMPv2cNotifyProfile" mms 484
+snmp-server host 172.19.1.11 name "vManager3" udp-port 8127 informs version v2c taglist "InformV2cSNMPv2cNotifyTagList rocablelabsTagList" tparam "InformV2cSNMPv2cNotify" timeout 1000 retry 5 notify-filter "InformV2cSNMPv2cNotifyProfile" mms 484
+snmp-server notify-filter profile "TrapV1SNMPv1TrapsProfile" subtree 1.3.6.1 type included # internet
+snmp-server notify-filter profile "TrapV2cSNMPv3TrapsProfile" subtree 1.3.6.1 type included # internet
+snmp-server notify-filter profile "TrapV2cSNMPv2cTrapsProfile" subtree 1.3.6.1 type included # internet
+snmp-server notify-filter profile "InformV3SNMPv3NotifyProfile" subtree 1.3.6.1 type included # internet
+snmp-server notify-filter profile "InformV2cSNMPv2cNotifyProfile" subtree 1.3.6.1 type included # internet
+snmp-server context ""
+snmp-server user "rotesting" "rotesting" v1
+snmp-server user "rwtesting" "rwtesting" v1
+snmp-server user "rotesting" "rotesting" v2c
+snmp-server user "rwtesting" "rwtesting" v2c
+snmp-server group "rotesting" v1 read "docsisManagerView" write "" notify "docsisManagerView"
+snmp-server group "rotesting" v2c read "docsisManagerView" write "" notify "docsisManagerView"
+snmp-server group "rwtesting" v1 read "docsisManagerView" write "docsisManagerView" notify ""
+snmp-server group "rwtesting" v2c read "docsisManagerView" write "docsisManagerView" notify ""
+snmp-server view "LI-TAP-VIEW" "1.3.6.1.4.1.9.9.252" included # cTapMIB
+snmp-server view "LAES-TAP-VIEW" "1.3.6.1.4.1.4491.2.2.9.1.1" included # pktcESTapMib
+snmp-server view "LAES-TAP-VIEW" "1.3.6.1.4.1.4491.2.2.9.1.2" included # pktcESIpTapMIB
+snmp-server view "docsisManagerView" "1.2.826.0.1.1578918" included # dataConnectionLtd
+snmp-server view "docsisManagerView" "1.2.840.10006" included # ieee802dot3
+snmp-server view "docsisManagerView" "1.3.6.1" included # internet
+snmp-server view "docsisManagerView" "1.3.111.2.802" included # lan-man-stds
+ipv6 nd timeout 1200
+ipv6 nd state searching rate-limit 333
+ipv6 nd state searching max-number 3
+ipv6 nd state not-present rate-limit 333
+ipv6 nd state not-present max-number 3
+ipv6 nd state not-present max-time 3
+ipv6 nd state not-present min-time 1
+ipv6 nd state searching global-max-rate 65535
+ipv6 nd state not-present global-max-rate 65535
+ipv6 nd state searching cable unicast 0
+ipv6 nd state searching cable multicast
+ipv6 pd-route-injection
+ipv6 prefix-stability
+cable modulation-profile 1
+ iuc 1 mod qpsk pre-len 56 diff false fec-tbytes 0 fec-len 16 seed 338 burst-len 0 guard-time-size 8 last-cw false scrambler true docsis-mode tdma
+ iuc 3 mod qpsk pre-len 640 diff false fec-tbytes 5 fec-len 34 seed 338 burst-len 0 guard-time-size 48 last-cw false scrambler true docsis-mode tdma
+ iuc 4 mod qpsk pre-len 384 diff false fec-tbytes 5 fec-len 34 seed 338 burst-len 0 guard-time-size 48 last-cw false scrambler true docsis-mode tdma
+ iuc 5 mod qpsk pre-len 84 diff false fec-tbytes 6 fec-len 78 seed 338 burst-len 45 guard-time-size 8 last-cw true scrambler true docsis-mode tdma
+ iuc 6 mod qpsk pre-len 96 diff false fec-tbytes 8 fec-len 220 seed 338 burst-len 0 guard-time-size 8 last-cw true scrambler true docsis-mode tdma
+exit
+cable modulation-profile 2
+ iuc 1 mod qpsk pre-len 56 diff false fec-tbytes 0 fec-len 16 seed 338 burst-len 0 guard-time-size 8 last-cw false scrambler true docsis-mode tdma
+ iuc 3 mod qpsk pre-len 640 diff false fec-tbytes 5 fec-len 34 seed 338 burst-len 0 guard-time-size 48 last-cw false scrambler true docsis-mode tdma
+ iuc 4 mod qpsk pre-len 384 diff false fec-tbytes 5 fec-len 34 seed 338 burst-len 0 guard-time-size 48 last-cw false scrambler true docsis-mode tdma
+ iuc 5 mod qpsk pre-len 84 diff false fec-tbytes 6 fec-len 78 seed 338 burst-len 45 guard-time-size 8 last-cw true scrambler true docsis-mode tdma
+ iuc 6 mod qpsk pre-len 96 diff false fec-tbytes 8 fec-len 220 seed 338 burst-len 0 guard-time-size 8 last-cw true scrambler true docsis-mode tdma
+exit
+cable modulation-profile 6
+ iuc 1 mod qpsk pre-len 56 diff false fec-tbytes 0 fec-len 16 seed 338 burst-len 0 guard-time-size 8 last-cw false scrambler true docsis-mode tdma
+ iuc 3 mod qpsk pre-len 640 diff false fec-tbytes 5 fec-len 34 seed 338 burst-len 0 guard-time-size 48 last-cw false scrambler true docsis-mode tdma
+ iuc 4 mod qpsk pre-len 384 diff false fec-tbytes 5 fec-len 34 seed 338 burst-len 0 guard-time-size 48 last-cw false scrambler true docsis-mode tdma
+ iuc 5 mod qam16 pre-len 168 diff false fec-tbytes 6 fec-len 78 seed 338 burst-len 23 guard-time-size 8 last-cw true scrambler true docsis-mode tdma
+ iuc 6 mod qam16 pre-len 192 diff false fec-tbytes 8 fec-len 220 seed 338 burst-len 0 guard-time-size 8 last-cw true scrambler true docsis-mode tdma
+exit
+cable modulation-profile 11
+ iuc 1 mod qpsk pre-len 56 diff false fec-tbytes 0 fec-len 16 seed 338 burst-len 0 guard-time-size 8 last-cw false scrambler true docsis-mode tdma-atdma
+ iuc 3 mod qpsk pre-len 640 diff false fec-tbytes 5 fec-len 34 seed 338 burst-len 0 guard-time-size 48 last-cw false scrambler true docsis-mode tdma-atdma
+ iuc 4 mod qpsk pre-len 384 diff false fec-tbytes 5 fec-len 34 seed 338 burst-len 0 guard-time-size 48 last-cw false scrambler true docsis-mode tdma-atdma
+ iuc 5 mod qpsk pre-len 84 diff false fec-tbytes 6 fec-len 78 seed 338 burst-len 45 guard-time-size 8 last-cw true scrambler true docsis-mode tdma-atdma
+ iuc 6 mod qpsk pre-len 96 diff false fec-tbytes 8 fec-len 220 seed 338 burst-len 0 guard-time-size 8 last-cw true scrambler true docsis-mode tdma-atdma
+ iuc 9 mod qpsk pre-len 104 diff false fec-tbytes 6 fec-len 78 seed 338 burst-len 25 guard-time-size 8 last-cw true scrambler true docsis-mode tdma-atdma
+ iuc 9 pre-type qpsk1 int-depth 0 int-blocksize 2048
+ iuc 10 mod qpsk pre-len 104 diff false fec-tbytes 8 fec-len 224 seed 338 burst-len 0 guard-time-size 8 last-cw true scrambler true docsis-mode tdma-atdma
+ iuc 10 pre-type qpsk1 int-depth 0 int-blocksize 2048
+ iuc 11 mod qpsk pre-len 104 diff false fec-tbytes 6 fec-len 78 seed 338 burst-len 0 guard-time-size 8 last-cw true scrambler true docsis-mode tdma-atdma
+ iuc 11 pre-type qpsk1 int-depth 0 int-blocksize 2048
+exit
+cable modulation-profile 14
+ iuc 1 mod qpsk pre-len 56 diff false fec-tbytes 0 fec-len 16 seed 338 burst-len 0 guard-time-size 8 last-cw false scrambler true docsis-mode tdma-atdma
+ iuc 3 mod qpsk pre-len 640 diff false fec-tbytes 5 fec-len 34 seed 338 burst-len 0 guard-time-size 48 last-cw false scrambler true docsis-mode tdma-atdma
+ iuc 4 mod qpsk pre-len 384 diff false fec-tbytes 5 fec-len 34 seed 338 burst-len 0 guard-time-size 48 last-cw false scrambler true docsis-mode tdma-atdma
+ iuc 5 mod qpsk pre-len 84 diff false fec-tbytes 6 fec-len 78 seed 338 burst-len 45 guard-time-size 8 last-cw true scrambler true docsis-mode tdma-atdma
+ iuc 6 mod qpsk pre-len 96 diff false fec-tbytes 8 fec-len 220 seed 338 burst-len 0 guard-time-size 8 last-cw true scrambler true docsis-mode tdma-atdma
+ iuc 9 mod qam8 pre-len 104 diff false fec-tbytes 6 fec-len 78 seed 338 burst-len 17 guard-time-size 8 last-cw true scrambler true docsis-mode tdma-atdma
+ iuc 9 pre-type qpsk1 int-depth 0 int-blocksize 2048
+ iuc 10 mod qam8 pre-len 104 diff false fec-tbytes 8 fec-len 224 seed 338 burst-len 0 guard-time-size 8 last-cw true scrambler true docsis-mode tdma-atdma
+ iuc 10 pre-type qpsk1 int-depth 0 int-blocksize 2048
+ iuc 11 mod qam8 pre-len 104 diff false fec-tbytes 6 fec-len 78 seed 338 burst-len 0 guard-time-size 8 last-cw true scrambler true docsis-mode tdma-atdma
+ iuc 11 pre-type qpsk1 int-depth 0 int-blocksize 2048
+exit
+cable modulation-profile 15
+ iuc 1 mod qpsk pre-len 56 diff false fec-tbytes 0 fec-len 16 seed 338 burst-len 0 guard-time-size 8 last-cw false scrambler true docsis-mode tdma-atdma
+ iuc 3 mod qpsk pre-len 640 diff false fec-tbytes 5 fec-len 34 seed 338 burst-len 0 guard-time-size 48 last-cw false scrambler true docsis-mode tdma-atdma
+ iuc 4 mod qpsk pre-len 384 diff false fec-tbytes 5 fec-len 34 seed 338 burst-len 0 guard-time-size 48 last-cw false scrambler true docsis-mode tdma-atdma
+ iuc 5 mod qam16 pre-len 168 diff false fec-tbytes 6 fec-len 78 seed 338 burst-len 23 guard-time-size 8 last-cw true scrambler true docsis-mode tdma-atdma
+ iuc 6 mod qam16 pre-len 192 diff false fec-tbytes 8 fec-len 220 seed 338 burst-len 0 guard-time-size 8 last-cw true scrambler true docsis-mode tdma-atdma
+ iuc 9 mod qam16 pre-len 104 diff false fec-tbytes 6 fec-len 78 seed 338 burst-len 14 guard-time-size 8 last-cw true scrambler true docsis-mode tdma-atdma
+ iuc 9 pre-type qpsk1 int-depth 0 int-blocksize 2048
+ iuc 10 mod qam16 pre-len 104 diff false fec-tbytes 8 fec-len 224 seed 338 burst-len 0 guard-time-size 8 last-cw true scrambler true docsis-mode tdma-atdma
+ iuc 10 pre-type qpsk1 int-depth 0 int-blocksize 2048
+ iuc 11 mod qam16 pre-len 104 diff false fec-tbytes 6 fec-len 78 seed 338 burst-len 0 guard-time-size 8 last-cw true scrambler true docsis-mode tdma-atdma
+ iuc 11 pre-type qpsk1 int-depth 0 int-blocksize 2048
+exit
+cable modulation-profile 16
+ iuc 1 mod qpsk pre-len 56 diff false fec-tbytes 0 fec-len 16 seed 338 burst-len 0 guard-time-size 8 last-cw false scrambler true docsis-mode tdma-atdma
+ iuc 3 mod qpsk pre-len 640 diff false fec-tbytes 5 fec-len 34 seed 338 burst-len 0 guard-time-size 48 last-cw false scrambler true docsis-mode tdma-atdma
+ iuc 4 mod qpsk pre-len 384 diff false fec-tbytes 5 fec-len 34 seed 338 burst-len 0 guard-time-size 48 last-cw false scrambler true docsis-mode tdma-atdma
+ iuc 5 mod qam16 pre-len 168 diff false fec-tbytes 6 fec-len 78 seed 338 burst-len 23 guard-time-size 8 last-cw true scrambler true docsis-mode tdma-atdma
+ iuc 6 mod qam16 pre-len 192 diff false fec-tbytes 8 fec-len 220 seed 338 burst-len 0 guard-time-size 8 last-cw true scrambler true docsis-mode tdma-atdma
+ iuc 9 mod qam32 pre-len 104 diff false fec-tbytes 10 fec-len 85 seed 338 burst-len 13 guard-time-size 8 last-cw true scrambler true docsis-mode tdma-atdma
+ iuc 9 pre-type qpsk1 int-depth 0 int-blocksize 2048
+ iuc 10 mod qam32 pre-len 104 diff false fec-tbytes 12 fec-len 216 seed 338 burst-len 0 guard-time-size 8 last-cw true scrambler true docsis-mode tdma-atdma
+ iuc 10 pre-type qpsk1 int-depth 0 int-blocksize 2048
+ iuc 11 mod qam32 pre-len 104 diff false fec-tbytes 10 fec-len 85 seed 338 burst-len 0 guard-time-size 8 last-cw true scrambler true docsis-mode tdma-atdma
+ iuc 11 pre-type qpsk1 int-depth 0 int-blocksize 2048
+exit
+cable modulation-profile 17
+ iuc 1 mod qpsk pre-len 56 diff false fec-tbytes 0 fec-len 16 seed 338 burst-len 0 guard-time-size 8 last-cw false scrambler true docsis-mode tdma-atdma
+ iuc 3 mod qpsk pre-len 640 diff false fec-tbytes 5 fec-len 34 seed 338 burst-len 0 guard-time-size 48 last-cw false scrambler true docsis-mode tdma-atdma
+ iuc 4 mod qpsk pre-len 384 diff false fec-tbytes 5 fec-len 34 seed 338 burst-len 0 guard-time-size 48 last-cw false scrambler true docsis-mode tdma-atdma
+ iuc 5 mod qam16 pre-len 168 diff false fec-tbytes 6 fec-len 78 seed 338 burst-len 23 guard-time-size 8 last-cw true scrambler true docsis-mode tdma-atdma
+ iuc 6 mod qam16 pre-len 192 diff false fec-tbytes 8 fec-len 220 seed 338 burst-len 0 guard-time-size 8 last-cw true scrambler true docsis-mode tdma-atdma
+ iuc 9 mod qam64 pre-len 104 diff false fec-tbytes 12 fec-len 81 seed 338 burst-len 11 guard-time-size 8 last-cw true scrambler true docsis-mode tdma-atdma
+ iuc 9 pre-type qpsk1 int-depth 0 int-blocksize 2048
+ iuc 10 mod qam64 pre-len 104 diff false fec-tbytes 16 fec-len 223 seed 338 burst-len 0 guard-time-size 8 last-cw true scrambler true docsis-mode tdma-atdma
+ iuc 10 pre-type qpsk1 int-depth 0 int-blocksize 2048
+ iuc 11 mod qam64 pre-len 104 diff false fec-tbytes 12 fec-len 81 seed 338 burst-len 0 guard-time-size 8 last-cw true scrambler true docsis-mode tdma-atdma
+ iuc 11 pre-type qpsk1 int-depth 0 int-blocksize 2048
+exit
+cable modulation-profile 21
+ iuc 1 mod qpsk pre-len 56 diff false fec-tbytes 0 fec-len 16 seed 338 burst-len 0 guard-time-size 8 last-cw false scrambler true docsis-mode atdma
+ iuc 1 pre-type qpsk1 int-depth 1 int-blocksize 2048
+ iuc 3 mod qpsk pre-len 640 diff false fec-tbytes 5 fec-len 34 seed 338 burst-len 0 guard-time-size 48 last-cw false scrambler true docsis-mode atdma
+ iuc 3 pre-type qpsk1 int-depth 0 int-blocksize 2048
+ iuc 4 mod qpsk pre-len 384 diff false fec-tbytes 5 fec-len 34 seed 338 burst-len 0 guard-time-size 48 last-cw false scrambler true docsis-mode atdma
+ iuc 4 pre-type qpsk1 int-depth 0 int-blocksize 2048
+ iuc 9 mod qpsk pre-len 104 diff false fec-tbytes 6 fec-len 78 seed 338 burst-len 25 guard-time-size 8 last-cw true scrambler true docsis-mode atdma
+ iuc 9 pre-type qpsk1 int-depth 0 int-blocksize 2048
+ iuc 10 mod qpsk pre-len 104 diff false fec-tbytes 8 fec-len 224 seed 338 burst-len 0 guard-time-size 8 last-cw true scrambler true docsis-mode atdma
+ iuc 10 pre-type qpsk1 int-depth 0 int-blocksize 2048
+ iuc 11 mod qpsk pre-len 104 diff false fec-tbytes 6 fec-len 78 seed 338 burst-len 0 guard-time-size 8 last-cw true scrambler true docsis-mode atdma
+ iuc 11 pre-type qpsk1 int-depth 0 int-blocksize 2048
+exit
+cable modulation-profile 24
+ iuc 1 mod qpsk pre-len 56 diff false fec-tbytes 0 fec-len 16 seed 338 burst-len 0 guard-time-size 8 last-cw false scrambler true docsis-mode atdma
+ iuc 1 pre-type qpsk1 int-depth 1 int-blocksize 2048
+ iuc 3 mod qpsk pre-len 640 diff false fec-tbytes 5 fec-len 34 seed 338 burst-len 0 guard-time-size 48 last-cw false scrambler true docsis-mode atdma
+ iuc 3 pre-type qpsk1 int-depth 0 int-blocksize 2048
+ iuc 4 mod qpsk pre-len 384 diff false fec-tbytes 5 fec-len 34 seed 338 burst-len 0 guard-time-size 48 last-cw false scrambler true docsis-mode atdma
+ iuc 4 pre-type qpsk1 int-depth 0 int-blocksize 2048
+ iuc 9 mod qam8 pre-len 104 diff false fec-tbytes 6 fec-len 78 seed 338 burst-len 17 guard-time-size 8 last-cw true scrambler true docsis-mode atdma
+ iuc 9 pre-type qpsk1 int-depth 0 int-blocksize 2048
+ iuc 10 mod qam8 pre-len 104 diff false fec-tbytes 8 fec-len 224 seed 338 burst-len 0 guard-time-size 8 last-cw true scrambler true docsis-mode atdma
+ iuc 10 pre-type qpsk1 int-depth 0 int-blocksize 2048
+ iuc 11 mod qam8 pre-len 104 diff false fec-tbytes 6 fec-len 78 seed 338 burst-len 0 guard-time-size 8 last-cw true scrambler true docsis-mode atdma
+ iuc 11 pre-type qpsk1 int-depth 0 int-blocksize 2048
+exit
+cable modulation-profile 25
+ iuc 1 mod qpsk pre-len 56 diff false fec-tbytes 0 fec-len 16 seed 338 burst-len 0 guard-time-size 8 last-cw false scrambler true docsis-mode atdma
+ iuc 1 pre-type qpsk1 int-depth 1 int-blocksize 2048
+ iuc 3 mod qpsk pre-len 640 diff false fec-tbytes 5 fec-len 34 seed 338 burst-len 0 guard-time-size 48 last-cw false scrambler true docsis-mode atdma
+ iuc 3 pre-type qpsk1 int-depth 0 int-blocksize 2048
+ iuc 4 mod qpsk pre-len 384 diff false fec-tbytes 5 fec-len 34 seed 338 burst-len 0 guard-time-size 48 last-cw false scrambler true docsis-mode atdma
+ iuc 4 pre-type qpsk1 int-depth 0 int-blocksize 2048
+ iuc 9 mod qam16 pre-len 104 diff false fec-tbytes 6 fec-len 78 seed 338 burst-len 14 guard-time-size 8 last-cw true scrambler true docsis-mode atdma
+ iuc 9 pre-type qpsk1 int-depth 0 int-blocksize 2048
+ iuc 10 mod qam16 pre-len 104 diff false fec-tbytes 8 fec-len 224 seed 338 burst-len 0 guard-time-size 8 last-cw true scrambler true docsis-mode atdma
+ iuc 10 pre-type qpsk1 int-depth 0 int-blocksize 2048
+ iuc 11 mod qam16 pre-len 104 diff false fec-tbytes 6 fec-len 78 seed 338 burst-len 0 guard-time-size 8 last-cw true scrambler true docsis-mode atdma
+ iuc 11 pre-type qpsk1 int-depth 0 int-blocksize 2048
+exit
+cable modulation-profile 26
+ iuc 1 mod qpsk pre-len 56 diff false fec-tbytes 0 fec-len 16 seed 338 burst-len 0 guard-time-size 8 last-cw false scrambler true docsis-mode atdma
+ iuc 1 pre-type qpsk1 int-depth 1 int-blocksize 2048
+ iuc 3 mod qpsk pre-len 640 diff false fec-tbytes 5 fec-len 34 seed 338 burst-len 0 guard-time-size 48 last-cw false scrambler true docsis-mode atdma
+ iuc 3 pre-type qpsk1 int-depth 0 int-blocksize 2048
+ iuc 4 mod qpsk pre-len 384 diff false fec-tbytes 5 fec-len 34 seed 338 burst-len 0 guard-time-size 48 last-cw false scrambler true docsis-mode atdma
+ iuc 4 pre-type qpsk1 int-depth 0 int-blocksize 2048
+ iuc 9 mod qam32 pre-len 104 diff false fec-tbytes 10 fec-len 85 seed 338 burst-len 13 guard-time-size 8 last-cw true scrambler true docsis-mode atdma
+ iuc 9 pre-type qpsk1 int-depth 0 int-blocksize 2048
+ iuc 10 mod qam32 pre-len 104 diff false fec-tbytes 12 fec-len 216 seed 338 burst-len 0 guard-time-size 8 last-cw true scrambler true docsis-mode atdma
+ iuc 10 pre-type qpsk1 int-depth 0 int-blocksize 2048
+ iuc 11 mod qam32 pre-len 104 diff false fec-tbytes 10 fec-len 85 seed 338 burst-len 0 guard-time-size 8 last-cw true scrambler true docsis-mode atdma
+ iuc 11 pre-type qpsk1 int-depth 0 int-blocksize 2048
+exit
+cable modulation-profile 27
+ iuc 1 mod qpsk pre-len 56 diff false fec-tbytes 0 fec-len 16 seed 338 burst-len 0 guard-time-size 8 last-cw false scrambler true docsis-mode atdma
+ iuc 1 pre-type qpsk1 int-depth 1 int-blocksize 2048
+ iuc 3 mod qpsk pre-len 640 diff false fec-tbytes 5 fec-len 34 seed 338 burst-len 0 guard-time-size 48 last-cw false scrambler true docsis-mode atdma
+ iuc 3 pre-type qpsk1 int-depth 0 int-blocksize 2048
+ iuc 4 mod qpsk pre-len 384 diff false fec-tbytes 5 fec-len 34 seed 338 burst-len 0 guard-time-size 48 last-cw false scrambler true docsis-mode atdma
+ iuc 4 pre-type qpsk1 int-depth 0 int-blocksize 2048
+ iuc 9 mod qam64 pre-len 104 diff false fec-tbytes 12 fec-len 81 seed 338 burst-len 11 guard-time-size 8 last-cw true scrambler true docsis-mode atdma
+ iuc 9 pre-type qpsk1 int-depth 0 int-blocksize 2048
+ iuc 10 mod qam64 pre-len 104 diff false fec-tbytes 16 fec-len 223 seed 338 burst-len 0 guard-time-size 8 last-cw true scrambler true docsis-mode atdma
+ iuc 10 pre-type qpsk1 int-depth 0 int-blocksize 2048
+ iuc 11 mod qam64 pre-len 104 diff false fec-tbytes 12 fec-len 81 seed 338 burst-len 0 guard-time-size 8 last-cw true scrambler true docsis-mode atdma
+ iuc 11 pre-type qpsk1 int-depth 0 int-blocksize 2048
+exit
+cable modulation-profile 127
+ iuc 1 mod qpsk pre-len 56 diff false fec-tbytes 0 fec-len 16 seed 338 burst-len 0 guard-time-size 8 last-cw false scrambler true docsis-mode atdma
+ iuc 1 pre-type qpsk1 int-depth 1 int-blocksize 2048
+ iuc 3 mod qpsk pre-len 640 diff false fec-tbytes 5 fec-len 34 seed 338 burst-len 0 guard-time-size 48 last-cw false scrambler true docsis-mode atdma
+ iuc 3 pre-type qpsk1 int-depth 1 int-blocksize 2048
+ iuc 4 mod qpsk pre-len 384 diff false fec-tbytes 5 fec-len 34 seed 338 burst-len 0 guard-time-size 48 last-cw false scrambler true docsis-mode atdma
+ iuc 4 pre-type qpsk1 int-depth 1 int-blocksize 2048
+ iuc 9 mod qam64 pre-len 104 diff false fec-tbytes 12 fec-len 81 seed 338 burst-len 11 guard-time-size 8 last-cw true scrambler true docsis-mode atdma
+ iuc 9 pre-type qpsk1 int-depth 1 int-blocksize 2048
+ iuc 10 mod qam64 pre-len 104 diff false fec-tbytes 16 fec-len 223 seed 338 burst-len 0 guard-time-size 8 last-cw true scrambler true docsis-mode atdma
+ iuc 10 pre-type qpsk1 int-depth 1 int-blocksize 2048
+ iuc 11 mod qam64 pre-len 104 diff false fec-tbytes 12 fec-len 81 seed 338 burst-len 0 guard-time-size 8 last-cw true scrambler true docsis-mode atdma
+ iuc 11 pre-type qpsk1 int-depth 1 int-blocksize 2048
+exit
+cable modulation-profile 327
+ iuc 1 mod qpsk pre-len 56 diff false fec-tbytes 0 fec-len 16 seed 338 burst-len 0 guard-time-size 8 last-cw false scrambler true docsis-mode atdma
+ iuc 1 pre-type qpsk1 int-depth 1 int-blocksize 2048
+ iuc 3 mod qpsk pre-len 640 diff false fec-tbytes 5 fec-len 34 seed 338 burst-len 0 guard-time-size 48 last-cw false scrambler true docsis-mode atdma
+ iuc 3 pre-type qpsk1 int-depth 0 int-blocksize 2048
+ iuc 4 mod qpsk pre-len 384 diff false fec-tbytes 5 fec-len 34 seed 338 burst-len 0 guard-time-size 48 last-cw false scrambler true docsis-mode atdma
+ iuc 4 pre-type qpsk1 int-depth 0 int-blocksize 2048
+ iuc 9 mod qam64 pre-len 104 diff false fec-tbytes 12 fec-len 81 seed 338 burst-len 11 guard-time-size 8 last-cw true scrambler true docsis-mode atdma
+ iuc 9 pre-type qpsk1 int-depth 0 int-blocksize 2048
+ iuc 10 mod qam64 pre-len 104 diff false fec-tbytes 16 fec-len 223 seed 338 burst-len 0 guard-time-size 8 last-cw true scrambler true docsis-mode atdma
+ iuc 10 pre-type qpsk1 int-depth 0 int-blocksize 2048
+ iuc 11 mod qam64 pre-len 104 diff false fec-tbytes 12 fec-len 81 seed 338 burst-len 0 guard-time-size 8 last-cw true scrambler true docsis-mode atdma
+ iuc 11 pre-type qpsk1 int-depth 0 int-blocksize 2048
+exit
+ofdm modulation-profile 1
+ name "DefaultTemplate"
+ description "The default OFDMA Template"
+ cyclic-prefix 192
+ rolloff-period 96
+ symbols-per-frame 16
+ iuc 13 modulation 64qam
+ iuc 13 pilot-pattern 2
+ initial-ranging frequency-width 32 preamble-length 4 total-guard-band-size 8
+ fine-ranging frequency-width 128 total-guard-band-size 8
+exit
+ofdm profile-mgmt modulation-margin qpsk mer-adjust 12
+ofdm profile-mgmt modulation-margin 8qam mer-adjust 12
+ofdm profile-mgmt modulation-margin 16qam mer-adjust 12
+ofdm profile-mgmt modulation-margin 32qam mer-adjust 12
+ofdm profile-mgmt modulation-margin 64qam mer-adjust 12
+ofdm profile-mgmt modulation-margin 128qam mer-adjust 12
+ofdm profile-mgmt modulation-margin 256qam mer-adjust 12
+ofdm profile-mgmt modulation-margin 512qam mer-adjust 12
+ofdm profile-mgmt modulation-margin 1024qam mer-adjust 12
+ofdm profile-mgmt threshold 4
+ofdm profile-mgmt retry-interval 30
+ofdm profile-mgmt guard-time 7
+ofdm profile-mgmt max-retries 2
+cable cm-status seqOutOfRange-recovery
+ofdm global plc-dpd-ocd-interval 200
+ofdm global profile0-dpd-interval 500
+ofdm global enable-short-codewords
+rpd global l2tpv3-hello-interval no
+rpd global l2tpv3-retries 10
+rpd global l2tpv3-setup-wait-time 30
+rpd global max-mtu 1982
+rpd global gcp-keepalive-interval 3
+rpd global gcp-keepalive-timeout 3
+rpd global min-mcast-session-id 0x80000001 max-mcast-session-id 0x8000ffff
+rpd global status-refresh-interval 15
+cable privacy ca-bad-cert-drop no
+cable privacy chk-manufacturer-ca-validity-period true
+cable spectrum-group enable-trap no
+cable relay-agent-option circuit-id mac-ifindex
+cable relay-agent-option qos-sc-name no
+cable relay-agent-option fanout enable
+cable relay-agent-option mso-defined-text no
+cable source-verify leasequery message-type 13
+cable source-verify leasequery version rfc-4388
+interface cable-mac 0
+ description "embrpd1"
+ cable freq-ds-min 91
+ cable freq-ds-max 999
+ cable freq-us-max 42
+ cable us-freq-range Standard
+ cable insertion-interval 40
+ cable invited-ranging-attempts 16
+ cable range-cycle-interval 120
+ cable ranging-interval 2400
+ cable sync-interval 10
+ cable ucd-interval 1600
+ cable cm-tcs-max-size no
+ cable tftp-enforce no
+ cable dynamic-secret no
+ cable cm-ip-prov-mode ipv4only
+ cable cm-dynamic-multi-tuner no
+ cable upstream-drop-classifiers enable
+ cable mcast-fwd-by-dsid
+ cable mdd-interval 1800
+ cable verbose-cm-rcp no
+ cable reg-rsp-timer-t6 40
+ cable dynamic-rcc
+ cable downstream-bonding-group dynamic enable
+ cable upstream-bonding-group dynamic enable
+ cable downstream-bonding-group dynamic reseq-wait-time 255
+ cable downstream-bonding-group dynamic reseq-warning-threshold 255
+ cable mult-rx-chl-mode
+ cable mult-tx-chl-mode
+ cable dsg mode 30DOCSIS_SUPPORT
+ cable qos-sc enforce-rules enable
+ cable upstream ext-power no
+ cable upstream graceful-tcs-reduction no
+ cable upstream ranging-poll t4-multiplier
+ cable energy-mgmt low-power-1x1 no
+ cable cm-status enabled
+ cable cm-status event-type all enabled
+ cable cm-status event-type all max-event-holdoff 1500
+ cable cm-status event-type all max-num-reports 1
+ authorization-module open-dynamic-flow-policy
+ cable privacy kek life-time 604800
+ cable privacy tek life-time 43200
+ cable privacy default-cert-trust untrusted
+ cable privacy chk-validity-period false
+ cable privacy mandatory no
+ cable privacy eae-policy no
+ ofdm docsis-31
+ ofdm profile-guard-time 300
+ ofdm preeq-probe-interval 120
+exit
+interface cable-mac 0.0
+ ip address 10.105.1.1 255.255.255.0
+ ipv6 enable
+ ipv6 address fe80::/10 EUI-64 link-local
+ ip address 10.253.7.1 255.255.255.128 secondary
+ ipv6 address fc00:cada:c406:c001::1/64
+ ipv6 address fc00:cada:c407:c001::1/64
+ cable helper-address 172.19.5.4
+ ip vrf forwarding default
+ ip directed-broadcast no
+ proxy-arp
+ restricted-proxy-arp
+ cable dhcp-giaddr primary
+ ip unreachables
+ cable source-verify no
+ cable submgmt default filter-group cm downstream no
+ cable submgmt default filter-group cm upstream no
+ cable submgmt default filter-group host downstream no
+ cable submgmt default filter-group host upstream no
+ ipv6 dhcp relay destination fc00:cada:c407:ed00::3
+ ipv6 icmp unreachables
+ ipv6 icmp too-big
+ ipv6 icmp param-problem
+ ipv6 nd dad attempts 1
+ ipv6 no mtu
+ ipv6 nd managed-config-flag
+ ipv6 nd other-config-flag
+ ipv6 nd ra interval 600 200
+ ipv6 nd ra lifetime 1800
+ ipv6 no nd ra suppress
+ ipv6 nd ns-interval no
+ ipv6 nd reachable-time 3600000
+ ipv6 pd-route-injection
+exit
+snmp-server port-trap-inh cable-mac 0 0xe0
+interface cable-downstream ds/scq/1
+ cable cable-mac 0
+ cable channel-id 1
+ cable attribute-mask value 0x00000000
+ cable primary-capable
+ cable frequency 261000000
+ cable interleave-depth 32
+ cable max-round-trip-delay 1600
+ cable modulation 256qam
+ cable voice-limits emergency-preemption
+ cable voice-limits allowed-total 70 allowed-normal 50 allowed-emergency 70 reserved-normal 0 reserved-emergency 0
+exit
+interface cable-downstream ds/scq/2
+ cable cable-mac 0
+ cable channel-id 2
+ cable attribute-mask value 0x00000000
+ cable primary-capable
+ cable frequency 267000000
+ cable interleave-depth 32
+ cable max-round-trip-delay 1600
+ cable modulation 256qam
+ cable voice-limits emergency-preemption
+ cable voice-limits allowed-total 70 allowed-normal 50 allowed-emergency 70 reserved-normal 0 reserved-emergency 0
+exit
+interface cable-downstream ds/scq/3
+ cable cable-mac 0
+ cable channel-id 3
+ cable attribute-mask value 0x00000000
+ cable primary-capable
+ cable frequency 273000000
+ cable interleave-depth 32
+ cable max-round-trip-delay 1600
+ cable modulation 256qam
+ cable voice-limits emergency-preemption
+ cable voice-limits allowed-total 70 allowed-normal 50 allowed-emergency 70 reserved-normal 0 reserved-emergency 0
+exit
+interface cable-downstream ds/scq/4
+ cable cable-mac 0
+ cable channel-id 4
+ cable attribute-mask value 0x00000000
+ cable primary-capable
+ cable frequency 279000000
+ cable interleave-depth 32
+ cable max-round-trip-delay 1600
+ cable modulation 256qam
+ cable voice-limits emergency-preemption
+ cable voice-limits allowed-total 70 allowed-normal 50 allowed-emergency 70 reserved-normal 0 reserved-emergency 0
+exit
+interface cable-downstream ds/scq/5
+ cable cable-mac 0
+ cable channel-id 5
+ cable attribute-mask value 0x00000000
+ cable primary-capable
+ cable frequency 285000000
+ cable interleave-depth 32
+ cable max-round-trip-delay 1600
+ cable modulation 256qam
+ cable voice-limits emergency-preemption
+ cable voice-limits allowed-total 70 allowed-normal 50 allowed-emergency 70 reserved-normal 0 reserved-emergency 0
+exit
+interface cable-downstream ds/scq/6
+ cable cable-mac 0
+ cable channel-id 6
+ cable attribute-mask value 0x00000000
+ cable primary-capable
+ cable frequency 291000000
+ cable interleave-depth 32
+ cable max-round-trip-delay 1600
+ cable modulation 256qam
+ cable voice-limits emergency-preemption
+ cable voice-limits allowed-total 70 allowed-normal 50 allowed-emergency 70 reserved-normal 0 reserved-emergency 0
+exit
+interface cable-downstream ds/scq/7
+ cable cable-mac 0
+ cable channel-id 7
+ cable attribute-mask value 0x00000000
+ cable primary-capable
+ cable frequency 297000000
+ cable interleave-depth 32
+ cable max-round-trip-delay 1600
+ cable modulation 256qam
+ cable voice-limits emergency-preemption
+ cable voice-limits allowed-total 70 allowed-normal 50 allowed-emergency 70 reserved-normal 0 reserved-emergency 0
+exit
+interface cable-downstream ds/scq/8
+ cable cable-mac 0
+ cable channel-id 8
+ cable attribute-mask value 0x00000000
+ cable primary-capable
+ cable frequency 303000000
+ cable interleave-depth 32
+ cable max-round-trip-delay 1600
+ cable modulation 256qam
+ cable voice-limits emergency-preemption
+ cable voice-limits allowed-total 70 allowed-normal 50 allowed-emergency 70 reserved-normal 0 reserved-emergency 0
+exit
+interface cable-downstream ds/ofd/0
+ ofdm cable-mac 0
+ ofdm channel-id 9
+ ofdm attribute-mask value 0x00000000
+ ofdm primary-capable
+ ofdm cyclic-prefix 1024 rolloff-period 256
+ ofdm subcarrier-spacing 50000
+ ofdm time-interleaver-depth 1
+ ofdm pilot-scale-factor 48
+ ofdm max-round-trip-delay 1600
+ ofdm frequency low-edge 600000000 high-edge 792000000 plc-block 696000000
+ ofdm ds-profile 0 default-modulation 256qam
+ ofdm ds-profile 1 default-modulation 1024qam
+ ofdm ds-profile 2 default-modulation 4096qam
+exit
+interface cable-upstream us/scq/1
+ cable cable-mac 0
+ cable voice-limits allowed-total 70 allowed-normal 50 allowed-emergency 70 reserved-normal 0 reserved-emergency 0
+ cable voice-limits emergency-preemption
+ cable impulse-noise-stats enable no
+ cable ingress-cancellation interval 0
+ cable ingress-cancellation size 0
+ cable max-power-adj 24
+ cable threshold-power-offset 24
+ cable channel-width 3200000
+ cable frequency 18000000
+ cable map-size 4
+ cable mdd-channel-priority 0
+ cable supervision ds/scq/1-3 ds/ofd/0
+exit
+interface cable-upstream us/scq/1
+ cable channel-id 1
+ cable attribute-mask value 0x00000000
+ cable pre-eq-enable false
+ cable modulation-profile 27
+ cable docsis-mode atdma
+ cable databackoff 2-8
+ cable mini-slot-size 2
+ cable rangebackoff 2-7
+ cable num-equalizer-taps 24
+ cable no spectrum-group
+exit
+interface cable-upstream us/scq/2
+ cable cable-mac 0
+ cable voice-limits allowed-total 70 allowed-normal 50 allowed-emergency 70 reserved-normal 0 reserved-emergency 0
+ cable voice-limits emergency-preemption
+ cable impulse-noise-stats enable no
+ cable ingress-cancellation interval 0
+ cable ingress-cancellation size 0
+ cable max-power-adj 24
+ cable threshold-power-offset 24
+ cable channel-width 3200000
+ cable frequency 21200000
+ cable map-size 4
+ cable mdd-channel-priority 0
+ cable supervision ds/scq/1-3 ds/ofd/0
+exit
+interface cable-upstream us/scq/2
+ cable channel-id 2
+ cable attribute-mask value 0x00000000
+ cable pre-eq-enable false
+ cable modulation-profile 27
+ cable docsis-mode atdma
+ cable databackoff 2-8
+ cable mini-slot-size 2
+ cable rangebackoff 2-7
+ cable num-equalizer-taps 24
+ cable no spectrum-group
+exit
+interface cable-upstream us/scq/3
+ cable cable-mac 0
+ cable voice-limits allowed-total 70 allowed-normal 50 allowed-emergency 70 reserved-normal 0 reserved-emergency 0
+ cable voice-limits emergency-preemption
+ cable impulse-noise-stats enable no
+ cable ingress-cancellation interval 0
+ cable ingress-cancellation size 0
+ cable max-power-adj 24
+ cable threshold-power-offset 24
+ cable channel-width 3200000
+ cable frequency 24400000
+ cable map-size 4
+ cable mdd-channel-priority 0
+ cable supervision ds/scq/1-3 ds/ofd/0
+exit
+interface cable-upstream us/scq/3
+ cable channel-id 3
+ cable attribute-mask value 0x00000000
+ cable pre-eq-enable false
+ cable modulation-profile 27
+ cable docsis-mode atdma
+ cable databackoff 2-8
+ cable mini-slot-size 2
+ cable rangebackoff 2-7
+ cable num-equalizer-taps 24
+ cable no spectrum-group
+exit
+interface cable-upstream us/scq/4
+ cable cable-mac 0
+ cable voice-limits allowed-total 70 allowed-normal 50 allowed-emergency 70 reserved-normal 0 reserved-emergency 0
+ cable voice-limits emergency-preemption
+ cable impulse-noise-stats enable no
+ cable ingress-cancellation interval 0
+ cable ingress-cancellation size 0
+ cable max-power-adj 24
+ cable threshold-power-offset 24
+ cable channel-width 3200000
+ cable frequency 27600000
+ cable map-size 4
+ cable mdd-channel-priority 0
+ cable supervision ds/scq/1-3 ds/ofd/0
+exit
+interface cable-upstream us/scq/4
+ cable channel-id 4
+ cable attribute-mask value 0x00000000
+ cable pre-eq-enable false
+ cable modulation-profile 27
+ cable docsis-mode atdma
+ cable databackoff 2-8
+ cable mini-slot-size 2
+ cable rangebackoff 2-7
+ cable num-equalizer-taps 24
+ cable no spectrum-group
+exit
+interface cable-upstream us/scq/5
+ cable cable-mac 0
+ cable voice-limits allowed-total 70 allowed-normal 50 allowed-emergency 70 reserved-normal 0 reserved-emergency 0
+ cable voice-limits emergency-preemption
+ cable impulse-noise-stats enable no
+ cable ingress-cancellation interval 0
+ cable ingress-cancellation size 0
+ cable max-power-adj 24
+ cable threshold-power-offset 24
+ cable channel-width 3200000
+ cable frequency 30800000
+ cable map-size 4
+ cable mdd-channel-priority 0
+ cable supervision ds/scq/1-3 ds/ofd/0
+exit
+interface cable-upstream us/scq/5
+ cable channel-id 5
+ cable attribute-mask value 0x00000000
+ cable pre-eq-enable false
+ cable modulation-profile 27
+ cable docsis-mode atdma
+ cable databackoff 2-8
+ cable mini-slot-size 2
+ cable rangebackoff 2-7
+ cable num-equalizer-taps 24
+ cable no spectrum-group
+exit
+interface cable-upstream us/scq/6
+ cable cable-mac 0
+ cable voice-limits allowed-total 70 allowed-normal 50 allowed-emergency 70 reserved-normal 0 reserved-emergency 0
+ cable voice-limits emergency-preemption
+ cable impulse-noise-stats enable no
+ cable ingress-cancellation interval 0
+ cable ingress-cancellation size 0
+ cable max-power-adj 24
+ cable threshold-power-offset 24
+ cable channel-width 3200000
+ cable frequency 34000000
+ cable map-size 4
+ cable mdd-channel-priority 0
+ cable supervision ds/scq/1-3 ds/ofd/0
+exit
+interface cable-upstream us/scq/6
+ cable channel-id 6
+ cable attribute-mask value 0x00000000
+ cable pre-eq-enable false
+ cable modulation-profile 27
+ cable docsis-mode atdma
+ cable databackoff 2-8
+ cable mini-slot-size 2
+ cable rangebackoff 2-7
+ cable num-equalizer-taps 24
+ cable no spectrum-group
+exit
+interface cable-upstream us/scq/7
+ cable cable-mac 0
+ cable voice-limits allowed-total 70 allowed-normal 50 allowed-emergency 70 reserved-normal 0 reserved-emergency 0
+ cable voice-limits emergency-preemption
+ cable impulse-noise-stats enable no
+ cable ingress-cancellation interval 0
+ cable ingress-cancellation size 0
+ cable max-power-adj 24
+ cable threshold-power-offset 24
+ cable channel-width 3200000
+ cable frequency 37200000
+ cable map-size 4
+ cable mdd-channel-priority 0
+ cable supervision ds/scq/1-3 ds/ofd/0
+exit
+interface cable-upstream us/scq/7
+ cable channel-id 7
+ cable attribute-mask value 0x00000000
+ cable pre-eq-enable false
+ cable modulation-profile 27
+ cable docsis-mode atdma
+ cable databackoff 2-8
+ cable mini-slot-size 2
+ cable rangebackoff 2-7
+ cable num-equalizer-taps 24
+ cable no spectrum-group
+exit
+interface cable-upstream us/scq/8
+ cable cable-mac 0
+ cable voice-limits allowed-total 70 allowed-normal 50 allowed-emergency 70 reserved-normal 0 reserved-emergency 0
+ cable voice-limits emergency-preemption
+ cable impulse-noise-stats enable no
+ cable ingress-cancellation interval 0
+ cable ingress-cancellation size 0
+ cable max-power-adj 24
+ cable threshold-power-offset 24
+ cable channel-width 3200000
+ cable frequency 40400000
+ cable map-size 4
+ cable mdd-channel-priority 0
+ cable supervision ds/scq/1-3 ds/ofd/0
+exit
+interface cable-upstream us/scq/8
+ cable channel-id 8
+ cable attribute-mask value 0x00000000
+ cable pre-eq-enable false
+ cable modulation-profile 27
+ cable docsis-mode atdma
+ cable databackoff 2-8
+ cable mini-slot-size 2
+ cable rangebackoff 2-7
+ cable num-equalizer-taps 24
+ cable no spectrum-group
+exit
+interface cable-downstream ds/scq/1
+ cable dsg vsp-list 0
+ cable dsg ds-frequency-list 0
+ cable dsg timer-list 0
+ cable dsg dcd-enable no
+exit
+interface cable-downstream ds/scq/2
+ cable dsg vsp-list 0
+ cable dsg ds-frequency-list 0
+ cable dsg timer-list 0
+ cable dsg dcd-enable no
+exit
+interface cable-downstream ds/scq/3
+ cable dsg vsp-list 0
+ cable dsg ds-frequency-list 0
+ cable dsg timer-list 0
+ cable dsg dcd-enable no
+exit
+interface cable-downstream ds/scq/4
+ cable dsg vsp-list 0
+ cable dsg ds-frequency-list 0
+ cable dsg timer-list 0
+ cable dsg dcd-enable no
+exit
+interface cable-downstream ds/scq/5
+ cable dsg vsp-list 0
+ cable dsg ds-frequency-list 0
+ cable dsg timer-list 0
+ cable dsg dcd-enable no
+exit
+interface cable-downstream ds/scq/6
+ cable dsg vsp-list 0
+ cable dsg ds-frequency-list 0
+ cable dsg timer-list 0
+ cable dsg dcd-enable no
+exit
+interface cable-downstream ds/scq/7
+ cable dsg vsp-list 0
+ cable dsg ds-frequency-list 0
+ cable dsg timer-list 0
+ cable dsg dcd-enable no
+exit
+interface cable-downstream ds/scq/8
+ cable dsg vsp-list 0
+ cable dsg ds-frequency-list 0
+ cable dsg timer-list 0
+ cable dsg dcd-enable no
+exit
+interface cable-mac 0 cable bundle master
+interface ethernet ns/0
+ description "- DHCP - RTE -"
+ pre-shared-key no
+ macsec mode disabled
+ ipv6 mld unsolicited-report-interval 1000
+ no shutdown
+exit
+interface ethernet ns/0.0
+ ip address 10.5.0.2 255.255.255.0
+ ipv6 enable
+ ipv6 address fe80::/10 EUI-64 link-local
+ encapsulation dot1q 1054 priority 0
+ ip vrf forwarding default
+ no shutdown
+ ipv6 address fc00:cada:10:5::2/64
+ ip directed-broadcast no
+ ip unreachables
+ ipv6 icmp unreachables
+ ipv6 icmp too-big
+ ipv6 icmp param-problem
+ ipv6 nd dad attempts 1
+ ipv6 no mtu
+ ipv6 no nd managed-config-flag
+ ipv6 no nd other-config-flag
+ ipv6 nd ra interval 600 200
+ ipv6 nd ra lifetime 1800
+ ipv6 nd ra suppress
+ ipv6 nd ns-interval no
+ ipv6 nd reachable-time 3600000
+exit
+interface ethernet ns/0
+ no gratuitous-arp
+exit
+snmp-server port-trap-inh ethernet ns/0.0 0xf0
+interface ethernet ns/1
+ description "- Smartbits - CPEbsd - RTE -"
+ pre-shared-key no
+ macsec mode disabled
+ ipv6 mld unsolicited-report-interval 1000
+ no shutdown
+exit
+interface ethernet ns/1.0
+ ip address 10.5.1.2 255.255.255.0
+ ipv6 enable
+ ipv6 address fe80::/10 EUI-64 link-local
+ encapsulation dot1q 1054 priority 0
+ ip vrf forwarding default
+ no shutdown
+ ip directed-broadcast no
+ ip unreachables
+ ipv6 icmp unreachables
+ ipv6 icmp too-big
+ ipv6 icmp param-problem
+ ipv6 nd dad attempts 1
+ ipv6 no mtu
+ ipv6 no nd managed-config-flag
+ ipv6 no nd other-config-flag
+ ipv6 nd ra interval 600 200
+ ipv6 nd ra lifetime 1800
+ ipv6 nd ra suppress
+ ipv6 nd ns-interval no
+ ipv6 nd reachable-time 3600000
+exit
+interface ethernet ns/1
+ no gratuitous-arp
+exit
+snmp-server port-trap-inh ethernet ns/1.0 0xf0
+interface loopback 0
+ ip address 10.44.6.200 255.255.255.255
+ ipv6 enable
+ ipv6 address fe80::/10 EUI-64 link-local
+ ip vrf forwarding default
+ description "- default -"
+ no shutdown
+ ipv6 address fc00:cada:c406::200/128
+exit
+cable proto-throttle arp
+cable proto-throttle dhcp
+cable proto-throttle dhcpv6
+cable proto-throttle nd
+cable proto-throttle max-burst 10
+cable proto-throttle interval 5
+cable proto-throttle igmp max-burst 22
+cable proto-throttle igmp interval 1
+cable proto-throttle igmp increment 8
+cable proto-throttle igmp
+router static vrf default distance 1
+ip route 0.0.0.0 0.0.0.0 10.5.0.1 metric 0
+ipv6 router static vrf default distance 1
+ipv6 dhcp relay source-interface no
+ipv6 dhcp relay use-link-address
+ipv6 route vrf default ::/0 fc00:cada:10:5::1 metric 0
+cable fiber-node "FN1"
+ init
+ cable-downstream ds/scq/1-8 ds/ofd/0
+ cable-upstream us/scq/0-3
+exit
+packetcable dqos timer t0 30
+packetcable dqos timer t1 250
+packetcable eventmsg element-id 12345
+packetcable eventmsg retry timer 1000
+packetcable eventmsg retry limit 0
+packetcable eventmsg batch-size 10
+packetcable eventmsg max-age 1
+packetcable dqos shutdown
+packetcable eventmsg no billing-events
+packetcable gate send-subscriberID no
+packetcable throttle normal-threshold 900
+packetcable throttle yellow-threshold 900
+packetcable throttle red-threshold 300
+packetcable pcmm version I05
+packetcable pcmm timer t1 300
+packetcable pcmm subscriber-id vrf default
+packetcable pcmm shutdown
+packetcable pepid-hostname no
+ntp version 4
+ntp authentication no
+ntp minpoll 6
+ntp maxpoll 7
+tod server 0.0.0.0 udp no
+clock timezone GMT
+cable intercept source-interface loopback 0
+cable modem remote-query source-interface no
+ip domain-lookup source-interface no
+cable proxy-tftp source-interface no
+authentication ml1 local
+authentication ml2 none
+authentication default local none
+authorization author_default local
+ip ssh no password-auth-req
+ip ssh no public-key-auth-req
+line console 0 session-timeout 0
+line console 0 idle-timeout 0
+line console 0 width 80
+line console 0 length 0
+line console 0 password "8da6e4c4bf9eb64a8a7a3ca83c495029" hidden
+line console 0 authentication "ml1" login-authentication
+line console 0 authentication "ml2" enable-authentication
+line console 0 authorization "author_default" command-authorization
+line vty 0 session-timeout 0
+line vty 0 idle-timeout 0
+line vty 0 width 80
+line vty 0 length 0
+line vty 0 password "8da6e4c4bf9eb64a8a7a3ca83c495029" hidden
+line vty 0 authentication "ml1" login-authentication
+line vty 0 authentication "ml2" enable-authentication
+line vty 0 authorization "author_default" command-authorization
+line vty 1 session-timeout 0
+line vty 1 idle-timeout 0
+line vty 1 width 80
+line vty 1 length 0
+line vty 1 password "8da6e4c4bf9eb64a8a7a3ca83c495029" hidden
+line vty 1 authentication "ml1" login-authentication
+line vty 1 authentication "ml2" enable-authentication
+line vty 1 authorization "author_default" command-authorization
+line vty 2 session-timeout 0
+line vty 2 idle-timeout 0
+line vty 2 width 80
+line vty 2 length 0
+line vty 2 password "8da6e4c4bf9eb64a8a7a3ca83c495029" hidden
+line vty 2 authentication "ml1" login-authentication
+line vty 2 authentication "ml2" enable-authentication
+line vty 2 authorization "author_default" command-authorization
+line vty 3 session-timeout 0
+line vty 3 idle-timeout 0
+line vty 3 width 80
+line vty 3 length 0
+line vty 3 password "8da6e4c4bf9eb64a8a7a3ca83c495029" hidden
+line vty 3 authentication "ml1" login-authentication
+line vty 3 authentication "ml2" enable-authentication
+line vty 3 authorization "author_default" command-authorization
+line vty 4 session-timeout 0
+line vty 4 idle-timeout 0
+line vty 4 width 80
+line vty 4 length 0
+line vty 4 password "8da6e4c4bf9eb64a8a7a3ca83c495029" hidden
+line vty 4 authentication "ml1" login-authentication
+line vty 4 authentication "ml2" enable-authentication
+line vty 4 authorization "author_default" command-authorization
+line vty 5 session-timeout 0
+line vty 5 idle-timeout 0
+line vty 5 width 80
+line vty 5 length 0
+line vty 5 password "8da6e4c4bf9eb64a8a7a3ca83c495029" hidden
+line vty 5 authentication "ml1" login-authentication
+line vty 5 authentication "ml2" enable-authentication
+line vty 5 authorization "author_default" command-authorization
+line vty 6 session-timeout 0
+line vty 6 idle-timeout 0
+line vty 6 width 80
+line vty 6 length 0
+line vty 6 password "8da6e4c4bf9eb64a8a7a3ca83c495029" hidden
+line vty 6 authentication "ml1" login-authentication
+line vty 6 authentication "ml2" enable-authentication
+line vty 6 authorization "author_default" command-authorization
+line vty 7 session-timeout 0
+line vty 7 idle-timeout 0
+line vty 7 width 80
+line vty 7 length 0
+line vty 7 password "8da6e4c4bf9eb64a8a7a3ca83c495029" hidden
+line vty 7 authentication "ml1" login-authentication
+line vty 7 authentication "ml2" enable-authentication
+line vty 7 authorization "author_default" command-authorization
+line vty 8 session-timeout 0
+line vty 8 idle-timeout 0
+line vty 8 width 80
+line vty 8 length 0
+line vty 8 password "8da6e4c4bf9eb64a8a7a3ca83c495029" hidden
+line vty 8 authentication "ml1" login-authentication
+line vty 8 authentication "ml2" enable-authentication
+line vty 8 authorization "author_default" command-authorization
+line vty 9 session-timeout 0
+line vty 9 idle-timeout 0
+line vty 9 width 80
+line vty 9 length 0
+line vty 9 password "8da6e4c4bf9eb64a8a7a3ca83c495029" hidden
+line vty 9 authentication "ml1" login-authentication
+line vty 9 authentication "ml2" enable-authentication
+line vty 9 authorization "author_default" command-authorization
+line vty 10 session-timeout 0
+line vty 10 idle-timeout 0
+line vty 10 width 80
+line vty 10 length 0
+line vty 10 password "8da6e4c4bf9eb64a8a7a3ca83c495029" hidden
+line vty 10 authentication "ml1" login-authentication
+line vty 10 authentication "ml2" enable-authentication
+line vty 10 authorization "author_default" command-authorization
+line vty 11 session-timeout 0
+line vty 11 idle-timeout 0
+line vty 11 width 80
+line vty 11 length 0
+line vty 11 password "8da6e4c4bf9eb64a8a7a3ca83c495029" hidden
+line vty 11 authentication "ml1" login-authentication
+line vty 11 authentication "ml2" enable-authentication
+line vty 11 authorization "author_default" command-authorization
+line vty 12 session-timeout 0
+line vty 12 idle-timeout 0
+line vty 12 width 80
+line vty 12 length 0
+line vty 12 password "8da6e4c4bf9eb64a8a7a3ca83c495029" hidden
+line vty 12 authentication "ml1" login-authentication
+line vty 12 authentication "ml2" enable-authentication
+line vty 12 authorization "author_default" command-authorization
+line vty 13 session-timeout 0
+line vty 13 idle-timeout 0
+line vty 13 width 80
+line vty 13 length 0
+line vty 13 password "8da6e4c4bf9eb64a8a7a3ca83c495029" hidden
+line vty 13 authentication "ml1" login-authentication
+line vty 13 authentication "ml2" enable-authentication
+line vty 13 authorization "author_default" command-authorization
+line vty 14 session-timeout 0
+line vty 14 idle-timeout 0
+line vty 14 width 80
+line vty 14 length 0
+line vty 14 password "8da6e4c4bf9eb64a8a7a3ca83c495029" hidden
+line vty 14 authentication "ml1" login-authentication
+line vty 14 authentication "ml2" enable-authentication
+line vty 14 authorization "author_default" command-authorization
+line vty 15 session-timeout 0
+line vty 15 idle-timeout 0
+line vty 15 width 80
+line vty 15 length 0
+line vty 15 password "8da6e4c4bf9eb64a8a7a3ca83c495029" hidden
+line vty 15 authentication "ml1" login-authentication
+line vty 15 authentication "ml2" enable-authentication
+line vty 15 authorization "author_default" command-authorization
+l2vpn
+ forwarding disable
+ cm capability esafe-ident required
+ cm capability dut-filter required
+ network-interface dot1ad ethertype 0x8100
+exit
+cable metering query-port 4737 streaming-port 4737 keep-alive-interval 300 connect-mode accept initiate-retry-interval 60
+cable metering collector  1 192.168.1.1 4737
+cable metering shutdown
+ipv6 router pd distance 2
+rpd global multicast-interface no
+rpd global multicast-interface auto-switchback
+interface rpd "embrpd1"
+ description "RPD-RD2322"
+ ds-conn 0 power-level 330
+ ds-conn 0 tilt-power-adjust 100 tilt-max-frequency 1218000000
+ ds-conn 1 power-level 380
+ ds-conn 1 tilt-power-adjust 0 tilt-max-frequency 1218000000
+ ds-conn 0 ds-group "AllRpdDsRfPorts"
+ ds-conn 1 ds-group "AllRpdDsRfPorts"
+ us-conn 0 base-target-power 80
+ us-conn 1 base-target-power 80
+exit
+cable fiber-node "FN1" rpd "embrpd1" ds-conn 0 us-conn 0
+logging rpd local-volatile 1
+logging rpd gcp-event 1
+logging rpd local-volatile 2
+logging rpd gcp-event 2
+logging rpd local-volatile 3
+logging rpd gcp-event 3
+logging rpd local-volatile 4
+logging rpd gcp-event 4
+logging rpd local-volatile 5
+logging rpd gcp-event 5
+logging rpd local-volatile 6
+logging rpd gcp-event 6
+logging rpd local-volatile 7 no
+logging rpd gcp-event 7 no
+logging rpd local-volatile 8 no
+logging rpd gcp-event 8 no
+interface rpd "embrpd1" ds-conn 0 cable-downstream ds/ofd/0 power-adjust 0
+interface cable-downstream ds/scq/1 cable no shutdown
+interface cable-downstream ds/scq/2 cable no shutdown
+interface cable-downstream ds/scq/3 cable no shutdown
+interface cable-downstream ds/scq/4 cable no shutdown
+interface cable-downstream ds/scq/5 cable no shutdown
+interface cable-downstream ds/scq/6 cable no shutdown
+interface cable-downstream ds/scq/7 cable no shutdown
+interface cable-downstream ds/scq/8 cable no shutdown
+interface cable-downstream ds/ofd/0 ofdm no shutdown
+interface cable-upstream us/scq/1 cable no shutdown
+interface cable-upstream us/scq/2 cable no shutdown
+interface cable-upstream us/scq/3 cable no shutdown
+interface cable-upstream us/scq/4 cable shutdown
+interface cable-upstream us/scq/5 cable shutdown
+interface cable-upstream us/scq/6 cable shutdown
+interface cable-upstream us/scq/7 cable shutdown
+interface cable-upstream us/scq/8 cable shutdown
+interface cable-mac 0 no shutdown
+end
+

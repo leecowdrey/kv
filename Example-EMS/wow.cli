@@ -1,0 +1,913 @@
+# ChassisType=<RMD> shelfName=<coltv-cmts3 Westbelt/TVRO> shelfSwVersion=<RMD_V01.00.00.0271> timeGenerated=<Wed Jan 20 14:59:16 2021>
+
+#Licenses for RMD-2
+configure license type downstream-service-group key FDA208349C6E914A0001 count 2
+configure license type upstream-service-group key 98F38653FA458D6E0001 count 2
+configure license type mac-docsis-ds-30-B key BD93A1C0F731470F0001 count 10000
+configure license type mac-docsis-us-30 key EC64CA1C45E7578F0001 count 10000
+configure license type mac-docsis-ds-ofdm key 7001FCD7BE6A73EA0001 count 500000
+configure license type mac-docsis-us-ofdma key EFF88C91CA7CFF780001 count 500000
+configure license type system-legal-intercept key C2E893268786398C0001 count 1
+configure license type system-laes key ECA9202724D9CD1B0001 count 1
+configure license type system-calea key 9531465A6D450AF90001 count 1
+
+
+configure banner mode standard
+configure banner login
+******************************************************************************
+* This is only a test.                                                     *
+* It is for authorized, legitimate business use and users only. All users    *
+* (authorized or unauthorized) have no explicit or implicit expectation of   *
+* privacy.                                                                   *
+*                                                                            *
+******************************************************************************
+
+
+/end
+configure shelfname "coltv-cmts3 Westbelt/TVRO"
+configure hostname "OH-COLM-WBL-CMTS-1-RMD"
+configure snmp-server contact "Chris Hnatiuk / 224-760-3146"
+configure snmp-server enable traps snmp
+
+configure operation mode mplsLdpPwMtu1504
+configure operation mode ciscoBaccTlv
+configure no cable shared-secret
+configure no cable shared-secondary-secret
+configure cable global load-interval 300
+configure cable global freq-ds-min 57
+configure lldp enable
+
+configure cable global load-interval 300
+configure cable load-balance macdomain-check 120
+configure cable load-balance downstream-start-threshold 30
+configure cable load-balance upstream-start-threshold 30
+configure cable load-balance failed-list timeout 12
+configure cable load-balance failed-list exclude-count 3
+configure cable load-balance general-group-defaults init-technique direct
+configure cable load-balance general-group-defaults policy 1
+configure cable load-balance rule 1 enable
+configure cable load-balance rule 1 type static non-bonded-dcc  
+configure cable load-balance rule 1 method utilization 
+configure cable load-balance policy 1 rule 1
+
+
+configure aging stale-mac 86400
+configure arp state searching cable unicast 2
+configure snmp-server
+configure ip name-server 24.214.63.66
+configure ip name-server 24.214.63.67
+configure ip domain-lookup
+configure logging host 10.44.6.9 facility local1
+
+configure cable enable-trap cmonoff-notification
+configure cable enable-trap cminit-reg-notification
+
+configure cable filter group 1 index 1 ip-version ipv4
+configure cable filter group 1 index 1 src-ip 10.0.0.0
+configure cable filter group 1 index 1 src-mask 255.0.0.0
+configure cable filter group 1 index 3 ip-version ipv4
+configure cable filter group 1 index 3 src-ip 172.22.0.0
+configure cable filter group 1 index 3 src-mask 255.255.0.0
+configure cable filter group 1 index 5 ip-version ipv4
+configure cable filter group 1 index 5 src-ip 172.31.0.0
+configure cable filter group 1 index 5 src-mask 255.255.0.0
+configure cable filter group 1 index 7 ip-version ipv4
+configure cable filter group 1 index 7 src-ip 207.98.235.142
+configure cable filter group 1 index 7 src-mask 255.255.255.255
+configure cable filter group 1 index 9 ip-version ipv4
+configure cable filter group 1 index 9 src-ip 207.98.235.150
+configure cable filter group 1 index 9 src-mask 255.255.255.255
+configure cable filter group 1 index 11 ip-version ipv4
+configure cable filter group 1 index 11 src-ip 207.98.235.30
+configure cable filter group 1 index 11 src-mask 255.255.255.255
+configure cable filter group 1 index 13 ip-version ipv4
+configure cable filter group 1 index 13 src-ip 207.98.238.16
+configure cable filter group 1 index 13 src-mask 255.255.255.240
+configure cable filter group 1 index 15 ip-version ipv4
+configure cable filter group 1 index 15 src-ip 216.47.208.0
+configure cable filter group 1 index 15 src-mask 255.255.255.0
+configure cable filter group 1 index 17 ip-version ipv4
+configure cable filter group 1 index 17 src-ip 216.47.210.22
+configure cable filter group 1 index 17 src-mask 255.255.255.255
+configure cable filter group 1 index 19 ip-version ipv4
+configure cable filter group 1 index 19 src-ip 24.214.226.0
+configure cable filter group 1 index 19 src-mask 255.255.255.0
+configure cable filter group 1 index 21 ip-version ipv4
+configure cable filter group 1 index 21 src-ip 24.214.63.0
+configure cable filter group 1 index 21 src-mask 255.255.255.0
+configure cable filter group 1 index 23 ip-version ipv4
+configure cable filter group 1 index 23 src-ip 24.35.0.180
+configure cable filter group 1 index 23 src-mask 255.255.255.0
+configure cable filter group 1 index 25 ip-version ipv4
+configure cable filter group 1 index 25 src-ip 64.233.207.0
+configure cable filter group 1 index 25 src-mask 255.255.255.128
+configure cable filter group 1 index 27 ip-version ipv4
+configure cable filter group 1 index 27 src-ip 66.45.133.0
+configure cable filter group 1 index 27 src-mask 255.255.255.0
+configure cable filter group 1 index 29 ip-version ipv4
+configure cable filter group 1 index 29 src-ip 66.45.139.0
+configure cable filter group 1 index 29 src-mask 255.255.255.0
+configure cable filter group 1 index 31 ip-version ipv4
+configure cable filter group 1 index 31 src-ip 69.14.197.224
+configure cable filter group 1 index 31 src-mask 255.255.255.248
+configure cable filter group 1 index 33 ip-version ipv4
+configure cable filter group 1 index 33 src-ip 69.73.108.232
+configure cable filter group 1 index 33 src-mask 255.255.255.248
+configure cable filter group 1 index 35 ip-version ipv4
+configure cable filter group 1 index 35 src-ip 75.76.84.0
+configure cable filter group 1 index 35 src-mask 255.255.255.0
+configure cable filter group 1 index 37 ip-version ipv4
+configure cable filter group 1 index 37 src-ip 76.73.163.208
+configure cable filter group 1 index 37 src-mask 255.255.255.240
+configure cable filter group 1 index 39 ip-version ipv4
+configure cable filter group 1 index 39 src-ip 69.14.177.165
+configure cable filter group 1 index 39 src-mask 255.255.255.255
+configure cable filter group 1 index 41 ip-version ipv4
+configure cable filter group 1 index 41 src-ip 69.14.177.5
+configure cable filter group 1 index 41 src-mask 255.255.255.255
+configure cable filter group 1 index 43 ip-version ipv4
+configure cable filter group 1 index 43 src-ip 69.14.176.37
+configure cable filter group 1 index 43 src-mask 255.255.255.255
+configure cable filter group 1 index 45 ip-version ipv4
+configure cable filter group 1 index 45 src-ip 69.14.176.229
+configure cable filter group 1 index 45 src-mask 255.255.255.255
+configure cable filter group 1 index 47 ip-version ipv4
+configure cable filter group 1 index 47 src-ip 69.14.177.37
+configure cable filter group 1 index 47 src-mask 255.255.255.255
+configure cable filter group 1 index 49 ip-version ipv4
+configure cable filter group 1 index 49 src-ip 69.14.177.69
+configure cable filter group 1 index 49 src-mask 255.255.255.255
+configure cable filter group 1 index 51 ip-version ipv4
+configure cable filter group 1 index 51 src-ip 69.14.177.133
+configure cable filter group 1 index 51 src-mask 255.255.255.255
+configure cable filter group 1 index 53 ip-version ipv4
+configure cable filter group 1 index 53 src-ip 69.14.176.165
+configure cable filter group 1 index 53 src-mask 255.255.255.255
+configure cable filter group 1 index 55 ip-version ipv4
+configure cable filter group 1 index 55 src-ip 69.14.197.216
+configure cable filter group 1 index 55 src-mask 255.255.255.248
+configure cable filter group 1 index 57 ip-version ipv4
+configure cable filter group 1 index 57 src-ip 68.179.166.248
+configure cable filter group 1 index 57 src-mask 255.255.255.248
+configure cable filter group 1 index 59 ip-version ipv4
+configure cable filter group 1 index 59 src-ip 68.179.167.0
+configure cable filter group 1 index 59 src-mask 255.255.255.0
+configure cable filter group 1 index 61 ip-version ipv4
+configure cable filter group 1 index 61 src-ip 76.73.163.0
+configure cable filter group 1 index 61 src-mask 255.255.255.0
+configure cable filter group 1 index 63 ip-version ipv4
+configure cable filter group 1 index 63 src-ip 10.86.8.0
+configure cable filter group 1 index 63 src-mask 255.255.254.0
+configure cable filter group 1 index 64 ip-version ipv4
+configure cable filter group 1 index 64 src-ip 76.73.191.40
+configure cable filter group 1 index 64 src-mask 255.255.255.224
+configure cable filter group 1 index 65 ip-version ipv4
+configure cable filter group 1 index 65 src-ip 68.179.166.248
+configure cable filter group 1 index 65 src-mask 255.255.255.248
+configure cable filter group 1 index 69 ip-version ipv4
+configure cable filter group 1 index 69 src-ip 143.59.95.192
+configure cable filter group 1 index 71 ip-version ipv4
+configure cable filter group 1 index 71 src-ip 143.59.95.252
+configure cable filter group 1 index 71 src-mask 255.255.255.254
+configure cable filter group 1 index 73 ip-version ipv4
+configure cable filter group 1 index 73 src-ip 143.59.95.254
+configure cable filter group 1 index 73 src-mask 255.255.255.254
+configure cable filter group 1 index 128 match-action drop
+configure cable filter group 32 index 3 ip-version ipv4
+configure cable filter group 32 index 3 src-ip 10.32.0.0
+configure cable filter group 32 index 3 src-mask 255.240.0.0
+configure cable filter group 32 index 45 dest-port 137
+configure cable filter group 32 index 45 ip-proto 257
+configure cable filter group 32 index 45 match-action drop
+configure cable filter group 32 index 47 dest-port 138
+configure cable filter group 32 index 47 ip-proto 257
+configure cable filter group 32 index 47 match-action drop
+configure cable filter group 32 index 49 dest-port 139
+configure cable filter group 32 index 49 ip-proto 257
+configure cable filter group 32 index 49 match-action drop
+configure cable filter group 32 index 51 dest-port 135
+configure cable filter group 32 index 51 ip-proto 257
+configure cable filter group 32 index 51 match-action drop
+configure cable filter group 32 index 53 dest-port 55
+configure cable filter group 32 index 53 ip-proto 257
+configure cable filter group 32 index 53 match-action drop
+configure cable filter group 32 index 55 dest-port 77
+configure cable filter group 32 index 55 ip-proto 257
+configure cable filter group 32 index 55 match-action drop
+configure cable filter group 32 index 57 dest-port 496
+configure cable filter group 32 index 57 ip-proto 257
+configure cable filter group 32 index 57 match-action drop
+configure cable filter group 32 index 59 ip-version ipv4
+configure cable filter group 32 index 59 dest-ip 10.0.0.0
+configure cable filter group 32 index 59 dest-mask 255.0.0.0
+configure cable filter group 32 index 59 match-action drop
+configure cable filter group 32 index 61 ip-version ipv4
+configure cable filter group 32 index 61 dest-ip 172.16.0.0
+configure cable filter group 32 index 61 dest-mask 255.240.0.0
+configure cable filter group 32 index 61 match-action drop
+configure cable filter group 32 index 63 ip-version ipv4
+configure cable filter group 32 index 63 dest-ip 192.168.0.0
+configure cable filter group 32 index 63 dest-mask 255.255.0.0
+configure cable filter group 32 index 63 match-action drop
+configure cable filter group 42 index 45 dest-port 137
+configure cable filter group 42 index 45 ip-proto 257
+configure cable filter group 42 index 45 match-action drop
+configure cable filter group 42 index 47 dest-port 138
+configure cable filter group 42 index 47 ip-proto 257
+configure cable filter group 42 index 47 match-action drop
+configure cable filter group 42 index 49 dest-port 139
+configure cable filter group 42 index 49 ip-proto 257
+configure cable filter group 42 index 49 match-action drop
+configure cable filter group 42 index 51 dest-port 135
+configure cable filter group 42 index 51 ip-proto 257
+configure cable filter group 42 index 51 match-action drop
+configure cable filter group 42 index 53 dest-port 55
+configure cable filter group 42 index 53 ip-proto 257
+configure cable filter group 42 index 53 match-action drop
+configure cable filter group 42 index 55 dest-port 77
+configure cable filter group 42 index 55 ip-proto 257
+configure cable filter group 42 index 55 match-action drop
+configure cable filter group 42 index 57 dest-port 496
+configure cable filter group 42 index 57 ip-proto 257
+configure cable filter group 42 index 57 match-action drop
+configure cable filter group 42 index 59 ip-version ipv4
+configure cable filter group 42 index 59 dest-ip 10.0.0.0
+configure cable filter group 42 index 59 dest-mask 255.0.0.0
+configure cable filter group 42 index 59 match-action drop
+configure cable filter group 42 index 61 ip-version ipv4
+configure cable filter group 42 index 61 dest-ip 172.16.0.0
+configure cable filter group 42 index 61 dest-mask 255.240.0.0
+configure cable filter group 42 index 61 match-action drop
+configure cable filter group 42 index 63 ip-version ipv4
+configure cable filter group 42 index 63 dest-ip 192.168.0.0
+configure cable filter group 42 index 63 dest-mask 255.255.0.0
+configure cable filter group 42 index 63 match-action drop
+configure cable filter group 52 index 45 dest-port 137
+configure cable filter group 52 index 45 ip-proto 257
+configure cable filter group 52 index 45 match-action drop
+configure cable filter group 52 index 47 dest-port 138
+configure cable filter group 52 index 47 ip-proto 257
+configure cable filter group 52 index 47 match-action drop
+configure cable filter group 52 index 49 dest-port 139
+configure cable filter group 52 index 49 ip-proto 257
+configure cable filter group 52 index 49 match-action drop
+configure cable filter group 52 index 51 dest-port 135
+configure cable filter group 52 index 51 ip-proto 257
+configure cable filter group 52 index 51 match-action drop
+configure cable filter group 52 index 53 dest-port 55
+configure cable filter group 52 index 53 ip-proto 257
+configure cable filter group 52 index 53 match-action drop
+configure cable filter group 52 index 55 dest-port 77
+configure cable filter group 52 index 55 ip-proto 257
+configure cable filter group 52 index 55 match-action drop
+configure cable filter group 52 index 57 dest-port 496
+configure cable filter group 52 index 57 ip-proto 257
+configure cable filter group 52 index 57 match-action drop
+configure cable filter group 52 index 59 ip-version ipv4
+configure cable filter group 52 index 59 dest-ip 10.0.0.0
+configure cable filter group 52 index 59 dest-mask 255.0.0.0
+configure cable filter group 52 index 59 match-action drop
+configure cable filter group 52 index 61 ip-version ipv4
+configure cable filter group 52 index 61 dest-ip 172.16.0.0
+configure cable filter group 52 index 61 dest-mask 255.240.0.0
+configure cable filter group 52 index 61 match-action drop
+configure cable filter group 52 index 63 ip-version ipv4
+configure cable filter group 52 index 63 dest-ip 192.168.0.0
+configure cable filter group 52 index 63 dest-mask 255.255.0.0
+configure cable filter group 52 index 63 match-action drop
+configure cable filter group 62 index 3 ip-version ipv4
+configure cable filter group 62 index 3 src-ip 10.91.0.0
+configure cable filter group 62 index 3 src-mask 255.255.0.0
+configure cable filter group 62 index 45 dest-port 137
+configure cable filter group 62 index 45 ip-proto 257
+configure cable filter group 62 index 45 match-action drop
+configure cable filter group 62 index 47 dest-port 138
+configure cable filter group 62 index 47 ip-proto 257
+configure cable filter group 62 index 47 match-action drop
+configure cable filter group 62 index 49 dest-port 139
+configure cable filter group 62 index 49 ip-proto 257
+configure cable filter group 62 index 49 match-action drop
+configure cable filter group 62 index 51 dest-port 135
+configure cable filter group 62 index 51 ip-proto 257
+configure cable filter group 62 index 51 match-action drop
+configure cable filter group 62 index 53 dest-port 55
+configure cable filter group 62 index 53 ip-proto 257
+configure cable filter group 62 index 53 match-action drop
+configure cable filter group 62 index 55 dest-port 77
+configure cable filter group 62 index 55 ip-proto 257
+configure cable filter group 62 index 55 match-action drop
+configure cable filter group 62 index 57 dest-port 496
+configure cable filter group 62 index 57 ip-proto 257
+configure cable filter group 62 index 57 match-action drop
+configure cable filter group 62 index 59 ip-version ipv4
+configure cable filter group 62 index 59 dest-ip 10.0.0.0
+configure cable filter group 62 index 59 dest-mask 255.0.0.0
+configure cable filter group 62 index 59 match-action drop
+configure cable filter group 62 index 61 ip-version ipv4
+configure cable filter group 62 index 61 dest-ip 172.16.0.0
+configure cable filter group 62 index 61 dest-mask 255.240.0.0
+configure cable filter group 62 index 61 match-action drop
+configure cable filter group 62 index 63 ip-version ipv4
+configure cable filter group 62 index 63 dest-ip 192.168.0.0
+configure cable filter group 62 index 63 dest-mask 255.255.0.0
+configure cable filter group 62 index 63 match-action drop
+configure cable modem deny 3870.0c81.9ca2
+configure cable submgmt default active
+
+configure qos-sc name wow_dn priority 1 max-tr-burst 4294967295 max-burst 65535 dir 1
+configure qos-sc name wow_up priority 1 max-tr-burst 4294967295 max-burst 65535 dir 2
+configure qos-sc name DATA3_DN max-tr-rate 52428800 max-tr-burst 7210482 dir 1
+configure qos-sc name DATA3_UP max-tr-rate 5242880 max-tr-burst 722418 dir 2
+configure qos-sc name DATA4_DN max-tr-rate 104857600 max-tr-burst 14419442 dir 1
+configure qos-sc name DATA4_UP max-tr-rate 10487600 max-tr-burst 1443567 dir 2
+configure qos-sc name DATA5_DN max-tr-rate 209715200 max-tr-burst 28837362 dir 1
+configure qos-sc name DATA5_UP max-tr-rate 10485760 max-tr-burst 1443314 dir 2
+configure qos-sc name DATA6_DN max-tr-rate 524288000 max-tr-burst 72091122 dir 1
+configure qos-sc name DATA6_UP max-tr-rate 52428800 max-tr-burst 7210482 dir 2
+configure qos-sc name TIER1_DN max-tr-rate 10485760 max-tr-burst 1443314 dir 1
+configure qos-sc name TIER1_UP max-tr-rate 1048576 max-tr-burst 145701 dir 2
+configure qos-sc name TIER2_DN max-tr-rate 31457280 max-tr-burst 4326898 dir 1
+configure qos-sc name TIER2_UP max-tr-rate 5242880 max-tr-burst 722418 dir 2
+configure qos-sc name TIER3_DN max-tr-rate 62914560 max-tr-burst 8652274 dir 1
+configure qos-sc name TIER3_UP max-tr-rate 5242880 max-tr-burst 722418 dir 2
+configure qos-sc name TIER4_DN max-tr-rate 112640000 max-tr-burst 15489522 dir 1
+configure qos-sc name TIER4_UP max-tr-rate 10485760 max-tr-burst 1443314 dir 2
+configure qos-sc name TIER5_DN max-tr-rate 314572800 max-tr-burst 43255282 dir 1
+configure qos-sc name TIER5_UP max-tr-rate 20971520 max-tr-burst 2885106 dir 2
+configure qos-sc name TIER6_DN max-tr-rate 614400000 max-tr-burst 84481522 dir 1
+configure qos-sc name TIER6_UP max-tr-rate 41943040 max-tr-burst 5768690 dir 2
+configure qos-sc name ULTIM_DN max-tr-rate 32400000 max-tr-burst 4456522 dir 1
+configure qos-sc name ULTIM_UP max-tr-rate 5140000 max-tr-burst 708272 dir 2
+configure qos-sc name TIER10_DN max-tr-rate 986500000 max-tr-burst 135645272 dir 1
+configure qos-sc name TIER10_UP max-tr-rate 52428800 max-tr-burst 7210482 dir 2
+configure qos-sc name UNPROV_DS max-tr-rate 1048576 dir 1
+configure qos-sc name UNPROV_US max-tr-rate 1048576 dir 2
+configure qos-sc name DEFAULT_DN max-tr-rate 262144 max-tr-burst 37567 dir 1
+configure qos-sc name DEFAULT_UP max-tr-rate 262144 max-tr-burst 37567 dir 2
+configure qos-sc name DS-IGMP-QUERY priority 4 dir 1 forbidden-attr-mask-value 0x80000000
+configure qos-sc name SOFT_DISCO_DS max-tr-rate 256000 max-burst 9132 dir 1
+configure qos-sc name SOFT_DISCO_US max-tr-rate 256000 max-burst 9132 dir 2
+configure qos-sc name LIM_1_DATA3_DN max-tr-rate 39321600 max-tr-burst 5408242 dir 1
+configure qos-sc name LIM_1_DATA3_UP max-tr-rate 3932160 max-tr-burst 542194 dir 2
+configure qos-sc name LIM_1_DATA4_DN max-tr-rate 78643200 max-tr-burst 10814962 dir 1
+configure qos-sc name LIM_1_DATA4_UP max-tr-rate 7865700 max-tr-burst 1083056 dir 2
+configure qos-sc name LIM_1_DATA5_DN max-tr-rate 157286400 max-tr-burst 21628402 dir 1
+configure qos-sc name LIM_1_DATA5_UP max-tr-rate 7864320 max-tr-burst 1082866 dir 2
+configure qos-sc name LIM_1_DATA6_DN max-tr-rate 393216000 max-tr-burst 54068722 dir 1
+configure qos-sc name LIM_1_DATA6_UP max-tr-rate 39321600 max-tr-burst 5408242 dir 2
+configure qos-sc name LIM_1_TIER1_DN max-tr-rate 7864320 max-tr-burst 1082866 dir 1
+configure qos-sc name LIM_1_TIER1_UP max-tr-rate 786432 max-tr-burst 109656 dir 2
+configure qos-sc name LIM_1_TIER2_DN max-tr-rate 23592960 max-tr-burst 3245554 dir 1
+configure qos-sc name LIM_1_TIER2_UP max-tr-rate 3932160 max-tr-burst 542194 dir 2
+configure qos-sc name LIM_1_TIER3_DN max-tr-rate 47185920 max-tr-burst 6489586 dir 1
+configure qos-sc name LIM_1_TIER3_UP max-tr-rate 3932160 max-tr-burst 542194 dir 2
+configure qos-sc name LIM_1_TIER4_DN max-tr-rate 84480000 max-tr-burst 11617522 dir 1
+configure qos-sc name LIM_1_TIER4_UP max-tr-rate 7864320 max-tr-burst 1082866 dir 2
+configure qos-sc name LIM_1_TIER5_DN max-tr-rate 235929600 max-tr-burst 32441842 dir 1
+configure qos-sc name LIM_1_TIER5_UP max-tr-rate 15728640 max-tr-burst 2164210 dir 2
+configure qos-sc name LIM_1_TIER6_DN max-tr-rate 460800000 max-tr-burst 63361522 dir 1
+configure qos-sc name LIM_1_TIER6_UP max-tr-rate 31457280 max-tr-burst 4326898 dir 2
+configure qos-sc name LIM_1_ULTIM_DN max-tr-rate 24300000 max-tr-burst 3342772 dir 1
+configure qos-sc name LIM_1_ULTIM_UP max-tr-rate 3855000 max-tr-burst 531585 dir 2
+configure qos-sc name LIM_2_DATA3_DN max-tr-rate 26214400 max-tr-burst 3606002 dir 1
+configure qos-sc name LIM_2_DATA3_UP max-tr-rate 2621440 max-tr-burst 361970 dir 2
+configure qos-sc name LIM_2_DATA4_DN max-tr-rate 52428800 max-tr-burst 7210482 dir 1
+configure qos-sc name LIM_2_DATA4_UP max-tr-rate 5243800 max-tr-burst 722545 dir 2
+configure qos-sc name LIM_2_DATA5_DN max-tr-rate 104857600 max-tr-burst 14419442 dir 1
+configure qos-sc name LIM_2_DATA5_UP max-tr-rate 5242880 max-tr-burst 722418 dir 2
+configure qos-sc name LIM_2_DATA6_DN max-tr-rate 262144000 max-tr-burst 36046322 dir 1
+configure qos-sc name LIM_2_DATA6_UP max-tr-rate 26214400 max-tr-burst 3606002 dir 2
+configure qos-sc name LIM_2_TIER1_DN max-tr-rate 5242880 max-tr-burst 722418 dir 1
+configure qos-sc name LIM_2_TIER1_UP max-tr-rate 524288 max-tr-burst 73612 dir 2
+configure qos-sc name LIM_2_TIER2_DN max-tr-rate 15728640 max-tr-burst 2164210 dir 1
+configure qos-sc name LIM_2_TIER2_UP max-tr-rate 2621440 max-tr-burst 361970 dir 2
+configure qos-sc name LIM_2_TIER3_DN max-tr-rate 31457280 max-tr-burst 4326898 dir 1
+configure qos-sc name LIM_2_TIER3_UP max-tr-rate 2621440 max-tr-burst 361970 dir 2
+configure qos-sc name LIM_2_TIER4_DN max-tr-rate 56320000 max-tr-burst 7745522 dir 1
+configure qos-sc name LIM_2_TIER4_UP max-tr-rate 5242880 max-tr-burst 722418 dir 2
+configure qos-sc name LIM_2_TIER5_DN max-tr-rate 157286400 max-tr-burst 21628402 dir 1
+configure qos-sc name LIM_2_TIER5_UP max-tr-rate 10485760 max-tr-burst 1443314 dir 2
+configure qos-sc name LIM_2_TIER6_DN max-tr-rate 307200000 max-tr-burst 42241522 dir 1
+configure qos-sc name LIM_2_TIER6_UP max-tr-rate 20971520 max-tr-burst 2885106 dir 2
+configure qos-sc name LIM_2_ULTIM_DN max-tr-rate 16200000 max-tr-burst 2229022 dir 1
+configure qos-sc name LIM_2_ULTIM_UP max-tr-rate 2570000 max-tr-burst 354897 dir 2
+configure qos-sc name LIM_1_TIER10_DN max-tr-rate 739875000 max-tr-burst 101734335 dir 1
+configure qos-sc name LIM_1_TIER10_UP max-tr-rate 39321600 max-tr-burst 5408242 dir 2
+configure qos-sc name LIM_2_TIER10_DN max-tr-rate 493250000 max-tr-burst 67823397 dir 1
+configure qos-sc name LIM_2_TIER10_UP max-tr-rate 26214400 max-tr-burst 3606002 dir 2
+
+configure ip multicast-routing
+configure access-list 30  remark "VOIP Block 1-499=="
+configure access-list 30  remark "Southeast MI COPS"
+configure access-list 30  permit 10.15.18.0 0.0.0.255
+configure access-list 30  remark "Cleveland COPS"
+configure access-list 30  permit 10.15.45.0 0.0.0.255
+configure access-list 30  remark "Columbus COPS"
+configure access-list 30  permit 10.35.18.0 0.0.0.255
+configure access-list 30  remark "Illinois COPS"
+configure access-list 30  permit 10.15.20.0 0.0.0.255
+configure access-list 30  remark "Evansville COPS"
+configure access-list 30  permit 10.220.15.0 0.0.0.255
+configure access-list 30  remark "CFS West Point "
+configure access-list 30  permit 10.37.60.0 0.0.0.255
+configure access-list 30  remark "Evansville Meta "
+configure access-list 30  permit 10.220.100.80
+configure access-list 30  remark "Atlanta Meta"
+configure access-list 30  permit 10.131.138.150
+configure access-list 30  remark "End of VOIP Block=="
+configure access-list 30  remark "Data Block 500-999=="
+configure access-list 30  remark "Evansville MGMT LAN"
+configure access-list 30  permit 10.55.2.0 0.0.0.255
+configure access-list 30  remark "Ninjaneer VMs"
+configure access-list 30  permit 10.98.212.0 0.0.0.255
+configure access-list 30  remark "Columbus DC VMs "
+configure access-list 30  permit 10.170.90.0 0.0.1.255
+configure access-list 30  remark "WOW MGMT Network"
+configure access-list 30  permit 172.31.0.0 0.0.255.255
+configure access-list 30  remark "Knology MGMT"
+configure access-list 30  permit 24.214.5.0 0.0.0.255
+configure access-list 30  permit 24.214.63.0 0.0.0.255
+configure access-list 30  permit 24.214.226.0 0.0.0.255
+configure access-list 30  remark "Naperville NAT"
+configure access-list 30  permit 64.233.207.0 0.0.0.127
+configure access-list 30  remark "Columbus DC NAT "
+configure access-list 30  permit 66.45.139.0 0.0.0.255
+configure access-list 30  permit 68.179.166.248 0.0.0.7
+configure access-list 30  permit 68.179.167.0 0.0.0.255
+configure access-list 30  remark "CMTS server"
+configure access-list 30  permit 75.76.222.64 0.0.0.31
+configure access-list 30  remark "OPENVAULT"
+configure access-list 30  permit 54.204.45.250
+configure access-list 30  permit 54.83.30.95
+configure access-list 30  remark "AWS - Dev Server"
+configure access-list 30  permit 34.192.218.217
+configure access-list 30  remark "Cable Medic - Local Probes"
+configure access-list 30  permit 69.14.177.165
+configure access-list 30  permit 69.14.177.5
+configure access-list 30  permit 69.14.176.37
+configure access-list 30  permit 69.14.176.229
+configure access-list 30  permit 69.14.177.37
+configure access-list 30  permit 69.14.177.69
+configure access-list 30  permit 69.14.177.133
+configure access-list 30  permit 69.14.176.165
+configure access-list 30  remark "AWS - Production Worker"
+configure access-list 30  permit 34.198.18.211
+configure access-list 30  remark "Axiros"
+configure access-list 30  permit 10.170.87.0 0.0.0.255
+configure access-list 30  permit 76.73.163.214
+configure access-list 30  permit 76.73.163.218
+configure access-list 30  remark "CM Spare Route"
+configure access-list 30  permit 10.86.8.0 0.0.1.255
+configure access-list 30  remark "Cable Medic/ACE"
+configure access-list 30  permit 10.160.160.0 0.0.0.255
+configure access-list 30  permit 75.76.120.142
+configure access-list 30  remark "End of Data Block=="
+configure access-list 30  remark "POC Block 1000-1100=="
+configure access-list 30  remark "End of POC Block=="
+configure access-list 30  remark "Solar Winds"
+configure access-list 30  permit 10.49.224.0 0.0.0.31
+configure access-list 30  permit 143.59.95.192 0.0.0.15
+configure access-list 30  permit 143.59.95.252 0.0.0.1
+configure access-list 30  permit 143.59.95.254 0.0.0.1
+configure access-list 30  remark "ACE Polling"
+configure access-list 30  permit 10.49.228.0 0.0.0.255
+configure access-list 30  remark "NTP"
+configure access-list 30  permit 75.76.120.249
+configure access-list 30  permit 75.76.120.250
+configure access-list 30  permit 10.82.7.1
+configure access-list 30  permit 10.82.7.2
+configure access-list 30  permit 10.82.7.3
+configure access-list 90  remark "OSPF Redistribution Filter"
+configure access-list 90  remark "Prevent DSG Interface Scope"
+configure access-list 90  deny   192.168.0.0 0.0.255.255
+configure access-list 90  remark "Prevent Old Bogus Voice Network"
+configure access-list 90  deny   172.30.0.0 0.0.255.255
+configure access-list 90  remark "Prevent Old Management Network"
+configure access-list 90  deny   172.31.0.0 0.0.255.255
+configure access-list 90  remark "Modem Transponder (Overlap)"
+configure access-list 90  deny   10.190.0.0 0.0.255.255
+configure access-list 90  remark "Allow Voice Scopes"
+configure access-list 90  permit 172.16.0.0 0.15.255.255
+configure access-list 90  remark "Allow Walled Garden"
+configure access-list 90  permit 10.136.0.0 0.0.255.255
+configure access-list 90  remark "Prevent HSD from Advertising out"
+configure access-list 90  deny   any
+configure access-list 90  permit any
+configure access-list 101  permit tcp host 76.73.166.133 any eq bgp
+configure access-list 101  permit tcp host 76.73.221.237 any eq bgp
+configure access-list 101  deny   tcp any any eq bgp
+configure access-list 101  permit ip any any
+
+configure vrf voice auto-import enable
+configure vrf default auto-import enable
+configure cable modem remote-query 1200 W0WForeCM@!
+
+configure snmp-server community f642c8be86999361ae1eba242b99637d3687defc3273450d0274fa03a4217690 ro encrypted
+configure snmp-server community 9e0172fbcc34238f3e49ad519491f3e468cbcad263a249a2da56ebaa935fc41f rw 30 encrypted
+configure snmp-server community b5d8b1cae1922d25616968c870464b6858c293d78500810fb2b856e02872f4b9 ro encrypted
+configure snmp-server host 10.49.224.10 traps version v2c
+configure snmp-server host 10.49.224.11 traps version v2c
+configure snmp-server host 10.98.212.107 traps version v2c
+configure snmp-server host 10.233.207.53 traps version v2c
+configure snmp-server host 10.45.133.76 traps version v2c
+configure snmp-server host 10.14.177.133 traps version v2c
+configure snmp-server notify-filter profile "LI-TAP-NOTIFY" subtree 1.3.6.1.4.1.9.9.252.0 type included # cTapMIBNotifications
+configure snmp-server notify-filter profile "TrapV1SNMPv1TrapsProfile" subtree 1.3.6.1 type included # internet
+configure snmp-server notify-filter profile "TrapV2cSNMPv3TrapsProfile" subtree 1.3.6.1 type included # internet
+configure snmp-server notify-filter profile "TrapV2cSNMPv2cTrapsProfile" subtree 1.3.6.1 type included # internet
+configure snmp-server notify-filter profile "InformV3SNMPv3NotifyProfile" subtree 1.3.6.1 type included # internet
+configure snmp-server notify-filter profile "InformV2cSNMPv2cNotifyProfile" subtree 1.3.6.1 type included # internet
+configure snmp-server user "liView" "LI-TAP-ADMINS" v3 auth md5 "0107d49b9718113e007ac139da00076d" encrypted
+configure snmp-server context ""
+configure snmp-server user "rotesting" "rotesting" v1
+configure snmp-server user "rwtesting" "rwtesting" v1
+configure snmp-server user "rotesting" "rotesting" v2c
+configure snmp-server user "rwtesting" "rwtesting" v2c
+configure snmp-server group "rotesting" v1 read "docsisManagerView" write "" notify "docsisManagerView"
+configure snmp-server group "rotesting" v2c read "docsisManagerView" write "" notify "docsisManagerView"
+configure snmp-server group "rwtesting" v1 read "docsisManagerView" write "docsisManagerView" notify ""
+configure snmp-server group "rwtesting" v2c read "docsisManagerView" write "docsisManagerView" notify ""
+configure snmp-server group "LI-TAP-ADMINS" v3 noauth read "LI-TAP-VIEW" write "LI-TAP-VIEW" notify "LI-TAP-VIEW"
+configure snmp-server group "LI-TAP-ADMINS" v3 auth read "LI-TAP-VIEW" write "LI-TAP-VIEW" notify ""
+configure snmp-server view "LI-TAP-VIEW" "1.3.6.1.4.1.9.9.252" included # cTapMIB
+configure snmp-server view "docsisManagerView" "1.3.6.1" included # internet
+
+configure cable modulation-profile 1 iuc 1 mod qpsk pre-len 56 diff false fec-tbytes 0 fec-len 16 seed 338 burst-len 0 guard-time-size 8 last-cw false scrambler true docsis-mode tdma
+configure cable modulation-profile 1 iuc 3 mod qpsk pre-len 640 diff false fec-tbytes 5 fec-len 34 seed 338 burst-len 0 guard-time-size 48 last-cw false scrambler true docsis-mode tdma
+configure cable modulation-profile 1 iuc 4 mod qpsk pre-len 384 diff false fec-tbytes 5 fec-len 34 seed 338 burst-len 0 guard-time-size 48 last-cw false scrambler true docsis-mode tdma
+configure cable modulation-profile 1 iuc 5 mod qpsk pre-len 84 diff false fec-tbytes 6 fec-len 78 seed 338 burst-len 45 guard-time-size 8 last-cw true scrambler true docsis-mode tdma
+configure cable modulation-profile 1 iuc 6 mod qpsk pre-len 96 diff false fec-tbytes 8 fec-len 220 seed 338 burst-len 0 guard-time-size 8 last-cw true scrambler true docsis-mode tdma
+configure cable modulation-profile 2 iuc 1 mod qpsk pre-len 64 diff false fec-tbytes 0 fec-len 16 seed 338 burst-len 0 guard-time-size 8 last-cw false scrambler true docsis-mode tdma
+configure cable modulation-profile 2 iuc 3 mod qpsk pre-len 640 diff false fec-tbytes 5 fec-len 34 seed 338 burst-len 0 guard-time-size 48 last-cw false scrambler true docsis-mode tdma
+configure cable modulation-profile 2 iuc 4 mod qpsk pre-len 384 diff false fec-tbytes 5 fec-len 34 seed 338 burst-len 0 guard-time-size 48 last-cw false scrambler true docsis-mode tdma
+configure cable modulation-profile 2 iuc 5 mod qpsk pre-len 84 diff false fec-tbytes 6 fec-len 78 seed 338 burst-len 45 guard-time-size 8 last-cw true scrambler true docsis-mode tdma
+configure cable modulation-profile 2 iuc 6 mod qpsk pre-len 96 diff false fec-tbytes 8 fec-len 220 seed 338 burst-len 0 guard-time-size 8 last-cw true scrambler true docsis-mode tdma
+configure cable modulation-profile 16 iuc 1 mod qpsk pre-len 56 diff false fec-tbytes 0 fec-len 16 seed 338 burst-len 0 guard-time-size 8 last-cw false scrambler true docsis-mode tdma
+configure cable modulation-profile 16 iuc 3 mod qpsk pre-len 640 diff false fec-tbytes 5 fec-len 34 seed 338 burst-len 0 guard-time-size 48 last-cw false scrambler true docsis-mode tdma
+configure cable modulation-profile 16 iuc 4 mod qpsk pre-len 384 diff false fec-tbytes 5 fec-len 34 seed 338 burst-len 0 guard-time-size 48 last-cw false scrambler true docsis-mode tdma
+configure cable modulation-profile 16 iuc 5 mod qam16 pre-len 168 diff false fec-tbytes 6 fec-len 78 seed 338 burst-len 23 guard-time-size 8 last-cw true scrambler true docsis-mode tdma
+configure cable modulation-profile 16 iuc 6 mod qam16 pre-len 192 diff false fec-tbytes 8 fec-len 220 seed 338 burst-len 0 guard-time-size 8 last-cw true scrambler true docsis-mode tdma
+configure cable modulation-profile 116 iuc 1 mod qpsk pre-len 56 diff false fec-tbytes 0 fec-len 16 seed 338 burst-len 0 guard-time-size 8 last-cw false scrambler true docsis-mode atdma
+configure cable modulation-profile 116 iuc 1 pre-type qpsk1 int-depth 1 int-blocksize 2048
+configure cable modulation-profile 116 iuc 3 mod qpsk pre-len 640 diff false fec-tbytes 5 fec-len 34 seed 338 burst-len 0 guard-time-size 48 last-cw false scrambler true docsis-mode atdma
+configure cable modulation-profile 116 iuc 3 pre-type qpsk1 int-depth 0 int-blocksize 2048
+configure cable modulation-profile 116 iuc 4 mod qpsk pre-len 384 diff false fec-tbytes 5 fec-len 34 seed 338 burst-len 0 guard-time-size 48 last-cw false scrambler true docsis-mode atdma
+configure cable modulation-profile 116 iuc 4 pre-type qpsk1 int-depth 0 int-blocksize 2048
+configure cable modulation-profile 116 iuc 9 mod qam16 pre-len 104 diff false fec-tbytes 6 fec-len 78 seed 338 burst-len 14 guard-time-size 8 last-cw true scrambler true docsis-mode atdma
+configure cable modulation-profile 116 iuc 9 pre-type qpsk1 int-depth 0 int-blocksize 2048
+configure cable modulation-profile 116 iuc 10 mod qam16 pre-len 104 diff false fec-tbytes 8 fec-len 224 seed 338 burst-len 0 guard-time-size 8 last-cw true scrambler true docsis-mode atdma
+configure cable modulation-profile 116 iuc 10 pre-type qpsk1 int-depth 0 int-blocksize 2048
+configure cable modulation-profile 116 iuc 11 mod qam16 pre-len 104 diff false fec-tbytes 6 fec-len 78 seed 338 burst-len 0 guard-time-size 8 last-cw true scrambler true docsis-mode atdma
+configure cable modulation-profile 116 iuc 11 pre-type qpsk1 int-depth 0 int-blocksize 2048
+configure cable modulation-profile 132 iuc 1 mod qpsk pre-len 56 diff false fec-tbytes 0 fec-len 16 seed 338 burst-len 0 guard-time-size 8 last-cw false scrambler true docsis-mode atdma
+configure cable modulation-profile 132 iuc 1 pre-type qpsk1 int-depth 1 int-blocksize 2048
+configure cable modulation-profile 132 iuc 3 mod qpsk pre-len 640 diff false fec-tbytes 5 fec-len 34 seed 338 burst-len 0 guard-time-size 48 last-cw false scrambler true docsis-mode atdma
+configure cable modulation-profile 132 iuc 3 pre-type qpsk1 int-depth 0 int-blocksize 2048
+configure cable modulation-profile 132 iuc 4 mod qpsk pre-len 384 diff false fec-tbytes 5 fec-len 34 seed 338 burst-len 0 guard-time-size 48 last-cw false scrambler true docsis-mode atdma
+configure cable modulation-profile 132 iuc 4 pre-type qpsk1 int-depth 0 int-blocksize 2048
+configure cable modulation-profile 132 iuc 9 mod qam32 pre-len 104 diff false fec-tbytes 10 fec-len 85 seed 338 burst-len 13 guard-time-size 8 last-cw true scrambler true docsis-mode atdma
+configure cable modulation-profile 132 iuc 9 pre-type qpsk1 int-depth 0 int-blocksize 2048
+configure cable modulation-profile 132 iuc 10 mod qam32 pre-len 104 diff false fec-tbytes 12 fec-len 216 seed 338 burst-len 0 guard-time-size 8 last-cw true scrambler true docsis-mode atdma
+configure cable modulation-profile 132 iuc 10 pre-type qpsk1 int-depth 0 int-blocksize 2048
+configure cable modulation-profile 132 iuc 11 mod qam32 pre-len 104 diff false fec-tbytes 10 fec-len 85 seed 338 burst-len 0 guard-time-size 8 last-cw true scrambler true docsis-mode atdma
+configure cable modulation-profile 132 iuc 11 pre-type qpsk1 int-depth 0 int-blocksize 2048
+configure cable modulation-profile 164 iuc 1 mod qpsk pre-len 56 diff false fec-tbytes 0 fec-len 16 seed 338 burst-len 0 guard-time-size 8 last-cw false scrambler true docsis-mode atdma
+configure cable modulation-profile 164 iuc 1 pre-type qpsk1 int-depth 1 int-blocksize 2048
+configure cable modulation-profile 164 iuc 3 mod qpsk pre-len 640 diff false fec-tbytes 5 fec-len 34 seed 338 burst-len 0 guard-time-size 48 last-cw false scrambler true docsis-mode atdma
+configure cable modulation-profile 164 iuc 3 pre-type qpsk1 int-depth 0 int-blocksize 2048
+configure cable modulation-profile 164 iuc 4 mod qpsk pre-len 384 diff false fec-tbytes 5 fec-len 34 seed 338 burst-len 0 guard-time-size 48 last-cw false scrambler true docsis-mode atdma
+configure cable modulation-profile 164 iuc 4 pre-type qpsk1 int-depth 0 int-blocksize 2048
+configure cable modulation-profile 164 iuc 9 mod qam64 pre-len 104 diff false fec-tbytes 12 fec-len 81 seed 338 burst-len 11 guard-time-size 8 last-cw true scrambler true docsis-mode atdma
+configure cable modulation-profile 164 iuc 9 pre-type qpsk1 int-depth 0 int-blocksize 2048
+configure cable modulation-profile 164 iuc 10 mod qam64 pre-len 104 diff false fec-tbytes 16 fec-len 223 seed 338 burst-len 0 guard-time-size 8 last-cw true scrambler true docsis-mode atdma
+configure cable modulation-profile 164 iuc 10 pre-type qpsk1 int-depth 0 int-blocksize 2048
+configure cable modulation-profile 164 iuc 11 mod qam64 pre-len 104 diff false fec-tbytes 12 fec-len 81 seed 338 burst-len 0 guard-time-size 8 last-cw true scrambler true docsis-mode atdma
+configure cable modulation-profile 164 iuc 11 pre-type qpsk1 int-depth 0 int-blocksize 2048
+
+configure cable dsg timer-list 1 initialization-tdsg1 3 operational-tdsg2 599 two-way-tdsg3 299 one-way-tdsg4 1799
+configure cable dsg ds-frequency-list 1 index 1 frequency 261000000
+configure cable dsg ds-frequency-list 1 index 2 frequency 267000000
+configure cable dsg ds-frequency-list 1 index 3 frequency 273000000
+configure cable dsg ds-frequency-list 1 index 4 frequency 279000000
+configure cable dsg ds-frequency-list 1 index 5 frequency 285000000
+configure cable dsg ds-frequency-list 1 index 6 frequency 291000000
+configure cable dsg ds-frequency-list 1 index 7 frequency 297000000
+configure cable dsg ds-frequency-list 1 index 8 frequency 303000000
+configure cable dsg ds-frequency-list 1 index 9 frequency 309000000
+configure cable dsg ds-frequency-list 1 index 10 frequency 315000000
+configure cable dsg ds-frequency-list 1 index 11 frequency 321000000
+configure cable dsg ds-frequency-list 1 index 12 frequency 327000000
+configure cable dsg ds-frequency-list 1 index 13 frequency 333000000
+configure cable dsg ds-frequency-list 1 index 14 frequency 339000000
+configure cable dsg ds-frequency-list 1 index 15 frequency 345000000
+configure cable dsg ds-frequency-list 1 index 16 frequency 351000000
+configure cable dsg ds-frequency-list 1 index 17 frequency 357000000
+configure cable dsg ds-frequency-list 1 index 18 frequency 363000000
+configure cable dsg ds-frequency-list 1 index 19 frequency 369000000
+configure cable dsg ds-frequency-list 1 index 20 frequency 375000000
+configure cable dsg ds-frequency-list 1 index 21 frequency 381000000
+configure cable dsg ds-frequency-list 1 index 22 frequency 387000000
+configure cable dsg ds-frequency-list 1 index 23 frequency 393000000
+configure cable dsg ds-frequency-list 1 index 24 frequency 399000000
+configure cable dsg ds-frequency-list 1 index 25 frequency 405000000
+configure cable dsg ds-frequency-list 1 index 26 frequency 411000000
+configure cable dsg ds-frequency-list 1 index 27 frequency 417000000
+configure cable dsg ds-frequency-list 1 index 28 frequency 423000000
+configure cable dsg ds-frequency-list 1 index 29 frequency 429000000
+configure cable dsg ds-frequency-list 1 index 30 frequency 435000000
+configure cable dsg ds-frequency-list 1 index 31 frequency 441000000
+configure cable dsg client-id-list 3 index 1 type ca-system-id value 0xe00
+configure cable dsg client-id-list 3 index 2 type mac-address value 0001.a6d0.0b1e
+configure cable dsg tunnel 3 tunnel-group 3 client-id-list 3 mac-address 0120.401b.a80a
+configure cable dsg tunnel 3 classifier 3 source-network 35.253.0.3 dest-ip 239.192.35.50 dest-port-range 1-65534 include-in-dcd
+
+configure interface cable-mac 1 description "EJ36 EJ19"
+configure interface cable-mac 1 cable cm-ip-prov-mode ipv4only
+configure interface cable-mac 1 cable verbose-cm-rcp 
+configure interface cable-mac 1 cable dynamic-rcc
+configure interface cable-mac 1 cable downstream-bonding-group dynamic enable
+configure interface cable-mac 1 cable upstream-bonding-group dynamic enable
+configure interface cable-mac 1 cable upstream ranging-poll t4-multiplier 
+configure interface cable-mac 1 cable mult-tx-chl-mode 
+configure interface cable-mac 1 ofdm docsis-31
+configure interface cable-mac 1.0 ip address 10.102.0.1 255.255.224.0
+configure interface cable-mac 1.0 ip address 10.202.224.1 255.255.255.0 secondary dhcp-giaddr mta
+configure interface cable-mac 1.0 cable helper-address 10.50.2.3
+configure interface cable-mac 1.0 description "Modem Scopes"
+
+configure interface cable-mac 1.0 ip igmp
+configure interface cable-mac 1.0 cable submgmt default filter-group cm downstream 1
+configure interface cable-mac 1.0 cable submgmt default filter-group cm upstream 2
+configure interface cable-mac 1.0 cable submgmt default filter-group host downstream 61
+configure interface cable-mac 1.0 cable submgmt default filter-group host upstream 62
+configure interface cable-mac 1.1 ip address 10.102.101.1 255.255.255.0
+configure interface cable-mac 1.1 description "EMTA Scopes"
+configure interface cable-mac 1.1 cable submgmt default filter-group cm downstream 11
+configure interface cable-mac 1.1 cable submgmt default filter-group cm upstream 12
+configure interface cable-mac 1.1 cable submgmt default filter-group host downstream 11
+configure interface cable-mac 1.1 cable submgmt default filter-group host upstream 12
+configure interface cable-mac 1.2 ip address 10.102.102.1 255.255.255.0
+configure interface cable-mac 1.2 description "ESTB Scopes"
+configure interface cable-mac 1.2 ip address 10.144.56.1 255.255.248.0 secondary
+configure interface cable-mac 1.2 cable submgmt default filter-group cm downstream 21
+configure interface cable-mac 1.2 cable submgmt default filter-group cm upstream 22
+configure interface cable-mac 1.2 cable submgmt default filter-group host downstream 21
+configure interface cable-mac 1.2 cable submgmt default filter-group host upstream 22
+configure interface cable-mac 1.3 ip address 10.102.103.1 255.255.255.0
+configure interface cable-mac 1.3 description "DHCP Scopes"
+configure interface cable-mac 1.3 ip address 23.28.164.1 255.255.255.0 secondary
+configure interface cable-mac 1.3 ip address 24.35.49.1 255.255.255.0 secondary
+configure interface cable-mac 1.3 ip address 24.35.61.1 255.255.255.0 secondary
+configure interface cable-mac 1.3 ip address 24.35.118.1 255.255.255.0 secondary
+configure interface cable-mac 1.3 ip address 65.60.248.1 255.255.248.0 secondary
+configure interface cable-mac 1.3 ip address 69.73.38.1 255.255.255.0 secondary
+configure interface cable-mac 1.3 ip address 69.171.202.1 255.255.255.0 secondary
+configure interface cable-mac 1.3 ip address 75.118.4.1 255.255.252.0 secondary
+configure interface cable-mac 1.3 ip address 75.118.208.1 255.255.248.0 secondary
+configure interface cable-mac 1.3 ip address 143.59.164.1 255.255.255.0 secondary
+configure interface cable-mac 1.3 ip address 143.59.173.1 255.255.255.0 secondary
+configure interface cable-mac 1.3 cable submgmt default filter-group cm downstream 31
+configure interface cable-mac 1.3 cable submgmt default filter-group cm upstream 32
+configure interface cable-mac 1.3 cable submgmt default filter-group host downstream 31
+configure interface cable-mac 1.3 cable submgmt default filter-group host upstream 32
+configure interface cable-mac 1.4 ip address 10.102.104.1 255.255.255.0
+configure interface cable-mac 1.4 description "WG Scopes"
+configure interface cable-mac 1.4 ip address 143.59.134.1 255.255.255.192 secondary
+configure interface cable-mac 1.4 cable submgmt default filter-group cm downstream 41
+configure interface cable-mac 1.4 cable submgmt default filter-group cm upstream 42
+configure interface cable-mac 1.4 cable submgmt default filter-group host downstream 41
+configure interface cable-mac 1.4 cable submgmt default filter-group host upstream 42
+configure interface cable-mac 1.5 ip address 10.102.105.1 255.255.255.0
+configure interface cable-mac 1.5 description "Static Reservation Scopes"
+configure interface cable-mac 1.5 ip address 76.73.195.161 255.255.255.224 secondary
+configure interface cable-mac 1.5 cable submgmt default filter-group cm downstream 51
+configure interface cable-mac 1.5 cable submgmt default filter-group cm upstream 52
+configure interface cable-mac 1.5 cable submgmt default filter-group host downstream 51
+configure interface cable-mac 1.5 cable submgmt default filter-group host upstream 52
+configure interface cable-mac 1.7 ip address 10.102.107.1 255.255.255.0
+configure interface cable-mac 1.7 description "Accedian Scopes"
+configure interface cable-mac 1.7 cable submgmt default filter-group cm downstream 71
+configure interface cable-mac 1.7 cable submgmt default filter-group cm upstream 72
+configure interface cable-mac 1.7 cable submgmt default filter-group host downstream 71
+configure interface cable-mac 1.7 cable submgmt default filter-group host upstream 72
+configure interface cable-mac 1.9 ip address 10.102.109.1 255.255.255.0
+configure interface cable-mac 1.9 description "Transponder Scopes"
+configure interface cable-mac 1.9 cable submgmt default filter-group cm downstream 91
+configure interface cable-mac 1.9 cable submgmt default filter-group cm upstream 92
+configure interface cable-mac 1.9 cable submgmt default filter-group host downstream 91
+configure interface cable-mac 1.9 cable submgmt default filter-group host upstream 92
+
+
+configure interface cable-downstream ds/scq/0-30 cable cable-mac 1
+
+configure interface cable-downstream ds/scq/0 cable frequency 261000000
+configure interface cable-downstream ds/scq/1 cable frequency 267000000
+configure interface cable-downstream ds/scq/2 cable frequency 273000000
+configure interface cable-downstream ds/scq/3 cable frequency 279000000
+configure interface cable-downstream ds/scq/4 cable frequency 285000000
+configure interface cable-downstream ds/scq/5 cable frequency 291000000
+configure interface cable-downstream ds/scq/6 cable frequency 297000000
+configure interface cable-downstream ds/scq/7 cable frequency 303000000
+configure interface cable-downstream ds/scq/8 cable frequency 309000000
+configure interface cable-downstream ds/scq/9 cable frequency 315000000
+configure interface cable-downstream ds/scq/10 cable frequency 321000000
+configure interface cable-downstream ds/scq/11 cable frequency 327000000
+configure interface cable-downstream ds/scq/12 cable frequency 333000000
+configure interface cable-downstream ds/scq/13 cable frequency 339000000
+configure interface cable-downstream ds/scq/14 cable frequency 345000000
+configure interface cable-downstream ds/scq/15 cable frequency 351000000
+configure interface cable-downstream ds/scq/16 cable frequency 357000000
+configure interface cable-downstream ds/scq/17 cable frequency 363000000
+configure interface cable-downstream ds/scq/18 cable frequency 369000000
+configure interface cable-downstream ds/scq/19 cable frequency 375000000
+configure interface cable-downstream ds/scq/20 cable frequency 381000000
+configure interface cable-downstream ds/scq/21 cable frequency 387000000
+configure interface cable-downstream ds/scq/22 cable frequency 393000000
+configure interface cable-downstream ds/scq/23 cable frequency 399000000
+configure interface cable-downstream ds/scq/24 cable frequency 405000000
+configure interface cable-downstream ds/scq/25 cable frequency 411000000
+configure interface cable-downstream ds/scq/26 cable frequency 417000000
+configure interface cable-downstream ds/scq/27 cable frequency 423000000
+configure interface cable-downstream ds/scq/28 cable frequency 429000000
+configure interface cable-downstream ds/scq/29 cable frequency 435000000
+configure interface cable-downstream ds/scq/30 cable frequency 441000000
+configure interface cable-downstream ds/scq/4-30 cable primary-capable no
+
+configure interface cable-downstream ds/ofd/0 ofdm cable-mac 1
+configure interface cable-downstream ds/ofd/0 ofdm frequency low-edge 696000000 high-edge 750000000 plc-block 698000000
+configure interface cable-downstream ds/ofd/0 ofdm ds-profile 0 default-modulation 256qam
+configure interface cable-downstream ds/ofd/0 ofdm ds-profile 1 default-modulation 1024qam
+configure interface cable-downstream ds/ofd/0 ofdm ds-profile 2 default-modulation 2048qam
+
+configure interface cable-downstream ds/scq/0 cable dsg ds-frequency-list 1
+configure interface cable-downstream ds/scq/0 cable dsg timer-list 1
+configure interface cable-downstream ds/scq/0 cable dsg dcd-enable
+configure interface cable-downstream ds/scq/0 cable dsg tunnel-group 3
+
+configure interface cable-downstream ds/scq/1 cable dsg ds-frequency-list 1
+configure interface cable-downstream ds/scq/1 cable dsg timer-list 1
+configure interface cable-downstream ds/scq/1 cable dsg dcd-enable
+configure interface cable-downstream ds/scq/1 cable dsg tunnel-group 3
+
+configure interface cable-downstream ds/scq/2 cable dsg ds-frequency-list 1
+configure interface cable-downstream ds/scq/2 cable dsg timer-list 1
+configure interface cable-downstream ds/scq/2 cable dsg dcd-enable
+configure interface cable-downstream ds/scq/2 cable dsg tunnel-group 3
+
+configure interface cable-downstream ds/scq/3 cable dsg ds-frequency-list 1
+configure interface cable-downstream ds/scq/3 cable dsg timer-list 1
+configure interface cable-downstream ds/scq/3 cable dsg dcd-enable
+configure interface cable-downstream ds/scq/3 cable dsg tunnel-group 3
+
+configure interface cable-upstream us/scq/0-3 cable cable-mac 1
+
+configure interface cable-upstream us/scq/0 cable channel-width 3200000
+configure interface cable-upstream us/scq/0 cable frequency 25500000
+configure interface cable-upstream us/scq/0 cable supervision ds/scq/0-3 ds/ofd/0 
+configure interface cable-upstream us/scq/0 cable modulation-profile 164
+configure interface cable-upstream us/scq/0 cable ingress-cancellation interval 100
+configure interface cable-upstream us/scq/0 description "EJ36"
+configure interface cable-upstream us/scq/0 cable pre-eq-enable true
+
+configure interface cable-upstream us/scq/1 cable channel-width 6400000
+configure interface cable-upstream us/scq/1 cable frequency 30500000
+configure interface cable-upstream us/scq/1 cable supervision ds/scq/0-3 ds/ofd/0 
+configure interface cable-upstream us/scq/1 cable modulation-profile 164
+configure interface cable-upstream us/scq/1 cable ingress-cancellation interval 100
+configure interface cable-upstream us/scq/1 description "EJ36"
+configure interface cable-upstream us/scq/1 cable pre-eq-enable true
+
+configure interface cable-upstream us/scq/2 cable channel-width 6400000
+configure interface cable-upstream us/scq/2 cable frequency 37000000
+configure interface cable-upstream us/scq/2 cable supervision ds/scq/0-3 ds/ofd/0 
+configure interface cable-upstream us/scq/2 cable modulation-profile 164
+configure interface cable-upstream us/scq/2 cable ingress-cancellation interval 100
+configure interface cable-upstream us/scq/2 description "EJ36"
+configure interface cable-upstream us/scq/2 cable pre-eq-enable true
+
+configure interface cable-upstream us/scq/3 cable channel-width 6400000
+configure interface cable-upstream us/scq/3 cable frequency 16300000
+configure interface cable-upstream us/scq/3 cable supervision ds/scq/0-3 ds/ofd/0 
+configure interface cable-upstream us/scq/3 cable modulation-profile 132
+configure interface cable-upstream us/scq/3 cable ingress-cancellation interval 100
+configure interface cable-upstream us/scq/3 description "EJ36"
+configure interface cable-upstream us/scq/3 cable pre-eq-enable true
+
+
+configure interface cable-downstream ds/ofd/0 ofdm shutdown no
+
+
+configure cable fiber-node "FN1" init
+configure cable fiber-node "FN1" cable-downstream ds/scq/0-30  ds/ofd/0
+configure cable fiber-node "FN1" cable-upstream us/scq/0-3 us/ofd/0
+configure enable password 99
+
+configure packetcable dqos no shutdown
+configure packetcable pcmm no shutdown
+configure clock timezone GMT
+
+configure router bgp 65050 bgp router-id 75.118.40.239
+configure router bgp 65050 no shutdown
+configure router bgp neighbor 76.73.166.133 remote-as 12083
+#configure router bgp neighbor 76.73.166.133 update-source ethernet ns/0.0
+configure router bgp neighbor 76.73.166.133 advertisement-interval 30
+configure router bgp neighbor 76.73.221.237 remote-as 12083
+#configure router bgp neighbor 76.73.221.237 update-source ethernet ns/0.0
+configure router bgp neighbor 76.73.221.237 advertisement-interval 30
+configure router bgp 65050 address-family ipv4 redistribute connected
+configure router bgp 65050 address-family ipv4 neighbor 76.73.166.133 activate
+configure router bgp 65050 address-family ipv4 neighbor 76.73.221.237 activate
+configure router bgp neighbor 76.73.166.133 no shutdown
+configure router bgp neighbor 76.73.221.237 no shutdown
+
+configure ntp authentication
+configure ntp maxpoll 10
+configure ntp server 10.82.7.1 minpoll 6 maxpoll 7 version 4 key 0
+configure ntp server 10.82.7.2 minpoll 6 maxpoll 7 version 4 key 0
+configure ntp server 10.82.7.3 minpoll 6 maxpoll 7 version 4 key 0
+configure ntp server 75.76.120.249 minpoll 6 maxpoll 7 version 4 key 0
+configure ntp server 75.76.120.250 minpoll 6 maxpoll 7 version 4 key 0
+configure tod server 10.220.20.7 udp
+configure clock timezone America/Chicago
+
+configure l2vpn forwarding enable
+configure l2vpn cm capability esafe-ident optional
+configure l2vpn cm capability dut-filter optional
+configure l2vpn network-interface ethernet ns/0
+configure l2vpn network-interface ethernet ns/1 secondary
+configure l2vpn cable-mac 1 enable
+
+configure cable metering collector  1 54.83.30.95
+configure cable metering collector  2 54.204.45.250
+configure cable metering session 1 service samis-1 method time all-counts
+configure cable metering report-cycle set 1 start 00:00 interval 15
+configure cable metering shutdown no
+
+configure authentication ml1 local
+configure authentication ml2 none
+configure line vty 0 15 session-timeout 0 idle-timeout 0 pagination 0 authentication ml1 login-authentication password 99
+configure line vty 0 15 authentication ml2 enable-authentication
+configure line console 0 session-timeout 0 idle-timeout 0 pagination 0 authentication ml1 login-authentication password 99
+configure line console 0 authentication ml2 enable-authentication
+
+configure interface rpd "embrpd1" rf intra-node-cabling 2x4
+configure interface rpd "embrpd1" description "RD2322 1x1 NoNode"
+configure interface rpd "embrpd1" ds-conn 0 power-level 380
+configure interface rpd "embrpd1" ds-conn 1 power-level 380
+configure interface rpd "embrpd1" us-conn 0 base-target-power 20
+configure interface rpd "embrpd1" us-conn 1 base-target-power 20
+configure cable fiber-node "FN1" rpd "embrpd1" ds-conn 0 us-conn 0
+configure interface cable-downstream ds/scq/0-30 cable no shutdown
+configure interface cable-upstream us/scq/0-3 cable no shutdown
+configure interface cable-mac 1 no shutdown
+
+configure username e6 password 99 privilege 15
+
+########## ethernet or LAG - here is the ethernet
+configure interface ethernet ns/0 description "- DHCP - Smartbits - RTE -"
+configure interface ethernet ns/0 no shutdown
+configure interface ethernet ns/0.0 ip address 10.52.0.2 255.255.255.0
+configure interface ethernet ns/0.0 ipv6 enable
+configure interface ethernet ns/0.0 ipv6 address fe80::201:5cff:fed0:13e1/64 link-local
+configure interface ethernet ns/0 no shutdown
+configure interface ethernet ns/0.0 ipv6 address fc00:cada:c402:600::2/64 
+configure interface ethernet ns/0.0 ipv6 nd ra suppress
+configure interface ethernet ns/0.0 encapsulation dot1q 10
+configure interface ethernet ns/0.0 shutdown no
+
+configure interface ethernet ns/1 description "- IXIA -"
+configure interface ethernet ns/1 no shutdown
+configure interface ethernet ns/1.0 ip address 10.52.128.2 255.255.255.0
+configure interface ethernet ns/1.0 ip address 10.253.2.130 255.255.255.128 secondary
+configure interface ethernet ns/1.0 ipv6 enable
+configure interface ethernet ns/1.0 ipv6 address fe80::201:5cff:fed0:13e2/64 link-local
+configure interface ethernet ns/1 no shutdown
+configure interface ethernet ns/1.0 ipv6 address fc00:cada:c402:700::2/64 
+configure interface ethernet ns/1.0 ipv6 nd ra suppress
+configure interface ethernet ns/1.0 encapsulation dot1q 10
+configure interface ethernet ns/1.0 shutdown no
+
+
+########## here is the lag
+
+configure interface link-aggregate 0.0 ip address 10.52.0.2 255.255.255.0
+configure interface link-aggregate 0.0 ipv6 address fc00:cada:c402:600::2/64
+configure interface link-aggregate 0.0 ipv6 nd ra suppress
+configure ip vrf default
+configure interface link-aggregate 0.0 ip vrf forwarding default
+configure interface link-aggregate 0.0 encapsulation dot1q 10
+configure interface link-aggregate 0.0 description DHCP
+configure interface link-aggregate 0.0 no shutdown
+configure interface link-aggregate 0 ip inband access-group 20
+#####
+
+
+configure interface loopback 0 ip address 10.44.2.200 255.255.255.255
+configure interface loopback 0 ipv6 enable
+configure interface loopback 0 description "- default -"
+configure interface loopback 0 no shutdown
+configure interface loopback 0 ipv6 address fc00:cada:c402::200/128  
+configure ip route 0.0.0.0 0.0.0.0 10.52.0.1
+configure ipv6 route ::/0 fc00:cada:c402:600::1
+
+

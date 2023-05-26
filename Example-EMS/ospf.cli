@@ -1,0 +1,22 @@
+configure router ospf vrf dsg router-id 10.68.38.44
+configure router ospf vrf dsg no shutdown
+configure router ospf vrf dsg network 10.68.38.37 0.0.0.0 area 0.0.0.22
+configure router ospf vrf dsg network 10.68.38.41 0.0.0.0 area 0.0.0.22
+configure router ospf vrf dsg redistribute connected metric-type 1
+configure router ospf vrf vod router-id 10.68.237.42
+configure router ospf vrf vod graceful-restart grace-period 40
+configure router ospf vrf vod no shutdown
+configure router ospf vrf vod network 10.68.237.18 0.0.0.0 area 0.0.1.164
+configure router ospf vrf vod network 10.68.237.22 0.0.0.0 area 0.0.1.164
+configure router ospf vrf vod redistribute connected metric-type 1 tag 30
+configure router ospf vrf cm-mta router-id 192.168.224.2
+configure router ospf vrf cm-mta compatible rfc1583
+configure router ospf vrf cm-mta no shutdown
+configure router ospf vrf cm-mta network 192.168.224.77 0.0.0.0 area 0.0.0.4
+configure router ospf vrf cm-mta network 192.168.224.81 0.0.0.0 area 0.0.0.4
+configure router ospf vrf cm-mta redistribute connected metric-type 1 metric 0
+configure router ospf vrf internet router-id 192.168.224.9
+configure router ospf vrf internet no shutdown
+configure router ospf vrf internet network 192.168.224.61 0.0.0.0 area 0.0.2.198
+configure router ospf vrf internet network 192.168.224.65 0.0.0.0 area 0.0.2.198
+configure router ospf vrf internet redistribute connected metric-type 1 tag 30

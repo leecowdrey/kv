@@ -1,0 +1,1598 @@
+configure interface cable-mac 1 description "CM1"
+configure interface cable-mac 1 cable freq-us-max 85
+configure interface cable-mac 1 cable us-freq-range Extended
+configure interface cable-mac 1 cable tftp-enforce
+configure interface cable-mac 1 cable dynamic-secret reject
+configure interface cable-mac 1 cable cm-ip-prov-mode ipv4only
+configure interface cable-mac 1 cable verbose-cm-rcp 
+configure interface cable-mac 1 cable reg-rsp-timer-t6 10
+configure interface cable-mac 1 cable dynamic-rcc
+configure interface cable-mac 1 cable upstream-bonding-group dynamic enable
+configure interface cable-mac 1 cable mult-tx-chl-mode 
+configure interface cable-mac 1 cable upstream ranging-poll t4-multiplier
+configure interface cable-mac 1 cable cm-status event-type mddRecovery enabled no
+configure interface cable-mac 1.0 ip address 10.187.0.1 255.255.0.0
+configure interface cable-mac 1.0 description "VRF cm-mta"
+configure interface cable-mac 1.0 ip address 10.102.164.1 255.255.252.0 secondary
+configure interface cable-mac 1.0 ip address 10.106.16.1 255.255.252.0 secondary
+configure interface cable-mac 1.0 ip address 10.106.28.1 255.255.252.0 secondary
+configure interface cable-mac 1.0 ip address 10.108.60.1 255.255.252.0 secondary
+configure interface cable-mac 1.0 ip address 10.108.84.1 255.255.252.0 secondary
+configure interface cable-mac 1.0 ip address 10.108.148.1 255.255.252.0 secondary
+configure interface cable-mac 1.0 ip address 10.108.176.1 255.255.252.0 secondary
+configure interface cable-mac 1.0 cable helper-address 192.168.216.60 
+configure interface cable-mac 1.0 cable helper-address 192.168.216.61 
+configure interface cable-mac 1.0 ip vrf forwarding cm-mta
+configure interface cable-mac 1.0 cable source-verify dhcp authoritative
+configure interface cable-mac 1.0 cable submgmt default filter-group cm downstream 3
+configure interface cable-mac 1.0 cable submgmt default filter-group cm upstream 4
+configure interface cable-mac 1.0 cable submgmt default filter-group host downstream 1
+configure interface cable-mac 1.0 cable submgmt default filter-group host upstream 2
+configure interface cable-mac 1.10 ip address 190.164.248.1 255.255.255.0
+configure interface cable-mac 1.10 description "VRF internet GOLD/PLATINIUM"
+configure interface cable-mac 1.10 ip address 190.45.79.1 255.255.255.0 secondary
+configure interface cable-mac 1.10 ip address 190.45.149.1 255.255.255.0 secondary
+configure interface cable-mac 1.10 ip address 190.45.191.1 255.255.255.0 secondary
+configure interface cable-mac 1.10 ip address 190.46.101.1 255.255.255.0 secondary
+configure interface cable-mac 1.10 ip address 190.164.229.1 255.255.255.0 secondary
+configure interface cable-mac 1.10 cable helper-address 192.168.216.60 host
+configure interface cable-mac 1.10 cable helper-address 192.168.216.61 host
+configure interface cable-mac 1.10 ip vrf forwarding internet
+configure interface cable-mac 1.10 cable dhcp-giaddr policy
+configure interface cable-mac 1.10 cable source-verify dhcp authoritative
+configure interface cable-mac 1.10 cable submgmt default filter-group cm downstream 3
+configure interface cable-mac 1.10 cable submgmt default filter-group cm upstream 4
+configure interface cable-mac 1.10 cable submgmt default filter-group host downstream 1
+configure interface cable-mac 1.10 cable submgmt default filter-group host upstream 2
+configure interface cable-mac 1.11 ip address 10.152.25.225 255.255.255.252
+configure interface cable-mac 1.11 cable helper-address 192.168.216.60 host
+configure interface cable-mac 1.11 cable helper-address 192.168.216.61 host
+configure interface cable-mac 1.11 ip vrf forwarding dsg
+configure interface cable-mac 1.11 ip igmp
+configure interface cable-mac 1.11 cable submgmt default filter-group cm downstream 3
+configure interface cable-mac 1.11 cable submgmt default filter-group cm upstream 4
+configure interface cable-mac 1.11 cable submgmt default filter-group host downstream 1
+configure interface cable-mac 1.11 cable submgmt default filter-group host upstream 2
+configure interface cable-mac 1.11 ip pim sparse-mode passive
+configure interface cable-mac 1.20 ip address 100.64.0.1 255.255.240.0
+configure interface cable-mac 1.20 description "VRF internet CGNAT"
+configure interface cable-mac 1.20 ip address 100.64.16.1 255.255.240.0 secondary
+configure interface cable-mac 1.20 ip address 100.64.32.1 255.255.240.0 secondary
+configure interface cable-mac 1.20 ip address 100.64.48.1 255.255.240.0 secondary
+configure interface cable-mac 1.20 ip address 100.64.64.1 255.255.240.0 secondary
+configure interface cable-mac 1.20 ip address 100.64.80.1 255.255.240.0 secondary
+configure interface cable-mac 1.20 ip address 100.64.96.1 255.255.240.0 secondary
+configure interface cable-mac 1.20 cable helper-address 192.168.216.60 host
+configure interface cable-mac 1.20 cable helper-address 192.168.216.61 host
+configure interface cable-mac 1.20 ip vrf forwarding internet
+configure interface cable-mac 1.20 cable dhcp-giaddr policy
+configure interface cable-mac 1.20 cable source-verify dhcp authoritative
+configure interface cable-mac 1.30 ip address 100.126.6.1 255.255.254.0
+configure interface cable-mac 1.30 description "VRF internet CGN PLAN SOLIDARIO"
+configure interface cable-mac 1.30 cable helper-address 192.168.216.60 host
+configure interface cable-mac 1.30 cable helper-address 192.168.216.61 host
+configure interface cable-mac 1.30 ip vrf forwarding internet
+configure interface cable-mac 1.30 cable dhcp-giaddr policy
+configure interface cable-mac 1.30 cable source-verify dhcp authoritative
+configure interface cable-mac 2 description "CM2"
+configure interface cable-mac 2 cable tftp-enforce
+configure interface cable-mac 2 cable dynamic-secret reject
+configure interface cable-mac 2 cable cm-ip-prov-mode ipv4only
+configure interface cable-mac 2 cable verbose-cm-rcp 
+configure interface cable-mac 2 cable reg-rsp-timer-t6 10
+configure interface cable-mac 2 cable dynamic-rcc
+configure interface cable-mac 2 cable upstream-bonding-group dynamic enable
+configure interface cable-mac 2 cable mult-tx-chl-mode 
+configure interface cable-mac 2 cable upstream ranging-poll t4-multiplier
+configure interface cable-mac 2 cable cm-status event-type mddRecovery enabled no
+configure interface cable-mac 3 description "CM3"
+configure interface cable-mac 3 cable freq-us-max 85
+configure interface cable-mac 3 cable us-freq-range Extended
+configure interface cable-mac 3 cable tftp-enforce
+configure interface cable-mac 3 cable dynamic-secret reject
+configure interface cable-mac 3 cable cm-ip-prov-mode ipv4only
+configure interface cable-mac 3 cable verbose-cm-rcp 
+configure interface cable-mac 3 cable reg-rsp-timer-t6 10
+configure interface cable-mac 3 cable dynamic-rcc
+configure interface cable-mac 3 cable upstream-bonding-group dynamic enable
+configure interface cable-mac 3 cable mult-tx-chl-mode 
+configure interface cable-mac 3 cable upstream ranging-poll t4-multiplier
+configure interface cable-mac 3 cable cm-status event-type mddRecovery enabled no
+configure interface cable-mac 4 description "CM4"
+configure interface cable-mac 4 cable tftp-enforce
+configure interface cable-mac 4 cable dynamic-secret reject
+configure interface cable-mac 4 cable cm-ip-prov-mode ipv4only
+configure interface cable-mac 4 cable verbose-cm-rcp 
+configure interface cable-mac 4 cable reg-rsp-timer-t6 10
+configure interface cable-mac 4 cable dynamic-rcc
+configure interface cable-mac 4 cable upstream-bonding-group dynamic enable
+configure interface cable-mac 4 cable mult-tx-chl-mode 
+configure interface cable-mac 4 cable upstream ranging-poll t4-multiplier
+configure interface cable-mac 4 cable cm-status event-type mddRecovery enabled no
+configure interface cable-mac 5 description "CM5"
+configure interface cable-mac 5 cable freq-us-max 85
+configure interface cable-mac 5 cable us-freq-range Extended
+configure interface cable-mac 5 cable tftp-enforce
+configure interface cable-mac 5 cable dynamic-secret reject
+configure interface cable-mac 5 cable cm-ip-prov-mode ipv4only
+configure interface cable-mac 5 cable verbose-cm-rcp 
+configure interface cable-mac 5 cable reg-rsp-timer-t6 10
+configure interface cable-mac 5 cable dynamic-rcc
+configure interface cable-mac 5 cable upstream-bonding-group dynamic enable
+configure interface cable-mac 5 cable mult-tx-chl-mode 
+configure interface cable-mac 5 cable upstream ranging-poll t4-multiplier
+configure interface cable-mac 5 cable cm-status event-type mddRecovery enabled no
+configure interface cable-mac 6 description "CM6"
+configure interface cable-mac 6 cable tftp-enforce
+configure interface cable-mac 6 cable dynamic-secret reject
+configure interface cable-mac 6 cable cm-ip-prov-mode ipv4only
+configure interface cable-mac 6 cable verbose-cm-rcp 
+configure interface cable-mac 6 cable reg-rsp-timer-t6 10
+configure interface cable-mac 6 cable dynamic-rcc
+configure interface cable-mac 6 cable upstream-bonding-group dynamic enable
+configure interface cable-mac 6 cable mult-tx-chl-mode 
+configure interface cable-mac 6 cable upstream ranging-poll t4-multiplier
+configure interface cable-mac 6 cable cm-status event-type mddRecovery enabled no
+configure interface cable-mac 7 description "CM7"
+configure interface cable-mac 7 cable freq-us-max 85
+configure interface cable-mac 7 cable us-freq-range Extended
+configure interface cable-mac 7 cable tftp-enforce
+configure interface cable-mac 7 cable dynamic-secret reject
+configure interface cable-mac 7 cable cm-ip-prov-mode ipv4only
+configure interface cable-mac 7 cable verbose-cm-rcp 
+configure interface cable-mac 7 cable reg-rsp-timer-t6 10
+configure interface cable-mac 7 cable dynamic-rcc
+configure interface cable-mac 7 cable upstream-bonding-group dynamic enable
+configure interface cable-mac 7 cable mult-tx-chl-mode 
+configure interface cable-mac 7 cable upstream ranging-poll t4-multiplier
+configure interface cable-mac 7 cable cm-status event-type mddRecovery enabled no
+configure interface cable-mac 8 description "CM8"
+configure interface cable-mac 8 cable freq-us-max 85
+configure interface cable-mac 8 cable us-freq-range Extended
+configure interface cable-mac 8 cable tftp-enforce
+configure interface cable-mac 8 cable dynamic-secret reject
+configure interface cable-mac 8 cable cm-ip-prov-mode ipv4only
+configure interface cable-mac 8 cable verbose-cm-rcp 
+configure interface cable-mac 8 cable reg-rsp-timer-t6 10
+configure interface cable-mac 8 cable dynamic-rcc
+configure interface cable-mac 8 cable upstream-bonding-group dynamic enable
+configure interface cable-mac 8 cable mult-tx-chl-mode 
+configure interface cable-mac 8 cable upstream ranging-poll t4-multiplier
+configure interface cable-mac 8 cable cm-status event-type mddRecovery enabled no
+configure interface cable-mac 9 description "CM9"
+configure interface cable-mac 9 cable freq-us-max 85
+configure interface cable-mac 9 cable us-freq-range Extended
+configure interface cable-mac 9 cable tftp-enforce
+configure interface cable-mac 9 cable dynamic-secret reject
+configure interface cable-mac 9 cable cm-ip-prov-mode ipv4only
+configure interface cable-mac 9 cable verbose-cm-rcp 
+configure interface cable-mac 9 cable reg-rsp-timer-t6 10
+configure interface cable-mac 9 cable dynamic-rcc
+configure interface cable-mac 9 cable upstream-bonding-group dynamic enable
+configure interface cable-mac 9 cable mult-tx-chl-mode 
+configure interface cable-mac 9 cable upstream ranging-poll t4-multiplier
+configure interface cable-mac 9 cable cm-status event-type mddRecovery enabled no
+configure interface cable-mac 10 description "CM10"
+configure interface cable-mac 10 cable tftp-enforce
+configure interface cable-mac 10 cable dynamic-secret reject
+configure interface cable-mac 10 cable cm-ip-prov-mode ipv4only
+configure interface cable-mac 10 cable verbose-cm-rcp 
+configure interface cable-mac 10 cable reg-rsp-timer-t6 10
+configure interface cable-mac 10 cable dynamic-rcc
+configure interface cable-mac 10 cable upstream-bonding-group dynamic enable
+configure interface cable-mac 10 cable mult-tx-chl-mode 
+configure interface cable-mac 10 cable upstream ranging-poll t4-multiplier
+configure interface cable-mac 10 cable cm-status event-type mddRecovery enabled no
+configure interface cable-mac 11 description "CM11"
+configure interface cable-mac 11 cable freq-us-max 85
+configure interface cable-mac 11 cable us-freq-range Extended
+configure interface cable-mac 11 cable tftp-enforce
+configure interface cable-mac 11 cable dynamic-secret reject
+configure interface cable-mac 11 cable cm-ip-prov-mode ipv4only
+configure interface cable-mac 11 cable verbose-cm-rcp 
+configure interface cable-mac 11 cable reg-rsp-timer-t6 10
+configure interface cable-mac 11 cable dynamic-rcc
+configure interface cable-mac 11 cable upstream-bonding-group dynamic enable
+configure interface cable-mac 11 cable mult-tx-chl-mode 
+configure interface cable-mac 11 cable upstream ranging-poll t4-multiplier
+configure interface cable-mac 11 cable cm-status event-type mddRecovery enabled no
+configure interface cable-mac 12 description "CM12"
+configure interface cable-mac 12 cable freq-us-max 85
+configure interface cable-mac 12 cable us-freq-range Extended
+configure interface cable-mac 12 cable tftp-enforce
+configure interface cable-mac 12 cable dynamic-secret reject
+configure interface cable-mac 12 cable cm-ip-prov-mode ipv4only
+configure interface cable-mac 12 cable verbose-cm-rcp 
+configure interface cable-mac 12 cable reg-rsp-timer-t6 10
+configure interface cable-mac 12 cable dynamic-rcc
+configure interface cable-mac 12 cable upstream-bonding-group dynamic enable
+configure interface cable-mac 12 cable mult-tx-chl-mode 
+configure interface cable-mac 12 cable upstream ranging-poll t4-multiplier
+configure interface cable-mac 12 cable cm-status event-type mddRecovery enabled no
+configure interface cable-mac 13 description "CM13"
+configure interface cable-mac 13 cable freq-us-max 85
+configure interface cable-mac 13 cable us-freq-range Extended
+configure interface cable-mac 13 cable tftp-enforce
+configure interface cable-mac 13 cable dynamic-secret reject
+configure interface cable-mac 13 cable cm-ip-prov-mode ipv4only
+configure interface cable-mac 13 cable verbose-cm-rcp 
+configure interface cable-mac 13 cable reg-rsp-timer-t6 10
+configure interface cable-mac 13 cable dynamic-rcc
+configure interface cable-mac 13 cable upstream-bonding-group dynamic enable
+configure interface cable-mac 13 cable mult-tx-chl-mode 
+configure interface cable-mac 13 cable upstream ranging-poll t4-multiplier
+configure interface cable-mac 13 cable cm-status event-type mddRecovery enabled no
+configure interface cable-mac 14 description "CM14"
+configure interface cable-mac 14 cable freq-us-max 85
+configure interface cable-mac 14 cable us-freq-range Extended
+configure interface cable-mac 14 cable tftp-enforce
+configure interface cable-mac 14 cable dynamic-secret reject
+configure interface cable-mac 14 cable cm-ip-prov-mode ipv4only
+configure interface cable-mac 14 cable verbose-cm-rcp 
+configure interface cable-mac 14 cable reg-rsp-timer-t6 10
+configure interface cable-mac 14 cable dynamic-rcc
+configure interface cable-mac 14 cable upstream-bonding-group dynamic enable
+configure interface cable-mac 14 cable mult-tx-chl-mode 
+configure interface cable-mac 14 cable upstream ranging-poll t4-multiplier
+configure interface cable-mac 14 cable cm-status event-type mddRecovery enabled no
+configure interface cable-mac 15 description "CM15"
+configure interface cable-mac 15 cable tftp-enforce
+configure interface cable-mac 15 cable dynamic-secret reject
+configure interface cable-mac 15 cable cm-ip-prov-mode ipv4only
+configure interface cable-mac 15 cable verbose-cm-rcp 
+configure interface cable-mac 15 cable reg-rsp-timer-t6 10
+configure interface cable-mac 15 cable dynamic-rcc
+configure interface cable-mac 15 cable upstream-bonding-group dynamic enable
+configure interface cable-mac 15 cable mult-tx-chl-mode 
+configure interface cable-mac 15 cable upstream ranging-poll t4-multiplier
+configure interface cable-mac 15 cable cm-status event-type mddRecovery enabled no
+configure interface cable-mac 16 description "CM16"
+configure interface cable-mac 16 cable freq-us-max 85
+configure interface cable-mac 16 cable us-freq-range Extended
+configure interface cable-mac 16 cable tftp-enforce
+configure interface cable-mac 16 cable dynamic-secret reject
+configure interface cable-mac 16 cable cm-ip-prov-mode ipv4only
+configure interface cable-mac 16 cable verbose-cm-rcp 
+configure interface cable-mac 16 cable reg-rsp-timer-t6 10
+configure interface cable-mac 16 cable dynamic-rcc
+configure interface cable-mac 16 cable upstream-bonding-group dynamic enable
+configure interface cable-mac 16 cable mult-tx-chl-mode 
+configure interface cable-mac 16 cable upstream ranging-poll t4-multiplier
+configure interface cable-mac 16 cable cm-status event-type mddRecovery enabled no
+configure interface cable-mac 17 description "CM17"
+configure interface cable-mac 17 cable tftp-enforce
+configure interface cable-mac 17 cable dynamic-secret reject
+configure interface cable-mac 17 cable cm-ip-prov-mode ipv4only
+configure interface cable-mac 17 cable verbose-cm-rcp 
+configure interface cable-mac 17 cable dynamic-rcc
+configure interface cable-mac 17 cable upstream-bonding-group dynamic enable
+configure interface cable-mac 17 cable mult-tx-chl-mode 
+configure interface cable-mac 17 cable upstream ranging-poll t4-multiplier
+configure interface cable-mac 17 cable cm-status event-type mddRecovery enabled no
+configure interface cable-mac 18 description "CM18"
+configure interface cable-mac 18 cable freq-us-max 85
+configure interface cable-mac 18 cable us-freq-range Extended
+configure interface cable-mac 18 cable tftp-enforce
+configure interface cable-mac 18 cable dynamic-secret reject
+configure interface cable-mac 18 cable cm-ip-prov-mode ipv4only
+configure interface cable-mac 18 cable verbose-cm-rcp 
+configure interface cable-mac 18 cable reg-rsp-timer-t6 10
+configure interface cable-mac 18 cable dynamic-rcc
+configure interface cable-mac 18 cable upstream-bonding-group dynamic enable
+configure interface cable-mac 18 cable mult-tx-chl-mode 
+configure interface cable-mac 18 cable upstream ranging-poll t4-multiplier
+configure interface cable-mac 18 cable cm-status event-type mddRecovery enabled no
+configure interface cable-mac 19 description "CM19"
+configure interface cable-mac 19 cable tftp-enforce
+configure interface cable-mac 19 cable dynamic-secret reject
+configure interface cable-mac 19 cable cm-ip-prov-mode ipv4only
+configure interface cable-mac 19 cable verbose-cm-rcp 
+configure interface cable-mac 19 cable reg-rsp-timer-t6 10
+configure interface cable-mac 19 cable dynamic-rcc
+configure interface cable-mac 19 cable upstream-bonding-group dynamic enable
+configure interface cable-mac 19 cable mult-tx-chl-mode 
+configure interface cable-mac 19 cable upstream ranging-poll t4-multiplier
+configure interface cable-mac 19 cable cm-status event-type mddRecovery enabled no
+configure interface cable-mac 20 description "CM20"
+configure interface cable-mac 20 cable freq-us-max 85
+configure interface cable-mac 20 cable us-freq-range Extended
+configure interface cable-mac 20 cable tftp-enforce
+configure interface cable-mac 20 cable dynamic-secret reject
+configure interface cable-mac 20 cable cm-ip-prov-mode ipv4only
+configure interface cable-mac 20 cable verbose-cm-rcp 
+configure interface cable-mac 20 cable reg-rsp-timer-t6 10
+configure interface cable-mac 20 cable dynamic-rcc
+configure interface cable-mac 20 cable upstream-bonding-group dynamic enable
+configure interface cable-mac 20 cable mult-tx-chl-mode 
+configure interface cable-mac 20 cable upstream ranging-poll t4-multiplier
+configure interface cable-mac 20 cable cm-status event-type mddRecovery enabled no
+configure interface cable-mac 21 description "CM21"
+configure interface cable-mac 21 cable freq-us-max 85
+configure interface cable-mac 21 cable us-freq-range Extended
+configure interface cable-mac 21 cable tftp-enforce
+configure interface cable-mac 21 cable dynamic-secret reject
+configure interface cable-mac 21 cable cm-ip-prov-mode ipv4only
+configure interface cable-mac 21 cable verbose-cm-rcp 
+configure interface cable-mac 21 cable dynamic-rcc
+configure interface cable-mac 21 cable upstream-bonding-group dynamic enable
+configure interface cable-mac 21 cable mult-tx-chl-mode 
+configure interface cable-mac 21 cable upstream ranging-poll t4-multiplier
+configure interface cable-mac 21 cable cm-status event-type mddRecovery enabled no
+configure interface cable-mac 22 description "CM22"
+configure interface cable-mac 22 cable freq-us-max 85
+configure interface cable-mac 22 cable us-freq-range Extended
+configure interface cable-mac 22 cable tftp-enforce
+configure interface cable-mac 22 cable dynamic-secret reject
+configure interface cable-mac 22 cable cm-ip-prov-mode ipv4only
+configure interface cable-mac 22 cable verbose-cm-rcp 
+configure interface cable-mac 22 cable dynamic-rcc
+configure interface cable-mac 22 cable upstream-bonding-group dynamic enable
+configure interface cable-mac 22 cable mult-tx-chl-mode 
+configure interface cable-mac 22 cable upstream ranging-poll t4-multiplier
+configure interface cable-mac 22 cable cm-status event-type mddRecovery enabled no
+configure interface cable-mac 23 description "CM23"
+configure interface cable-mac 23 cable freq-us-max 85
+configure interface cable-mac 23 cable us-freq-range Extended
+configure interface cable-mac 23 cable tftp-enforce
+configure interface cable-mac 23 cable dynamic-secret reject
+configure interface cable-mac 23 cable cm-ip-prov-mode ipv4only
+configure interface cable-mac 23 cable verbose-cm-rcp 
+configure interface cable-mac 23 cable dynamic-rcc
+configure interface cable-mac 23 cable upstream-bonding-group dynamic enable
+configure interface cable-mac 23 cable mult-tx-chl-mode 
+configure interface cable-mac 23 cable upstream ranging-poll t4-multiplier
+configure interface cable-mac 23 cable cm-status event-type mddRecovery enabled no
+configure interface cable-mac 24 description "CM24"
+configure interface cable-mac 24 cable tftp-enforce
+configure interface cable-mac 24 cable dynamic-secret reject
+configure interface cable-mac 24 cable cm-ip-prov-mode ipv4only
+configure interface cable-mac 24 cable verbose-cm-rcp 
+configure interface cable-mac 24 cable dynamic-rcc
+configure interface cable-mac 24 cable upstream-bonding-group dynamic enable
+configure interface cable-mac 24 cable mult-tx-chl-mode 
+configure interface cable-mac 24 cable upstream ranging-poll t4-multiplier
+configure interface cable-mac 24 cable cm-status event-type mddRecovery enabled no
+configure interface cable-mac 25 description "CM25"
+configure interface cable-mac 25 cable freq-us-max 85
+configure interface cable-mac 25 cable us-freq-range Extended
+configure interface cable-mac 25 cable tftp-enforce
+configure interface cable-mac 25 cable dynamic-secret reject
+configure interface cable-mac 25 cable cm-ip-prov-mode ipv4only
+configure interface cable-mac 25 cable verbose-cm-rcp 
+configure interface cable-mac 25 cable dynamic-rcc
+configure interface cable-mac 25 cable upstream-bonding-group dynamic enable
+configure interface cable-mac 25 cable mult-tx-chl-mode 
+configure interface cable-mac 25 cable upstream ranging-poll t4-multiplier
+configure interface cable-mac 25 cable cm-status event-type mddRecovery enabled no
+configure interface cable-mac 26 description "CM26"
+configure interface cable-mac 26 cable freq-us-max 85
+configure interface cable-mac 26 cable us-freq-range Extended
+configure interface cable-mac 26 cable insertion-interval 10
+configure interface cable-mac 26 cable tftp-enforce
+configure interface cable-mac 26 cable dynamic-secret reject
+configure interface cable-mac 26 cable cm-ip-prov-mode ipv4only
+configure interface cable-mac 26 cable verbose-cm-rcp 
+configure interface cable-mac 26 cable dynamic-rcc
+configure interface cable-mac 26 cable upstream-bonding-group dynamic enable
+configure interface cable-mac 26 cable mult-tx-chl-mode 
+configure interface cable-mac 26 cable upstream ranging-poll t4-multiplier
+configure interface cable-mac 26 cable cm-status event-type mddRecovery enabled no
+configure interface cable-mac 27 description "CM27"
+configure interface cable-mac 27 cable freq-us-max 85
+configure interface cable-mac 27 cable us-freq-range Extended
+configure interface cable-mac 27 cable tftp-enforce
+configure interface cable-mac 27 cable dynamic-secret reject
+configure interface cable-mac 27 cable cm-ip-prov-mode ipv4only
+configure interface cable-mac 27 cable verbose-cm-rcp 
+configure interface cable-mac 27 cable dynamic-rcc
+configure interface cable-mac 27 cable upstream-bonding-group dynamic enable
+configure interface cable-mac 27 cable mult-tx-chl-mode 
+configure interface cable-mac 27 cable upstream ranging-poll t4-multiplier
+configure interface cable-mac 27 cable cm-status event-type mddRecovery enabled no
+configure interface cable-mac 28 description "CM28"
+configure interface cable-mac 28 cable freq-us-max 85
+configure interface cable-mac 28 cable us-freq-range Extended
+configure interface cable-mac 28 cable tftp-enforce
+configure interface cable-mac 28 cable dynamic-secret reject
+configure interface cable-mac 28 cable cm-ip-prov-mode ipv4only
+configure interface cable-mac 28 cable verbose-cm-rcp 
+configure interface cable-mac 28 cable dynamic-rcc
+configure interface cable-mac 28 cable upstream-bonding-group dynamic enable
+configure interface cable-mac 28 cable mult-tx-chl-mode 
+configure interface cable-mac 28 cable upstream ranging-poll t4-multiplier
+configure interface cable-mac 28 cable cm-status event-type mddRecovery enabled no
+configure interface cable-mac 29 description "cable-mac 29"
+configure interface cable-mac 29 cable tftp-enforce
+configure interface cable-mac 29 cable dynamic-secret reject
+configure interface cable-mac 29 cable downstream-bonding-group dynamic enable
+configure interface cable-mac 29 cable upstream-bonding-group dynamic enable
+configure interface cable-mac 29 cable upstream ranging-poll t4-multiplier
+configure interface cable-mac 29 cable cm-status event-type mddRecovery enabled no
+configure interface cable-mac 30 description "CM30"
+configure interface cable-mac 30 cable freq-us-max 85
+configure interface cable-mac 30 cable us-freq-range Extended
+configure interface cable-mac 30 cable tftp-enforce
+configure interface cable-mac 30 cable dynamic-secret reject
+configure interface cable-mac 30 cable cm-ip-prov-mode ipv4only
+configure interface cable-mac 30 cable verbose-cm-rcp 
+configure interface cable-mac 30 cable dynamic-rcc
+configure interface cable-mac 30 cable upstream-bonding-group dynamic enable
+configure interface cable-mac 30 cable mult-tx-chl-mode 
+configure interface cable-mac 30 cable upstream ranging-poll t4-multiplier
+configure interface cable-mac 30 cable cm-status event-type mddRecovery enabled no
+configure interface cable-mac 31 description "CM31"
+configure interface cable-mac 31 cable tftp-enforce
+configure interface cable-mac 31 cable dynamic-secret reject
+configure interface cable-mac 31 cable cm-ip-prov-mode ipv4only
+configure interface cable-mac 31 cable verbose-cm-rcp 
+configure interface cable-mac 31 cable dynamic-rcc
+configure interface cable-mac 31 cable upstream-bonding-group dynamic enable
+configure interface cable-mac 31 cable mult-tx-chl-mode 
+configure interface cable-mac 31 cable upstream ranging-poll t4-multiplier
+configure interface cable-mac 31 cable cm-status event-type mddRecovery enabled no
+configure interface cable-mac 32 description "CM32"
+configure interface cable-mac 32 cable tftp-enforce
+configure interface cable-mac 32 cable dynamic-secret reject
+configure interface cable-mac 32 cable cm-ip-prov-mode ipv4only
+configure interface cable-mac 32 cable verbose-cm-rcp 
+configure interface cable-mac 32 cable dynamic-rcc
+configure interface cable-mac 32 cable upstream-bonding-group dynamic enable
+configure interface cable-mac 32 cable mult-tx-chl-mode 
+configure interface cable-mac 32 cable upstream ranging-poll t4-multiplier
+configure interface cable-mac 32 cable cm-status event-type mddRecovery enabled no
+configure interface cable-mac 33 description "cable-mac 33"
+configure interface cable-mac 33 cable tftp-enforce
+configure interface cable-mac 33 cable dynamic-secret reject
+configure interface cable-mac 33 cable downstream-bonding-group dynamic enable
+configure interface cable-mac 33 cable upstream-bonding-group dynamic enable
+configure interface cable-mac 33 cable upstream ranging-poll t4-multiplier
+configure interface cable-mac 33 cable cm-status event-type mddRecovery enabled no
+configure interface cable-mac 34 description "cable-mac 34"
+configure interface cable-mac 34 cable tftp-enforce
+configure interface cable-mac 34 cable dynamic-secret reject
+configure interface cable-mac 34 cable downstream-bonding-group dynamic enable
+configure interface cable-mac 34 cable upstream-bonding-group dynamic enable
+configure interface cable-mac 34 cable upstream ranging-poll t4-multiplier
+configure interface cable-mac 34 cable cm-status event-type mddRecovery enabled no
+configure interface cable-mac 35 description "cable-mac 35"
+configure interface cable-mac 35 cable tftp-enforce
+configure interface cable-mac 35 cable dynamic-secret reject
+configure interface cable-mac 35 cable downstream-bonding-group dynamic enable
+configure interface cable-mac 35 cable upstream-bonding-group dynamic enable
+configure interface cable-mac 35 cable upstream ranging-poll t4-multiplier
+configure interface cable-mac 35 cable cm-status event-type mddRecovery enabled no
+configure interface cable-mac 36 description "cable-mac 36"
+configure interface cable-mac 36 cable tftp-enforce
+configure interface cable-mac 36 cable dynamic-secret reject
+configure interface cable-mac 36 cable downstream-bonding-group dynamic enable
+configure interface cable-mac 36 cable upstream-bonding-group dynamic enable
+configure interface cable-mac 36 cable upstream ranging-poll t4-multiplier
+configure interface cable-mac 36 cable cm-status event-type mddRecovery enabled no
+configure interface cable-mac 37 description "cable-mac 37"
+configure interface cable-mac 37 cable tftp-enforce
+configure interface cable-mac 37 cable dynamic-secret reject
+configure interface cable-mac 37 cable downstream-bonding-group dynamic enable
+configure interface cable-mac 37 cable upstream-bonding-group dynamic enable
+configure interface cable-mac 37 cable upstream ranging-poll t4-multiplier
+configure interface cable-mac 37 cable cm-status event-type mddRecovery enabled no
+configure interface cable-mac 38 description "cable-mac 38"
+configure interface cable-mac 38 cable tftp-enforce
+configure interface cable-mac 38 cable dynamic-secret reject
+configure interface cable-mac 38 cable downstream-bonding-group dynamic enable
+configure interface cable-mac 38 cable upstream-bonding-group dynamic enable
+configure interface cable-mac 38 cable upstream ranging-poll t4-multiplier
+configure interface cable-mac 38 cable cm-status event-type mddRecovery enabled no
+configure interface cable-mac 39 description "cable-mac 39"
+configure interface cable-mac 39 cable freq-us-max 85
+configure interface cable-mac 39 cable us-freq-range Extended
+configure interface cable-mac 39 cable tftp-enforce
+configure interface cable-mac 39 cable dynamic-secret reject
+configure interface cable-mac 39 cable downstream-bonding-group dynamic enable
+configure interface cable-mac 39 cable upstream-bonding-group dynamic enable
+configure interface cable-mac 39 cable upstream ranging-poll t4-multiplier
+configure interface cable-mac 39 cable cm-status event-type mddRecovery enabled no
+configure interface cable-mac 40 description "cable-mac 40"
+configure interface cable-mac 40 cable tftp-enforce
+configure interface cable-mac 40 cable dynamic-secret reject
+configure interface cable-mac 40 cable downstream-bonding-group dynamic enable
+configure interface cable-mac 40 cable upstream-bonding-group dynamic enable
+configure interface cable-mac 40 cable upstream ranging-poll t4-multiplier
+configure interface cable-mac 40 cable cm-status event-type mddRecovery enabled no
+configure interface cable-mac 1 cable bundle master
+configure interface cable-mac 2 cable bundle cable-mac 1
+configure interface cable-mac 3 cable bundle cable-mac 1
+configure interface cable-mac 4 cable bundle cable-mac 1
+configure interface cable-mac 5 cable bundle cable-mac 1
+configure interface cable-mac 6 cable bundle cable-mac 1
+configure interface cable-mac 7 cable bundle cable-mac 1
+configure interface cable-mac 8 cable bundle cable-mac 1
+configure interface cable-mac 9 cable bundle cable-mac 1
+configure interface cable-mac 10 cable bundle cable-mac 1
+configure interface cable-mac 11 cable bundle cable-mac 1
+configure interface cable-mac 12 cable bundle cable-mac 1
+configure interface cable-mac 13 cable bundle cable-mac 1
+configure interface cable-mac 14 cable bundle cable-mac 1
+configure interface cable-mac 15 cable bundle cable-mac 1
+configure interface cable-mac 16 cable bundle cable-mac 1
+configure interface cable-mac 17 cable bundle cable-mac 1
+configure interface cable-mac 18 cable bundle cable-mac 1
+configure interface cable-mac 19 cable bundle cable-mac 1
+configure interface cable-mac 20 cable bundle cable-mac 1
+configure interface cable-mac 21 cable bundle cable-mac 1
+configure interface cable-mac 22 cable bundle cable-mac 1
+configure interface cable-mac 23 cable bundle cable-mac 1
+configure interface cable-mac 24 cable bundle cable-mac 1
+configure interface cable-mac 25 cable bundle cable-mac 1
+configure interface cable-mac 26 cable bundle cable-mac 1
+configure interface cable-mac 27 cable bundle cable-mac 1
+configure interface cable-mac 28 cable bundle cable-mac 1
+configure interface cable-mac 30 cable bundle cable-mac 1
+configure interface cable-mac 31 cable bundle cable-mac 1
+configure interface cable-mac 32 cable bundle cable-mac 1
+configure interface cable-mac 1 cable load-balance group 1001
+configure interface cable-mac 1 cable load-balance group 1001 policy 2
+configure interface cable-mac 1 cable load-balance group 1001 init-technique broadcast-ranging direct
+configure interface cable-mac 1 cable load-balance group 1001 service-type "RLB"
+configure interface cable-mac 1 cable load-balance group 1002
+configure interface cable-mac 1 cable load-balance group 1002 policy 2
+configure interface cable-mac 1 cable load-balance group 1002 init-technique broadcast-ranging direct
+configure interface cable-mac 1 cable load-balance group 1002 service-type "RLB"
+configure interface cable-mac 2 cable load-balance group 2001
+configure interface cable-mac 2 cable load-balance group 2001 policy 2
+configure interface cable-mac 2 cable load-balance group 2001 init-technique broadcast-ranging direct
+configure interface cable-mac 2 cable load-balance group 2001 service-type "RLB"
+configure interface cable-mac 2 cable load-balance group 2002
+configure interface cable-mac 2 cable load-balance group 2002 policy 2
+configure interface cable-mac 2 cable load-balance group 2002 init-technique broadcast-ranging direct
+configure interface cable-mac 2 cable load-balance group 2002 service-type "RLB"
+configure interface cable-mac 2 cable load-balance group 2003
+configure interface cable-mac 2 cable load-balance group 2003 policy 2
+configure interface cable-mac 2 cable load-balance group 2003 init-technique broadcast-ranging direct
+configure interface cable-mac 2 cable load-balance group 2003 service-type "RLB"
+configure interface cable-mac 2 cable load-balance group 2004
+configure interface cable-mac 2 cable load-balance group 2004 policy 2
+configure interface cable-mac 2 cable load-balance group 2004 init-technique broadcast-ranging direct
+configure interface cable-mac 2 cable load-balance group 2004 service-type "RLB"
+configure interface cable-mac 3 cable load-balance group 3001
+configure interface cable-mac 3 cable load-balance group 3001 policy 2
+configure interface cable-mac 3 cable load-balance group 3001 init-technique broadcast-ranging direct
+configure interface cable-mac 3 cable load-balance group 3001 service-type "RLB"
+configure interface cable-mac 3 cable load-balance group 3003
+configure interface cable-mac 3 cable load-balance group 3003 policy 2
+configure interface cable-mac 3 cable load-balance group 3003 init-technique broadcast-ranging direct
+configure interface cable-mac 3 cable load-balance group 3003 service-type "RLB"
+configure interface cable-mac 3 cable load-balance group 3004
+configure interface cable-mac 3 cable load-balance group 3004 policy 2
+configure interface cable-mac 3 cable load-balance group 3004 init-technique broadcast-ranging direct
+configure interface cable-mac 3 cable load-balance group 3004 service-type "RLB"
+configure interface cable-mac 4 cable load-balance group 4001
+configure interface cable-mac 4 cable load-balance group 4001 policy 2
+configure interface cable-mac 4 cable load-balance group 4001 init-technique broadcast-ranging direct
+configure interface cable-mac 4 cable load-balance group 4001 service-type "RLB"
+configure interface cable-mac 4 cable load-balance group 4002
+configure interface cable-mac 4 cable load-balance group 4002 policy 2
+configure interface cable-mac 4 cable load-balance group 4002 init-technique broadcast-ranging direct
+configure interface cable-mac 4 cable load-balance group 4002 service-type "RLB"
+configure interface cable-mac 4 cable load-balance group 4004
+configure interface cable-mac 4 cable load-balance group 4004 policy 2
+configure interface cable-mac 4 cable load-balance group 4004 init-technique broadcast-ranging direct
+configure interface cable-mac 4 cable load-balance group 4004 service-type "RLB"
+configure interface cable-mac 5 cable load-balance group 5001
+configure interface cable-mac 5 cable load-balance group 5001 policy 2
+configure interface cable-mac 5 cable load-balance group 5001 init-technique broadcast-ranging direct
+configure interface cable-mac 5 cable load-balance group 5001 service-type "RLB"
+configure interface cable-mac 5 cable load-balance group 5002
+configure interface cable-mac 5 cable load-balance group 5002 policy 2
+configure interface cable-mac 5 cable load-balance group 5002 init-technique broadcast-ranging direct
+configure interface cable-mac 5 cable load-balance group 5002 service-type "RLB"
+configure interface cable-mac 6 cable load-balance group 6002
+configure interface cable-mac 6 cable load-balance group 6002 policy 2
+configure interface cable-mac 6 cable load-balance group 6002 init-technique broadcast-ranging direct
+configure interface cable-mac 6 cable load-balance group 6002 service-type "RLB"
+configure interface cable-mac 6 cable load-balance group 6003
+configure interface cable-mac 6 cable load-balance group 6003 policy 2
+configure interface cable-mac 6 cable load-balance group 6003 init-technique broadcast-ranging direct
+configure interface cable-mac 6 cable load-balance group 6003 service-type "RLB"
+configure interface cable-mac 6 cable load-balance group 6004
+configure interface cable-mac 6 cable load-balance group 6004 policy 2
+configure interface cable-mac 6 cable load-balance group 6004 init-technique broadcast-ranging direct
+configure interface cable-mac 6 cable load-balance group 6004 service-type "RLB"
+configure interface cable-mac 7 cable load-balance group 7001
+configure interface cable-mac 7 cable load-balance group 7001 policy 2
+configure interface cable-mac 7 cable load-balance group 7001 init-technique broadcast-ranging direct
+configure interface cable-mac 7 cable load-balance group 7001 service-type "RLB"
+configure interface cable-mac 7 cable load-balance group 7002
+configure interface cable-mac 7 cable load-balance group 7002 policy 2
+configure interface cable-mac 7 cable load-balance group 7002 init-technique broadcast-ranging direct
+configure interface cable-mac 7 cable load-balance group 7002 service-type "RLB"
+configure interface cable-mac 8 cable load-balance group 8001
+configure interface cable-mac 8 cable load-balance group 8001 policy 2
+configure interface cable-mac 8 cable load-balance group 8001 init-technique broadcast-ranging direct
+configure interface cable-mac 8 cable load-balance group 8001 service-type "RLB"
+configure interface cable-mac 9 cable load-balance group 9001
+configure interface cable-mac 9 cable load-balance group 9001 policy 2
+configure interface cable-mac 9 cable load-balance group 9001 init-technique broadcast-ranging direct
+configure interface cable-mac 9 cable load-balance group 9001 service-type "RLB"
+configure interface cable-mac 9 cable load-balance group 9002
+configure interface cable-mac 9 cable load-balance group 9002 policy 2
+configure interface cable-mac 9 cable load-balance group 9002 init-technique broadcast-ranging direct
+configure interface cable-mac 9 cable load-balance group 9002 service-type "RLB"
+configure interface cable-mac 10 cable load-balance group 10001
+configure interface cable-mac 10 cable load-balance group 10001 policy 2
+configure interface cable-mac 10 cable load-balance group 10001 init-technique broadcast-ranging direct
+configure interface cable-mac 10 cable load-balance group 10001 service-type "RLB"
+configure interface cable-mac 10 cable load-balance group 10002
+configure interface cable-mac 10 cable load-balance group 10002 policy 2
+configure interface cable-mac 10 cable load-balance group 10002 init-technique broadcast-ranging direct
+configure interface cable-mac 10 cable load-balance group 10002 service-type "RLB"
+configure interface cable-mac 10 cable load-balance group 10003
+configure interface cable-mac 10 cable load-balance group 10003 policy 2
+configure interface cable-mac 10 cable load-balance group 10003 init-technique broadcast-ranging direct
+configure interface cable-mac 10 cable load-balance group 10003 service-type "RLB"
+configure interface cable-mac 10 cable load-balance group 10004
+configure interface cable-mac 10 cable load-balance group 10004 policy 2
+configure interface cable-mac 10 cable load-balance group 10004 init-technique broadcast-ranging direct
+configure interface cable-mac 10 cable load-balance group 10004 service-type "RLB"
+configure interface cable-mac 11 cable load-balance group 11001
+configure interface cable-mac 11 cable load-balance group 11001 policy 2
+configure interface cable-mac 11 cable load-balance group 11001 init-technique broadcast-ranging direct
+configure interface cable-mac 11 cable load-balance group 11001 service-type "RLB"
+configure interface cable-mac 11 cable load-balance group 11002
+configure interface cable-mac 11 cable load-balance group 11002 policy 2
+configure interface cable-mac 11 cable load-balance group 11002 init-technique broadcast-ranging direct
+configure interface cable-mac 11 cable load-balance group 11002 service-type "RLB"
+configure interface cable-mac 12 cable load-balance group 12001
+configure interface cable-mac 12 cable load-balance group 12001 policy 2
+configure interface cable-mac 12 cable load-balance group 12001 init-technique broadcast-ranging direct
+configure interface cable-mac 12 cable load-balance group 12001 service-type "RLB"
+configure interface cable-mac 12 cable load-balance group 12002
+configure interface cable-mac 12 cable load-balance group 12002 policy 2
+configure interface cable-mac 12 cable load-balance group 12002 init-technique broadcast-ranging direct
+configure interface cable-mac 12 cable load-balance group 12002 service-type "RLB"
+configure interface cable-mac 13 cable load-balance group 13002
+configure interface cable-mac 13 cable load-balance group 13002 policy 2
+configure interface cable-mac 13 cable load-balance group 13002 init-technique broadcast-ranging direct
+configure interface cable-mac 13 cable load-balance group 13002 service-type "RLB"
+configure interface cable-mac 14 cable load-balance group 14001
+configure interface cable-mac 14 cable load-balance group 14001 policy 2
+configure interface cable-mac 14 cable load-balance group 14001 init-technique broadcast-ranging direct
+configure interface cable-mac 14 cable load-balance group 14001 service-type "RLB"
+configure interface cable-mac 14 cable load-balance group 14002
+configure interface cable-mac 14 cable load-balance group 14002 policy 2
+configure interface cable-mac 14 cable load-balance group 14002 init-technique broadcast-ranging direct
+configure interface cable-mac 14 cable load-balance group 14002 service-type "RLB"
+configure interface cable-mac 15 cable load-balance group 15001
+configure interface cable-mac 15 cable load-balance group 15001 policy 2
+configure interface cable-mac 15 cable load-balance group 15001 init-technique broadcast-ranging direct
+configure interface cable-mac 15 cable load-balance group 15001 service-type "RLB"
+configure interface cable-mac 15 cable load-balance group 15002
+configure interface cable-mac 15 cable load-balance group 15002 policy 2
+configure interface cable-mac 15 cable load-balance group 15002 init-technique broadcast-ranging direct
+configure interface cable-mac 15 cable load-balance group 15002 service-type "RLB"
+configure interface cable-mac 16 cable load-balance group 16001
+configure interface cable-mac 16 cable load-balance group 16001 policy 2
+configure interface cable-mac 16 cable load-balance group 16001 init-technique broadcast-ranging direct
+configure interface cable-mac 16 cable load-balance group 16001 service-type "RLB"
+configure interface cable-mac 16 cable load-balance group 16003
+configure interface cable-mac 16 cable load-balance group 16003 policy 2
+configure interface cable-mac 16 cable load-balance group 16003 init-technique broadcast-ranging direct
+configure interface cable-mac 16 cable load-balance group 16003 service-type "RLB"
+configure interface cable-mac 17 cable load-balance group 17001
+configure interface cable-mac 17 cable load-balance group 17001 policy 2
+configure interface cable-mac 17 cable load-balance group 17001 init-technique broadcast-ranging direct
+configure interface cable-mac 17 cable load-balance group 17001 service-type "RLB"
+configure interface cable-mac 17 cable load-balance group 17002
+configure interface cable-mac 17 cable load-balance group 17002 policy 2
+configure interface cable-mac 17 cable load-balance group 17002 init-technique broadcast-ranging direct
+configure interface cable-mac 17 cable load-balance group 17002 service-type "RLB"
+configure interface cable-mac 18 cable load-balance group 18001
+configure interface cable-mac 18 cable load-balance group 18001 policy 2
+configure interface cable-mac 18 cable load-balance group 18001 init-technique broadcast-ranging direct
+configure interface cable-mac 18 cable load-balance group 18001 service-type "RLB"
+configure interface cable-mac 18 cable load-balance group 18004
+configure interface cable-mac 18 cable load-balance group 18004 policy 2
+configure interface cable-mac 18 cable load-balance group 18004 init-technique broadcast-ranging direct
+configure interface cable-mac 18 cable load-balance group 18004 service-type "RLB"
+configure interface cable-mac 19 cable load-balance group 19001
+configure interface cable-mac 19 cable load-balance group 19001 policy 2
+configure interface cable-mac 19 cable load-balance group 19001 init-technique broadcast-ranging direct
+configure interface cable-mac 19 cable load-balance group 19001 service-type "RLB"
+configure interface cable-mac 20 cable load-balance group 20001
+configure interface cable-mac 20 cable load-balance group 20001 policy 2
+configure interface cable-mac 20 cable load-balance group 20001 init-technique broadcast-ranging direct
+configure interface cable-mac 20 cable load-balance group 20001 service-type "RLB"
+configure interface cable-mac 20 cable load-balance group 20002
+configure interface cable-mac 20 cable load-balance group 20002 policy 2
+configure interface cable-mac 20 cable load-balance group 20002 init-technique broadcast-ranging direct
+configure interface cable-mac 20 cable load-balance group 20002 service-type "RLB"
+configure interface cable-mac 21 cable load-balance group 21001
+configure interface cable-mac 21 cable load-balance group 21001 policy 2
+configure interface cable-mac 21 cable load-balance group 21001 init-technique broadcast-ranging direct
+configure interface cable-mac 21 cable load-balance group 21001 service-type "RLB"
+configure interface cable-mac 22 cable load-balance group 22001
+configure interface cable-mac 22 cable load-balance group 22001 policy 2
+configure interface cable-mac 22 cable load-balance group 22001 init-technique broadcast-ranging direct
+configure interface cable-mac 22 cable load-balance group 22001 service-type "RLB"
+configure interface cable-mac 23 cable load-balance group 23001
+configure interface cable-mac 23 cable load-balance group 23001 policy 2
+configure interface cable-mac 23 cable load-balance group 23001 init-technique broadcast-ranging direct
+configure interface cable-mac 23 cable load-balance group 23001 service-type "RLB"
+configure interface cable-mac 24 cable load-balance group 24001
+configure interface cable-mac 24 cable load-balance group 24001 policy 2
+configure interface cable-mac 24 cable load-balance group 24001 init-technique broadcast-ranging direct
+configure interface cable-mac 24 cable load-balance group 24001 service-type "RLB"
+configure interface cable-mac 25 cable load-balance group 25001
+configure interface cable-mac 25 cable load-balance group 25001 policy 2
+configure interface cable-mac 25 cable load-balance group 25001 init-technique broadcast-ranging direct
+configure interface cable-mac 25 cable load-balance group 25001 service-type "RLB"
+configure interface cable-mac 25 cable load-balance group 25002
+configure interface cable-mac 25 cable load-balance group 25002 policy 2
+configure interface cable-mac 25 cable load-balance group 25002 init-technique broadcast-ranging direct
+configure interface cable-mac 25 cable load-balance group 25002 service-type "RLB"
+configure interface cable-mac 26 cable load-balance group 26001
+configure interface cable-mac 26 cable load-balance group 26001 policy 2
+configure interface cable-mac 26 cable load-balance group 26001 init-technique broadcast-ranging direct
+configure interface cable-mac 26 cable load-balance group 26001 service-type "RLB"
+configure interface cable-mac 26 cable load-balance group 26002
+configure interface cable-mac 26 cable load-balance group 26002 policy 2
+configure interface cable-mac 26 cable load-balance group 26002 init-technique broadcast-ranging direct
+configure interface cable-mac 26 cable load-balance group 26002 service-type "RLB"
+configure interface cable-mac 27 cable load-balance group 27001
+configure interface cable-mac 27 cable load-balance group 27001 policy 2
+configure interface cable-mac 27 cable load-balance group 27001 init-technique broadcast-ranging direct
+configure interface cable-mac 27 cable load-balance group 27001 service-type "RLB"
+configure interface cable-mac 27 cable load-balance group 27002
+configure interface cable-mac 27 cable load-balance group 27002 policy 2
+configure interface cable-mac 27 cable load-balance group 27002 init-technique broadcast-ranging direct
+configure interface cable-mac 27 cable load-balance group 27002 service-type "RLB"
+configure interface cable-mac 28 cable load-balance group 28001
+configure interface cable-mac 28 cable load-balance group 28001 policy 2
+configure interface cable-mac 28 cable load-balance group 28001 init-technique broadcast-ranging direct
+configure interface cable-mac 28 cable load-balance group 28001 service-type "RLB"
+configure interface cable-mac 28 cable load-balance group 28002
+configure interface cable-mac 28 cable load-balance group 28002 policy 2
+configure interface cable-mac 28 cable load-balance group 28002 init-technique broadcast-ranging direct
+configure interface cable-mac 28 cable load-balance group 28002 service-type "RLB"
+configure interface cable-mac 30 cable load-balance group 30001
+configure interface cable-mac 30 cable load-balance group 30001 policy 2
+configure interface cable-mac 30 cable load-balance group 30001 init-technique broadcast-ranging direct
+configure interface cable-mac 30 cable load-balance group 30001 service-type "RLB"
+configure interface cable-mac 31 cable load-balance group 31001
+configure interface cable-mac 31 cable load-balance group 31001 policy 2
+configure interface cable-mac 31 cable load-balance group 31001 init-technique broadcast-ranging direct
+configure interface cable-mac 31 cable load-balance group 31001 service-type "RLB"
+configure interface cable-mac 32 cable load-balance group 32001
+configure interface cable-mac 32 cable load-balance group 32001 policy 2
+configure interface cable-mac 32 cable load-balance group 32001 init-technique broadcast-ranging direct
+configure interface cable-mac 32 cable load-balance group 32001 service-type "RLB"
+configure interface cable-mac 32 cable load-balance group 32002
+configure interface cable-mac 32 cable load-balance group 32002 policy 2
+configure interface cable-mac 32 cable load-balance group 32002 init-technique broadcast-ranging direct
+configure interface cable-mac 32 cable load-balance group 32002 service-type "RLB"
+configure interface cable-mac 1 cable downstream-bonding-group 4000 cable-downstream 12/0/0-3
+configure interface cable-mac 1 cable downstream-bonding-group 4001 cable-downstream 12/0/12-15
+configure interface cable-mac 1 cable downstream-bonding-group 4002 cable-downstream 12/0/28-31
+configure interface cable-mac 1 cable downstream-bonding-group 4003 cable-downstream 12/0/40-43
+configure interface cable-mac 1 cable downstream-bonding-group 8000 cable-downstream 12/0/0-7
+configure interface cable-mac 1 cable downstream-bonding-group 8001 cable-downstream 12/0/8-15
+configure interface cable-mac 1 cable downstream-bonding-group 8002 cable-downstream 12/0/16-23
+configure interface cable-mac 1 cable downstream-bonding-group 8003 cable-downstream 12/0/24-31
+configure interface cable-mac 1 cable downstream-bonding-group 8004 cable-downstream 12/0/37-44
+configure interface cable-mac 1 cable downstream-bonding-group 8005 cable-downstream 12/0/40-47
+configure interface cable-mac 1 cable downstream-bonding-group 10000 cable-downstream 12/0/5-14
+configure interface cable-mac 1 cable downstream-bonding-group 10001 cable-downstream 12/0/22-31
+configure interface cable-mac 1 cable downstream-bonding-group 16000 cable-downstream 12/0/0-15
+configure interface cable-mac 1 cable downstream-bonding-group 16001 cable-downstream 12/0/16-31
+configure interface cable-mac 1 cable downstream-bonding-group 16002 cable-downstream 12/0/27-31,37-47
+configure interface cable-mac 1 cable downstream-bonding-group 24000 cable-downstream 12/0/0-23
+configure interface cable-mac 1 cable downstream-bonding-group 24001 cable-downstream 12/0/4-27
+configure interface cable-mac 1 cable downstream-bonding-group 24002 cable-downstream 12/0/8-31
+configure interface cable-mac 1 cable downstream-bonding-group 24003 cable-downstream 12/0/12-31,37-40
+configure interface cable-mac 1 cable downstream-bonding-group 24004 cable-downstream 12/0/16-31,37-44
+configure interface cable-mac 1 cable downstream-bonding-group 24005 cable-downstream 12/0/19-31,37-47
+configure interface cable-mac 1 cable downstream-bonding-group 24006 cable-downstream 12/0/0-11,20-31
+configure interface cable-mac 1 cable downstream-bonding-group 24007 cable-downstream 12/0/12-23,31,37-47
+configure interface cable-mac 1 cable downstream-bonding-group 32000 cable-downstream 12/0/0-31
+configure interface cable-mac 1 cable downstream-bonding-group 32001 cable-downstream 12/0/11-31,37-47
+configure interface cable-mac 2 cable downstream-bonding-group 4000 cable-downstream 12/1/0-3
+configure interface cable-mac 2 cable downstream-bonding-group 4001 cable-downstream 12/1/8-11
+configure interface cable-mac 2 cable downstream-bonding-group 4002 cable-downstream 12/1/16-19
+configure interface cable-mac 2 cable downstream-bonding-group 4003 cable-downstream 12/1/26-29
+configure interface cable-mac 2 cable downstream-bonding-group 8000 cable-downstream 12/1/0-7
+configure interface cable-mac 2 cable downstream-bonding-group 8001 cable-downstream 12/1/4-11
+configure interface cable-mac 2 cable downstream-bonding-group 8002 cable-downstream 12/1/8-15
+configure interface cable-mac 2 cable downstream-bonding-group 8003 cable-downstream 12/1/12-19
+configure interface cable-mac 2 cable downstream-bonding-group 8004 cable-downstream 12/1/16-23
+configure interface cable-mac 2 cable downstream-bonding-group 8005 cable-downstream 12/1/22-29
+configure interface cable-mac 2 cable downstream-bonding-group 10000 cable-downstream 12/1/5-14
+configure interface cable-mac 2 cable downstream-bonding-group 10001 cable-downstream 12/1/14-23
+configure interface cable-mac 2 cable downstream-bonding-group 16000 cable-downstream 12/1/0-15
+configure interface cable-mac 2 cable downstream-bonding-group 16001 cable-downstream 12/1/8-23
+configure interface cable-mac 2 cable downstream-bonding-group 16002 cable-downstream 12/1/14-29
+configure interface cable-mac 2 cable downstream-bonding-group 24000 cable-downstream 12/1/0-23
+configure interface cable-mac 2 cable downstream-bonding-group 24001 cable-downstream 12/1/1-24
+configure interface cable-mac 2 cable downstream-bonding-group 24002 cable-downstream 12/1/2-25
+configure interface cable-mac 2 cable downstream-bonding-group 24003 cable-downstream 12/1/3-26
+configure interface cable-mac 2 cable downstream-bonding-group 24004 cable-downstream 12/1/4-27
+configure interface cable-mac 2 cable downstream-bonding-group 24005 cable-downstream 12/1/5-28
+configure interface cable-mac 2 cable downstream-bonding-group 24006 cable-downstream 12/1/6-29
+configure interface cable-mac 2 cable downstream-bonding-group 24007 cable-downstream 12/1/0-11,14-25
+configure interface cable-mac 2 cable downstream-bonding-group 24008 cable-downstream 12/1/4-15,18-29
+configure interface cable-mac 2 cable downstream-bonding-group 30000 cable-downstream 12/1/0-29
+configure interface cable-mac 3 cable downstream-bonding-group 4000 cable-downstream 12/2/0-3
+configure interface cable-mac 3 cable downstream-bonding-group 4001 cable-downstream 12/2/8-11
+configure interface cable-mac 3 cable downstream-bonding-group 4002 cable-downstream 12/2/16-19
+configure interface cable-mac 3 cable downstream-bonding-group 4003 cable-downstream 12/2/26-29
+configure interface cable-mac 3 cable downstream-bonding-group 8000 cable-downstream 12/2/0-7
+configure interface cable-mac 3 cable downstream-bonding-group 8001 cable-downstream 12/2/4-11
+configure interface cable-mac 3 cable downstream-bonding-group 8002 cable-downstream 12/2/8-15
+configure interface cable-mac 3 cable downstream-bonding-group 8003 cable-downstream 12/2/12-19
+configure interface cable-mac 3 cable downstream-bonding-group 8004 cable-downstream 12/2/16-23
+configure interface cable-mac 3 cable downstream-bonding-group 8005 cable-downstream 12/2/22-29
+configure interface cable-mac 3 cable downstream-bonding-group 10000 cable-downstream 12/2/5-14
+configure interface cable-mac 3 cable downstream-bonding-group 10001 cable-downstream 12/2/14-23
+configure interface cable-mac 3 cable downstream-bonding-group 16000 cable-downstream 12/2/0-15
+configure interface cable-mac 3 cable downstream-bonding-group 16001 cable-downstream 12/2/8-23
+configure interface cable-mac 3 cable downstream-bonding-group 16002 cable-downstream 12/2/14-29
+configure interface cable-mac 3 cable downstream-bonding-group 24000 cable-downstream 12/2/0-23
+configure interface cable-mac 3 cable downstream-bonding-group 24001 cable-downstream 12/2/1-24
+configure interface cable-mac 3 cable downstream-bonding-group 24002 cable-downstream 12/2/2-25
+configure interface cable-mac 3 cable downstream-bonding-group 24003 cable-downstream 12/2/3-26
+configure interface cable-mac 3 cable downstream-bonding-group 24004 cable-downstream 12/2/4-27
+configure interface cable-mac 3 cable downstream-bonding-group 24005 cable-downstream 12/2/5-28
+configure interface cable-mac 3 cable downstream-bonding-group 24006 cable-downstream 12/2/6-29
+configure interface cable-mac 3 cable downstream-bonding-group 24007 cable-downstream 12/2/0-11,14-25
+configure interface cable-mac 3 cable downstream-bonding-group 24008 cable-downstream 12/2/4-15,18-29
+configure interface cable-mac 3 cable downstream-bonding-group 30000 cable-downstream 12/2/0-29
+configure interface cable-mac 4 cable downstream-bonding-group 4000 cable-downstream 12/3/0-3
+configure interface cable-mac 4 cable downstream-bonding-group 4001 cable-downstream 12/3/8-11
+configure interface cable-mac 4 cable downstream-bonding-group 4002 cable-downstream 12/3/16-19
+configure interface cable-mac 4 cable downstream-bonding-group 4003 cable-downstream 12/3/20-23
+configure interface cable-mac 4 cable downstream-bonding-group 8000 cable-downstream 12/3/0-7
+configure interface cable-mac 4 cable downstream-bonding-group 8001 cable-downstream 12/3/4-11
+configure interface cable-mac 4 cable downstream-bonding-group 8002 cable-downstream 12/3/8-15
+configure interface cable-mac 4 cable downstream-bonding-group 8003 cable-downstream 12/3/12-19
+configure interface cable-mac 4 cable downstream-bonding-group 8004 cable-downstream 12/3/16-23
+configure interface cable-mac 4 cable downstream-bonding-group 8005 cable-downstream 12/3/0-3,8-11
+configure interface cable-mac 4 cable downstream-bonding-group 8006 cable-downstream 12/3/12-15,20-23
+configure interface cable-mac 4 cable downstream-bonding-group 10000 cable-downstream 12/3/5-14
+configure interface cable-mac 4 cable downstream-bonding-group 10001 cable-downstream 12/3/14-23
+configure interface cable-mac 4 cable downstream-bonding-group 16000 cable-downstream 12/3/0-15
+configure interface cable-mac 4 cable downstream-bonding-group 16001 cable-downstream 12/3/1-16
+configure interface cable-mac 4 cable downstream-bonding-group 16002 cable-downstream 12/3/2-17
+configure interface cable-mac 4 cable downstream-bonding-group 16003 cable-downstream 12/3/3-18
+configure interface cable-mac 4 cable downstream-bonding-group 16004 cable-downstream 12/3/4-19
+configure interface cable-mac 4 cable downstream-bonding-group 16005 cable-downstream 12/3/5-20
+configure interface cable-mac 4 cable downstream-bonding-group 16006 cable-downstream 12/3/6-21
+configure interface cable-mac 4 cable downstream-bonding-group 16007 cable-downstream 12/3/7-22
+configure interface cable-mac 4 cable downstream-bonding-group 16008 cable-downstream 12/3/8-23
+configure interface cable-mac 4 cable downstream-bonding-group 16009 cable-downstream 12/3/0-7,12-19
+configure interface cable-mac 4 cable downstream-bonding-group 16010 cable-downstream 12/3/4-11,16-23
+configure interface cable-mac 4 cable downstream-bonding-group 24000 cable-downstream 12/3/0-23
+configure interface cable-mac 5 cable downstream-bonding-group 4000 cable-downstream 12/4/0-3
+configure interface cable-mac 5 cable downstream-bonding-group 4001 cable-downstream 12/4/12-15
+configure interface cable-mac 5 cable downstream-bonding-group 4002 cable-downstream 12/4/28-31
+configure interface cable-mac 5 cable downstream-bonding-group 4003 cable-downstream 12/4/40-43
+configure interface cable-mac 5 cable downstream-bonding-group 8000 cable-downstream 12/4/0-7
+configure interface cable-mac 5 cable downstream-bonding-group 8001 cable-downstream 12/4/8-15
+configure interface cable-mac 5 cable downstream-bonding-group 8002 cable-downstream 12/4/16-23
+configure interface cable-mac 5 cable downstream-bonding-group 8003 cable-downstream 12/4/24-31
+configure interface cable-mac 5 cable downstream-bonding-group 8004 cable-downstream 12/4/37-44
+configure interface cable-mac 5 cable downstream-bonding-group 8005 cable-downstream 12/4/40-47
+configure interface cable-mac 5 cable downstream-bonding-group 10000 cable-downstream 12/4/5-14
+configure interface cable-mac 5 cable downstream-bonding-group 10001 cable-downstream 12/4/22-31
+configure interface cable-mac 5 cable downstream-bonding-group 16000 cable-downstream 12/4/0-15
+configure interface cable-mac 5 cable downstream-bonding-group 16001 cable-downstream 12/4/16-31
+configure interface cable-mac 5 cable downstream-bonding-group 16002 cable-downstream 12/4/27-31,37-47
+configure interface cable-mac 5 cable downstream-bonding-group 24000 cable-downstream 12/4/0-23
+configure interface cable-mac 5 cable downstream-bonding-group 24001 cable-downstream 12/4/4-27
+configure interface cable-mac 5 cable downstream-bonding-group 24002 cable-downstream 12/4/8-31
+configure interface cable-mac 5 cable downstream-bonding-group 24003 cable-downstream 12/4/12-31,37-40
+configure interface cable-mac 5 cable downstream-bonding-group 24004 cable-downstream 12/4/16-31,37-44
+configure interface cable-mac 5 cable downstream-bonding-group 24005 cable-downstream 12/4/19-31,37-47
+configure interface cable-mac 5 cable downstream-bonding-group 24006 cable-downstream 12/4/0-11,20-31
+configure interface cable-mac 5 cable downstream-bonding-group 24007 cable-downstream 12/4/12-23,31,37-47
+configure interface cable-mac 5 cable downstream-bonding-group 32000 cable-downstream 12/4/0-31
+configure interface cable-mac 5 cable downstream-bonding-group 32001 cable-downstream 12/4/11-31,37-47
+configure interface cable-mac 6 cable downstream-bonding-group 4000 cable-downstream 12/5/0-3
+configure interface cable-mac 6 cable downstream-bonding-group 4001 cable-downstream 12/5/8-11
+configure interface cable-mac 6 cable downstream-bonding-group 4002 cable-downstream 12/5/16-19
+configure interface cable-mac 6 cable downstream-bonding-group 4003 cable-downstream 12/5/26-29
+configure interface cable-mac 6 cable downstream-bonding-group 8000 cable-downstream 12/5/0-7
+configure interface cable-mac 6 cable downstream-bonding-group 8001 cable-downstream 12/5/4-11
+configure interface cable-mac 6 cable downstream-bonding-group 8002 cable-downstream 12/5/8-15
+configure interface cable-mac 6 cable downstream-bonding-group 8003 cable-downstream 12/5/12-19
+configure interface cable-mac 6 cable downstream-bonding-group 8004 cable-downstream 12/5/16-23
+configure interface cable-mac 6 cable downstream-bonding-group 8005 cable-downstream 12/5/22-29
+configure interface cable-mac 6 cable downstream-bonding-group 10000 cable-downstream 12/5/5-14
+configure interface cable-mac 6 cable downstream-bonding-group 10001 cable-downstream 12/5/14-23
+configure interface cable-mac 6 cable downstream-bonding-group 16000 cable-downstream 12/5/0-15
+configure interface cable-mac 6 cable downstream-bonding-group 16001 cable-downstream 12/5/8-23
+configure interface cable-mac 6 cable downstream-bonding-group 16002 cable-downstream 12/5/14-29
+configure interface cable-mac 6 cable downstream-bonding-group 24000 cable-downstream 12/5/0-23
+configure interface cable-mac 6 cable downstream-bonding-group 24001 cable-downstream 12/5/1-24
+configure interface cable-mac 6 cable downstream-bonding-group 24002 cable-downstream 12/5/2-25
+configure interface cable-mac 6 cable downstream-bonding-group 24003 cable-downstream 12/5/3-26
+configure interface cable-mac 6 cable downstream-bonding-group 24004 cable-downstream 12/5/4-27
+configure interface cable-mac 6 cable downstream-bonding-group 24005 cable-downstream 12/5/5-28
+configure interface cable-mac 6 cable downstream-bonding-group 24006 cable-downstream 12/5/6-29
+configure interface cable-mac 6 cable downstream-bonding-group 24007 cable-downstream 12/5/0-11,14-25
+configure interface cable-mac 6 cable downstream-bonding-group 24008 cable-downstream 12/5/4-15,18-29
+configure interface cable-mac 6 cable downstream-bonding-group 30000 cable-downstream 12/5/0-29
+configure interface cable-mac 7 cable downstream-bonding-group 4000 cable-downstream 12/6/0-3
+configure interface cable-mac 7 cable downstream-bonding-group 4001 cable-downstream 12/6/12-15
+configure interface cable-mac 7 cable downstream-bonding-group 4002 cable-downstream 12/6/28-31
+configure interface cable-mac 7 cable downstream-bonding-group 4003 cable-downstream 12/6/40-43
+configure interface cable-mac 7 cable downstream-bonding-group 8000 cable-downstream 12/6/0-7
+configure interface cable-mac 7 cable downstream-bonding-group 8001 cable-downstream 12/6/8-15
+configure interface cable-mac 7 cable downstream-bonding-group 8002 cable-downstream 12/6/16-23
+configure interface cable-mac 7 cable downstream-bonding-group 8003 cable-downstream 12/6/24-31
+configure interface cable-mac 7 cable downstream-bonding-group 8004 cable-downstream 12/6/37-44
+configure interface cable-mac 7 cable downstream-bonding-group 8005 cable-downstream 12/6/40-47
+configure interface cable-mac 7 cable downstream-bonding-group 10000 cable-downstream 12/6/5-14
+configure interface cable-mac 7 cable downstream-bonding-group 10001 cable-downstream 12/6/22-31
+configure interface cable-mac 7 cable downstream-bonding-group 16000 cable-downstream 12/6/0-15
+configure interface cable-mac 7 cable downstream-bonding-group 16001 cable-downstream 12/6/16-31
+configure interface cable-mac 7 cable downstream-bonding-group 16002 cable-downstream 12/6/27-31,37-47
+configure interface cable-mac 7 cable downstream-bonding-group 24000 cable-downstream 12/6/0-23
+configure interface cable-mac 7 cable downstream-bonding-group 24001 cable-downstream 12/6/4-27
+configure interface cable-mac 7 cable downstream-bonding-group 24002 cable-downstream 12/6/8-31
+configure interface cable-mac 7 cable downstream-bonding-group 24003 cable-downstream 12/6/12-31,37-40
+configure interface cable-mac 7 cable downstream-bonding-group 24004 cable-downstream 12/6/16-31,37-44
+configure interface cable-mac 7 cable downstream-bonding-group 24005 cable-downstream 12/6/19-31,37-47
+configure interface cable-mac 7 cable downstream-bonding-group 24006 cable-downstream 12/6/0-11,20-31
+configure interface cable-mac 7 cable downstream-bonding-group 24007 cable-downstream 12/6/12-23,31,37-47
+configure interface cable-mac 7 cable downstream-bonding-group 32000 cable-downstream 12/6/0-31
+configure interface cable-mac 7 cable downstream-bonding-group 32001 cable-downstream 12/6/11-31,37-47
+configure interface cable-mac 8 cable downstream-bonding-group 4000 cable-downstream 12/7/0-3
+configure interface cable-mac 8 cable downstream-bonding-group 4001 cable-downstream 12/7/8-11
+configure interface cable-mac 8 cable downstream-bonding-group 4002 cable-downstream 12/7/16-19
+configure interface cable-mac 8 cable downstream-bonding-group 4003 cable-downstream 12/7/26-29
+configure interface cable-mac 8 cable downstream-bonding-group 8000 cable-downstream 12/7/0-7
+configure interface cable-mac 8 cable downstream-bonding-group 8001 cable-downstream 12/7/4-11
+configure interface cable-mac 8 cable downstream-bonding-group 8002 cable-downstream 12/7/8-15
+configure interface cable-mac 8 cable downstream-bonding-group 8003 cable-downstream 12/7/12-19
+configure interface cable-mac 8 cable downstream-bonding-group 8004 cable-downstream 12/7/16-23
+configure interface cable-mac 8 cable downstream-bonding-group 8005 cable-downstream 12/7/24-31
+configure interface cable-mac 8 cable downstream-bonding-group 10000 cable-downstream 12/7/5-14
+configure interface cable-mac 8 cable downstream-bonding-group 10001 cable-downstream 12/7/14-23
+configure interface cable-mac 8 cable downstream-bonding-group 16000 cable-downstream 12/7/0-15
+configure interface cable-mac 8 cable downstream-bonding-group 16001 cable-downstream 12/7/8-23
+configure interface cable-mac 8 cable downstream-bonding-group 16002 cable-downstream 12/7/16-31
+configure interface cable-mac 8 cable downstream-bonding-group 24000 cable-downstream 12/7/0-23
+configure interface cable-mac 8 cable downstream-bonding-group 24001 cable-downstream 12/7/1-24
+configure interface cable-mac 8 cable downstream-bonding-group 24002 cable-downstream 12/7/2-25
+configure interface cable-mac 8 cable downstream-bonding-group 24003 cable-downstream 12/7/3-26
+configure interface cable-mac 8 cable downstream-bonding-group 24004 cable-downstream 12/7/4-27
+configure interface cable-mac 8 cable downstream-bonding-group 24005 cable-downstream 12/7/5-28
+configure interface cable-mac 8 cable downstream-bonding-group 24006 cable-downstream 12/7/8-31
+configure interface cable-mac 8 cable downstream-bonding-group 24007 cable-downstream 12/7/0-11,14-25
+configure interface cable-mac 8 cable downstream-bonding-group 24008 cable-downstream 12/7/4-15,20-31
+configure interface cable-mac 8 cable downstream-bonding-group 32000 cable-downstream 12/7/0-31
+configure interface cable-mac 9 cable downstream-bonding-group 4000 cable-downstream 11/0/0-3
+configure interface cable-mac 9 cable downstream-bonding-group 4001 cable-downstream 11/0/12-15
+configure interface cable-mac 9 cable downstream-bonding-group 4002 cable-downstream 11/0/28-31
+configure interface cable-mac 9 cable downstream-bonding-group 4003 cable-downstream 11/0/40-43
+configure interface cable-mac 9 cable downstream-bonding-group 8000 cable-downstream 11/0/0-7
+configure interface cable-mac 9 cable downstream-bonding-group 8001 cable-downstream 11/0/8-15
+configure interface cable-mac 9 cable downstream-bonding-group 8002 cable-downstream 11/0/16-23
+configure interface cable-mac 9 cable downstream-bonding-group 8003 cable-downstream 11/0/24-31
+configure interface cable-mac 9 cable downstream-bonding-group 8004 cable-downstream 11/0/37-44
+configure interface cable-mac 9 cable downstream-bonding-group 8005 cable-downstream 11/0/40-47
+configure interface cable-mac 9 cable downstream-bonding-group 10000 cable-downstream 11/0/5-14
+configure interface cable-mac 9 cable downstream-bonding-group 10001 cable-downstream 11/0/22-31
+configure interface cable-mac 9 cable downstream-bonding-group 16000 cable-downstream 11/0/0-15
+configure interface cable-mac 9 cable downstream-bonding-group 16001 cable-downstream 11/0/16-31
+configure interface cable-mac 9 cable downstream-bonding-group 16002 cable-downstream 11/0/27-31,37-47
+configure interface cable-mac 9 cable downstream-bonding-group 24000 cable-downstream 11/0/0-23
+configure interface cable-mac 9 cable downstream-bonding-group 24001 cable-downstream 11/0/4-27
+configure interface cable-mac 9 cable downstream-bonding-group 24002 cable-downstream 11/0/8-31
+configure interface cable-mac 9 cable downstream-bonding-group 24003 cable-downstream 11/0/12-31,37-40
+configure interface cable-mac 9 cable downstream-bonding-group 24004 cable-downstream 11/0/16-31,37-44
+configure interface cable-mac 9 cable downstream-bonding-group 24005 cable-downstream 11/0/19-31,37-47
+configure interface cable-mac 9 cable downstream-bonding-group 24006 cable-downstream 11/0/0-11,20-31
+configure interface cable-mac 9 cable downstream-bonding-group 24007 cable-downstream 11/0/12-23,31,37-47
+configure interface cable-mac 9 cable downstream-bonding-group 32000 cable-downstream 11/0/0-31
+configure interface cable-mac 9 cable downstream-bonding-group 32001 cable-downstream 11/0/11-31,37-47
+configure interface cable-mac 10 cable downstream-bonding-group 4000 cable-downstream 11/1/0-3
+configure interface cable-mac 10 cable downstream-bonding-group 4001 cable-downstream 11/1/12-15
+configure interface cable-mac 10 cable downstream-bonding-group 4002 cable-downstream 11/1/28-31
+configure interface cable-mac 10 cable downstream-bonding-group 4003 cable-downstream 11/1/40-43
+configure interface cable-mac 10 cable downstream-bonding-group 8000 cable-downstream 11/1/0-7
+configure interface cable-mac 10 cable downstream-bonding-group 8001 cable-downstream 11/1/8-15
+configure interface cable-mac 10 cable downstream-bonding-group 8002 cable-downstream 11/1/16-23
+configure interface cable-mac 10 cable downstream-bonding-group 8003 cable-downstream 11/1/24-31
+configure interface cable-mac 10 cable downstream-bonding-group 8004 cable-downstream 11/1/37-44
+configure interface cable-mac 10 cable downstream-bonding-group 8005 cable-downstream 11/1/40-47
+configure interface cable-mac 10 cable downstream-bonding-group 10000 cable-downstream 11/1/5-14
+configure interface cable-mac 10 cable downstream-bonding-group 10001 cable-downstream 11/1/22-31
+configure interface cable-mac 10 cable downstream-bonding-group 16000 cable-downstream 11/1/0-15
+configure interface cable-mac 10 cable downstream-bonding-group 16001 cable-downstream 11/1/16-31
+configure interface cable-mac 10 cable downstream-bonding-group 16002 cable-downstream 11/1/27-31,37-47
+configure interface cable-mac 10 cable downstream-bonding-group 24000 cable-downstream 11/1/0-23
+configure interface cable-mac 10 cable downstream-bonding-group 24001 cable-downstream 11/1/4-27
+configure interface cable-mac 10 cable downstream-bonding-group 24002 cable-downstream 11/1/8-31
+configure interface cable-mac 10 cable downstream-bonding-group 24003 cable-downstream 11/1/12-31,37-40
+configure interface cable-mac 10 cable downstream-bonding-group 24004 cable-downstream 11/1/16-31,37-44
+configure interface cable-mac 10 cable downstream-bonding-group 24005 cable-downstream 11/1/19-31,37-47
+configure interface cable-mac 10 cable downstream-bonding-group 24006 cable-downstream 11/1/0-11,20-31
+configure interface cable-mac 10 cable downstream-bonding-group 24007 cable-downstream 11/1/12-23,31,37-47
+configure interface cable-mac 10 cable downstream-bonding-group 32000 cable-downstream 11/1/0-31
+configure interface cable-mac 10 cable downstream-bonding-group 32001 cable-downstream 11/1/11-31,37-47
+configure interface cable-mac 11 cable downstream-bonding-group 4000 cable-downstream 11/2/0-3
+configure interface cable-mac 11 cable downstream-bonding-group 4001 cable-downstream 11/2/12-15
+configure interface cable-mac 11 cable downstream-bonding-group 4002 cable-downstream 11/2/28-31
+configure interface cable-mac 11 cable downstream-bonding-group 4003 cable-downstream 11/2/40-43
+configure interface cable-mac 11 cable downstream-bonding-group 8000 cable-downstream 11/2/0-7
+configure interface cable-mac 11 cable downstream-bonding-group 8001 cable-downstream 11/2/8-15
+configure interface cable-mac 11 cable downstream-bonding-group 8002 cable-downstream 11/2/16-23
+configure interface cable-mac 11 cable downstream-bonding-group 8003 cable-downstream 11/2/24-31
+configure interface cable-mac 11 cable downstream-bonding-group 8004 cable-downstream 11/2/37-44
+configure interface cable-mac 11 cable downstream-bonding-group 8005 cable-downstream 11/2/40-47
+configure interface cable-mac 11 cable downstream-bonding-group 10000 cable-downstream 11/2/5-14
+configure interface cable-mac 11 cable downstream-bonding-group 10001 cable-downstream 11/2/22-31
+configure interface cable-mac 11 cable downstream-bonding-group 16000 cable-downstream 11/2/0-15
+configure interface cable-mac 11 cable downstream-bonding-group 16001 cable-downstream 11/2/16-31
+configure interface cable-mac 11 cable downstream-bonding-group 16002 cable-downstream 11/2/27-31,37-47
+configure interface cable-mac 11 cable downstream-bonding-group 24000 cable-downstream 11/2/0-23
+configure interface cable-mac 11 cable downstream-bonding-group 24001 cable-downstream 11/2/4-27
+configure interface cable-mac 11 cable downstream-bonding-group 24002 cable-downstream 11/2/8-31
+configure interface cable-mac 11 cable downstream-bonding-group 24003 cable-downstream 11/2/12-31,37-40
+configure interface cable-mac 11 cable downstream-bonding-group 24004 cable-downstream 11/2/16-31,37-44
+configure interface cable-mac 11 cable downstream-bonding-group 24005 cable-downstream 11/2/19-31,37-47
+configure interface cable-mac 11 cable downstream-bonding-group 24006 cable-downstream 11/2/0-11,20-31
+configure interface cable-mac 11 cable downstream-bonding-group 24007 cable-downstream 11/2/12-23,31,37-47
+configure interface cable-mac 11 cable downstream-bonding-group 24008 cable-downstream 11/2/4-15,18-29
+configure interface cable-mac 11 cable downstream-bonding-group 30000 cable-downstream 11/2/0-29
+configure interface cable-mac 11 cable downstream-bonding-group 32000 cable-downstream 11/2/0-31
+configure interface cable-mac 11 cable downstream-bonding-group 32001 cable-downstream 11/2/11-31,37-47
+configure interface cable-mac 12 cable downstream-bonding-group 4000 cable-downstream 11/3/0-3
+configure interface cable-mac 12 cable downstream-bonding-group 4001 cable-downstream 11/3/8-11
+configure interface cable-mac 12 cable downstream-bonding-group 4002 cable-downstream 11/3/16-19
+configure interface cable-mac 12 cable downstream-bonding-group 4003 cable-downstream 11/3/26-29
+configure interface cable-mac 12 cable downstream-bonding-group 8000 cable-downstream 11/3/0-7
+configure interface cable-mac 12 cable downstream-bonding-group 8001 cable-downstream 11/3/4-11
+configure interface cable-mac 12 cable downstream-bonding-group 8002 cable-downstream 11/3/8-15
+configure interface cable-mac 12 cable downstream-bonding-group 8003 cable-downstream 11/3/12-19
+configure interface cable-mac 12 cable downstream-bonding-group 8004 cable-downstream 11/3/16-23
+configure interface cable-mac 12 cable downstream-bonding-group 8005 cable-downstream 11/3/22-29
+configure interface cable-mac 12 cable downstream-bonding-group 10000 cable-downstream 11/3/5-14
+configure interface cable-mac 12 cable downstream-bonding-group 10001 cable-downstream 11/3/14-23
+configure interface cable-mac 12 cable downstream-bonding-group 16000 cable-downstream 11/3/0-15
+configure interface cable-mac 12 cable downstream-bonding-group 16001 cable-downstream 11/3/8-23
+configure interface cable-mac 12 cable downstream-bonding-group 16002 cable-downstream 11/3/14-29
+configure interface cable-mac 12 cable downstream-bonding-group 24000 cable-downstream 11/3/0-23
+configure interface cable-mac 12 cable downstream-bonding-group 24001 cable-downstream 11/3/1-24
+configure interface cable-mac 12 cable downstream-bonding-group 24002 cable-downstream 11/3/2-25
+configure interface cable-mac 12 cable downstream-bonding-group 24003 cable-downstream 11/3/3-26
+configure interface cable-mac 12 cable downstream-bonding-group 24004 cable-downstream 11/3/4-27
+configure interface cable-mac 12 cable downstream-bonding-group 24005 cable-downstream 11/3/5-28
+configure interface cable-mac 12 cable downstream-bonding-group 24006 cable-downstream 11/3/6-29
+configure interface cable-mac 12 cable downstream-bonding-group 24007 cable-downstream 11/3/0-11,14-25
+configure interface cable-mac 12 cable downstream-bonding-group 24008 cable-downstream 11/3/4-15,18-29
+configure interface cable-mac 12 cable downstream-bonding-group 30000 cable-downstream 11/3/0-29
+configure interface cable-mac 13 cable downstream-bonding-group 4000 cable-downstream 11/4/0-3
+configure interface cable-mac 13 cable downstream-bonding-group 4001 cable-downstream 11/4/8-11
+configure interface cable-mac 13 cable downstream-bonding-group 4002 cable-downstream 11/4/16-19
+configure interface cable-mac 13 cable downstream-bonding-group 4003 cable-downstream 11/4/26-29
+configure interface cable-mac 13 cable downstream-bonding-group 8000 cable-downstream 11/4/0-7
+configure interface cable-mac 13 cable downstream-bonding-group 8001 cable-downstream 11/4/4-11
+configure interface cable-mac 13 cable downstream-bonding-group 8002 cable-downstream 11/4/8-15
+configure interface cable-mac 13 cable downstream-bonding-group 8003 cable-downstream 11/4/12-19
+configure interface cable-mac 13 cable downstream-bonding-group 8004 cable-downstream 11/4/16-23
+configure interface cable-mac 13 cable downstream-bonding-group 8005 cable-downstream 11/4/22-29
+configure interface cable-mac 13 cable downstream-bonding-group 10000 cable-downstream 11/4/5-14
+configure interface cable-mac 13 cable downstream-bonding-group 10001 cable-downstream 11/4/14-23
+configure interface cable-mac 13 cable downstream-bonding-group 16000 cable-downstream 11/4/0-15
+configure interface cable-mac 13 cable downstream-bonding-group 16001 cable-downstream 11/4/8-23
+configure interface cable-mac 13 cable downstream-bonding-group 16002 cable-downstream 11/4/14-29
+configure interface cable-mac 13 cable downstream-bonding-group 24000 cable-downstream 11/4/0-23
+configure interface cable-mac 13 cable downstream-bonding-group 24001 cable-downstream 11/4/1-24
+configure interface cable-mac 13 cable downstream-bonding-group 24002 cable-downstream 11/4/2-25
+configure interface cable-mac 13 cable downstream-bonding-group 24003 cable-downstream 11/4/3-26
+configure interface cable-mac 13 cable downstream-bonding-group 24004 cable-downstream 11/4/4-27
+configure interface cable-mac 13 cable downstream-bonding-group 24005 cable-downstream 11/4/5-28
+configure interface cable-mac 13 cable downstream-bonding-group 24006 cable-downstream 11/4/6-29
+configure interface cable-mac 13 cable downstream-bonding-group 24007 cable-downstream 11/4/0-11,14-25
+configure interface cable-mac 13 cable downstream-bonding-group 24008 cable-downstream 11/4/4-15,18-29
+configure interface cable-mac 13 cable downstream-bonding-group 30000 cable-downstream 11/4/0-29
+configure interface cable-mac 14 cable downstream-bonding-group 4000 cable-downstream 10/0/0-3
+configure interface cable-mac 14 cable downstream-bonding-group 4001 cable-downstream 10/0/8-11
+configure interface cable-mac 14 cable downstream-bonding-group 4002 cable-downstream 10/0/16-19
+configure interface cable-mac 14 cable downstream-bonding-group 4003 cable-downstream 10/0/26-29
+configure interface cable-mac 14 cable downstream-bonding-group 8000 cable-downstream 10/0/0-7
+configure interface cable-mac 14 cable downstream-bonding-group 8001 cable-downstream 10/0/4-11
+configure interface cable-mac 14 cable downstream-bonding-group 8002 cable-downstream 10/0/8-15
+configure interface cable-mac 14 cable downstream-bonding-group 8003 cable-downstream 10/0/12-19
+configure interface cable-mac 14 cable downstream-bonding-group 8004 cable-downstream 10/0/16-23
+configure interface cable-mac 14 cable downstream-bonding-group 8005 cable-downstream 10/0/24-31
+configure interface cable-mac 14 cable downstream-bonding-group 10000 cable-downstream 10/0/5-14
+configure interface cable-mac 14 cable downstream-bonding-group 10001 cable-downstream 10/0/14-23
+configure interface cable-mac 14 cable downstream-bonding-group 16000 cable-downstream 10/0/0-15
+configure interface cable-mac 14 cable downstream-bonding-group 16001 cable-downstream 10/0/8-23
+configure interface cable-mac 14 cable downstream-bonding-group 16002 cable-downstream 10/0/16-31
+configure interface cable-mac 14 cable downstream-bonding-group 24000 cable-downstream 10/0/0-23
+configure interface cable-mac 14 cable downstream-bonding-group 24001 cable-downstream 10/0/1-24
+configure interface cable-mac 14 cable downstream-bonding-group 24002 cable-downstream 10/0/2-25
+configure interface cable-mac 14 cable downstream-bonding-group 24003 cable-downstream 10/0/3-26
+configure interface cable-mac 14 cable downstream-bonding-group 24004 cable-downstream 10/0/4-27
+configure interface cable-mac 14 cable downstream-bonding-group 24005 cable-downstream 10/0/5-28
+configure interface cable-mac 14 cable downstream-bonding-group 24006 cable-downstream 10/0/8-31
+configure interface cable-mac 14 cable downstream-bonding-group 24007 cable-downstream 10/0/0-11,14-25
+configure interface cable-mac 14 cable downstream-bonding-group 24008 cable-downstream 10/0/4-15,20-31
+configure interface cable-mac 14 cable downstream-bonding-group 32000 cable-downstream 10/0/0-31
+configure interface cable-mac 15 cable downstream-bonding-group 4000 cable-downstream 11/6/0-3
+configure interface cable-mac 15 cable downstream-bonding-group 4001 cable-downstream 11/6/8-11
+configure interface cable-mac 15 cable downstream-bonding-group 4002 cable-downstream 11/6/16-19
+configure interface cable-mac 15 cable downstream-bonding-group 4003 cable-downstream 11/6/26-29
+configure interface cable-mac 15 cable downstream-bonding-group 8000 cable-downstream 11/6/0-7
+configure interface cable-mac 15 cable downstream-bonding-group 8001 cable-downstream 11/6/4-11
+configure interface cable-mac 15 cable downstream-bonding-group 8002 cable-downstream 11/6/8-15
+configure interface cable-mac 15 cable downstream-bonding-group 8003 cable-downstream 11/6/12-19
+configure interface cable-mac 15 cable downstream-bonding-group 8004 cable-downstream 11/6/16-23
+configure interface cable-mac 15 cable downstream-bonding-group 8005 cable-downstream 11/6/22-29
+configure interface cable-mac 15 cable downstream-bonding-group 10000 cable-downstream 11/6/5-14
+configure interface cable-mac 15 cable downstream-bonding-group 10001 cable-downstream 11/6/14-23
+configure interface cable-mac 15 cable downstream-bonding-group 16000 cable-downstream 11/6/0-15
+configure interface cable-mac 15 cable downstream-bonding-group 16001 cable-downstream 11/6/8-23
+configure interface cable-mac 15 cable downstream-bonding-group 16002 cable-downstream 11/6/14-29
+configure interface cable-mac 15 cable downstream-bonding-group 24000 cable-downstream 11/6/0-23
+configure interface cable-mac 15 cable downstream-bonding-group 24001 cable-downstream 11/6/1-24
+configure interface cable-mac 15 cable downstream-bonding-group 24002 cable-downstream 11/6/2-25
+configure interface cable-mac 15 cable downstream-bonding-group 24003 cable-downstream 11/6/3-26
+configure interface cable-mac 15 cable downstream-bonding-group 24004 cable-downstream 11/6/4-27
+configure interface cable-mac 15 cable downstream-bonding-group 24005 cable-downstream 11/6/5-28
+configure interface cable-mac 15 cable downstream-bonding-group 24006 cable-downstream 11/6/6-29
+configure interface cable-mac 15 cable downstream-bonding-group 24007 cable-downstream 11/6/0-11,14-25
+configure interface cable-mac 15 cable downstream-bonding-group 24008 cable-downstream 11/6/4-15,18-29
+configure interface cable-mac 15 cable downstream-bonding-group 30000 cable-downstream 11/6/0-29
+configure interface cable-mac 16 cable downstream-bonding-group 4000 cable-downstream 11/7/0-3
+configure interface cable-mac 16 cable downstream-bonding-group 4001 cable-downstream 11/7/12-15
+configure interface cable-mac 16 cable downstream-bonding-group 4002 cable-downstream 11/7/28-31
+configure interface cable-mac 16 cable downstream-bonding-group 4003 cable-downstream 11/7/40-43
+configure interface cable-mac 16 cable downstream-bonding-group 8000 cable-downstream 11/7/0-7
+configure interface cable-mac 16 cable downstream-bonding-group 8001 cable-downstream 11/7/8-15
+configure interface cable-mac 16 cable downstream-bonding-group 8002 cable-downstream 11/7/16-23
+configure interface cable-mac 16 cable downstream-bonding-group 8003 cable-downstream 11/7/24-31
+configure interface cable-mac 16 cable downstream-bonding-group 8004 cable-downstream 11/7/37-44
+configure interface cable-mac 16 cable downstream-bonding-group 8005 cable-downstream 11/7/40-47
+configure interface cable-mac 16 cable downstream-bonding-group 10000 cable-downstream 11/7/5-14
+configure interface cable-mac 16 cable downstream-bonding-group 10001 cable-downstream 11/7/22-31
+configure interface cable-mac 16 cable downstream-bonding-group 16000 cable-downstream 11/7/0-15
+configure interface cable-mac 16 cable downstream-bonding-group 16001 cable-downstream 11/7/16-31
+configure interface cable-mac 16 cable downstream-bonding-group 16002 cable-downstream 11/7/27-31,37-47
+configure interface cable-mac 16 cable downstream-bonding-group 24000 cable-downstream 11/7/0-23
+configure interface cable-mac 16 cable downstream-bonding-group 24001 cable-downstream 11/7/4-27
+configure interface cable-mac 16 cable downstream-bonding-group 24002 cable-downstream 11/7/8-31
+configure interface cable-mac 16 cable downstream-bonding-group 24003 cable-downstream 11/7/12-31,37-40
+configure interface cable-mac 16 cable downstream-bonding-group 24004 cable-downstream 11/7/16-31,37-44
+configure interface cable-mac 16 cable downstream-bonding-group 24005 cable-downstream 11/7/19-31,37-47
+configure interface cable-mac 16 cable downstream-bonding-group 24006 cable-downstream 11/7/0-11,20-31
+configure interface cable-mac 16 cable downstream-bonding-group 24007 cable-downstream 11/7/12-23,31,37-47
+configure interface cable-mac 16 cable downstream-bonding-group 32000 cable-downstream 11/7/0-31
+configure interface cable-mac 16 cable downstream-bonding-group 32001 cable-downstream 11/7/11-31,37-47
+configure interface cable-mac 17 cable downstream-bonding-group 4000 cable-downstream 11/5/0-3
+configure interface cable-mac 17 cable downstream-bonding-group 4001 cable-downstream 11/5/8-11
+configure interface cable-mac 17 cable downstream-bonding-group 4002 cable-downstream 11/5/16-19
+configure interface cable-mac 17 cable downstream-bonding-group 4003 cable-downstream 11/5/26-29
+configure interface cable-mac 17 cable downstream-bonding-group 8000 cable-downstream 11/5/0-7
+configure interface cable-mac 17 cable downstream-bonding-group 8001 cable-downstream 11/5/4-11
+configure interface cable-mac 17 cable downstream-bonding-group 8002 cable-downstream 11/5/8-15
+configure interface cable-mac 17 cable downstream-bonding-group 8003 cable-downstream 11/5/12-19
+configure interface cable-mac 17 cable downstream-bonding-group 8004 cable-downstream 11/5/16-23
+configure interface cable-mac 17 cable downstream-bonding-group 8005 cable-downstream 11/5/22-29
+configure interface cable-mac 17 cable downstream-bonding-group 10000 cable-downstream 11/5/5-14
+configure interface cable-mac 17 cable downstream-bonding-group 10001 cable-downstream 11/5/14-23
+configure interface cable-mac 17 cable downstream-bonding-group 16000 cable-downstream 11/5/0-15
+configure interface cable-mac 17 cable downstream-bonding-group 16001 cable-downstream 11/5/8-23
+configure interface cable-mac 17 cable downstream-bonding-group 16002 cable-downstream 11/5/14-29
+configure interface cable-mac 17 cable downstream-bonding-group 24000 cable-downstream 11/5/0-23
+configure interface cable-mac 17 cable downstream-bonding-group 24001 cable-downstream 11/5/1-24
+configure interface cable-mac 17 cable downstream-bonding-group 24002 cable-downstream 11/5/2-25
+configure interface cable-mac 17 cable downstream-bonding-group 24003 cable-downstream 11/5/3-26
+configure interface cable-mac 17 cable downstream-bonding-group 24004 cable-downstream 11/5/4-27
+configure interface cable-mac 17 cable downstream-bonding-group 24005 cable-downstream 11/5/5-28
+configure interface cable-mac 17 cable downstream-bonding-group 24006 cable-downstream 11/5/6-29
+configure interface cable-mac 17 cable downstream-bonding-group 24007 cable-downstream 11/5/0-11,14-25
+configure interface cable-mac 17 cable downstream-bonding-group 24008 cable-downstream 11/5/4-15,18-29
+configure interface cable-mac 17 cable downstream-bonding-group 30000 cable-downstream 11/5/0-29
+configure interface cable-mac 18 cable downstream-bonding-group 4000 cable-downstream 10/1/0-3
+configure interface cable-mac 18 cable downstream-bonding-group 4001 cable-downstream 10/1/8-11
+configure interface cable-mac 18 cable downstream-bonding-group 4002 cable-downstream 10/1/16-19
+configure interface cable-mac 18 cable downstream-bonding-group 4003 cable-downstream 10/1/26-29
+configure interface cable-mac 18 cable downstream-bonding-group 8000 cable-downstream 10/1/0-7
+configure interface cable-mac 18 cable downstream-bonding-group 8001 cable-downstream 10/1/4-11
+configure interface cable-mac 18 cable downstream-bonding-group 8002 cable-downstream 10/1/8-15
+configure interface cable-mac 18 cable downstream-bonding-group 8003 cable-downstream 10/1/12-19
+configure interface cable-mac 18 cable downstream-bonding-group 8004 cable-downstream 10/1/16-23
+configure interface cable-mac 18 cable downstream-bonding-group 8005 cable-downstream 10/1/22-29
+configure interface cable-mac 18 cable downstream-bonding-group 10000 cable-downstream 10/1/5-14
+configure interface cable-mac 18 cable downstream-bonding-group 10001 cable-downstream 10/1/14-23
+configure interface cable-mac 18 cable downstream-bonding-group 16000 cable-downstream 10/1/0-15
+configure interface cable-mac 18 cable downstream-bonding-group 16001 cable-downstream 10/1/8-23
+configure interface cable-mac 18 cable downstream-bonding-group 16002 cable-downstream 10/1/14-29
+configure interface cable-mac 18 cable downstream-bonding-group 24000 cable-downstream 10/1/0-23
+configure interface cable-mac 18 cable downstream-bonding-group 24001 cable-downstream 10/1/1-24
+configure interface cable-mac 18 cable downstream-bonding-group 24002 cable-downstream 10/1/2-25
+configure interface cable-mac 18 cable downstream-bonding-group 24003 cable-downstream 10/1/3-26
+configure interface cable-mac 18 cable downstream-bonding-group 24004 cable-downstream 10/1/4-27
+configure interface cable-mac 18 cable downstream-bonding-group 24005 cable-downstream 10/1/5-28
+configure interface cable-mac 18 cable downstream-bonding-group 24006 cable-downstream 10/1/6-29
+configure interface cable-mac 18 cable downstream-bonding-group 24007 cable-downstream 10/1/0-11,14-25
+configure interface cable-mac 18 cable downstream-bonding-group 24008 cable-downstream 10/1/4-15,18-29
+configure interface cable-mac 18 cable downstream-bonding-group 30000 cable-downstream 10/1/0-29
+configure interface cable-mac 19 cable downstream-bonding-group 4000 cable-downstream 10/2/0-3
+configure interface cable-mac 19 cable downstream-bonding-group 4001 cable-downstream 10/2/8-11
+configure interface cable-mac 19 cable downstream-bonding-group 4002 cable-downstream 10/2/16-19
+configure interface cable-mac 19 cable downstream-bonding-group 4003 cable-downstream 10/2/26-29
+configure interface cable-mac 19 cable downstream-bonding-group 8000 cable-downstream 10/2/0-7
+configure interface cable-mac 19 cable downstream-bonding-group 8001 cable-downstream 10/2/4-11
+configure interface cable-mac 19 cable downstream-bonding-group 8002 cable-downstream 10/2/8-15
+configure interface cable-mac 19 cable downstream-bonding-group 8003 cable-downstream 10/2/12-19
+configure interface cable-mac 19 cable downstream-bonding-group 8004 cable-downstream 10/2/16-23
+configure interface cable-mac 19 cable downstream-bonding-group 8005 cable-downstream 10/2/22-29
+configure interface cable-mac 19 cable downstream-bonding-group 10000 cable-downstream 10/2/5-14
+configure interface cable-mac 19 cable downstream-bonding-group 10001 cable-downstream 10/2/14-23
+configure interface cable-mac 19 cable downstream-bonding-group 16000 cable-downstream 10/2/0-15
+configure interface cable-mac 19 cable downstream-bonding-group 16001 cable-downstream 10/2/8-23
+configure interface cable-mac 19 cable downstream-bonding-group 16002 cable-downstream 10/2/14-29
+configure interface cable-mac 19 cable downstream-bonding-group 24000 cable-downstream 10/2/0-23
+configure interface cable-mac 19 cable downstream-bonding-group 24001 cable-downstream 10/2/1-24
+configure interface cable-mac 19 cable downstream-bonding-group 24002 cable-downstream 10/2/2-25
+configure interface cable-mac 19 cable downstream-bonding-group 24003 cable-downstream 10/2/3-26
+configure interface cable-mac 19 cable downstream-bonding-group 24004 cable-downstream 10/2/4-27
+configure interface cable-mac 19 cable downstream-bonding-group 24005 cable-downstream 10/2/5-28
+configure interface cable-mac 19 cable downstream-bonding-group 24006 cable-downstream 10/2/6-29
+configure interface cable-mac 19 cable downstream-bonding-group 24007 cable-downstream 10/2/0-11,14-25
+configure interface cable-mac 19 cable downstream-bonding-group 24008 cable-downstream 10/2/4-15,18-29
+configure interface cable-mac 19 cable downstream-bonding-group 30000 cable-downstream 10/2/0-29
+configure interface cable-mac 20 cable downstream-bonding-group 4000 cable-downstream 10/3/0-3
+configure interface cable-mac 20 cable downstream-bonding-group 4001 cable-downstream 10/3/12-15
+configure interface cable-mac 20 cable downstream-bonding-group 4002 cable-downstream 10/3/28-31
+configure interface cable-mac 20 cable downstream-bonding-group 4003 cable-downstream 10/3/40-43
+configure interface cable-mac 20 cable downstream-bonding-group 8000 cable-downstream 10/3/0-7
+configure interface cable-mac 20 cable downstream-bonding-group 8001 cable-downstream 10/3/8-15
+configure interface cable-mac 20 cable downstream-bonding-group 8002 cable-downstream 10/3/16-23
+configure interface cable-mac 20 cable downstream-bonding-group 8003 cable-downstream 10/3/24-31
+configure interface cable-mac 20 cable downstream-bonding-group 8004 cable-downstream 10/3/37-44
+configure interface cable-mac 20 cable downstream-bonding-group 8005 cable-downstream 10/3/40-47
+configure interface cable-mac 20 cable downstream-bonding-group 10000 cable-downstream 10/3/5-14
+configure interface cable-mac 20 cable downstream-bonding-group 10001 cable-downstream 10/3/22-31
+configure interface cable-mac 20 cable downstream-bonding-group 16000 cable-downstream 10/3/0-15
+configure interface cable-mac 20 cable downstream-bonding-group 16001 cable-downstream 10/3/16-31
+configure interface cable-mac 20 cable downstream-bonding-group 16002 cable-downstream 10/3/27-31,37-47
+configure interface cable-mac 20 cable downstream-bonding-group 24000 cable-downstream 10/3/0-23
+configure interface cable-mac 20 cable downstream-bonding-group 24001 cable-downstream 10/3/4-27
+configure interface cable-mac 20 cable downstream-bonding-group 24002 cable-downstream 10/3/8-31
+configure interface cable-mac 20 cable downstream-bonding-group 24003 cable-downstream 10/3/12-31,37-40
+configure interface cable-mac 20 cable downstream-bonding-group 24004 cable-downstream 10/3/16-31,37-44
+configure interface cable-mac 20 cable downstream-bonding-group 24005 cable-downstream 10/3/19-31,37-47
+configure interface cable-mac 20 cable downstream-bonding-group 24006 cable-downstream 10/3/0-11,20-31
+configure interface cable-mac 20 cable downstream-bonding-group 24007 cable-downstream 10/3/12-23,31,37-47
+configure interface cable-mac 20 cable downstream-bonding-group 32000 cable-downstream 10/3/0-31
+configure interface cable-mac 20 cable downstream-bonding-group 32001 cable-downstream 10/3/11-31,37-47
+configure interface cable-mac 21 cable downstream-bonding-group 4000 cable-downstream 10/4/0-3
+configure interface cable-mac 21 cable downstream-bonding-group 4001 cable-downstream 10/4/8-11
+configure interface cable-mac 21 cable downstream-bonding-group 4002 cable-downstream 10/4/16-19
+configure interface cable-mac 21 cable downstream-bonding-group 4003 cable-downstream 10/4/26-29
+configure interface cable-mac 21 cable downstream-bonding-group 8000 cable-downstream 10/4/0-7
+configure interface cable-mac 21 cable downstream-bonding-group 8001 cable-downstream 10/4/4-11
+configure interface cable-mac 21 cable downstream-bonding-group 8002 cable-downstream 10/4/8-15
+configure interface cable-mac 21 cable downstream-bonding-group 8003 cable-downstream 10/4/12-19
+configure interface cable-mac 21 cable downstream-bonding-group 8004 cable-downstream 10/4/16-23
+configure interface cable-mac 21 cable downstream-bonding-group 8005 cable-downstream 10/4/22-29
+configure interface cable-mac 21 cable downstream-bonding-group 10000 cable-downstream 10/4/5-14
+configure interface cable-mac 21 cable downstream-bonding-group 10001 cable-downstream 10/4/14-23
+configure interface cable-mac 21 cable downstream-bonding-group 16000 cable-downstream 10/4/0-15
+configure interface cable-mac 21 cable downstream-bonding-group 16001 cable-downstream 10/4/8-23
+configure interface cable-mac 21 cable downstream-bonding-group 16002 cable-downstream 10/4/15-30
+configure interface cable-mac 21 cable downstream-bonding-group 24000 cable-downstream 10/4/0-23
+configure interface cable-mac 21 cable downstream-bonding-group 24001 cable-downstream 10/4/1-24
+configure interface cable-mac 21 cable downstream-bonding-group 24002 cable-downstream 10/4/2-25
+configure interface cable-mac 21 cable downstream-bonding-group 24003 cable-downstream 10/4/3-26
+configure interface cable-mac 21 cable downstream-bonding-group 24004 cable-downstream 10/4/4-27
+configure interface cable-mac 21 cable downstream-bonding-group 24005 cable-downstream 10/4/5-28
+configure interface cable-mac 21 cable downstream-bonding-group 24006 cable-downstream 10/4/7-30
+configure interface cable-mac 21 cable downstream-bonding-group 24007 cable-downstream 10/4/0-11,14-25
+configure interface cable-mac 21 cable downstream-bonding-group 24008 cable-downstream 10/4/3-14,19-30
+configure interface cable-mac 21 cable downstream-bonding-group 31000 cable-downstream 10/4/0-30
+configure interface cable-mac 22 cable downstream-bonding-group 4000 cable-downstream 10/5/0-3
+configure interface cable-mac 22 cable downstream-bonding-group 4001 cable-downstream 10/5/8-11
+configure interface cable-mac 22 cable downstream-bonding-group 4002 cable-downstream 10/5/16-19
+configure interface cable-mac 22 cable downstream-bonding-group 4003 cable-downstream 10/5/26-29
+configure interface cable-mac 22 cable downstream-bonding-group 8000 cable-downstream 10/5/0-7
+configure interface cable-mac 22 cable downstream-bonding-group 8001 cable-downstream 10/5/4-11
+configure interface cable-mac 22 cable downstream-bonding-group 8002 cable-downstream 10/5/8-15
+configure interface cable-mac 22 cable downstream-bonding-group 8003 cable-downstream 10/5/12-19
+configure interface cable-mac 22 cable downstream-bonding-group 8004 cable-downstream 10/5/16-23
+configure interface cable-mac 22 cable downstream-bonding-group 8005 cable-downstream 10/5/22-29
+configure interface cable-mac 22 cable downstream-bonding-group 10000 cable-downstream 10/5/5-14
+configure interface cable-mac 22 cable downstream-bonding-group 10001 cable-downstream 10/5/14-23
+configure interface cable-mac 22 cable downstream-bonding-group 16000 cable-downstream 10/5/0-15
+configure interface cable-mac 22 cable downstream-bonding-group 16001 cable-downstream 10/5/8-23
+configure interface cable-mac 22 cable downstream-bonding-group 16002 cable-downstream 10/5/14-29
+configure interface cable-mac 22 cable downstream-bonding-group 24000 cable-downstream 10/5/0-23
+configure interface cable-mac 22 cable downstream-bonding-group 24001 cable-downstream 10/5/1-24
+configure interface cable-mac 22 cable downstream-bonding-group 24002 cable-downstream 10/5/2-25
+configure interface cable-mac 22 cable downstream-bonding-group 24003 cable-downstream 10/5/3-26
+configure interface cable-mac 22 cable downstream-bonding-group 24004 cable-downstream 10/5/4-27
+configure interface cable-mac 22 cable downstream-bonding-group 24005 cable-downstream 10/5/5-28
+configure interface cable-mac 22 cable downstream-bonding-group 24006 cable-downstream 10/5/6-29
+configure interface cable-mac 22 cable downstream-bonding-group 24007 cable-downstream 10/5/0-11,14-25
+configure interface cable-mac 22 cable downstream-bonding-group 24008 cable-downstream 10/5/4-15,18-29
+configure interface cable-mac 22 cable downstream-bonding-group 30000 cable-downstream 10/5/0-29
+configure interface cable-mac 23 cable downstream-bonding-group 4000 cable-downstream 10/6/0-3
+configure interface cable-mac 23 cable downstream-bonding-group 4001 cable-downstream 10/6/8-11
+configure interface cable-mac 23 cable downstream-bonding-group 4002 cable-downstream 10/6/16-19
+configure interface cable-mac 23 cable downstream-bonding-group 4003 cable-downstream 10/6/26-29
+configure interface cable-mac 23 cable downstream-bonding-group 8000 cable-downstream 10/6/0-7
+configure interface cable-mac 23 cable downstream-bonding-group 8001 cable-downstream 10/6/4-11
+configure interface cable-mac 23 cable downstream-bonding-group 8002 cable-downstream 10/6/8-15
+configure interface cable-mac 23 cable downstream-bonding-group 8003 cable-downstream 10/6/12-19
+configure interface cable-mac 23 cable downstream-bonding-group 8004 cable-downstream 10/6/16-23
+configure interface cable-mac 23 cable downstream-bonding-group 8005 cable-downstream 10/6/22-29
+configure interface cable-mac 23 cable downstream-bonding-group 10000 cable-downstream 10/6/5-14
+configure interface cable-mac 23 cable downstream-bonding-group 10001 cable-downstream 10/6/14-23
+configure interface cable-mac 23 cable downstream-bonding-group 16000 cable-downstream 10/6/0-15
+configure interface cable-mac 23 cable downstream-bonding-group 16001 cable-downstream 10/6/8-23
+configure interface cable-mac 23 cable downstream-bonding-group 16002 cable-downstream 10/6/14-29
+configure interface cable-mac 23 cable downstream-bonding-group 24000 cable-downstream 10/6/0-23
+configure interface cable-mac 23 cable downstream-bonding-group 24001 cable-downstream 10/6/1-24
+configure interface cable-mac 23 cable downstream-bonding-group 24002 cable-downstream 10/6/2-25
+configure interface cable-mac 23 cable downstream-bonding-group 24003 cable-downstream 10/6/3-26
+configure interface cable-mac 23 cable downstream-bonding-group 24004 cable-downstream 10/6/4-27
+configure interface cable-mac 23 cable downstream-bonding-group 24005 cable-downstream 10/6/5-28
+configure interface cable-mac 23 cable downstream-bonding-group 24006 cable-downstream 10/6/6-29
+configure interface cable-mac 23 cable downstream-bonding-group 24007 cable-downstream 10/6/0-11,14-25
+configure interface cable-mac 23 cable downstream-bonding-group 24008 cable-downstream 10/6/4-15,18-29
+configure interface cable-mac 23 cable downstream-bonding-group 30000 cable-downstream 10/6/0-29
+configure interface cable-mac 24 cable downstream-bonding-group 4000 cable-downstream 10/7/0-3
+configure interface cable-mac 24 cable downstream-bonding-group 4001 cable-downstream 10/7/8-11
+configure interface cable-mac 24 cable downstream-bonding-group 4002 cable-downstream 10/7/16-19
+configure interface cable-mac 24 cable downstream-bonding-group 4003 cable-downstream 10/7/26-29
+configure interface cable-mac 24 cable downstream-bonding-group 8000 cable-downstream 10/7/0-7
+configure interface cable-mac 24 cable downstream-bonding-group 8001 cable-downstream 10/7/4-11
+configure interface cable-mac 24 cable downstream-bonding-group 8002 cable-downstream 10/7/8-15
+configure interface cable-mac 24 cable downstream-bonding-group 8003 cable-downstream 10/7/12-19
+configure interface cable-mac 24 cable downstream-bonding-group 8004 cable-downstream 10/7/16-23
+configure interface cable-mac 24 cable downstream-bonding-group 8005 cable-downstream 10/7/24-31
+configure interface cable-mac 24 cable downstream-bonding-group 10000 cable-downstream 10/7/5-14
+configure interface cable-mac 24 cable downstream-bonding-group 10001 cable-downstream 10/7/14-23
+configure interface cable-mac 24 cable downstream-bonding-group 16000 cable-downstream 10/7/0-15
+configure interface cable-mac 24 cable downstream-bonding-group 16001 cable-downstream 10/7/8-23
+configure interface cable-mac 24 cable downstream-bonding-group 16002 cable-downstream 10/7/16-31
+configure interface cable-mac 24 cable downstream-bonding-group 24000 cable-downstream 10/7/0-23
+configure interface cable-mac 24 cable downstream-bonding-group 24001 cable-downstream 10/7/1-24
+configure interface cable-mac 24 cable downstream-bonding-group 24002 cable-downstream 10/7/2-25
+configure interface cable-mac 24 cable downstream-bonding-group 24003 cable-downstream 10/7/3-26
+configure interface cable-mac 24 cable downstream-bonding-group 24004 cable-downstream 10/7/4-27
+configure interface cable-mac 24 cable downstream-bonding-group 24005 cable-downstream 10/7/5-28
+configure interface cable-mac 24 cable downstream-bonding-group 24006 cable-downstream 10/7/8-31
+configure interface cable-mac 24 cable downstream-bonding-group 24007 cable-downstream 10/7/0-11,14-25
+configure interface cable-mac 24 cable downstream-bonding-group 24008 cable-downstream 10/7/4-15,20-31
+configure interface cable-mac 24 cable downstream-bonding-group 32000 cable-downstream 10/7/0-31
+configure interface cable-mac 25 cable downstream-bonding-group 4000 cable-downstream  9/0/0-3
+configure interface cable-mac 25 cable downstream-bonding-group 4001 cable-downstream  9/0/12-15
+configure interface cable-mac 25 cable downstream-bonding-group 4002 cable-downstream  9/0/28-31
+configure interface cable-mac 25 cable downstream-bonding-group 4003 cable-downstream  9/0/40-43
+configure interface cable-mac 25 cable downstream-bonding-group 8000 cable-downstream  9/0/0-7
+configure interface cable-mac 25 cable downstream-bonding-group 8001 cable-downstream  9/0/8-15
+configure interface cable-mac 25 cable downstream-bonding-group 8002 cable-downstream  9/0/16-23
+configure interface cable-mac 25 cable downstream-bonding-group 8003 cable-downstream  9/0/24-31
+configure interface cable-mac 25 cable downstream-bonding-group 8004 cable-downstream  9/0/37-44
+configure interface cable-mac 25 cable downstream-bonding-group 8005 cable-downstream  9/0/40-47
+configure interface cable-mac 25 cable downstream-bonding-group 10000 cable-downstream  9/0/5-14
+configure interface cable-mac 25 cable downstream-bonding-group 10001 cable-downstream  9/0/22-31
+configure interface cable-mac 25 cable downstream-bonding-group 16000 cable-downstream  9/0/0-15
+configure interface cable-mac 25 cable downstream-bonding-group 16001 cable-downstream  9/0/16-31
+configure interface cable-mac 25 cable downstream-bonding-group 16002 cable-downstream  9/0/27-31,37-47
+configure interface cable-mac 25 cable downstream-bonding-group 24000 cable-downstream  9/0/0-23
+configure interface cable-mac 25 cable downstream-bonding-group 24001 cable-downstream  9/0/4-27
+configure interface cable-mac 25 cable downstream-bonding-group 24002 cable-downstream  9/0/8-31
+configure interface cable-mac 25 cable downstream-bonding-group 24003 cable-downstream  9/0/12-31,37-40
+configure interface cable-mac 25 cable downstream-bonding-group 24004 cable-downstream  9/0/16-31,37-44
+configure interface cable-mac 25 cable downstream-bonding-group 24005 cable-downstream  9/0/19-31,37-47
+configure interface cable-mac 25 cable downstream-bonding-group 24006 cable-downstream  9/0/0-11,20-31
+configure interface cable-mac 25 cable downstream-bonding-group 24007 cable-downstream  9/0/12-23,31,37-47
+configure interface cable-mac 25 cable downstream-bonding-group 32000 cable-downstream  9/0/0-31
+configure interface cable-mac 25 cable downstream-bonding-group 32001 cable-downstream  9/0/11-31,37-47
+configure interface cable-mac 26 cable downstream-bonding-group 4000 cable-downstream  9/1/0-3
+configure interface cable-mac 26 cable downstream-bonding-group 4001 cable-downstream  9/1/12-15
+configure interface cable-mac 26 cable downstream-bonding-group 4002 cable-downstream  9/1/28-31
+configure interface cable-mac 26 cable downstream-bonding-group 4003 cable-downstream  9/1/40-43
+configure interface cable-mac 26 cable downstream-bonding-group 8000 cable-downstream  9/1/0-7
+configure interface cable-mac 26 cable downstream-bonding-group 8001 cable-downstream  9/1/8-15
+configure interface cable-mac 26 cable downstream-bonding-group 8002 cable-downstream  9/1/16-23
+configure interface cable-mac 26 cable downstream-bonding-group 8003 cable-downstream  9/1/24-31
+configure interface cable-mac 26 cable downstream-bonding-group 8004 cable-downstream  9/1/37-44
+configure interface cable-mac 26 cable downstream-bonding-group 8005 cable-downstream  9/1/40-47
+configure interface cable-mac 26 cable downstream-bonding-group 10000 cable-downstream  9/1/5-14
+configure interface cable-mac 26 cable downstream-bonding-group 10001 cable-downstream  9/1/22-31
+configure interface cable-mac 26 cable downstream-bonding-group 16000 cable-downstream  9/1/0-15
+configure interface cable-mac 26 cable downstream-bonding-group 16001 cable-downstream  9/1/16-31
+configure interface cable-mac 26 cable downstream-bonding-group 16002 cable-downstream  9/1/27-31,37-47
+configure interface cable-mac 26 cable downstream-bonding-group 24000 cable-downstream  9/1/0-23
+configure interface cable-mac 26 cable downstream-bonding-group 24001 cable-downstream  9/1/4-27
+configure interface cable-mac 26 cable downstream-bonding-group 24002 cable-downstream  9/1/8-31
+configure interface cable-mac 26 cable downstream-bonding-group 24003 cable-downstream  9/1/12-31,37-40
+configure interface cable-mac 26 cable downstream-bonding-group 24004 cable-downstream  9/1/16-31,37-44
+configure interface cable-mac 26 cable downstream-bonding-group 24005 cable-downstream  9/1/19-31,37-47
+configure interface cable-mac 26 cable downstream-bonding-group 24006 cable-downstream  9/1/0-11,20-31
+configure interface cable-mac 26 cable downstream-bonding-group 24007 cable-downstream  9/1/12-23,31,37-47
+configure interface cable-mac 26 cable downstream-bonding-group 32000 cable-downstream  9/1/0-31
+configure interface cable-mac 26 cable downstream-bonding-group 32001 cable-downstream  9/1/11-31,37-47
+configure interface cable-mac 27 cable downstream-bonding-group 4000 cable-downstream  9/2/0-3
+configure interface cable-mac 27 cable downstream-bonding-group 4001 cable-downstream  9/2/12-15
+configure interface cable-mac 27 cable downstream-bonding-group 4002 cable-downstream  9/2/28-31
+configure interface cable-mac 27 cable downstream-bonding-group 4003 cable-downstream  9/2/40-43
+configure interface cable-mac 27 cable downstream-bonding-group 8000 cable-downstream  9/2/0-7
+configure interface cable-mac 27 cable downstream-bonding-group 8001 cable-downstream  9/2/8-15
+configure interface cable-mac 27 cable downstream-bonding-group 8002 cable-downstream  9/2/16-23
+configure interface cable-mac 27 cable downstream-bonding-group 8003 cable-downstream  9/2/24-31
+configure interface cable-mac 27 cable downstream-bonding-group 8004 cable-downstream  9/2/37-44
+configure interface cable-mac 27 cable downstream-bonding-group 8005 cable-downstream  9/2/40-47
+configure interface cable-mac 27 cable downstream-bonding-group 10000 cable-downstream  9/2/5-14
+configure interface cable-mac 27 cable downstream-bonding-group 10001 cable-downstream  9/2/22-31
+configure interface cable-mac 27 cable downstream-bonding-group 16000 cable-downstream  9/2/0-15
+configure interface cable-mac 27 cable downstream-bonding-group 16001 cable-downstream  9/2/16-31
+configure interface cable-mac 27 cable downstream-bonding-group 16002 cable-downstream  9/2/27-31,37-47
+configure interface cable-mac 27 cable downstream-bonding-group 24000 cable-downstream  9/2/0-23
+configure interface cable-mac 27 cable downstream-bonding-group 24001 cable-downstream  9/2/4-27
+configure interface cable-mac 27 cable downstream-bonding-group 24002 cable-downstream  9/2/8-31
+configure interface cable-mac 27 cable downstream-bonding-group 24003 cable-downstream  9/2/12-31,37-40
+configure interface cable-mac 27 cable downstream-bonding-group 24004 cable-downstream  9/2/16-31,37-44
+configure interface cable-mac 27 cable downstream-bonding-group 24005 cable-downstream  9/2/19-31,37-47
+configure interface cable-mac 27 cable downstream-bonding-group 24006 cable-downstream  9/2/0-11,20-31
+configure interface cable-mac 27 cable downstream-bonding-group 24007 cable-downstream  9/2/12-23,31,37-47
+configure interface cable-mac 27 cable downstream-bonding-group 32000 cable-downstream  9/2/0-31
+configure interface cable-mac 27 cable downstream-bonding-group 32001 cable-downstream  9/2/11-31,37-47
+configure interface cable-mac 28 cable downstream-bonding-group 4000 cable-downstream  9/3/0-3
+configure interface cable-mac 28 cable downstream-bonding-group 4001 cable-downstream  9/3/12-15
+configure interface cable-mac 28 cable downstream-bonding-group 4002 cable-downstream  9/3/28-31
+configure interface cable-mac 28 cable downstream-bonding-group 4003 cable-downstream  9/3/40-43
+configure interface cable-mac 28 cable downstream-bonding-group 8000 cable-downstream  9/3/0-7
+configure interface cable-mac 28 cable downstream-bonding-group 8001 cable-downstream  9/3/8-15
+configure interface cable-mac 28 cable downstream-bonding-group 8002 cable-downstream  9/3/16-23
+configure interface cable-mac 28 cable downstream-bonding-group 8003 cable-downstream  9/3/24-31
+configure interface cable-mac 28 cable downstream-bonding-group 8004 cable-downstream  9/3/37-44
+configure interface cable-mac 28 cable downstream-bonding-group 8005 cable-downstream  9/3/40-47
+configure interface cable-mac 28 cable downstream-bonding-group 10000 cable-downstream  9/3/5-14
+configure interface cable-mac 28 cable downstream-bonding-group 10001 cable-downstream  9/3/22-31
+configure interface cable-mac 28 cable downstream-bonding-group 16000 cable-downstream  9/3/0-15
+configure interface cable-mac 28 cable downstream-bonding-group 16001 cable-downstream  9/3/16-31
+configure interface cable-mac 28 cable downstream-bonding-group 16002 cable-downstream  9/3/27-31,37-47
+configure interface cable-mac 28 cable downstream-bonding-group 24000 cable-downstream  9/3/0-23
+configure interface cable-mac 28 cable downstream-bonding-group 24001 cable-downstream  9/3/4-27
+configure interface cable-mac 28 cable downstream-bonding-group 24002 cable-downstream  9/3/8-31
+configure interface cable-mac 28 cable downstream-bonding-group 24003 cable-downstream  9/3/12-31,37-40
+configure interface cable-mac 28 cable downstream-bonding-group 24004 cable-downstream  9/3/16-31,37-44
+configure interface cable-mac 28 cable downstream-bonding-group 24005 cable-downstream  9/3/19-31,37-47
+configure interface cable-mac 28 cable downstream-bonding-group 24006 cable-downstream  9/3/0-11,20-31
+configure interface cable-mac 28 cable downstream-bonding-group 24007 cable-downstream  9/3/12-23,31,37-47
+configure interface cable-mac 28 cable downstream-bonding-group 32000 cable-downstream  9/3/0-31
+configure interface cable-mac 28 cable downstream-bonding-group 32001 cable-downstream  9/3/11-31,37-47
+configure interface cable-mac 30 cable downstream-bonding-group 4000 cable-downstream  9/5/0-3
+configure interface cable-mac 30 cable downstream-bonding-group 4001 cable-downstream  9/5/8-11
+configure interface cable-mac 30 cable downstream-bonding-group 4002 cable-downstream  9/5/16-19
+configure interface cable-mac 30 cable downstream-bonding-group 4003 cable-downstream  9/5/26-29
+configure interface cable-mac 30 cable downstream-bonding-group 8000 cable-downstream  9/5/0-7
+configure interface cable-mac 30 cable downstream-bonding-group 8001 cable-downstream  9/5/4-11
+configure interface cable-mac 30 cable downstream-bonding-group 8002 cable-downstream  9/5/8-15
+configure interface cable-mac 30 cable downstream-bonding-group 8003 cable-downstream  9/5/12-19
+configure interface cable-mac 30 cable downstream-bonding-group 8004 cable-downstream  9/5/16-23
+configure interface cable-mac 30 cable downstream-bonding-group 8005 cable-downstream  9/5/22-29
+configure interface cable-mac 30 cable downstream-bonding-group 10000 cable-downstream  9/5/5-14
+configure interface cable-mac 30 cable downstream-bonding-group 10001 cable-downstream  9/5/14-23
+configure interface cable-mac 30 cable downstream-bonding-group 16000 cable-downstream  9/5/0-15
+configure interface cable-mac 30 cable downstream-bonding-group 16001 cable-downstream  9/5/8-23
+configure interface cable-mac 30 cable downstream-bonding-group 16002 cable-downstream  9/5/15-30
+configure interface cable-mac 30 cable downstream-bonding-group 24000 cable-downstream  9/5/0-23
+configure interface cable-mac 30 cable downstream-bonding-group 24001 cable-downstream  9/5/1-24
+configure interface cable-mac 30 cable downstream-bonding-group 24002 cable-downstream  9/5/2-25
+configure interface cable-mac 30 cable downstream-bonding-group 24003 cable-downstream  9/5/3-26
+configure interface cable-mac 30 cable downstream-bonding-group 24004 cable-downstream  9/5/4-27
+configure interface cable-mac 30 cable downstream-bonding-group 24005 cable-downstream  9/5/5-28
+configure interface cable-mac 30 cable downstream-bonding-group 24006 cable-downstream  9/5/7-30
+configure interface cable-mac 30 cable downstream-bonding-group 24007 cable-downstream  9/5/0-11,14-25
+configure interface cable-mac 30 cable downstream-bonding-group 24008 cable-downstream  9/5/3-14,19-30
+configure interface cable-mac 30 cable downstream-bonding-group 31000 cable-downstream  9/5/0-30
+configure interface cable-mac 31 cable downstream-bonding-group 4000 cable-downstream  9/6/0-3
+configure interface cable-mac 31 cable downstream-bonding-group 4001 cable-downstream  9/6/8-11
+configure interface cable-mac 31 cable downstream-bonding-group 4002 cable-downstream  9/6/16-19
+configure interface cable-mac 31 cable downstream-bonding-group 4003 cable-downstream  9/6/26-29
+configure interface cable-mac 31 cable downstream-bonding-group 8000 cable-downstream  9/6/0-7
+configure interface cable-mac 31 cable downstream-bonding-group 8001 cable-downstream  9/6/4-11
+configure interface cable-mac 31 cable downstream-bonding-group 8002 cable-downstream  9/6/8-15
+configure interface cable-mac 31 cable downstream-bonding-group 8003 cable-downstream  9/6/12-19
+configure interface cable-mac 31 cable downstream-bonding-group 8004 cable-downstream  9/6/16-23
+configure interface cable-mac 31 cable downstream-bonding-group 8005 cable-downstream  9/6/22-29
+configure interface cable-mac 31 cable downstream-bonding-group 10000 cable-downstream  9/6/5-14
+configure interface cable-mac 31 cable downstream-bonding-group 10001 cable-downstream  9/6/14-23
+configure interface cable-mac 31 cable downstream-bonding-group 16000 cable-downstream  9/6/0-15
+configure interface cable-mac 31 cable downstream-bonding-group 16001 cable-downstream  9/6/8-23
+configure interface cable-mac 31 cable downstream-bonding-group 16002 cable-downstream  9/6/15-30
+configure interface cable-mac 31 cable downstream-bonding-group 24000 cable-downstream  9/6/0-23
+configure interface cable-mac 31 cable downstream-bonding-group 24001 cable-downstream  9/6/1-24
+configure interface cable-mac 31 cable downstream-bonding-group 24002 cable-downstream  9/6/2-25
+configure interface cable-mac 31 cable downstream-bonding-group 24003 cable-downstream  9/6/3-26
+configure interface cable-mac 31 cable downstream-bonding-group 24004 cable-downstream  9/6/4-27
+configure interface cable-mac 31 cable downstream-bonding-group 24005 cable-downstream  9/6/5-28
+configure interface cable-mac 31 cable downstream-bonding-group 24006 cable-downstream  9/6/7-30
+configure interface cable-mac 31 cable downstream-bonding-group 24007 cable-downstream  9/6/0-11,14-25
+configure interface cable-mac 31 cable downstream-bonding-group 24008 cable-downstream  9/6/3-14,19-30
+configure interface cable-mac 31 cable downstream-bonding-group 31000 cable-downstream  9/6/0-30
+configure interface cable-mac 32 cable downstream-bonding-group 4000 cable-downstream  9/7/0-3
+configure interface cable-mac 32 cable downstream-bonding-group 4001 cable-downstream  9/7/8-11
+configure interface cable-mac 32 cable downstream-bonding-group 4002 cable-downstream  9/7/16-19
+configure interface cable-mac 32 cable downstream-bonding-group 4003 cable-downstream  9/7/26-29
+configure interface cable-mac 32 cable downstream-bonding-group 8000 cable-downstream  9/7/0-7
+configure interface cable-mac 32 cable downstream-bonding-group 8001 cable-downstream  9/7/4-11
+configure interface cable-mac 32 cable downstream-bonding-group 8002 cable-downstream  9/7/8-15
+configure interface cable-mac 32 cable downstream-bonding-group 8003 cable-downstream  9/7/12-19
+configure interface cable-mac 32 cable downstream-bonding-group 8004 cable-downstream  9/7/16-23
+configure interface cable-mac 32 cable downstream-bonding-group 8005 cable-downstream  9/7/22-29
+configure interface cable-mac 32 cable downstream-bonding-group 10000 cable-downstream  9/7/5-14
+configure interface cable-mac 32 cable downstream-bonding-group 10001 cable-downstream  9/7/14-23
+configure interface cable-mac 32 cable downstream-bonding-group 16000 cable-downstream  9/7/0-15
+configure interface cable-mac 32 cable downstream-bonding-group 16001 cable-downstream  9/7/8-23
+configure interface cable-mac 32 cable downstream-bonding-group 16002 cable-downstream  9/7/15-30
+configure interface cable-mac 32 cable downstream-bonding-group 24000 cable-downstream  9/7/0-23
+configure interface cable-mac 32 cable downstream-bonding-group 24001 cable-downstream  9/7/1-24
+configure interface cable-mac 32 cable downstream-bonding-group 24002 cable-downstream  9/7/2-25
+configure interface cable-mac 32 cable downstream-bonding-group 24003 cable-downstream  9/7/3-26
+configure interface cable-mac 32 cable downstream-bonding-group 24004 cable-downstream  9/7/4-27
+configure interface cable-mac 32 cable downstream-bonding-group 24005 cable-downstream  9/7/5-28
+configure interface cable-mac 32 cable downstream-bonding-group 24006 cable-downstream  9/7/7-30
+configure interface cable-mac 32 cable downstream-bonding-group 24007 cable-downstream  9/7/0-11,14-25
+configure interface cable-mac 32 cable downstream-bonding-group 24008 cable-downstream  9/7/3-14,19-30
+configure interface cable-mac 32 cable downstream-bonding-group 31000 cable-downstream  9/7/0-30
+configure privilege exec level 3 configure interface cable-mac
+configure privilege exec level 3 configure interface cable-mac ip
+configure privilege exec level 3 configure interface cable-mac cable
+configure privilege exec level 3 configure interface cable-mac ip vrf
+configure privilege exec level 3 configure interface cable-mac ip address
+configure privilege exec level 3 configure interface cable-mac cable dhcp-giaddr
+configure privilege exec level 3 configure interface cable-mac cable source-verify
+configure privilege exec level 3 configure interface cable-mac cable helper-address
+configure privilege exec level 3 configure interface cable-mac cable source-verify dhcp
+configure privilege exec level 3 configure interface cable-mac cable dhcp-giaddr primary
+configure interface cable-mac 1 no shutdown
+configure interface cable-mac 2 no shutdown
+configure interface cable-mac 3 no shutdown
+configure interface cable-mac 4 no shutdown
+configure interface cable-mac 5 no shutdown
+configure interface cable-mac 6 no shutdown
+configure interface cable-mac 7 no shutdown
+configure interface cable-mac 8 no shutdown
+configure interface cable-mac 9 no shutdown
+configure interface cable-mac 10 no shutdown
+configure interface cable-mac 11 no shutdown
+configure interface cable-mac 12 no shutdown
+configure interface cable-mac 13 no shutdown
+configure interface cable-mac 14 no shutdown
+configure interface cable-mac 15 no shutdown
+configure interface cable-mac 16 no shutdown
+configure interface cable-mac 17 no shutdown
+configure interface cable-mac 18 no shutdown
+configure interface cable-mac 19 no shutdown
+configure interface cable-mac 20 no shutdown
+configure interface cable-mac 21 no shutdown
+configure interface cable-mac 22 no shutdown
+configure interface cable-mac 23 no shutdown
+configure interface cable-mac 24 no shutdown
+configure interface cable-mac 25 no shutdown
+configure interface cable-mac 26 no shutdown
+configure interface cable-mac 27 no shutdown
+configure interface cable-mac 28 no shutdown
+configure interface cable-mac 29 shutdown
+configure interface cable-mac 30 no shutdown
+configure interface cable-mac 31 no shutdown
+configure interface cable-mac 32 no shutdown
+configure interface cable-mac 33 shutdown
+configure interface cable-mac 34 shutdown
+configure interface cable-mac 35 shutdown
+configure interface cable-mac 36 shutdown
+configure interface cable-mac 37 shutdown
+configure interface cable-mac 38 shutdown
+configure interface cable-mac 39 shutdown
+configure interface cable-mac 40 shutdown

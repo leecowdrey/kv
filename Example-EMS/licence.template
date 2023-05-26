@@ -1,0 +1,10 @@
+#Licenses for RMD-2
+configure license type downstream-service-group key {{/${TENANT_ID}/${REGION_ID}/${ZONE_ID}/${UUID}/config/license/downstream-service-group/key}} count {{/${TENANT_ID}/${REGION_ID}/${ZONE_ID}/${UUID}/config/license/downstream-service-group/count}}
+configure license type upstream-service-group key {{/${TENANT_ID}/${REGION_ID}/${ZONE_ID}/${UUID}/config/license/upstream-service-group/key}} count {{/${TENANT_ID}/${REGION_ID}/${ZONE_ID}/${UUID}/config/license/upstream-service-group/count}}
+configure license type mac-docsis-ds-30-B key {{/${TENANT_ID}/${REGION_ID}/${ZONE_ID}/${UUID}/config/license/mac-docsis-ds-30-B/key}} count {{/${TENANT_ID}/${REGION_ID}/${ZONE_ID}/${UUID}/config/license/mac-docsis-ds-30-B/count}}
+configure license type mac-docsis-us-30 key {{/${TENANT_ID}/${REGION_ID}/${ZONE_ID}/${UUID}/config/license/mac-docsis-us-30/key}} count {{/${TENANT_ID}/${REGION_ID}/${ZONE_ID}/${UUID}/config/license/mac-docsis-us-30/count}}
+configure license type mac-docsis-ds-ofdm key {{/${TENANT_ID}/${REGION_ID}/${ZONE_ID}/${UUID}/config/license/mac-docsis-ds-ofdm/key}} count {{/${TENANT_ID}/${REGION_ID}/${ZONE_ID}/${UUID}/config/license/mac-docsis-ds-ofdm/count}}
+configure license type mac-docsis-us-ofdma key {{/${TENANT_ID}/${REGION_ID}/${ZONE_ID}/${UUID}/config/license/mac-docsis-us-ofdma/key}} count {{/${TENANT_ID}/${REGION_ID}/${ZONE_ID}/${UUID}/config/license/mac-docsis-us-ofdma/count}}
+configure license type system-legal-intercept key {{/${TENANT_ID}/${REGION_ID}/${ZONE_ID}/${UUID}/config/license/system-legal-intercept/key}} count {{/${TENANT_ID}/${REGION_ID}/${ZONE_ID}/${UUID}/config/license/system-legal-intercept/count}}
+configure license type system-laes key {{/${TENANT_ID}/${REGION_ID}/${ZONE_ID}/${UUID}/config/license/system-laes/key}} count {{/${TENANT_ID}/${REGION_ID}/${ZONE_ID}/${UUID}/config/license/system-laes/count}}
+configure license type system-calea key {{/${TENANT_ID}/${REGION_ID}/${ZONE_ID}/${UUID}/config/license/system-calea/key}} count {{/${TENANT_ID}/${REGION_ID}/${ZONE_ID}/${UUID}/config/license/system-calea/count}}

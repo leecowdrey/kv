@@ -1,0 +1,13 @@
+configure license type downstream-service-group key FDA208349C6E914A0001 count 2
+configure license type upstream-service-group key 98F38653FA458D6E0001 count 2
+configure license type mac-docsis-ds-30-B key BD93A1C0F731470F0001 count 10000
+configure license type mac-docsis-us-30 key EC64CA1C45E7578F0001 count 10000
+configure license type mac-docsis-ds-ofdm key 7001FCD7BE6A73EA0001 count 500000
+configure license type mac-docsis-us-ofdma key EFF88C91CA7CFF780001 count 500000
+configure license type system-legal-intercept key C2E893268786398C0001 count 1
+configure license type system-laes key ECA9202724D9CD1B0001 count 1
+configure license type system-calea key 9531465A6D450AF90001 count 1
+configure license type video-ncast-B key 518C5B46E98A57DE0001 count 160
+configure license type video-ncast-B spare-count 33
+configure license type docsis-upstream-30 key 2A4E2DD93EAE0D840001 count 620
+configure license type docsis-upstream-30 spare-count 163

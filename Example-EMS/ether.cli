@@ -1,0 +1,129 @@
+interface ethernet 6/0.0 ip address 192.168.224.77 255.255.255.252
+interface ethernet 6/0.0 ip vrf forwarding cm-mta
+interface ethernet 6/0.0 no shutdown
+interface ethernet 6/0.0 ip ospf network point-to-point
+interface ethernet 6/0.0 ip ospf cost 4
+interface ethernet 6/0 ip inband access-group 1
+interface ethernet 6/0 description "Telefonia"
+interface ethernet 6/0 ip access-group 110 in
+interface ethernet 6/0 ip access-group 110 out
+interface ethernet 6/0 flowcontrol send on
+interface ethernet 6/0 flowcontrol receive on
+interface ethernet 6/0 no shutdown
+interface ethernet 6/1.0 ip address 10.68.38.37 255.255.255.252
+interface ethernet 6/1.0 ip vrf forwarding dsg
+interface ethernet 6/1.0 no shutdown
+interface ethernet 6/1.0 ip igmp
+interface ethernet 6/1.0 ip igmp version 3
+interface ethernet 6/1.0 ip ospf dead-interval 4
+interface ethernet 6/1.0 ip ospf hello-interval 2
+interface ethernet 6/1.0 ip ospf network point-to-point
+interface ethernet 6/1.0 ip ospf cost 10
+interface ethernet 6/1.0 ip pim sparse-mode
+interface ethernet 6/1 description "DSG"
+interface ethernet 6/1 ip access-group 110 in
+interface ethernet 6/1 ip access-group 110 out
+interface ethernet 6/1 flowcontrol send on
+interface ethernet 6/1 flowcontrol receive on
+interface ethernet 6/1 no shutdown
+interface ethernet 6/2 flowcontrol send on
+interface ethernet 6/2 flowcontrol receive on
+interface ethernet 6/2 no shutdown
+interface ethernet 6/3.0 ip address 10.68.237.18 255.255.255.252
+interface ethernet 6/3.0 ip vrf forwarding vod
+interface ethernet 6/3.0 no shutdown
+interface ethernet 6/3.0 ip ospf dead-interval 4
+interface ethernet 6/3.0 ip ospf hello-interval 2
+interface ethernet 6/3.0 ip ospf network point-to-point
+interface ethernet 6/3.0 ip ospf cost 20
+interface ethernet 6/3 description "vod"
+interface ethernet 6/3 flowcontrol send on
+interface ethernet 6/3 flowcontrol receive on
+interface ethernet 6/3 no shutdown
+interface ethernet 6/4 flowcontrol send on
+interface ethernet 6/4 flowcontrol receive on
+interface ethernet 6/4 shutdown
+interface ethernet 6/5 description "Internet"
+interface ethernet 6/5 link-aggregate 1
+interface ethernet 6/5 no shutdown
+interface ethernet 6/6 description "Internet"
+interface ethernet 6/6 link-aggregate 1
+interface ethernet 6/6 no shutdown
+interface ethernet 6/7 description "Internet"
+interface ethernet 6/7 link-aggregate 1
+interface ethernet 6/7 no shutdown
+interface ethernet 7/0.0 ip address 192.168.224.81 255.255.255.252
+interface ethernet 7/0.0 ip vrf forwarding cm-mta
+interface ethernet 7/0.0 no shutdown
+interface ethernet 7/0.0 ip ospf network point-to-point
+interface ethernet 7/0.0 ip ospf cost 4
+interface ethernet 7/0 ip inband access-group 1
+interface ethernet 7/0 description "Telefonia"
+interface ethernet 7/0 ip access-group 110 in
+interface ethernet 7/0 ip access-group 110 out
+interface ethernet 7/0 flowcontrol send on
+interface ethernet 7/0 flowcontrol receive on
+interface ethernet 7/0 no shutdown
+interface ethernet 7/1.0 ip address 10.68.38.41 255.255.255.252
+interface ethernet 7/1.0 ip vrf forwarding dsg
+interface ethernet 7/1.0 no shutdown
+interface ethernet 7/1.0 ip igmp
+interface ethernet 7/1.0 ip igmp version 3
+interface ethernet 7/1.0 ip ospf dead-interval 4
+interface ethernet 7/1.0 ip ospf hello-interval 2
+interface ethernet 7/1.0 ip ospf network point-to-point
+interface ethernet 7/1.0 ip ospf cost 20
+interface ethernet 7/1.0 ip pim sparse-mode
+interface ethernet 7/1 description "DSG"
+interface ethernet 7/1 ip access-group 110 in
+interface ethernet 7/1 ip access-group 110 out
+interface ethernet 7/1 flowcontrol send on
+interface ethernet 7/1 flowcontrol receive on
+interface ethernet 7/1 no shutdown
+interface ethernet 7/2 flowcontrol send on
+interface ethernet 7/2 flowcontrol receive on
+interface ethernet 7/2 no shutdown
+interface ethernet 7/3.0 ip address 10.68.237.22 255.255.255.252
+interface ethernet 7/3.0 ip vrf forwarding vod
+interface ethernet 7/3.0 no shutdown
+interface ethernet 7/3.0 ip ospf dead-interval 4
+interface ethernet 7/3.0 ip ospf hello-interval 2
+interface ethernet 7/3.0 ip ospf network point-to-point
+interface ethernet 7/3.0 ip ospf cost 20
+interface ethernet 7/3 description "vod"
+interface ethernet 7/3 flowcontrol send on
+interface ethernet 7/3 flowcontrol receive on
+interface ethernet 7/3 no shutdown
+interface ethernet 7/4 flowcontrol send on
+interface ethernet 7/4 flowcontrol receive on
+interface ethernet 7/4 no shutdown
+interface ethernet 7/5 description "Internet"
+interface ethernet 7/5 link-aggregate 2
+interface ethernet 7/5 no shutdown
+interface ethernet 7/6 description "Internet"
+interface ethernet 7/6 link-aggregate 2
+interface ethernet 7/6 no shutdown
+interface ethernet 7/7 description "Internet"
+interface ethernet 7/7 link-aggregate 2
+interface ethernet 7/7 no shutdown
+interface ethernet ns/0 description "- DHCP - Smartbits - RTE -"
+interface ethernet ns/0 no shutdown
+interface ethernet ns/0.0 ip address 10.52.0.2 255.255.255.0
+interface ethernet ns/0.0 ipv6 enable
+interface ethernet ns/0.0 ipv6 address fe80::201:5cff:fed0:13e1/64 link-local
+interface ethernet ns/0 no shutdown
+interface ethernet ns/0.0 ipv6 address fc00:cada:c402:600::2/64 
+interface ethernet ns/0.0 ipv6 nd ra suppress
+interface ethernet ns/0.0 encapsulation dot1q 10
+interface ethernet ns/0.0 shutdown no
+interface ethernet ns/1 description "- IXIA -"
+interface ethernet ns/1 no shutdown
+interface ethernet ns/1.0 ip address 10.52.128.2 255.255.255.0
+interface ethernet ns/1.0 ip address 10.253.2.130 255.255.255.128 secondary
+interface ethernet ns/1.0 ipv6 enable
+interface ethernet ns/1.0 ipv6 address fe80::201:5cff:fed0:13e2/64 link-local
+interface ethernet ns/1 no shutdown
+interface ethernet ns/1.0 ipv6 address fc00:cada:c402:700::2/64 
+interface ethernet ns/1.0 ipv6 nd ra suppress
+interface ethernet ns/1.0 encapsulation dot1q 10
+interface ethernet ns/1.0 shutdown no

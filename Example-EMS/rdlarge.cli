@@ -1,0 +1,565 @@
+#######################################
+# From E6000 running 9.0.0.55
+# Do an erase nvram then reload
+# then 'show running config full verbose'
+#########################################
+# ChassisType=<E6000> shelfName=<Arris CER CMTS> shelfSwVersion=<rsmith4_DTP_R9.55> timeGenerated=<Thu Oct  3 18:55:34 2019> ActiveRSM=<6>
+configure no banner motd
+configure no banner login
+configure banner mode historic
+configure shelfname "CommScope RMD" #new name for RMD
+configure no hostname
+configure snmp-server contact "tac.helpdesk@commscope.com" #updated email address
+configure snmp-server enable traps snmp
+configure snmp-server data snmp-agent max-read-ahead 0
+configure snmp-server data snmp-agent refresh-time 0
+configure autorecovery on
+configure operation mode dqossf10cms
+configure operation mode adjrxpwrctl
+configure operation mode USIngressNoiseMitigation no
+configure operation mode enbudptcpfltr
+configure operation mode DSPeakTrafficRateTLV2516 no
+configure operation mode cpeNacksForceCmReset
+configure operation mode LBalDynUnbondUcast
+configure operation mode upDownTrapIfDescr no
+configure operation mode upstreamRngRspFreqLimit no
+configure operation mode mplsLdpPwMtu1504 no
+configure operation mode cmstatusoperational
+configure operation mode docsis20test no
+configure operation mode showCmFormatCV no
+configure operation mode USAmbiguityListReduction no
+configure operation mode downstreamOverride no
+configure operation mode suppress-dcd no
+configure operation mode dcamSparingScqamOfdmSync no
+configure operation mode allowZeroCmTxPwr no
+configure operation mode docsis10plus no
+configure operation mode virtualCm no
+configure operation mode bpiHybrid no
+configure operation mode ofdmSparingCleanup no
+configure operation mode ciscoBaccTlv no
+configure counts collection rate 120
+configure no cable shared-secret
+configure no cable shared-secondary-secret
+configure cable flap-list power-adjust threshold 30
+configure cable flap-list insertion-time 180
+configure cable host authorization off
+configure cable modem energy-mgmt battery-mode1x1 no
+configure cable privacy aes-128 no
+configure cable global cm-cfg-reg-req-time 30
+configure cable global high-scale-low-processing no
+configure cable global cm-init-dsx-bonding no
+configure cable global cm-status-ack no
+configure cable global max-qos-active-timeout 30
+configure cable global max-qos-admitted-timeout 200
+configure cable global concatenation-docsis10 no
+configure cable global fragmentation-docsis10
+configure cable global max-traf-burst-docsis11 128000
+configure cable global peak-tr-rate-upstream no
+configure cable global percentAddtlDSBandwidth 1
+configure cable global delayed-cpe-learning-bpi
+configure cable global mtcm-conditional-override no
+configure cable global max-ucd-burst-len 16128
+configure cable global LO1-leak-detect no
+configure cable global allow-cmsg-ambig-override no
+configure cable global modify-primary-DS-RCC no
+configure cable global Tcc-Refid-in-first-only no
+configure cable global unicast-np-us-acquisition no
+configure cable global mac-move-allowed-on-dhcp no
+configure cable global default-max-l2pdu-length no
+configure cable global load-interval 0
+configure cable global unicast-polling pri 0 slow-intvl 0 fast-intvl 0 fast-period 0
+configure cable global unicast-polling pri 1 slow-intvl 0 fast-intvl 0 fast-period 0
+configure cable global unicast-polling pri 2 slow-intvl 0 fast-intvl 0 fast-period 0
+configure cable global unicast-polling pri 3 slow-intvl 0 fast-intvl 0 fast-period 0
+configure cable global unicast-polling pri 4 slow-intvl 125 fast-intvl 25 fast-period 500
+configure cable global unicast-polling pri 5 slow-intvl 100 fast-intvl 20 fast-period 500
+configure cable global unicast-polling pri 6 slow-intvl 75 fast-intvl 15 fast-period 500
+configure cable global unicast-polling pri 7 slow-intvl 50 fast-intvl 10 fast-period 500
+configure cable global freq-us-max 204 #changed from E6000 9.0 default of 42
+configure cable global RtpsPiggybackEnable no
+configure cable global ranging-timing-offset 0
+configure cable global recover-US-impaired-ack no
+configure cable global dsa-rsp-sid-tlv-override no
+configure cable global extra-us-snr no
+configure ofdm global iuc-short-term-threshold 4
+configure ofdm global iuc13-impair-enable
+configure cable global freq-ds-max 867
+configure cable global freq-ds-min 111
+configure cable global ds-tos-overwrite before-submgmt-filter
+configure cable global dcam-agc
+configure cable global ds-random-detect 2000 2500 10000
+configure cable global ds-token-bucket no
+configure cable global additional-ds-sc-qams no
+configure cable global us-dmac-check-disable no
+configure lldp disable
+configure cable proxy-tftp
+configure operation overload-control sensitivity 2
+configure operation overload-control threshold 2
+configure operation dul-packet-interval 10
+configure cable load-balance macdomain-check 300
+configure cable load-balance downstream-start-threshold 1
+configure cable load-balance upstream-start-threshold 1
+configure cable load-balance utilization-modems-to-check 10
+configure cable load-balance failed-list timeout 0
+configure cable load-balance failed-list exclude-count 1
+configure cable load-balance general-group-defaults init-technique disable
+configure cable load-balance general-group-defaults policy no
+configure cable load-balance general-group-defaults enable
+configure cable load-balance rcs-load-balance enable
+configure cable load-balance tcs-load-balance disable
+configure cable load-balance rcs-move-ds-primary enable
+configure cable load-balance tcs-move-us-primary disable
+configure cable load-balance dbc-move-us-primary disable
+configure cable load-balance dbc-move-ds-primary disable
+configure cable load-balance enable
+configure aging idle-mac 1800
+configure aging stale-mac 604800
+configure arp timeout 1200
+configure arp state searching rate-limit 333
+configure arp state searching max-number 3
+configure arp state not-present rate-limit 333
+configure arp state not-present max-number 3
+configure arp state not-present max-time 3
+configure arp state not-present min-time 1
+configure arp state searching global-max-rate 65535
+configure arp state not-present global-max-rate 65535
+configure arp state searching cable unicast 0
+configure arp state searching cable broadcast
+#configure telnet-server #not supported on RMD
+#configure ftp-server #not supported on RMD
+configure snmp-server
+configure ip domain-lookup
+configure cos-mapping up-max-traffic-burst 3044 class-id 1
+configure cos-mapping down-max-traffic-burst 96000 class-id 1
+configure cos-mapping down-min-reserved-rate 0 class-id 1
+configure cos-mapping up-min-reserved-packet 0 class-id 1
+configure cos-mapping down-min-reserved-packet 0 class-id 1
+configure cos-mapping up-tos-and-mask FF class-id 1
+configure cos-mapping up-tos-or-mask  0 class-id 1
+configure cos-mapping down-max-latency 0 class-id 1
+configure cos-mapping down-priority match-upstream class-id 1
+configure cos-mapping down-peak-traffic-rate 0 class-id 1
+configure cos-mapping up-peak-traffic-rate 0 class-id 1
+#plus all default cos-mappings in R9.0; these are unchanged for RMD
+configure logging throttle threshold 0
+configure logging throttle interval 1
+configure no logging throttle
+configure no logging trap init-reg-req-fail
+#plus all default 'configure no logging trap <x>' settings from R9.0; these are unchanged for RMD
+configure logging local-volatile 1
+configure logging local-non-volatile 1 no
+configure logging snmp 1
+configure logging syslog 1
+#plus all default 'configure logging <> 2 through 8' settings from R9.0; these are unchanged for RMD
+configure no logging local-non-volatile
+configure no logging console
+configure logging priority cli 0 7
+#plus all default 'configure logging priority cli" settings from R9.0; these are unchanged for RMD
+configure no logging override event 66030102
+#plus all 'configure no logging override' settings from R9.0
+configure logging proprietary
+configure logging enhanced-syslog-msg no
+configure logging history size 2000
+configure logging local-volatile size 10
+configure cable enable-trap cmonoff-notification no
+configure cable enable-trap cminit-ranging-notification no
+configure cable enable-trap cminit-ip-notification no
+configure cable enable-trap cminit-reg-notification no
+configure cable enable-trap cmflap-notification no
+configure no enable privilege 1
+#plus 'configure no enable privilege 2-15' from R9.0
+configure cable submgmt default filter-group cm downstream no
+configure cable submgmt default filter-group cm upstream no
+configure cable submgmt default filter-group host downstream no
+configure cable submgmt default filter-group host upstream no
+configure ip fqdn-cache enable no
+configure ip fqdn-cache poll-interval 1800
+configure cable admission-control multicast enable no
+configure cable admission-control multicast allowed 20
+configure cable modem vendor 00.01.02 "3Com"
+#plus 'configure cable modem vendor' defaults from R9.0
+configure cable submgmt default max-cpe 16
+configure cable submgmt default v6-max-cpe 16
+configure cable submgmt default active no
+configure cable submgmt default learnable
+configure qos-sc name DS-IGMP-QUERY priority 4 max-tr-rate 0 max-tr-burst 3044 min-res-rate 0
+configure qos-sc name DS-IGMP-QUERY min-res-pkt 0 max-burst 1522 poll-int 0 poll-jitter 0 grant-size 0
+configure qos-sc name DS-IGMP-QUERY grant-int 0 grant-jitter 0 grants-per-int 0 active-tmout 0
+configure qos-sc name DS-IGMP-QUERY adm-tmout 200 type 2 req-policy 0x00000000 and-mask 0xff
+configure qos-sc name DS-IGMP-QUERY or-mask 0x00 dir 1 required-attr-mask-value 0x00000000
+configure qos-sc name DS-IGMP-QUERY forbidden-attr-mask-value 0x80000000 attr-aggr-rule-mask-value 0x00000000
+configure qos-sc name DS-IGMP-QUERY peak-tr-rate 0
+configure ip unreachables
+configure ipv6 icmp unreachables
+configure ipv6 icmp too-big
+configure ipv6 icmp param-problem
+configure ipv6 icmp time-exceeded no
+configure interface null 0 ipv6 icmp unreachables no
+configure vrf default auto-import enable
+configure vrf default bgp preferred-path next-hop-address low
+configure vrf default icmp-time-exceeded no
+configure ip multicast default-group-service-class C4DefGrpSCN
+#configure ip-video attribute-encoding 0x0000 #not needed for RMD
+#configure ip-video monitoring vod-setup-threshold 5000 #not needed for RMD
+#configure ip-video monitoring linear-setup-threshold 1000 #not needed for RMD
+#configure ip-video dbc-delay-timer 100 #not needed for RMD
+configure packetcable voice-limits emergency-preemption
+configure packetcable voice-limits allowed-total 70 allowed-normal 50 allowed-emergency 70 reserved-normal 0 reserved-emergency 0 upstream
+configure packetcable voice-limits allowed-total 70 allowed-normal 50 allowed-emergency 70 reserved-normal 0 reserved-emergency 0 downstream
+configure no cable modem remote-query
+configure ip multicast cable-mac-fwd-all-ds no
+configure slot 6 type srsm name "SRSM" #new slot name for RMD
+#configure fan offset 0 #not needed for RMD
+#configure fan monitor 0 no shutdown #not needed for RMD
+#configure fan monitor 1 no shutdown #not needed for RMD
+#configure fan monitor 2 no shutdown #not needed for RMD
+#configure power-monitor A no shutdown #not needed for RMD
+#configure power-monitor B no shutdown #not needed for RMD
+#configure power-monitor chassis-warning-threshold no #not needed for RMD
+#configure disk critical-threshold 90 #not needed for RMD
+#configure disk major-threshold 80 #not needed for RMD
+#configure disk minor-threshold 70 #not needed for RMD
+#configure disk auto-delete-file no #not needed for RMD
+configure ip proto-throttle-rate 2500
+configure ip proto-throttle-rate 700 arp
+#configure ip proto-throttle-rate 500 bgp
+configure ip proto-throttle-rate 300 cops
+configure ip proto-throttle-rate 750 dhcp
+configure ip proto-throttle-rate 200 ecmg
+configure ip proto-throttle-rate 60 eis
+configure ip proto-throttle-rate 300 erm-rpc
+configure ip proto-throttle-rate 500 icmp
+configure ip proto-throttle-rate 500 igmp
+#configure ip proto-throttle-rate 750 isis
+configure ip proto-throttle-rate 200 lacp
+configure ip proto-throttle-rate 750 ldp
+configure ip proto-throttle-rate 750 ospf
+configure ip proto-throttle-rate 100 pim
+configure ip proto-throttle-rate 400 ptp
+configure ip proto-throttle-rate 500 rip
+configure ip proto-throttle-rate 650 snmp
+configure ip proto-throttle-rate 100 snmp-cm
+#configure ip proto-throttle-rate 300 telnet
+configure ip proto-throttle-rate 750 tftp
+configure ip proto-throttle-rate 30 vpme
+configure ip proto-throttle-rate 500 vrep
+configure ip proto-throttle-rate 500 other
+configure ipv6 proto-throttle-rate 500 dhcp
+configure ipv6 proto-throttle-rate 500 icmp
+#configure ipv6 proto-throttle-rate 500 mld
+configure ipv6 proto-throttle-rate 700 nd
+#configure ipv6 proto-throttle-rate 750 ospf
+configure ipv6 proto-throttle-rate 400 ptp
+configure ipv6 proto-throttle-rate 750 tftp
+configure ipv6 proto-throttle-rate 400 ike
+configure ipv6 proto-throttle-rate 1000 esp
+configure ipv6 proto-throttle-rate 500 gcp
+configure ipv6 proto-throttle-rate 500 l2tpv3
+#remove all 'configure snmp-server card-trap-inh slot 0-4 & 7-13' since only slots 5 and 6 apply to RMD
+configure snmp-server card-trap-inh slot 5 0x00
+configure snmp-server card-trap-inh slot 6 0x40
+configure snmp-server port-trap-inh ethernet 6/0 0x00
+configure snmp-server port-trap-inh ethernet 6/1 0x00
+#remove all 'configure snmp-server port-trap-inh ethernet 6/2-12' since only 6/0 and 6/1 apply to RMD
+configure snmp-server port-trap-inh mgmt 6/0 0x00
+configure snmp-server data max-read-ahead 1
+configure snmp-server data refresh-time 1
+configure snmp-server notify-filter profile "TrapV1SNMPv1TrapsProfile" subtree 1.3.6.1 type included # internet
+configure snmp-server notify-filter profile "TrapV2cSNMPv3TrapsProfile" subtree 1.3.6.1 type included # internet
+configure snmp-server notify-filter profile "TrapV2cSNMPv2cTrapsProfile" subtree 1.3.6.1 type included # internet
+configure snmp-server notify-filter profile "InformV3SNMPv3NotifyProfile" subtree 1.3.6.1 type included # internet
+configure snmp-server notify-filter profile "InformV2cSNMPv2cNotifyProfile" subtree 1.3.6.1 type included # internet
+configure ipv6 hop-limit 64
+configure ipv6 nd timeout 1200
+configure ipv6 nd state searching rate-limit 333
+configure ipv6 nd state searching max-number 3
+configure ipv6 nd state not-present rate-limit 333
+configure ipv6 nd state not-present max-number 3
+configure ipv6 nd state not-present max-time 3
+configure ipv6 nd state not-present min-time 1
+configure ipv6 nd state searching global-max-rate 65535
+configure ipv6 nd state not-present global-max-rate 65535
+configure ipv6 nd state searching cable unicast 0
+configure ipv6 nd state searching cable multicast
+configure ipv6 pd-route-injection
+configure ipv6 prefix-stability
+configure arp gratuitous-interval 60
+###### remove 'configure video' section, not configurable on the RMD
+#configure video global interval pat 100
+#configure video global interval pmt 100
+#configure video global jitter-depth 200
+#configure video global over-subscription recovery
+#configure video global fast-psi-update no
+#configure video global tsid-uniqueness no
+#configure video global erm-protocol none
+#configure video global erm-session server-port 48573
+#configure video global pid-remap-scheme atsc
+#configure video global pre-encrypt-detect
+#configure video global program-conflict drop-old
+#configure video global timeout vod-session close 10
+#configure video global timeout multicast-session close 2
+#configure video global max-programs 15
+#configure video global generate-tbvod-empty-sdt no
+#configure video global udp-port-offset 1
+#configure video global base-remap-pid 48
+#configure video global multicast no
+#configure video global scs codeword conformed
+#configure video global scs ecmg-channel-id-start 1
+#configure video broadcast mode passthrough
+#configure video broadcast stream-timeout 3
+#configure video broadcast slr mode no
+#configure video broadcast slr timer no
+#configure video broadcast slr max-toggling-cycles 0
+configure ofdm modulation-profile 1 name "DefaultTemplate"
+configure ofdm modulation-profile 1 description "The default OFDMA Template"
+configure ofdm modulation-profile 1 cyclic-prefix 192
+configure ofdm modulation-profile 1 rolloff-period 96
+configure ofdm modulation-profile 1 symbols-per-frame 16
+configure ofdm modulation-profile 1 iuc 13 modulation 64qam
+configure ofdm modulation-profile 1 iuc 13 pilot-pattern 2
+configure ofdm modulation-profile 1 initial-ranging frequency-width 32 preamble-length 4 total-guard-band-size 8
+configure ofdm modulation-profile 1 fine-ranging frequency-width 128 total-guard-band-size 8
+configure ofdm profile-mgmt modulation-margin 16qam mer-adjust 12
+configure ofdm profile-mgmt modulation-margin 32qam mer-adjust 12
+configure ofdm profile-mgmt modulation-margin 64qam mer-adjust 12
+configure ofdm profile-mgmt modulation-margin 128qam mer-adjust 12
+configure ofdm profile-mgmt modulation-margin 256qam mer-adjust 12
+configure ofdm profile-mgmt modulation-margin 512qam mer-adjust 12
+configure ofdm profile-mgmt modulation-margin 1024qam mer-adjust 12
+configure ofdm profile-mgmt threshold 4
+configure ofdm profile-mgmt retry-interval 30
+configure ofdm profile-mgmt guard-time 7
+configure ofdm profile-mgmt max-retries 2
+configure cable cm-status seqOutOfRange-recovery no
+configure ofdm global plc-dpd-ocd-interval 200
+configure ofdm global profile0-dpd-interval 500
+configure ofdm global enable-short-codewords
+configure cable privacy ca-bad-cert-drop no
+configure cable privacy chk-manufacturer-ca-validity-period true
+configure cable spectrum-group enable-trap no
+configure cable relay-agent-option circuit-id mac-ifindex
+configure cable relay-agent-option qos-sc-name no
+configure cable relay-agent-option fanout enable
+configure cable relay-agent-option mso-defined-text no
+configure cable source-verify leasequery message-type 13
+configure cable source-verify leasequery version draft-0
+configure interface ethernet 6/0 speed 10G #changed from 1G to 10G for RMD
+configure interface ethernet 6/0 flowcontrol send on
+configure interface ethernet 6/0 flowcontrol receive on
+configure interface ethernet 6/0 no shutdown
+configure interface ethernet 6/1 speed 10G #changed from 1G to 10G for RMD
+configure interface ethernet 6/1 flowcontrol send on
+configure interface ethernet 6/1 flowcontrol receive on
+configure interface ethernet 6/1 no shutdown
+#remove 'configure interface ethernet 6/2-6/12 because only 6/0 and 6/1 are valid on RMD
+configure lacp system-priority no
+#configure interface mgmt 6/0 ip address 10.44.137.1 255.255.255.248 #not valid for RMD
+#configure interface mgmt 6/0 active ip 10.44.137.3 255.255.255.248 #not valid for RMD
+#configure interface mgmt 6/0 no shutdown #not valid for RMD
+configure slot 6 no shutdown
+configure cable proto-throttle arp
+configure cable proto-throttle dhcp
+configure cable proto-throttle dhcpv6
+configure cable proto-throttle nd
+configure cable proto-throttle max-burst 10
+configure cable proto-throttle interval 5
+configure cable proto-throttle igmp max-burst 22
+configure cable proto-throttle igmp interval 1
+configure cable proto-throttle igmp increment 8
+configure cable proto-throttle igmp
+#configure ip route vrf management 0.0.0.0 0.0.0.0 10.44.137.6 #not valid for RMD
+configure ipv6 dhcp relay source-interface no
+configure ipv6 dhcp relay use-link-address
+configure packetcable dqos timer t0 30
+configure packetcable dqos timer t1 250
+configure packetcable eventmsg retry timer 1000
+configure packetcable eventmsg retry limit 0
+configure packetcable eventmsg batch-size 10
+configure packetcable eventmsg max-age 1
+configure packetcable dqos shutdown
+configure packetcable eventmsg no billing-events
+configure packetcable gate send-subscriberID no
+configure packetcable throttle normal-threshold 900
+configure packetcable throttle yellow-threshold 900
+configure packetcable throttle red-threshold 300
+configure packetcable pcmm version I05
+configure packetcable pcmm timer t1 300
+configure packetcable pcmm subscriber-id vrf default
+configure packetcable pcmm shutdown
+configure packetcable pepid-hostname no
+configure crypto isakmp retransmits 5
+configure crypto isakmp max-exch-time 120
+configure crypto ipsec security-association lifetime seconds 28800
+configure crypto ipsec security-association lifetime kbytes 0
+configure crypto isakmp enable no
+#configure video vpme shared-secret default #not valid on RMD
+#configure ntp version 4 #not valid on RMD
+#configure ntp authentication no #not valid on RMD
+#configure ntp minpoll 6 #not valid on RMD
+#configure ntp maxpoll 7 #not valid on RMD
+#configure tod server 0.0.0.0 udp no #not valid on RMD
+#configure clock timezone GMT #not valid on RMD
+#configure clock no network #not valid on RMD
+configure clock mode none #required by ANEF-7070 in RMD Initialization PSA
+#configure ftp source-interface no #not valid on RMD
+configure cable intercept source-interface no
+configure logging source-interface no
+configure ntp source-interface no
+configure radius source-interface no
+configure cable modem remote-query source-interface no
+configure snmp-server source-interface no
+configure tacacs source-interface no
+configure ip domain-lookup source-interface no
+configure cable proxy-tftp source-interface no
+configure authentication default local none
+configure authorization author_default local
+configure ip ssh port 22
+configure ip ssh idle-timeout 0
+configure ip ssh max-clients 0
+configure ip ssh password-auth
+configure ip ssh no password-auth-req
+configure ip ssh public-key-auth
+configure ip ssh no public-key-auth-req
+configure ip ssh no public-key-auth-first
+configure ip ssh max-auth-fail 3
+configure ip ssh login
+configure ip ssh sftp
+configure ip ssh key-source certificate no
+configure ip ssh ciphers 3des arcfour blowfish cast aes
+configure ip ssh no port-forwarding
+configure ip ssh key-exchange dh-gr1-sha1
+configure ip ssh shutdown
+configure line console 0 session-timeout 0
+configure line console 0 idle-timeout 0
+configure line console 0 width 80
+configure line console 0 length 0
+configure line console 0 1 speed 9600
+configure line console 0 authentication "default" login-authentication
+configure line console 0 authorization "author_default" command-authorization
+configure line console 1 session-timeout 0
+configure line console 1 idle-timeout 0
+configure line console 1 width 80
+configure line console 1 length 0
+configure line console 1 authentication "default" login-authentication
+configure line console 1 authorization "author_default" command-authorization
+configure line vty 0 session-timeout 0
+configure line vty 0 idle-timeout 0
+configure line vty 0 width 80
+configure line vty 0 length 0
+configure line vty 0 authentication "default" login-authentication
+configure line vty 0 authorization "author_default" command-authorization
+#plus other default 'configure line vty 1-15' same as 9.0
+configure l2vpn forwarding disable
+configure l2vpn cm capability esafe-ident required
+configure l2vpn cm capability dut-filter required
+configure l2vpn network-interface dot1ad ethertype 0x8100
+#remove 'configure mpls lpd ...' since not supported on RMD
+configure cable metering mode docsis20
+configure cable metering export no
+#configure cable metering query-port 4737 streaming-port 4737 data-ack-window 200 data-ack-timeout 60 keep-alive-interval 300 session-id 1 connect-mode accept initiate-retry-interval 60
+configure cable metering shutdown
+configure ipv6 router pd distance 2
+
+##########################################################
+# Add commands for an SCAM and an RPD
+#COMMANDS RUN ON CORE:
+#ON CORE RUNNING 9.0 - did a 'show running-config full verbose | include rpd'
+##########################################################
+configure slot 5 type rmd-cam name "RMD-CAM" #only CAM on the RMD, other slots/CAMs not valid
+configure rpd global core-type principal
+configure rpd global l2tpv3-hello-interval no
+configure rpd global l2tpv3-retries 10
+configure rpd global l2tpv3-setup-wait-time 30
+configure rpd global max-mtu 1982
+configure rpd global gcp-keepalive-interval 3
+configure rpd global gcp-keepalive-timeout 3
+configure rpd global min-mcast-session-id 0x80000001 max-mcast-session-id 0x8000ffff
+configure rpd global status-refresh-interval 15
+configure rpd global enet-port addr-timeout 10
+#No 'configure interface cable-mac x' commands because they are customer-specific
+#configure rpd global loopback 1 #taken out per Warren
+configure rpd global multicast-interface no
+configure rpd global multicast-interface auto-switchback
+#no 'configure rpd global ptp' commands since PTP config is optional
+configure rpd dscp traffic-type rpd-control value 46
+configure rpd dscp traffic-type maps-ucds value 46
+configure rpd dscp traffic-type ds-data value 0
+configure rpd dscp traffic-type bandwidth-req-us value 46
+configure rpd dscp traffic-type us-data value 0
+configure rpd dscp traffic-type ptp value 47
+configure rpd dscp traffic-type ndr value 0
+configure rpd dscp traffic-type video value 34
+configure rpd dscp traffic-type broadcast value 34
+configure interface rpd "arrsrpd" rpd-index 1
+configure interface rpd "arrsrpd" description "RPD-RD2322"
+configure interface rpd "arrsrpd" scam 5
+configure interface rpd "arrsrpd" mac-address 0001.0000.0001
+configure interface rpd "arrsrpd" adp auto-revert no
+configure interface rpd "arrsrpd" adp hd-timeout 60
+configure interface rpd "arrsrpd" adp interval-time 1
+configure interface rpd "arrsrpd" adp enable
+configure interface rpd "arrsrpd" cin-latency 100
+#do 1 DS and 1 US connector by default
+configure interface rpd "arrsrpd" ds-conn 0 power-level 330
+configure interface rpd "arrsrpd" ds-conn 0 tilt-power-adjust 0 tilt-max-frequency 1218000000
+configure interface rpd "arrsrpd" ds-conn 0 ds-group "AllRpdDsRfPorts"
+configure interface rpd "arrsrpd" us-conn 0 base-target-power 20
+configure interface rpd "arrsrpd" no shutdown
+configure interface rpd "arrsrpd" ssd-enable no #because SSD is done at the RMD level now, not the RPD level
+configure interface rpd "arrsrpd" two-tunnel-mode no
+configure cable fiber-node "FN1" rpd "arrsrpd" ds-conn 0 us-conn 0 #do 1 DS and 1 US connector by default
+#no channels or macdomains configured; these are customer specific
+configure logging rpd local-volatile 1
+configure logging rpd gcp-event 1
+configure logging rpd local-volatile 2
+configure logging rpd gcp-event 2
+configure logging rpd local-volatile 3
+configure logging rpd gcp-event 3
+configure logging rpd local-volatile 4
+configure logging rpd gcp-event 4
+configure logging rpd local-volatile 5
+configure logging rpd gcp-event 5
+configure logging rpd local-volatile 6
+configure logging rpd gcp-event 6
+configure logging rpd local-volatile 7 no
+configure logging rpd gcp-event 7 no
+configure logging rpd local-volatile 8 no
+configure logging rpd gcp-event 8 no
+#configure slot 5 no shutdown #for new cardtype in Core - but normally don't do a no shut until macdomains and channels are fully configured
+
+
+########################################################
+# Add default settings on RD1322
+# Below are commands that run on the 1322
+# From looking at 'show startup-config' on RD1322 on E6-32
+#    Note that the #<attr> after the command matches an attribute in systemData.conf
+#########################################################
+configure crypto ipsec enable no #mutualAuthEnable
+configure l2tp generate-hellos no #genL2TPHellos
+configure username admin passwd $6$8900NXlJ$U3iqc5s.mTEM0Gs.8kuRQMSSoGOjPqVjm5xy4iqwjyuFOj3XeHtLqE0LzdOTp4W/fTemGQOKptHACoY4hxXkw0 #user-name, user-password
+configure crypto key import public-key "ssh-rsa  " user admin #user-sshPubKey
+configure ip ssh password-auth #passwdAuthEnable
+configure ip ssh public-key-auth #pubKeyAuthEnable
+configure ip ssh idle-timeout 1800 #sshIdleSessionTimeout
+configure prompt   RPD  #klishCmdPrompt
+configure console enable #consolePortEnable
+#configure ip igmp query-robustness-variable 2 #ipv4Robustness, not needed to be configurable in RMD
+#configure ipv6 mldv2 query-robustness-variable 2  #ipv6Robustness, not needed to be configurable in RMD
+#configure interface ethernet 0 ip igmp unsolicited-report-interval 1000 #ipv4UnsolicitedReportInterval, not needed to be configurable in RMD
+#configure interface ethernet 1 ip igmp unsolicited-report-interval 1000 #ipv4UnsolicitedReportInterval, not needed to be configurable in RMD
+#configure interface ethernet 0 ipv6 mldv2 unsolicited-report-interval 1000 #ipv6UnsolicitedReportInterval, not needed to be configurable in RMD
+#configure interface ethernet 1 ipv6 mldv2 unsolicited-report-interval 1000 #ipv6UnsolicitedReportInterval, not needed to be configurable in RMD
+configure operation-mode 2x2 #rf_operation_mode
+configure intra-node-cabling-mode 2x4 #rf_segmentation_mode
+configure interface downstream-overlay enable no #rf_ds_overlay
+configure interface upstream-overlay enable no #rf_us_overlay
+configure interface ethernet 0 ip dhcp wait-time 1600 #ipv4DhcpWaitTime
+configure interface ethernet 1 ip dhcp wait-time 1600 #ipv4DhcpWaitTime
+configure interface ethernet 0 ipv6 dhcp wait-time 1600 #ipv6DhcpWaitTime
+configure interface ethernet 1 ipv6 dhcp wait-time 1600 #ipv6DhcpWaitTime
+configure interface ethernet 0 shutdown no #ethAdminState
+configure interface ethernet 1 shutdown no #ethAdminState
+configure interface downstream-overlay attenuator 0.0
+configure interface downstream-overlay hysteresis 0.5
+configure interface downstream-overlay agc enable no
+

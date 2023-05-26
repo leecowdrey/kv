@@ -1,0 +1,40 @@
+# static single (mandatory existence) mapping
+configure license type downstream-service-group key FDA208349C6E914A0001 count 2
+
+# optional multiple mapping - will map to defined downstream frequencies
+configure interface cable-downstream ds/scq/2 cable frequency 273000000
+configure interface cable-downstream ds/scq/10 cable frequency 321000000
+configure interface cable-downstream ds/scq/0 cable frequency 261000000
+configure interface cable-downstream ds/scq/26 cable frequency 417000000
+configure interface cable-downstream ds/scq/29 cable frequency 435000000
+configure interface cable-downstream ds/scq/20 cable frequency 381000000
+configure interface cable-downstream ds/scq/9 cable frequency 315000000
+configure interface cable-downstream ds/scq/12 cable frequency 333000000
+configure interface cable-downstream ds/scq/28 cable frequency 429000000
+configure interface cable-downstream ds/scq/8 cable frequency 309000000
+configure interface cable-downstream ds/scq/24 cable frequency 405000000
+configure interface cable-downstream ds/scq/25 cable frequency 411000000
+configure interface cable-downstream ds/scq/21 cable frequency 387000000
+configure interface cable-downstream ds/scq/18 cable frequency 369000000
+configure interface cable-downstream ds/scq/27 cable frequency 423000000
+configure interface cable-downstream ds/scq/5 cable frequency 291000000
+configure interface cable-downstream ds/scq/4 cable frequency 285000000
+configure interface cable-downstream ds/scq/13 cable frequency 339000000
+configure interface cable-downstream ds/scq/16 cable frequency 357000000
+configure interface cable-downstream ds/scq/19 cable frequency 375000000
+configure interface cable-downstream ds/scq/30 cable frequency 441000000
+configure interface cable-downstream ds/scq/22 cable frequency 393000000
+configure interface cable-downstream ds/scq/7 cable frequency 303000000
+configure interface cable-downstream ds/scq/15 cable frequency 351000000
+configure interface cable-downstream ds/scq/1 cable frequency 267000000
+configure interface cable-downstream ds/scq/3 cable frequency 279000000
+configure interface cable-downstream ds/scq/6 cable frequency 297000000
+configure interface cable-downstream ds/scq/23 cable frequency 399000000
+configure interface cable-downstream ds/scq/17 cable frequency 363000000
+configure interface cable-downstream ds/scq/14 cable frequency 345000000
+configure interface cable-downstream ds/scq/11 cable frequency 327000000
+
+# optional multiple mapping - will not map as is rubbish but serves to demonstrate
+
+# another single static
+configure ntp server 10.172.16.2

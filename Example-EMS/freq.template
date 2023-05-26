@@ -1,0 +1,13 @@
+# static single (mandatory existence) mapping
+configure license type downstream-service-group key {{/${TENANT_ID}/${REGION_ID}/${ZONE_ID}/${UUID}/config/license/downstream-service-group/key}} count {{/${TENANT_ID}/${REGION_ID}/${ZONE_ID}/${UUID}/config/license/downstream-service-group/count}}
+
+# optional multiple mapping - will map to defined downstream frequencies
+# template [[ label-text|path-KV/? label-text|child-keyname label-text|child-keyname %|key-value]]
+# only one index (/?) can exist
+<<configure interface cable-downstream ds/scq/?/${TENANT_ID}/${REGION_ID}/${ZONE_ID}/${UUID}/config/interface/cable-downstream/ds/scq cable?cable frequency?frequency %<<
+
+# optional multiple mapping - will not map as is rubbish but serves to demonstrate
+<<configure interface cable-multistream ms/scq/?/${TENANT_ID}/${REGION_ID}/${ZONE_ID}/${UUID}/config/interface/cable-multistream/ms/scq cable?cable frequency?frequency %<<
+
+# another single static
+configure ntp server {{/${TENANT_ID}/${REGION_ID}/${ZONE_ID}/${UUID}/defaults/dhcpv4/options/42}}

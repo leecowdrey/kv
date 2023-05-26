@@ -1,0 +1,342 @@
+configure ftp-server
+configure cable authstring DOCSIS
+configure cable shared-secret x2824aj_cf2825x
+configure enable password 99
+configure username c4 password 99
+configure username e6 privilege 15 password 99
+
+configure operation mode dqossf10cms
+configure operation mode adjrxpwrctl
+configure operation mode upstreamRngRspFreqLimit   
+
+configure cable global max-qos-active-timeout 30 
+configure cable global modify-primary-DS-RCC no 
+configure cable global ranging-timing-offset -48  
+configure cable global recover-US-impaired-ack   
+configure cable global modify-primary-DS-RCC
+configure cable global load-interval 300
+configure cable global freq-us-max 85
+configure cable global freq-ds-max 999
+configure cable global recover-US-impaired-ack 
+ 
+configure cable modem energy-mgmt battery-mode1x1 no 
+																	   
+configure packetcable pcmm no shutdown
+
+configure cable load-balance rule 2 enable
+configure cable load-balance rule 2 type static non-bonded-dcc bonded-us-dbc bonded-ds-dbc
+configure cable load-balance rule 2 method utilization
+configure cable load-balance rule 2 threshold 20
+configure cable load-balance downstream-start-threshold 70
+configure cable load-balance upstream-start-threshold 50
+configure cable load-balance policy 2 rule 2
+configure cable load-balance general-group-defaults policy 2
+configure cable load-balance general-group-defaults enable
+configure cable load-balance general-group-defaults init-technique ranging
+configure cable load-balance failed-list timeout 168
+configure cable load-balance failed-list exclude-count 3
+configure cable load-balance macdomain-check 300
+configure cable load-balance tcs-load-balance enable
+configure cable load-balance tcs-move-us-primary enable
+configure cable load-balance rcs-move-ds-primary disable 
+configure cable load-balance dbc-move-ds-primary enable  
+configure cable load-balance enable
+
+configure no logging override event 2473093441
+configure no logging override event 2473076014
+configure no logging override event 2473093427
+
+configure snmp-server location "VTR-DAA"
+configure snmp-server enable traps snmp
+configure snmp-server card-trap-inh slot 6 0x40
+configure cable modem remote-query 1800 mpplrld!!
+##  VTR community 
+configure snmp-server community baba59b82320383815973bb9b66a08e01234ffd3a06e325f4c0fbe217542bd49 ro encrypted
+##  >> DO NOT REMOVE THE NEXT TWO LINES -- they are mandatory for vManager
+configure snmp-server community c51559436e6fba43bd10a265627df078d2d1c0e0db93eb7fc34ac652dd26fd17 rw encrypted
+configure snmp-server community 54c9dc57fc9d2714d9a8823a718e2d7f9334d5e33b5620c79f6efee8051efcef ro encrypted
+configure snmp-server host 192.168.17.11 traps version v2c
+configure snmp-server host 192.168.17.19 traps version v2c tparam "192.168.17.19:162:1" notify-filter "cmtrap"
+configure snmp-server host 192.168.226.210 traps version v2c tparam "192.168.226.210:162:1" notify-filter "alltraps"
+configure snmp-server notify-filter profile "cmtrap" subtree 1.3.6.1.4.1.4998.1.1.10.1.0.15 type included # cmResetClearNotification
+configure snmp-server notify-filter profile "cmtrap" subtree 1.3.6.1.4.1.4998.1.1.10.1.0.16 type included # cmResetNotification
+configure snmp-server notify-filter profile "cmtrap" subtree 1.3.6.1.4.1.4998.1.1.10.1.0.23 type included # cmRegistrationNotification
+configure snmp-server notify-filter profile "alltraps" subtree 1.3.6.1 type included # internet
+configure snmp-server notify-filter profile "alltraps" subtree 1.3.6.1.4.1.4998.1.1.10.1.0.15 type excluded # cmResetClearNotification
+configure snmp-server notify-filter profile "alltraps" subtree 1.3.6.1.4.1.4998.1.1.10.1.0.16 type excluded # cmResetNotification
+configure snmp-server notify-filter profile "alltraps" subtree 1.3.6.1.4.1.4998.1.1.10.1.0.23 type excluded # cmRegistrationNotification
+configure snmp-server notify-filter profile "TrapV1SNMPv1TrapsProfile" subtree 1.3.6.1 type included # internet
+configure snmp-server notify-filter profile "TrapV2cSNMPv3TrapsProfile" subtree 1.3.6.1 type included # internet
+configure snmp-server notify-filter profile "TrapV2cSNMPv2cTrapsProfile" subtree 1.3.6.1 type included # internet
+configure snmp-server notify-filter profile "InformV3SNMPv3NotifyProfile" subtree 1.3.6.1 type included # internet
+configure snmp-server notify-filter profile "InformV2cSNMPv2cNotifyProfile" subtree 1.3.6.1 type included # internet
+configure snmp-server user "arrismon" "LI-TAP-ADMINS" v3 auth md5 "2bef7de9f125d5ee75794006fb96441f" encrypted
+configure snmp-server context ""
+configure snmp-server user "rotesting" "rotesting" v1
+configure snmp-server user "rwtesting" "rwtesting" v1
+configure snmp-server user "rotesting" "rotesting" v2c
+configure snmp-server user "rwtesting" "rwtesting" v2c
+configure snmp-server group "rotesting" v1 read "docsisManagerView" write "" notify "docsisManagerView"
+configure snmp-server group "rotesting" v2c read "docsisManagerView" write "" notify "docsisManagerView"
+configure snmp-server group "rwtesting" v1 read "docsisManagerView" write "docsisManagerView" notify ""
+configure snmp-server group "rwtesting" v2c read "docsisManagerView" write "docsisManagerView" notify ""
+configure snmp-server group "LI-TAP-ADMINS" v3 auth read "LI-TAP-VIEW" write "LI-TAP-VIEW" notify ""
+configure snmp-server group "AuthPrivMD5User" v3 priv read "docsisManagerView" write "docsisManagerView" notify "docsisManagerView"
+configure snmp-server group "AuthPrivSHAUser" v3 priv read "docsisManagerView" write "docsisManagerView" notify "docsisManagerView"
+configure snmp-server group "LAES-TAP-ADMINS" v3 auth read "LAES-TAP-VIEW" write "LAES-TAP-VIEW" notify "LAES-TAP-VIEW"
+configure snmp-server group "noAuthNoPrivUser" v3 noauth read "docsisManagerView" write "docsisManagerView" notify "docsisManagerView"
+configure snmp-server group "AuthNoPrivMD5User" v3 auth read "docsisManagerView" write "docsisManagerView" notify "docsisManagerView"
+configure snmp-server group "AuthNoPrivSHAUser" v3 auth read "docsisManagerView" write "docsisManagerView" notify "docsisManagerView"
+configure snmp-server view "LI-TAP-VIEW" "1.3.6.1.4.1.9.9.252" included # cTapMIB
+configure snmp-server view "LAES-TAP-VIEW" "1.3.6.1.4.1.4491.2.2.9.1.1" included # pktcESTapMib
+configure snmp-server view "LAES-TAP-VIEW" "1.3.6.1.4.1.4491.2.2.9.1.2" included # pktcESIpTapMIB
+configure snmp-server view "docsisManagerView" "1.2.826.0.1.1578918" included # dataConnectionLtd
+configure snmp-server view "docsisManagerView" "1.3.6.1" included # internet
+configure snmp-server
+
+##  BEGIN VTR submgmt 
+configure cable submgmt default filter-group cm downstream 3
+configure cable submgmt default filter-group cm upstream 4
+configure cable submgmt default filter-group host downstream 300
+configure cable submgmt default filter-group host upstream 400
+configure cable filter group 300 index 1 src-port 135
+configure cable filter group 300 index 1 ip-proto 257
+configure cable filter group 300 index 1 match-action drop
+configure cable filter group 300 index 2 src-port 136
+configure cable filter group 300 index 2 ip-proto 257
+configure cable filter group 300 index 2 match-action drop
+configure cable filter group 300 index 3 src-port 137
+configure cable filter group 300 index 3 ip-proto 257
+configure cable filter group 300 index 3 match-action drop
+configure cable filter group 300 index 4 src-port 138
+configure cable filter group 300 index 4 ip-proto 257
+configure cable filter group 300 index 4 match-action drop
+configure cable filter group 300 index 5 src-port 139
+configure cable filter group 300 index 5 ip-proto 257
+configure cable filter group 300 index 5 match-action drop
+configure cable filter group 300 index 6 src-port 445
+configure cable filter group 300 index 6 ip-proto 257
+configure cable filter group 300 index 6 match-action drop
+configure cable filter group 300 index 7 dest-port 135
+configure cable filter group 300 index 7 ip-proto 257
+configure cable filter group 300 index 7 match-action drop
+configure cable filter group 300 index 8 dest-port 136
+configure cable filter group 300 index 8 ip-proto 257
+configure cable filter group 300 index 8 match-action drop
+configure cable filter group 300 index 9 dest-port 137
+configure cable filter group 300 index 9 ip-proto 257
+configure cable filter group 300 index 9 match-action drop
+configure cable filter group 300 index 10 dest-port 138
+configure cable filter group 300 index 10 ip-proto 257
+configure cable filter group 300 index 10 match-action drop
+configure cable filter group 300 index 11 dest-port 139
+configure cable filter group 300 index 11 ip-proto 257
+configure cable filter group 300 index 11 match-action drop
+configure cable filter group 300 index 12 dest-port 445
+configure cable filter group 300 index 12 ip-proto 257
+configure cable filter group 300 index 12 match-action drop
+configure cable filter group 400 index 1 src-port 135
+configure cable filter group 400 index 1 ip-proto 257
+configure cable filter group 400 index 1 match-action drop
+configure cable filter group 400 index 2 src-port 136
+configure cable filter group 400 index 2 ip-proto 257
+configure cable filter group 400 index 2 match-action drop
+configure cable filter group 400 index 3 src-port 137
+configure cable filter group 400 index 3 ip-proto 257
+configure cable filter group 400 index 3 match-action drop
+configure cable filter group 400 index 4 src-port 138
+configure cable filter group 400 index 4 ip-proto 257
+configure cable filter group 400 index 4 match-action drop
+configure cable filter group 400 index 5 src-port 139
+configure cable filter group 400 index 5 ip-proto 257
+configure cable filter group 400 index 5 match-action drop
+configure cable filter group 400 index 6 src-port 445
+configure cable filter group 400 index 6 ip-proto 257
+configure cable filter group 400 index 6 match-action drop
+configure cable filter group 400 index 7 dest-port 135
+configure cable filter group 400 index 7 ip-proto 257
+configure cable filter group 400 index 7 match-action drop
+configure cable filter group 400 index 8 dest-port 136
+configure cable filter group 400 index 8 ip-proto 257
+configure cable filter group 400 index 8 match-action drop
+configure cable filter group 400 index 9 dest-port 137
+configure cable filter group 400 index 9 ip-proto 257
+configure cable filter group 400 index 9 match-action drop
+configure cable filter group 400 index 10 dest-port 138
+configure cable filter group 400 index 10 ip-proto 257
+configure cable filter group 400 index 10 match-action drop
+configure cable filter group 400 index 11 dest-port 139
+configure cable filter group 400 index 11 ip-proto 257
+configure cable filter group 400 index 11 match-action drop
+configure cable filter group 400 index 12 dest-port 445
+configure cable filter group 400 index 12 ip-proto 257
+configure cable filter group 400 index 12 match-action drop
+##  END VTR submgmt
+##  BEGIN CommScope telnet and snmp filters  
+##  >>  update with cable bundle interface subnets for this vcore
+configure cable filter group 400 index 13 dest-ip 10.241.0.0 dest-mask 255.255.0.0 dest-port 23
+configure cable filter group 400 index 13 ip-proto 257
+configure cable filter group 400 index 13 match-action drop
+configure cable filter group 400 index 14 dest-ip 10.241.0.0 dest-mask 255.255.0.0 dest-port 161
+configure cable filter group 400 index 14 ip-proto 257
+configure cable filter group 400 index 14 match-action drop
+configure cable filter group 400 index 15 dest-ip 10.99.32.0 dest-mask 255.255.248.0 dest-port 23
+configure cable filter group 400 index 15 ip-proto 257
+configure cable filter group 400 index 15 match-action drop
+configure cable filter group 400 index 16 dest-ip 10.99.32.0 dest-mask 255.255.248.0 dest-port 161
+configure cable filter group 400 index 16 ip-proto 257
+configure cable filter group 400 index 16 match-action drop
+configure cable filter group 400 index 17 dest-ip 200.74.0.0 dest-mask 255.255.0.0 dest-port 23
+configure cable filter group 400 index 17 ip-proto 257
+configure cable filter group 400 index 17 match-action drop
+configure cable filter group 400 index 18 dest-ip 200.74.0.0 dest-mask 255.255.0.0 dest-port 161
+configure cable filter group 400 index 18 ip-proto 257
+configure cable filter group 400 index 18 match-action drop
+## >>  update with loopback and data1/data2 interfaces for this vcore 
+configure cable filter group 400 index 19 dest-ip 10.68.120.0 dest-mask 255.255.255.0 dest-port 23
+configure cable filter group 400 index 19 ip-proto 257
+configure cable filter group 400 index 19 match-action drop
+configure cable filter group 400 index 20 dest-ip 10.68.120.0 dest-mask 255.255.255.0 dest-port 161
+configure cable filter group 400 index 20 ip-proto 257
+configure cable filter group 400 index 20 match-action drop
+configure cable filter group 400 index 21 dest-ip 10.68.120.0 dest-mask 255.255.255.0 src-ip 200.74.0.0 src-mask 255.255.0.0 
+configure cable filter group 400 index 21 ip-proto 256
+configure cable filter group 400 index 21 match-action drop
+###  END CommScope telnet and snmp filters 
+configure cable submgmt default active
+
+#  CommScope SC Name used in CM config file provided by srvCmts for VTR POC 
+## >>  following two lines only required for internal CommScope setups -- remove or comment out otherwise 
+configure qos-sc name isca_ref_ds max-tr-rate 1000000000 max-tr-burst 200000 max-burst 0 type 1 dir 1
+configure qos-sc name isca_ref_us max-tr-rate 1000000000 max-tr-burst 200000 max-burst 0 dir 2
+##  BEGIN SC Name definitions from VTR E6000 configs 
+configure qos-sc name DSDSG priority 4 max-tr-burst 96000 max-burst 0 dir 1
+configure qos-sc name USDSG priority 4 max-burst 0 dir 2
+configure qos-sc name DSTEOS priority 4 dir 1
+configure qos-sc name USTEOS priority 4 dir 2
+configure qos-sc name DSMTAMGCP max-tr-burst 1522 max-burst 0 dir 1
+configure qos-sc name USMTAMGCP priority 7 max-tr-burst 1522 max-burst 0 dir 2
+configure qos-sc name DSPrimaryBE priority 1 max-tr-rate 10000000 max-tr-burst 1522 max-burst 0
+configure qos-sc name DSPrimaryBE dir 1
+configure qos-sc name USPrimaryBE priority 1 max-tr-burst 1522 max-burst 0 dir 2
+configure qos-sc name DS-IGMP-QUERY priority 4 dir 1 forbidden-attr-mask-value 0x80000000
+##  END SC Name definitions from VTR E6000 configs
+
+configure cable modulation-profile 1 iuc 1 mod qpsk pre-len 56 diff false fec-tbytes 0 fec-len 16 seed 338 burst-len 0 guard-time-size 8 last-cw false scrambler true docsis-mode tdma
+configure cable modulation-profile 1 iuc 3 mod qpsk pre-len 640 diff false fec-tbytes 5 fec-len 34 seed 338 burst-len 0 guard-time-size 48 last-cw false scrambler true docsis-mode tdma
+configure cable modulation-profile 1 iuc 4 mod qpsk pre-len 384 diff false fec-tbytes 5 fec-len 34 seed 338 burst-len 0 guard-time-size 48 last-cw false scrambler true docsis-mode tdma
+configure cable modulation-profile 1 iuc 5 mod qpsk pre-len 84 diff false fec-tbytes 6 fec-len 78 seed 338 burst-len 45 guard-time-size 8 last-cw true scrambler true docsis-mode tdma
+configure cable modulation-profile 1 iuc 6 mod qpsk pre-len 96 diff false fec-tbytes 8 fec-len 220 seed 338 burst-len 0 guard-time-size 8 last-cw true scrambler true docsis-mode tdma
+configure cable modulation-profile 2 iuc 1 mod qpsk pre-len 56 diff false fec-tbytes 0 fec-len 16 seed 338 burst-len 0 guard-time-size 8 last-cw false scrambler true docsis-mode tdma
+configure cable modulation-profile 2 iuc 3 mod qpsk pre-len 640 diff false fec-tbytes 5 fec-len 34 seed 338 burst-len 0 guard-time-size 48 last-cw false scrambler true docsis-mode tdma
+configure cable modulation-profile 2 iuc 4 mod qpsk pre-len 384 diff false fec-tbytes 5 fec-len 34 seed 338 burst-len 0 guard-time-size 48 last-cw false scrambler true docsis-mode tdma
+configure cable modulation-profile 2 iuc 5 mod qpsk pre-len 84 diff false fec-tbytes 6 fec-len 75 seed 338 burst-len 45 guard-time-size 8 last-cw true scrambler true docsis-mode tdma
+configure cable modulation-profile 2 iuc 6 mod qpsk pre-len 96 diff false fec-tbytes 8 fec-len 220 seed 338 burst-len 0 guard-time-size 8 last-cw true scrambler true docsis-mode tdma
+configure cable modulation-profile 6 iuc 1 mod qpsk pre-len 56 diff false fec-tbytes 0 fec-len 16 seed 338 burst-len 0 guard-time-size 8 last-cw false scrambler true docsis-mode tdma
+configure cable modulation-profile 6 iuc 3 mod qpsk pre-len 640 diff false fec-tbytes 5 fec-len 34 seed 338 burst-len 0 guard-time-size 48 last-cw false scrambler true docsis-mode tdma
+configure cable modulation-profile 6 iuc 4 mod qpsk pre-len 384 diff false fec-tbytes 5 fec-len 34 seed 338 burst-len 0 guard-time-size 48 last-cw false scrambler true docsis-mode tdma
+configure cable modulation-profile 6 iuc 5 mod qam16 pre-len 168 diff false fec-tbytes 6 fec-len 78 seed 338 burst-len 23 guard-time-size 8 last-cw true scrambler true docsis-mode tdma
+configure cable modulation-profile 6 iuc 6 mod qam16 pre-len 192 diff false fec-tbytes 8 fec-len 220 seed 338 burst-len 0 guard-time-size 8 last-cw true scrambler true docsis-mode tdma
+configure cable modulation-profile 16 iuc 1 mod qpsk pre-len 56 diff false fec-tbytes 0 fec-len 16 seed 338 burst-len 0 guard-time-size 8 last-cw false scrambler true docsis-mode tdma-atdma
+configure cable modulation-profile 16 iuc 3 mod qpsk pre-len 640 diff false fec-tbytes 5 fec-len 34 seed 338 burst-len 0 guard-time-size 48 last-cw false scrambler true docsis-mode tdma-atdma
+configure cable modulation-profile 16 iuc 4 mod qpsk pre-len 384 diff false fec-tbytes 5 fec-len 34 seed 338 burst-len 0 guard-time-size 48 last-cw false scrambler true docsis-mode tdma-atdma
+configure cable modulation-profile 16 iuc 5 mod qam16 pre-len 168 diff false fec-tbytes 6 fec-len 78 seed 338 burst-len 23 guard-time-size 8 last-cw true scrambler true docsis-mode tdma-atdma
+configure cable modulation-profile 16 iuc 6 mod qam16 pre-len 192 diff false fec-tbytes 8 fec-len 220 seed 338 burst-len 0 guard-time-size 8 last-cw true scrambler true docsis-mode tdma-atdma
+configure cable modulation-profile 16 iuc 9 mod qam16 pre-len 104 diff false fec-tbytes 6 fec-len 78 seed 338 burst-len 14 guard-time-size 8 last-cw true scrambler true docsis-mode tdma-atdma
+configure cable modulation-profile 16 iuc 9 pre-type qpsk1 int-depth 0 int-blocksize 2048
+configure cable modulation-profile 16 iuc 10 mod qam16 pre-len 104 diff false fec-tbytes 8 fec-len 224 seed 338 burst-len 0 guard-time-size 8 last-cw true scrambler true docsis-mode tdma-atdma
+configure cable modulation-profile 16 iuc 10 pre-type qpsk1 int-depth 0 int-blocksize 2048
+configure cable modulation-profile 16 iuc 11 mod qam16 pre-len 104 diff false fec-tbytes 6 fec-len 78 seed 338 burst-len 0 guard-time-size 8 last-cw true scrambler true docsis-mode tdma-atdma
+configure cable modulation-profile 16 iuc 11 pre-type qpsk1 int-depth 0 int-blocksize 2048
+configure cable modulation-profile 20 iuc 1 mod qpsk pre-len 56 diff false fec-tbytes 0 fec-len 16 seed 338 burst-len 0 guard-time-size 8 last-cw false scrambler true docsis-mode tdma-atdma
+configure cable modulation-profile 20 iuc 3 mod qpsk pre-len 640 diff false fec-tbytes 5 fec-len 34 seed 338 burst-len 0 guard-time-size 48 last-cw false scrambler true docsis-mode tdma-atdma
+configure cable modulation-profile 20 iuc 4 mod qpsk pre-len 384 diff false fec-tbytes 5 fec-len 34 seed 338 burst-len 0 guard-time-size 48 last-cw false scrambler true docsis-mode tdma-atdma
+configure cable modulation-profile 20 iuc 5 mod qam16 pre-len 168 diff false fec-tbytes 6 fec-len 78 seed 338 burst-len 23 guard-time-size 8 last-cw true scrambler true docsis-mode tdma-atdma
+configure cable modulation-profile 20 iuc 6 mod qam16 pre-len 192 diff false fec-tbytes 8 fec-len 220 seed 338 burst-len 0 guard-time-size 8 last-cw true scrambler true docsis-mode tdma-atdma
+configure cable modulation-profile 20 iuc 9 mod qam64 pre-len 104 diff false fec-tbytes 12 fec-len 81 seed 338 burst-len 11 guard-time-size 8 last-cw true scrambler true docsis-mode tdma-atdma
+configure cable modulation-profile 20 iuc 9 pre-type qpsk1 int-depth 0 int-blocksize 2048
+configure cable modulation-profile 20 iuc 10 mod qam64 pre-len 104 diff false fec-tbytes 16 fec-len 223 seed 338 burst-len 0 guard-time-size 8 last-cw true scrambler true docsis-mode tdma-atdma
+configure cable modulation-profile 20 iuc 10 pre-type qpsk1 int-depth 0 int-blocksize 2048
+configure cable modulation-profile 20 iuc 11 mod qam64 pre-len 104 diff false fec-tbytes 12 fec-len 81 seed 338 burst-len 0 guard-time-size 8 last-cw true scrambler true docsis-mode tdma-atdma
+configure cable modulation-profile 20 iuc 11 pre-type qpsk1 int-depth 0 int-blocksize 2048
+configure cable modulation-profile 64 iuc 1 mod qpsk pre-len 56 diff false fec-tbytes 0 fec-len 16 seed 338 burst-len 0 guard-time-size 8 last-cw false scrambler true docsis-mode atdma
+configure cable modulation-profile 64 iuc 1 pre-type qpsk1 int-depth 1 int-blocksize 2048
+configure cable modulation-profile 64 iuc 3 mod qpsk pre-len 640 diff false fec-tbytes 5 fec-len 34 seed 338 burst-len 0 guard-time-size 48 last-cw false scrambler true docsis-mode atdma
+configure cable modulation-profile 64 iuc 3 pre-type qpsk1 int-depth 0 int-blocksize 2048
+configure cable modulation-profile 64 iuc 4 mod qpsk pre-len 384 diff false fec-tbytes 5 fec-len 34 seed 338 burst-len 0 guard-time-size 48 last-cw false scrambler true docsis-mode atdma
+configure cable modulation-profile 64 iuc 4 pre-type qpsk1 int-depth 0 int-blocksize 2048
+configure cable modulation-profile 64 iuc 9 mod qam64 pre-len 104 diff false fec-tbytes 12 fec-len 81 seed 338 burst-len 11 guard-time-size 8 last-cw true scrambler true docsis-mode atdma
+configure cable modulation-profile 64 iuc 9 pre-type qpsk1 int-depth 0 int-blocksize 2048
+configure cable modulation-profile 64 iuc 10 mod qam64 pre-len 104 diff false fec-tbytes 16 fec-len 223 seed 338 burst-len 0 guard-time-size 8 last-cw true scrambler true docsis-mode atdma
+configure cable modulation-profile 64 iuc 10 pre-type qpsk1 int-depth 0 int-blocksize 2048
+configure cable modulation-profile 64 iuc 11 mod qam64 pre-len 104 diff false fec-tbytes 12 fec-len 81 seed 338 burst-len 0 guard-time-size 8 last-cw true scrambler true docsis-mode atdma
+configure cable modulation-profile 64 iuc 11 pre-type qpsk1 int-depth 0 int-blocksize 2048
+configure ofdm modulation-profile 1 name "DefaultTemplate"
+configure ofdm modulation-profile 1 description "The default OFDMA Template"
+configure ofdm modulation-profile 1 iuc 13 modulation 64qam
+
+configure authentication ml1 local
+configure authentication ml2 none
+configure line vty 0 15 idle-timeout 900 pagination 0 authentication ml1 login-authentication password 99
+configure line vty 0 15 authentication ml2 enable-authentication
+configure line console 0 1 session-timeout 0 idle-timeout 900 pagination 0 authentication ml1 login-authentication password 99
+configure line console 0 1 authentication ml2 enable-authentication
+
+configure rpd global enable
+
+configure clock mode ptp
+configure ptp port 0 role slave
+configure ptp port 0 announce-interval-timeout 5
+#configure ptp port 0 master-clock address 2019::82:2
+configure ptp port 0 master-clock no shutdown
+
+configure slot 9 type DCAM2-RPD annex B
+configure slot 1 type UCAM2-RPD
+
+configure interface cable-mac 1 cable mcast-fwd-by-dsid
+configure interface cable-mac 1 cable dynamic-rcc
+configure interface cable-mac 1 cable downstream-bonding-group dynamic enable
+configure interface cable-mac 1 cable upstream-bonding-group dynamic enable
+configure interface cable-mac 1 cable tftp-enforce  
+configure interface cable-mac 1 cable dynamic-secret reject   
+configure interface cable-mac 1 cable mdd-interval 1800
+configure interface cable-mac 1 cable reg-rsp-timer-t6 3  
+configure interface cable-mac 1 cable upstream ranging-poll t4-multiplier   	  
+configure interface cable-mac 1 cable verbose-cm-rcp   																   
+configure interface cable-mac 1 cable cm-ip-prov-mode ipv4
+configure interface cable-mac 1 cable freq-us-max 85
+configure interface cable-mac 1 cable us-freq-range extended
+configure interface cable-mac 1 cable dsg mode 30DOCSIS_SUPPORT
+##  >>  update the ipv4/ipv6 cable helpers to match the network 
+configure interface cable-mac 1.0 cable helper-address 10.64.220.20
+#configure interface cable-mac 1.0 ipv6 dhcp relay destination fc00:d00:a::1601:0:20
+configure interface cable-mac 1.0 cable dhcp-giaddr policy
+configure interface cable-mac 1 ofdm docsis-31
+configure interface cable-mac 1 cable bundle master
+
+##  BEGIN BGP config for ICX VTR PE router integration 
+##	>>  update with CBI subnets for this vcore 
+configure ip prefix-list CMs seq 5 permit 10.241.0.0/23
+configure ip prefix-list MTAs seq 5 permit 10.99.32.0/23 
+configure ip prefix-list internetCPEs seq 5 permit 200.74.58.0/24 
+configure ip prefix-list internetCPEs seq 6 permit 200.74.59.0/24
+##  should not have to change this section 
+configure route-map ComTag2VRF permit 10 match ip address prefix-list CMs 
+configure route-map ComTag2VRF permit 10 set community 65060:10 additive   
+configure route-map ComTag2VRF permit 20 match ip address prefix-list MTAs
+configure route-map ComTag2VRF permit 20 set community 65060:20 additive 
+configure route-map ComTag2VRF permit 30 match ip address prefix-list internetCPEs
+configure route-map ComTag2VRF permit 30 set community 65060:30 additive
+## >>  update with this vCore loopback address and ICX data2 address
+configure router bgp 65060 bgp router-id 10.68.120.130
+configure router bgp 65060 no shutdown
+configure router bgp 65060 neighbor 10.68.120.126 remote-as 65060
+configure router bgp 65060 neighbor 10.68.120.126 update-source ethernet 6/1.0
+configure router bgp 65060 neighbor 10.68.120.126 password Penalolen
+configure router bgp 65060 address-family ipv4 redistribute connected route-map ComTag2VRF
+configure router bgp 65060 address-family ipv4 neighbor 10.68.120.126 activate
+configure router bgp 65060 neighbor 10.68.120.126 no shutdown
+##  END BGP config for ICX VTR PE router integration 
+
+configure slot 9 no shutdown
+configure slot 1 no shutdown

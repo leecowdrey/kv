@@ -1,0 +1,93 @@
+configure privilege exec level 2 df
+configure privilege exec level 2 exc
+configure privilege exec level 2 more
+configure privilege exec level 3 clear
+configure privilege exec level 2 debug
+configure privilege exec level 2 trace
+configure privilege exec level 1 write
+configure privilege exec level 3 delete
+configure privilege exec level 3 show ip
+configure privilege exec level 2 exc file
+configure privilege exec level 1 configure
+configure privilege exec level 2 debug rsh
+configure privilege exec level 3 show isis
+configure privilege exec level 3 show port
+configure privilege exec level 2 show snmp
+configure privilege exec level 1 show video
+configure privilege exec level 2 traceroute
+configure privilege exec level 3 clear cable
+configure privilege exec level 3 ping docsis
+configure privilege exec level 2 show ip pim
+configure privilege exec level 2 show logging
+configure privilege exec level 1 write memory
+configure privilege exec level 2 clear logging
+configure privilege exec level 2 trace logging
+configure privilege exec level 3 configure slot
+configure privilege exec level 2 show ip mroute
+configure privilege exec level 2 show processes
+configure privilege exec level 3 configure cable
+configure privilege exec level 2 show environment
+configure privilege exec level 2 show packetcable
+configure privilege exec level 2 test snmp-server
+configure privilege exec level 3 clear cable modem
+configure privilege exec level 2 configure logging
+configure privilege exec level 2 show isis traffic
+configure privilege exec level 2 show tech-support
+configure privilege exec level 2 show logging debug
+configure privilege exec level 3 trace logging dhcp
+configure privilege exec level 2 clear logging debug
+configure privilege exec level 1 configure interface
+configure privilege exec level 2 show isis interface
+configure privilege exec level 2 show running-config
+configure privilege exec level 2 trace logging modem
+configure privilege exec level 3 configure ftp-server
+configure privilege exec level 2 show interface cable
+configure privilege exec level 2 show ip pim neighbor
+configure privilege exec level 2 show logging history
+configure privilege exec level 2 clear logging history
+configure privilege exec level 3 configure cable modem
+configure privilege exec level 2 show cable fiber-node
+configure privilege exec level 2 show ip pim interface
+configure privilege exec level 2 show packetcable cops
+configure privilege exec level 3 show port transceiver
+configure privilege exec level 2 show processes summary
+configure privilege exec level 2 configure logging debug
+configure privilege exec level 3 configure slot shutdown
+configure privilege exec level 2 show cable channel-sets
+configure privilege exec level 2 show cable modem column
+configure privilege exec level 2 configure logging syslog
+configure privilege exec level 2 show cable service-group
+configure privilege exec level 2 show proto-throttle-rate
+configure privilege exec level 3 trace logging packetcable
+configure privilege exec level 3 configure cable modem deny
+configure privilege exec level 3 configure cable modem move
+configure privilege exec level 1 configure reset cable-modem
+configure privilege exec level 2 show packetcable cops counts
+configure privilege exec level 3 configure cable source-verify
+configure privilege exec level 3 configure interface cable-mac
+configure privilege exec level 2 show packetcable cops servers
+configure privilege exec level 3 trace logging packetcable dqos
+configure privilege exec level 2 show cable bonding-group-status
+configure privilege exec level 3 configure interface cable-mac ip
+configure privilege exec level 2 configure logging local-volatile
+configure privilege exec level 1 configure interface cable-upstream
+configure privilege exec level 3 configure interface cable-mac cable
+configure privilege exec level 3 configure interface cable-downstream
+configure privilege exec level 3 configure interface cable-mac ip vrf
+configure privilege exec level 1 configure reset cable-modem cable-mac
+configure privilege exec level 3 configure interface cable-mac ip address
+configure privilege exec level 2 configure interface cable-upstream cable
+configure privilege exec level 2 configure interface cable-downstream cable
+configure privilege exec level 2 configure interface cable-upstream shutdown
+configure privilege exec level 2 configure interface cable-downstream shutdown
+configure privilege exec level 1 configure interface cable-upstream description
+configure privilege exec level 3 configure interface cable-mac cable dhcp-giaddr
+configure privilege exec level 3 configure interface cable-mac cable source-verify
+configure privilege exec level 3 configure interface cable-mac cable helper-address
+configure privilege exec level 2 configure interface cable-upstream cable frequency
+configure privilege exec level 2 configure interface cable-upstream cable power-level
+configure privilege exec level 2 configure interface cable-upstream cable rangebackoff
+configure privilege exec level 3 configure interface cable-downstream cable power-level
+configure privilege exec level 3 configure interface cable-mac cable source-verify dhcp
+configure privilege exec level 3 configure interface cable-downstream cable power-adjust
+configure privilege exec level 3 configure interface cable-mac cable dhcp-giaddr primary

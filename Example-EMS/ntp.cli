@@ -1,0 +1,7 @@
+configure ntp authentication
+configure ntp maxpoll 10
+configure ntp server 10.82.7.1 minpoll 6 maxpoll 7 version 4 key 0
+configure ntp server 10.82.7.2 minpoll 6 maxpoll 7 version 4 key 0
+configure ntp server 10.82.7.3 minpoll 6 maxpoll 7 version 4 key 0
+configure ntp server 75.76.120.249 minpoll 6 maxpoll 7
+configure ntp server 75.76.120.250 minpoll 6 maxpoll 7 version 4

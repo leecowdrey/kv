@@ -1,0 +1,42 @@
+configure interface loopback 0 ip address 192.168.224.2 255.255.255.255
+configure interface loopback 0 ip vrf forwarding cm-mta
+configure interface loopback 0 description "SCE_PENA"
+configure interface loopback 0 no shutdown
+configure interface loopback 10 ip address 10.68.38.44 255.255.255.255
+configure interface loopback 10 ip vrf forwarding dsg
+configure interface loopback 10 description "DSG PENA"
+configure interface loopback 10 no shutdown
+configure interface loopback 11 ip address 192.168.224.9 255.255.255.255
+configure interface loopback 11 ip vrf forwarding internet
+configure interface loopback 11 description "INTERNET PENA"
+configure interface loopback 11 no shutdown
+configure interface loopback 51 ip address 10.68.237.42 255.255.255.255
+configure interface loopback 51 ip vrf forwarding vod
+configure interface loopback 51 description "loopback vod"
+configure interface loopback 51 no shutdown
+configure interface loopback 52 ip address 10.68.237.43 255.255.255.255
+configure interface loopback 52 ip vrf forwarding vod
+configure interface loopback 52 description "loopback vod"
+configure interface loopback 52 no shutdown
+configure interface loopback 53 ip address 10.68.237.44 255.255.255.255
+configure interface loopback 53 ip vrf forwarding vod
+configure interface loopback 53 description "loopback vod "
+configure interface loopback 53 no shutdown
+configure interface loopback 54 ip address 10.68.237.45 255.255.255.255
+configure interface loopback 54 ip vrf forwarding vod
+configure interface loopback 54 description "loopback vod"
+configure interface loopback 54 no shutdown
+configure interface loopback 55 ip address 10.68.237.46 255.255.255.255
+configure interface loopback 55 ip vrf forwarding vod
+configure interface loopback 55 description "loopback vod"
+configure interface loopback 55 no shutdown
+configure video virtual-edge 0 data-interface loopback 51 input-port 1
+configure video virtual-edge 1 data-interface loopback 52 input-port 1
+configure video virtual-edge 2 data-interface loopback 53 input-port 1
+configure video virtual-edge 3 data-interface loopback 54 input-port 1
+configure video virtual-edge 4 data-interface loopback 55 input-port 1
+configure video vpme 0 source-interface loopback 0
+configure logging source-interface loopback 0
+configure ntp source-interface loopback 0
+configure snmp-server source-interface loopback 0
+configure tacacs source-interface loopback 0

@@ -84,7 +84,7 @@ $ kv modified "22:50 05/19/2021"
 
 ```
 
-## Example within BASH script
+## Example within BASH script - Leaf & Spine Network Inventory
 
 ```bash
 #!/bin/bash
@@ -392,3 +392,733 @@ kv put /${TENANT_ID}/${REGION_ID}/${ZONE_ID}/${CIN_ID}/heartbeat/next-expected "
 kv link /${TENANT_ID}/${REGION_ID}/${ZONE_ID}/${CIN_ID} /inventory/${TENANT_ID}/${REGION_ID}/${ZONE_ID}/${CIN_ID}
 ```
 
+## Example within BASH script - Leaf & Spine Network Inventory - Output
+
+```bash
+$ ./example.sh
+Spine 1/2: 4fc21cee-fbb6-11ed-8961-5ffa5f4b74a6
+Spine 2/2: 544ff132-fbb6-11ed-abb4-0300f1777825
+Leaf 1/4: 58b8f778-fbb6-11ed-ab7f-4badca86abe9
+Leaf 2/4: 5d57ea1e-fbb6-11ed-b8d8-8b61101875be
+Leaf 3/4: 61eaca92-fbb6-11ed-a894-a399d365b6cc
+Leaf 4/4: 665b9a02-fbb6-11ed-95b6-cb02d5721229
+
+$ kv tree
+/
+├── inventory
+│   └── mso
+│       └── dc
+│           └── core
+│               ├── 4fc21cee-fbb6-11ed-8961-5ffa5f4b74a6 -> /mso/dc/core/4fc21cee-fbb6-11ed-8961-5ffa5f4b74a6
+│               │   ├── config
+│               │   │   └── interfaces
+│               │   │       └── ethernet
+│               │   │           └── 1
+│               │   │               └── 1
+│               │   │                   ├── 1
+│               │   │                   │   ├── duplex
+│               │   │                   │   ├── ip-address
+│               │   │                   │   ├── mac-address
+│               │   │                   │   ├── name
+│               │   │                   │   ├── pvid
+│               │   │                   │   ├── speed
+│               │   │                   │   ├── subnet-bits
+│               │   │                   │   ├── subnet-mask
+│               │   │                   │   ├── tag
+│               │   │                   │   └── trunk
+│               │   │                   └── 2
+│               │   │                       ├── duplex
+│               │   │                       ├── ip-address
+│               │   │                       ├── mac-address
+│               │   │                       ├── name
+│               │   │                       ├── pvid
+│               │   │                       ├── speed
+│               │   │                       ├── subnet-bits
+│               │   │                       ├── subnet-mask
+│               │   │                       ├── tag
+│               │   │                       └── trunk
+│               │   ├── created
+│               │   ├── deleted
+│               │   ├── heartbeat
+│               │   │   ├── first
+│               │   │   ├── last
+│               │   │   └── next-expected
+│               │   ├── management
+│               │   │   ├── ip-address
+│               │   │   ├── role
+│               │   │   ├── snmp
+│               │   │   │   ├── agent-port
+│               │   │   │   ├── agent-version
+│               │   │   │   └── community
+│               │   │   │       ├── read-only
+│               │   │   │       ├── read-write
+│               │   │   │       └── trap
+│               │   │   ├── ssh
+│               │   │   │   ├── authentication-method
+│               │   │   │   ├── fingerprint
+│               │   │   │   ├── host-based
+│               │   │   │   │   ├── key-type
+│               │   │   │   │   └── key-value
+│               │   │   │   ├── password
+│               │   │   │   │   └── password
+│               │   │   │   ├── port
+│               │   │   │   └── public-key
+│               │   │   │       ├── key-type
+│               │   │   │       └── key-value
+│               │   │   └── state
+│               │   └── modified
+│               ├── 544ff132-fbb6-11ed-abb4-0300f1777825 -> /mso/dc/core/544ff132-fbb6-11ed-abb4-0300f1777825
+│               │   ├── config
+│               │   │   └── interfaces
+│               │   │       └── ethernet
+│               │   │           └── 1
+│               │   │               └── 1
+│               │   │                   ├── 1
+│               │   │                   │   ├── duplex
+│               │   │                   │   ├── ip-address
+│               │   │                   │   ├── mac-address
+│               │   │                   │   ├── name
+│               │   │                   │   ├── pvid
+│               │   │                   │   ├── speed
+│               │   │                   │   ├── subnet-bits
+│               │   │                   │   ├── subnet-mask
+│               │   │                   │   ├── tag
+│               │   │                   │   └── trunk
+│               │   │                   └── 2
+│               │   │                       ├── duplex
+│               │   │                       ├── ip-address
+│               │   │                       ├── mac-address
+│               │   │                       ├── name
+│               │   │                       ├── pvid
+│               │   │                       ├── speed
+│               │   │                       ├── subnet-bits
+│               │   │                       ├── subnet-mask
+│               │   │                       ├── tag
+│               │   │                       └── trunk
+│               │   ├── created
+│               │   ├── deleted
+│               │   ├── heartbeat
+│               │   │   ├── first
+│               │   │   ├── last
+│               │   │   └── next-expected
+│               │   ├── management
+│               │   │   ├── ip-address
+│               │   │   ├── role
+│               │   │   ├── snmp
+│               │   │   │   ├── agent-port
+│               │   │   │   ├── agent-version
+│               │   │   │   └── community
+│               │   │   │       ├── read-only
+│               │   │   │       ├── read-write
+│               │   │   │       └── trap
+│               │   │   ├── ssh
+│               │   │   │   ├── authentication-method
+│               │   │   │   ├── fingerprint
+│               │   │   │   ├── host-based
+│               │   │   │   │   ├── key-type
+│               │   │   │   │   └── key-value
+│               │   │   │   ├── password
+│               │   │   │   │   └── password
+│               │   │   │   ├── port
+│               │   │   │   └── public-key
+│               │   │   │       ├── key-type
+│               │   │   │       └── key-value
+│               │   │   └── state
+│               │   └── modified
+│               ├── 58b8f778-fbb6-11ed-ab7f-4badca86abe9 -> /mso/dc/core/58b8f778-fbb6-11ed-ab7f-4badca86abe9
+│               │   ├── config
+│               │   │   └── interfaces
+│               │   │       └── ethernet
+│               │   │           └── 1
+│               │   │               └── 1
+│               │   │                   ├── 1
+│               │   │                   │   ├── duplex
+│               │   │                   │   ├── ip-address
+│               │   │                   │   ├── mac-address
+│               │   │                   │   ├── name
+│               │   │                   │   ├── pvid
+│               │   │                   │   ├── speed
+│               │   │                   │   ├── subnet-bits
+│               │   │                   │   ├── subnet-mask
+│               │   │                   │   ├── tag
+│               │   │                   │   └── trunk
+│               │   │                   └── 2
+│               │   │                       ├── duplex
+│               │   │                       ├── ip-address
+│               │   │                       ├── mac-address
+│               │   │                       ├── name
+│               │   │                       ├── pvid
+│               │   │                       ├── speed
+│               │   │                       ├── subnet-bits
+│               │   │                       ├── subnet-mask
+│               │   │                       ├── tag
+│               │   │                       └── trunk
+│               │   ├── created
+│               │   ├── deleted
+│               │   ├── heartbeat
+│               │   │   ├── first
+│               │   │   ├── last
+│               │   │   └── next-expected
+│               │   ├── management
+│               │   │   ├── ip-address
+│               │   │   ├── role
+│               │   │   ├── snmp
+│               │   │   │   ├── agent-port
+│               │   │   │   ├── agent-version
+│               │   │   │   └── community
+│               │   │   │       ├── read-only
+│               │   │   │       ├── read-write
+│               │   │   │       └── trap
+│               │   │   ├── ssh
+│               │   │   │   ├── authentication-method
+│               │   │   │   ├── fingerprint
+│               │   │   │   ├── host-based
+│               │   │   │   │   ├── key-type
+│               │   │   │   │   └── key-value
+│               │   │   │   ├── password
+│               │   │   │   │   └── password
+│               │   │   │   ├── port
+│               │   │   │   └── public-key
+│               │   │   │       ├── key-type
+│               │   │   │       └── key-value
+│               │   │   └── state
+│               │   └── modified
+│               ├── 5d57ea1e-fbb6-11ed-b8d8-8b61101875be -> /mso/dc/core/5d57ea1e-fbb6-11ed-b8d8-8b61101875be
+│               │   ├── config
+│               │   │   └── interfaces
+│               │   │       └── ethernet
+│               │   │           └── 1
+│               │   │               └── 1
+│               │   │                   ├── 1
+│               │   │                   │   ├── duplex
+│               │   │                   │   ├── ip-address
+│               │   │                   │   ├── mac-address
+│               │   │                   │   ├── name
+│               │   │                   │   ├── pvid
+│               │   │                   │   ├── speed
+│               │   │                   │   ├── subnet-bits
+│               │   │                   │   ├── subnet-mask
+│               │   │                   │   ├── tag
+│               │   │                   │   └── trunk
+│               │   │                   └── 2
+│               │   │                       ├── duplex
+│               │   │                       ├── ip-address
+│               │   │                       ├── mac-address
+│               │   │                       ├── name
+│               │   │                       ├── pvid
+│               │   │                       ├── speed
+│               │   │                       ├── subnet-bits
+│               │   │                       ├── subnet-mask
+│               │   │                       ├── tag
+│               │   │                       └── trunk
+│               │   ├── created
+│               │   ├── deleted
+│               │   ├── heartbeat
+│               │   │   ├── first
+│               │   │   ├── last
+│               │   │   └── next-expected
+│               │   ├── management
+│               │   │   ├── ip-address
+│               │   │   ├── role
+│               │   │   ├── snmp
+│               │   │   │   ├── agent-port
+│               │   │   │   ├── agent-version
+│               │   │   │   └── community
+│               │   │   │       ├── read-only
+│               │   │   │       ├── read-write
+│               │   │   │       └── trap
+│               │   │   ├── ssh
+│               │   │   │   ├── authentication-method
+│               │   │   │   ├── fingerprint
+│               │   │   │   ├── host-based
+│               │   │   │   │   ├── key-type
+│               │   │   │   │   └── key-value
+│               │   │   │   ├── password
+│               │   │   │   │   └── password
+│               │   │   │   ├── port
+│               │   │   │   └── public-key
+│               │   │   │       ├── key-type
+│               │   │   │       └── key-value
+│               │   │   └── state
+│               │   └── modified
+│               ├── 61eaca92-fbb6-11ed-a894-a399d365b6cc -> /mso/dc/core/61eaca92-fbb6-11ed-a894-a399d365b6cc
+│               │   ├── config
+│               │   │   └── interfaces
+│               │   │       └── ethernet
+│               │   │           └── 1
+│               │   │               └── 1
+│               │   │                   ├── 1
+│               │   │                   │   ├── duplex
+│               │   │                   │   ├── ip-address
+│               │   │                   │   ├── mac-address
+│               │   │                   │   ├── name
+│               │   │                   │   ├── pvid
+│               │   │                   │   ├── speed
+│               │   │                   │   ├── subnet-bits
+│               │   │                   │   ├── subnet-mask
+│               │   │                   │   ├── tag
+│               │   │                   │   └── trunk
+│               │   │                   └── 2
+│               │   │                       ├── duplex
+│               │   │                       ├── ip-address
+│               │   │                       ├── mac-address
+│               │   │                       ├── name
+│               │   │                       ├── pvid
+│               │   │                       ├── speed
+│               │   │                       ├── subnet-bits
+│               │   │                       ├── subnet-mask
+│               │   │                       ├── tag
+│               │   │                       └── trunk
+│               │   ├── created
+│               │   ├── deleted
+│               │   ├── heartbeat
+│               │   │   ├── first
+│               │   │   ├── last
+│               │   │   └── next-expected
+│               │   ├── management
+│               │   │   ├── ip-address
+│               │   │   ├── role
+│               │   │   ├── snmp
+│               │   │   │   ├── agent-port
+│               │   │   │   ├── agent-version
+│               │   │   │   └── community
+│               │   │   │       ├── read-only
+│               │   │   │       ├── read-write
+│               │   │   │       └── trap
+│               │   │   ├── ssh
+│               │   │   │   ├── authentication-method
+│               │   │   │   ├── fingerprint
+│               │   │   │   ├── host-based
+│               │   │   │   │   ├── key-type
+│               │   │   │   │   └── key-value
+│               │   │   │   ├── password
+│               │   │   │   │   └── password
+│               │   │   │   ├── port
+│               │   │   │   └── public-key
+│               │   │   │       ├── key-type
+│               │   │   │       └── key-value
+│               │   │   └── state
+│               │   └── modified
+│               └── 665b9a02-fbb6-11ed-95b6-cb02d5721229 -> /mso/dc/core/665b9a02-fbb6-11ed-95b6-cb02d5721229
+│                   ├── config
+│                   │   └── interfaces
+│                   │       └── ethernet
+│                   │           └── 1
+│                   │               └── 1
+│                   │                   ├── 1
+│                   │                   │   ├── duplex
+│                   │                   │   ├── ip-address
+│                   │                   │   ├── mac-address
+│                   │                   │   ├── name
+│                   │                   │   ├── pvid
+│                   │                   │   ├── speed
+│                   │                   │   ├── subnet-bits
+│                   │                   │   ├── subnet-mask
+│                   │                   │   ├── tag
+│                   │                   │   └── trunk
+│                   │                   └── 2
+│                   │                       ├── duplex
+│                   │                       ├── ip-address
+│                   │                       ├── mac-address
+│                   │                       ├── name
+│                   │                       ├── pvid
+│                   │                       ├── speed
+│                   │                       ├── subnet-bits
+│                   │                       ├── subnet-mask
+│                   │                       ├── tag
+│                   │                       └── trunk
+│                   ├── created
+│                   ├── deleted
+│                   ├── heartbeat
+│                   │   ├── first
+│                   │   ├── last
+│                   │   └── next-expected
+│                   ├── management
+│                   │   ├── ip-address
+│                   │   ├── role
+│                   │   ├── snmp
+│                   │   │   ├── agent-port
+│                   │   │   ├── agent-version
+│                   │   │   └── community
+│                   │   │       ├── read-only
+│                   │   │       ├── read-write
+│                   │   │       └── trap
+│                   │   ├── ssh
+│                   │   │   ├── authentication-method
+│                   │   │   ├── fingerprint
+│                   │   │   ├── host-based
+│                   │   │   │   ├── key-type
+│                   │   │   │   └── key-value
+│                   │   │   ├── password
+│                   │   │   │   └── password
+│                   │   │   ├── port
+│                   │   │   └── public-key
+│                   │   │       ├── key-type
+│                   │   │       └── key-value
+│                   │   └── state
+│                   └── modified
+├── mso
+│   └── dc
+│       └── core
+│           ├── 4fc21cee-fbb6-11ed-8961-5ffa5f4b74a6
+│           │   ├── config
+│           │   │   └── interfaces
+│           │   │       └── ethernet
+│           │   │           └── 1
+│           │   │               └── 1
+│           │   │                   ├── 1
+│           │   │                   │   ├── duplex
+│           │   │                   │   ├── ip-address
+│           │   │                   │   ├── mac-address
+│           │   │                   │   ├── name
+│           │   │                   │   ├── pvid
+│           │   │                   │   ├── speed
+│           │   │                   │   ├── subnet-bits
+│           │   │                   │   ├── subnet-mask
+│           │   │                   │   ├── tag
+│           │   │                   │   └── trunk
+│           │   │                   └── 2
+│           │   │                       ├── duplex
+│           │   │                       ├── ip-address
+│           │   │                       ├── mac-address
+│           │   │                       ├── name
+│           │   │                       ├── pvid
+│           │   │                       ├── speed
+│           │   │                       ├── subnet-bits
+│           │   │                       ├── subnet-mask
+│           │   │                       ├── tag
+│           │   │                       └── trunk
+│           │   ├── created
+│           │   ├── deleted
+│           │   ├── heartbeat
+│           │   │   ├── first
+│           │   │   ├── last
+│           │   │   └── next-expected
+│           │   ├── management
+│           │   │   ├── ip-address
+│           │   │   ├── role
+│           │   │   ├── snmp
+│           │   │   │   ├── agent-port
+│           │   │   │   ├── agent-version
+│           │   │   │   └── community
+│           │   │   │       ├── read-only
+│           │   │   │       ├── read-write
+│           │   │   │       └── trap
+│           │   │   ├── ssh
+│           │   │   │   ├── authentication-method
+│           │   │   │   ├── fingerprint
+│           │   │   │   ├── host-based
+│           │   │   │   │   ├── key-type
+│           │   │   │   │   └── key-value
+│           │   │   │   ├── password
+│           │   │   │   │   └── password
+│           │   │   │   ├── port
+│           │   │   │   └── public-key
+│           │   │   │       ├── key-type
+│           │   │   │       └── key-value
+│           │   │   └── state
+│           │   └── modified
+│           ├── 544ff132-fbb6-11ed-abb4-0300f1777825
+│           │   ├── config
+│           │   │   └── interfaces
+│           │   │       └── ethernet
+│           │   │           └── 1
+│           │   │               └── 1
+│           │   │                   ├── 1
+│           │   │                   │   ├── duplex
+│           │   │                   │   ├── ip-address
+│           │   │                   │   ├── mac-address
+│           │   │                   │   ├── name
+│           │   │                   │   ├── pvid
+│           │   │                   │   ├── speed
+│           │   │                   │   ├── subnet-bits
+│           │   │                   │   ├── subnet-mask
+│           │   │                   │   ├── tag
+│           │   │                   │   └── trunk
+│           │   │                   └── 2
+│           │   │                       ├── duplex
+│           │   │                       ├── ip-address
+│           │   │                       ├── mac-address
+│           │   │                       ├── name
+│           │   │                       ├── pvid
+│           │   │                       ├── speed
+│           │   │                       ├── subnet-bits
+│           │   │                       ├── subnet-mask
+│           │   │                       ├── tag
+│           │   │                       └── trunk
+│           │   ├── created
+│           │   ├── deleted
+│           │   ├── heartbeat
+│           │   │   ├── first
+│           │   │   ├── last
+│           │   │   └── next-expected
+│           │   ├── management
+│           │   │   ├── ip-address
+│           │   │   ├── role
+│           │   │   ├── snmp
+│           │   │   │   ├── agent-port
+│           │   │   │   ├── agent-version
+│           │   │   │   └── community
+│           │   │   │       ├── read-only
+│           │   │   │       ├── read-write
+│           │   │   │       └── trap
+│           │   │   ├── ssh
+│           │   │   │   ├── authentication-method
+│           │   │   │   ├── fingerprint
+│           │   │   │   ├── host-based
+│           │   │   │   │   ├── key-type
+│           │   │   │   │   └── key-value
+│           │   │   │   ├── password
+│           │   │   │   │   └── password
+│           │   │   │   ├── port
+│           │   │   │   └── public-key
+│           │   │   │       ├── key-type
+│           │   │   │       └── key-value
+│           │   │   └── state
+│           │   └── modified
+│           ├── 58b8f778-fbb6-11ed-ab7f-4badca86abe9
+│           │   ├── config
+│           │   │   └── interfaces
+│           │   │       └── ethernet
+│           │   │           └── 1
+│           │   │               └── 1
+│           │   │                   ├── 1
+│           │   │                   │   ├── duplex
+│           │   │                   │   ├── ip-address
+│           │   │                   │   ├── mac-address
+│           │   │                   │   ├── name
+│           │   │                   │   ├── pvid
+│           │   │                   │   ├── speed
+│           │   │                   │   ├── subnet-bits
+│           │   │                   │   ├── subnet-mask
+│           │   │                   │   ├── tag
+│           │   │                   │   └── trunk
+│           │   │                   └── 2
+│           │   │                       ├── duplex
+│           │   │                       ├── ip-address
+│           │   │                       ├── mac-address
+│           │   │                       ├── name
+│           │   │                       ├── pvid
+│           │   │                       ├── speed
+│           │   │                       ├── subnet-bits
+│           │   │                       ├── subnet-mask
+│           │   │                       ├── tag
+│           │   │                       └── trunk
+│           │   ├── created
+│           │   ├── deleted
+│           │   ├── heartbeat
+│           │   │   ├── first
+│           │   │   ├── last
+│           │   │   └── next-expected
+│           │   ├── management
+│           │   │   ├── ip-address
+│           │   │   ├── role
+│           │   │   ├── snmp
+│           │   │   │   ├── agent-port
+│           │   │   │   ├── agent-version
+│           │   │   │   └── community
+│           │   │   │       ├── read-only
+│           │   │   │       ├── read-write
+│           │   │   │       └── trap
+│           │   │   ├── ssh
+│           │   │   │   ├── authentication-method
+│           │   │   │   ├── fingerprint
+│           │   │   │   ├── host-based
+│           │   │   │   │   ├── key-type
+│           │   │   │   │   └── key-value
+│           │   │   │   ├── password
+│           │   │   │   │   └── password
+│           │   │   │   ├── port
+│           │   │   │   └── public-key
+│           │   │   │       ├── key-type
+│           │   │   │       └── key-value
+│           │   │   └── state
+│           │   └── modified
+│           ├── 5d57ea1e-fbb6-11ed-b8d8-8b61101875be
+│           │   ├── config
+│           │   │   └── interfaces
+│           │   │       └── ethernet
+│           │   │           └── 1
+│           │   │               └── 1
+│           │   │                   ├── 1
+│           │   │                   │   ├── duplex
+│           │   │                   │   ├── ip-address
+│           │   │                   │   ├── mac-address
+│           │   │                   │   ├── name
+│           │   │                   │   ├── pvid
+│           │   │                   │   ├── speed
+│           │   │                   │   ├── subnet-bits
+│           │   │                   │   ├── subnet-mask
+│           │   │                   │   ├── tag
+│           │   │                   │   └── trunk
+│           │   │                   └── 2
+│           │   │                       ├── duplex
+│           │   │                       ├── ip-address
+│           │   │                       ├── mac-address
+│           │   │                       ├── name
+│           │   │                       ├── pvid
+│           │   │                       ├── speed
+│           │   │                       ├── subnet-bits
+│           │   │                       ├── subnet-mask
+│           │   │                       ├── tag
+│           │   │                       └── trunk
+│           │   ├── created
+│           │   ├── deleted
+│           │   ├── heartbeat
+│           │   │   ├── first
+│           │   │   ├── last
+│           │   │   └── next-expected
+│           │   ├── management
+│           │   │   ├── ip-address
+│           │   │   ├── role
+│           │   │   ├── snmp
+│           │   │   │   ├── agent-port
+│           │   │   │   ├── agent-version
+│           │   │   │   └── community
+│           │   │   │       ├── read-only
+│           │   │   │       ├── read-write
+│           │   │   │       └── trap
+│           │   │   ├── ssh
+│           │   │   │   ├── authentication-method
+│           │   │   │   ├── fingerprint
+│           │   │   │   ├── host-based
+│           │   │   │   │   ├── key-type
+│           │   │   │   │   └── key-value
+│           │   │   │   ├── password
+│           │   │   │   │   └── password
+│           │   │   │   ├── port
+│           │   │   │   └── public-key
+│           │   │   │       ├── key-type
+│           │   │   │       └── key-value
+│           │   │   └── state
+│           │   └── modified
+│           ├── 61eaca92-fbb6-11ed-a894-a399d365b6cc
+│           │   ├── config
+│           │   │   └── interfaces
+│           │   │       └── ethernet
+│           │   │           └── 1
+│           │   │               └── 1
+│           │   │                   ├── 1
+│           │   │                   │   ├── duplex
+│           │   │                   │   ├── ip-address
+│           │   │                   │   ├── mac-address
+│           │   │                   │   ├── name
+│           │   │                   │   ├── pvid
+│           │   │                   │   ├── speed
+│           │   │                   │   ├── subnet-bits
+│           │   │                   │   ├── subnet-mask
+│           │   │                   │   ├── tag
+│           │   │                   │   └── trunk
+│           │   │                   └── 2
+│           │   │                       ├── duplex
+│           │   │                       ├── ip-address
+│           │   │                       ├── mac-address
+│           │   │                       ├── name
+│           │   │                       ├── pvid
+│           │   │                       ├── speed
+│           │   │                       ├── subnet-bits
+│           │   │                       ├── subnet-mask
+│           │   │                       ├── tag
+│           │   │                       └── trunk
+│           │   ├── created
+│           │   ├── deleted
+│           │   ├── heartbeat
+│           │   │   ├── first
+│           │   │   ├── last
+│           │   │   └── next-expected
+│           │   ├── management
+│           │   │   ├── ip-address
+│           │   │   ├── role
+│           │   │   ├── snmp
+│           │   │   │   ├── agent-port
+│           │   │   │   ├── agent-version
+│           │   │   │   └── community
+│           │   │   │       ├── read-only
+│           │   │   │       ├── read-write
+│           │   │   │       └── trap
+│           │   │   ├── ssh
+│           │   │   │   ├── authentication-method
+│           │   │   │   ├── fingerprint
+│           │   │   │   ├── host-based
+│           │   │   │   │   ├── key-type
+│           │   │   │   │   └── key-value
+│           │   │   │   ├── password
+│           │   │   │   │   └── password
+│           │   │   │   ├── port
+│           │   │   │   └── public-key
+│           │   │   │       ├── key-type
+│           │   │   │       └── key-value
+│           │   │   └── state
+│           │   └── modified
+│           ├── 665b9a02-fbb6-11ed-95b6-cb02d5721229
+│           │   ├── config
+│           │   │   └── interfaces
+│           │   │       └── ethernet
+│           │   │           └── 1
+│           │   │               └── 1
+│           │   │                   ├── 1
+│           │   │                   │   ├── duplex
+│           │   │                   │   ├── ip-address
+│           │   │                   │   ├── mac-address
+│           │   │                   │   ├── name
+│           │   │                   │   ├── pvid
+│           │   │                   │   ├── speed
+│           │   │                   │   ├── subnet-bits
+│           │   │                   │   ├── subnet-mask
+│           │   │                   │   ├── tag
+│           │   │                   │   └── trunk
+│           │   │                   └── 2
+│           │   │                       ├── duplex
+│           │   │                       ├── ip-address
+│           │   │                       ├── mac-address
+│           │   │                       ├── name
+│           │   │                       ├── pvid
+│           │   │                       ├── speed
+│           │   │                       ├── subnet-bits
+│           │   │                       ├── subnet-mask
+│           │   │                       ├── tag
+│           │   │                       └── trunk
+│           │   ├── created
+│           │   ├── deleted
+│           │   ├── heartbeat
+│           │   │   ├── first
+│           │   │   ├── last
+│           │   │   └── next-expected
+│           │   ├── management
+│           │   │   ├── ip-address
+│           │   │   ├── role
+│           │   │   ├── snmp
+│           │   │   │   ├── agent-port
+│           │   │   │   ├── agent-version
+│           │   │   │   └── community
+│           │   │   │       ├── read-only
+│           │   │   │       ├── read-write
+│           │   │   │       └── trap
+│           │   │   ├── ssh
+│           │   │   │   ├── authentication-method
+│           │   │   │   ├── fingerprint
+│           │   │   │   ├── host-based
+│           │   │   │   │   ├── key-type
+│           │   │   │   │   └── key-value
+│           │   │   │   ├── password
+│           │   │   │   │   └── password
+│           │   │   │   ├── port
+│           │   │   │   └── public-key
+│           │   │   │       ├── key-type
+│           │   │   │       └── key-value
+│           │   │   └── state
+│           │   └── modified
+│           └── management
+│               └── ssh
+│                   └── password
+│                       └── username
+└── system
+    ├── audit
+    │   ├── days-to-keep
+    │   ├── enable
+    │   ├── encrypt
+    │   └── max-events
+    └── heartbeat
+        └── interval
+$
+```

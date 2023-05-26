@@ -1113,12 +1113,6 @@ $ kv tree
 │                   └── password
 │                       └── username
 └── system
-    ├── audit
-    │   ├── days-to-keep
-    │   ├── enable
-    │   ├── encrypt
-    │   └── max-events
     └── heartbeat
         └── interval
-$
 ```

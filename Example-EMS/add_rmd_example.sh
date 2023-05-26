@@ -9,13 +9,6 @@ RMD_ID=$(uuid)
 IP="${1:-29}"
 echo "adding RMD ID# ${RMD_ID}"
 
-#         Yes, this has been implemented in RMD R1.0 in RXDSW-5746  (https://odart.arrisi.com/browse/RXDSW-5746).
-#         Development doesn’t always link to our PSA requirements.  
-#         Per ANEF-12036 (https://odart.arrisi.com/browse/ANEF-12036?src=confmacro), the RMD will append its base
-#         MAC address and the DHCP provided IP address (NS/0 or LAG).
-#         e.g. http://192.168.200.105/test.cfg?MAC=02%3A02%3A03%3A04%3A05%3A02&IP=192.168.200.101
-#         This is for HTTP or HTTPS only.  As far as I understand, RMD Manager isn’t implementing TFTP.  Only HTTP and HTTPS.
-
 # add device RMD_ID
 kv put /${TENANT_ID}/${REGION_ID}/${ZONE_ID}/${RMD_ID}
 kv link /defaults/sku/CommScope/RMD/RD2322 /${TENANT_ID}/${REGION_ID}/${ZONE_ID}/${RMD_ID}/defaults

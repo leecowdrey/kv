@@ -1,4 +1,0 @@
-configure  
-configure ip interface ip address 
-configure ip bootfile 
-configure ntp server 
